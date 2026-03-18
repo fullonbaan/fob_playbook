@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FullonBaan's Infor LN Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+<style>
+/* ── DARK MODE (default) ── */
+:root {
+  --gold:       #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-dim:   #8a6a28;
+  --bg:         #0d0d0d;
+  --bg2:        #131313;
+  --bg3:        #1a1a1a;
+  --border:     rgba(201,168,76,.18);
+  --border-hi:  rgba(201,168,76,.45);
+  --text:       #e0d8cc;
+  --text-muted: #8a8070;
+  --text-dim:   #5a5040;
+  --tag-bg:     rgba(201,168,76,.10);
+  --radius:     6px;
+  --topbar-bg:  rgba(10,10,10,.97);
+  --shadow:     0 2px 12px rgba(0,0,0,.4);
+  --code-bg:    rgba(201,168,76,.09);
+}
+
+/* ── LIGHT MODE ── */
+html.light {
+  --gold:       #a07828;
+  --gold-light: #c49a38;
+  --gold-dim:   #c49a38;
+  --bg:         #f5f2ec;
+  --bg2:        #ede9e0;
+  --bg3:        #e6e1d6;
+  --border:     rgba(140,105,40,.18);
+  --border-hi:  rgba(140,105,40,.42);
+  --text:       #2a2218;
+  --text-muted: #5c4e38;
+  --text-dim:   #9c8c74;
+  --tag-bg:     rgba(140,105,40,.08);
+  --topbar-bg:  rgba(237,233,224,.97);
+  --shadow:     0 2px 12px rgba(0,0,0,.10);
+  --code-bg:    rgba(140,105,40,.08);
+}
+
+/* ── TRANSITION ── */
+html{scroll-behavior:smooth}
+body,header,.playbook-banner,.article-index,.article-section,.article-header,
+.sidebar-card,.callout,.step,.compare-box,.more-articles,.article-card,footer,code{
+  transition:background .25s,border-color .25s,color .25s;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased}
+
+/* TOPBAR */
+.topbar{position:sticky;top:0;z-index:200;background:var(--topbar-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;gap:1rem}
+.topbar-brand{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.04em;white-space:nowrap}
+.topbar-brand span{color:var(--text)}
+.topbar-nav{display:flex;align-items:center;gap:.1rem;list-style:none}
+.topbar-nav a{font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;padding:.32rem .65rem;border-radius:var(--radius);transition:color .2s,background .2s}
+.topbar-nav a:hover{color:var(--gold);background:var(--tag-bg)}
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle{
+  flex-shrink:0;
+  display:flex;align-items:center;gap:.5rem;
+  background:var(--tag-bg);
+  border:1px solid var(--border-hi);
+  border-radius:20px;
+  padding:.28rem .7rem;
+  cursor:pointer;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.58rem;
+  letter-spacing:.08em;
+  color:var(--text-muted);
+  white-space:nowrap;
+  transition:background .2s,border-color .2s,color .2s;
+  user-select:none;
+}
+.theme-toggle:hover{background:var(--border);color:var(--gold);border-color:var(--border-hi)}
+.theme-toggle .toggle-track{
+  width:28px;height:15px;
+  background:var(--bg3);
+  border:1px solid var(--border-hi);
+  border-radius:10px;
+  position:relative;
+  flex-shrink:0;
+  transition:background .25s;
+}
+html.light .theme-toggle .toggle-track{background:var(--gold);}
+.theme-toggle .toggle-thumb{
+  width:11px;height:11px;
+  background:var(--text-dim);
+  border-radius:50%;
+  position:absolute;top:1px;left:1px;
+  transition:transform .25s,background .25s;
+}
+html.light .theme-toggle .toggle-thumb{transform:translateX(13px);background:#fff;}
+.toggle-icon{font-size:.75rem;line-height:1}
+
+/* PLAYBOOK BANNER */
+.playbook-banner{position:relative;overflow:hidden;padding:4.5rem 2rem 3.5rem;text-align:center;border-bottom:1px solid var(--border)}
+.playbook-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(201,168,76,.09) 0%,transparent 70%),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(201,168,76,.025) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(201,168,76,.025) 40px);pointer-events:none}
+html.light .playbook-banner::before{background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(140,105,40,.07) 0%,transparent 70%),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(140,105,40,.04) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(140,105,40,.04) 40px)}
+.pb-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.22em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:1.2rem}
+.pb-eyebrow span{display:inline-block;border:1px solid var(--border-hi);padding:.28rem .9rem;border-radius:2px}
+.pb-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4.5vw,3.2rem);font-weight:700;color:var(--text);line-height:1.15;margin-bottom:.7rem}
+.pb-title em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pb-sub{font-size:1rem;color:var(--text-muted);font-style:italic;max-width:580px;margin:0 auto 2rem}
+.pb-stats{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.pb-stat-num{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:700;color:var(--gold);text-align:center}
+.pb-stat-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:var(--text-dim);text-transform:uppercase;text-align:center}
+
+/* ARTICLE INDEX */
+.article-index{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem 2rem}
+.article-index-inner{max-width:1120px;margin:0 auto}
+.ai-title{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:1.1rem}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.75rem}
+.ai-card{display:flex;align-items:flex-start;gap:.75rem;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;text-decoration:none;transition:border-color .2s,transform .15s,background .25s}
+.ai-card:hover{border-color:var(--border-hi);transform:translateY(-1px)}
+.ai-num{font-family:'Cinzel',serif;font-size:.82rem;font-weight:700;color:var(--gold-dim);flex-shrink:0;width:22px;padding-top:.12rem}
+.ai-card-tag{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.12em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:.2rem}
+.ai-card-title{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.025em;color:var(--text);line-height:1.3}
+.ai-card.coming{opacity:.37;cursor:default}
+.ai-card.coming:hover{transform:none;border-color:var(--border)}
+
+/* TAG */
+.tag{display:inline-block;background:var(--tag-bg);border:1px solid var(--border-hi);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:.16rem .52rem;border-radius:2px}
+
+/* ARTICLE SECTION */
+.article-section{border-bottom:2px solid var(--border)}
+
+/* article header */
+.article-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2.4rem 2rem 1.9rem}
+.article-header-inner{max-width:1120px;margin:0 auto}
+.ah-num{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.2em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:.55rem}
+.ah-title{font-family:'Cinzel',serif;font-size:clamp(1.35rem,3vw,2rem);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:.5rem}
+.ah-title em{font-style:normal;color:var(--gold-light)}
+.ah-sub{font-size:.97rem;color:var(--text-muted);font-style:italic;margin-bottom:1rem}
+.ah-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--text-dim);letter-spacing:.06em}
+
+/* LAYOUT */
+.layout{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 285px;gap:3rem;padding:2.8rem 2rem 4rem;align-items:start}
+
+/* ARTICLE BODY */
+.article{min-width:0}
+.article h2{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:600;color:var(--gold-light);border-left:3px solid var(--gold);padding-left:.85rem;margin:2.6rem 0 .85rem;letter-spacing:.03em}
+html.light .article h2{color:var(--gold)}
+.article h3{font-family:'Cinzel',serif;font-size:.92rem;font-weight:600;color:var(--text);margin:1.7rem 0 .45rem;letter-spacing:.04em}
+.article p{margin-bottom:1.1rem;color:var(--text)}
+.article ul,.article ol{margin:.45rem 0 1.2rem 1.2rem}
+.article li{margin-bottom:.38rem;color:var(--text)}
+.article li::marker{color:var(--gold-dim)}
+code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:var(--code-bg);border:1px solid var(--border);padding:.1em .36em;border-radius:3px;color:var(--gold-light)}
+html.light code{color:var(--gold)}
+.rule{border:none;border-top:1px solid var(--border);margin:2rem 0}
+
+/* callout */
+.callout{background:var(--bg3);border:1px solid var(--border-hi);border-left:4px solid var(--gold);border-radius:var(--radius);padding:1.05rem 1.35rem;margin:1.5rem 0}
+.callout-title{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
+.callout p{margin:0;font-size:.93rem}
+
+/* steps */
+.steps{display:flex;flex-direction:column;gap:.85rem;margin:1.1rem 0 1.7rem}
+.step{display:grid;grid-template-columns:44px 1fr;gap:1rem;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1.05rem;transition:border-color .2s,background .25s}
+.step:hover{border-color:var(--border-hi)}
+.step-num{width:44px;height:44px;background:var(--tag-bg);border:1px solid var(--border-hi);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);flex-shrink:0;align-self:start;margin-top:.08rem}
+.step-body h4{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.06em;color:var(--gold-light);margin-bottom:.28rem}
+html.light .step-body h4{color:var(--gold)}
+.step-body p{margin:0;font-size:.92rem;color:var(--text-muted)}
+
+/* compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.1rem 0 1.7rem}
+.compare-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:.95rem 1.1rem}
+.compare-box h4{font-family:'Cinzel',serif;font-size:.76rem;letter-spacing:.07em;color:var(--gold);margin-bottom:.55rem;padding-bottom:.38rem;border-bottom:1px solid var(--border)}
+.compare-box ul{margin:.15rem 0 0 1rem}
+.compare-box li{font-size:.88rem;color:var(--text-muted);margin-bottom:.28rem}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:76px}
+.sidebar-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1.3rem}
+.sidebar-card-title{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:.85rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.toc-list{list-style:none}
+.toc-list li{margin-bottom:.16rem}
+.toc-list a{font-family:'Crimson Pro',serif;font-size:.84rem;color:var(--text-muted);text-decoration:none;display:block;padding:.16rem .48rem;border-radius:3px;border-left:2px solid transparent;transition:color .15s,border-color .15s,background .15s}
+.toc-list a:hover{color:var(--gold);border-left-color:var(--gold);background:var(--tag-bg)}
+.eco-link{display:flex;align-items:center;gap:.62rem;text-decoration:none;padding:.42rem .3rem;border-radius:var(--radius);border:1px solid transparent;margin-bottom:.22rem;transition:background .15s,border-color .15s}
+.eco-link:hover{background:var(--tag-bg);border-color:var(--border-hi)}
+.eco-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.eco-link-name{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.05em;color:var(--text);display:block}
+.eco-link-url{font-family:'JetBrains Mono',monospace;font-size:.54rem;color:var(--text-dim)}
+.contact-item{font-size:.83rem;color:var(--text-muted);margin-bottom:.35rem}
+.contact-item a{color:var(--gold);text-decoration:none}
+.contact-item a:hover{color:var(--gold-light);text-decoration:underline}
+.nav-link{display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-decoration:none;padding:.28rem .48rem;border-radius:3px;transition:background .15s}
+.nav-link:hover{background:var(--tag-bg)}
+
+/* MORE ARTICLES */
+.more-articles{background:var(--bg2);border-top:1px solid var(--border);padding:2.8rem 2rem 3.5rem}
+.more-articles-inner{max-width:1120px;margin:0 auto}
+.more-articles h2{font-family:'Cinzel',serif;font-size:.88rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:1.6rem}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.95rem}
+.article-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;text-decoration:none;display:block;transition:border-color .2s,transform .2s,background .25s}
+.article-card:hover{border-color:var(--border-hi);transform:translateY(-2px)}
+.article-card-tag{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:.4rem}
+.article-card h3{font-family:'Cinzel',serif;font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:.4rem;line-height:1.35}
+.article-card p{font-size:.83rem;color:var(--text-muted);line-height:1.5;margin-bottom:.65rem}
+.article-card-meta{font-family:'JetBrains Mono',monospace;font-size:.54rem;color:var(--text-dim);letter-spacing:.06em}
+.article-card.coming{opacity:.4;cursor:default;border-style:dashed}
+.article-card.coming:hover{transform:none;border-color:var(--border)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center}
+.footer-brand{font-family:'Cinzel',serif;font-size:.92rem;font-weight:700;color:var(--gold);margin-bottom:.3rem}
+.footer-sub{font-size:.72rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+
+/* RESPONSIVE */
+@media(max-width:820px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:static}
+  .topbar-nav{display:none}
+  .compare{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .toggle-label{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a class="topbar-brand" href="https://www.fullonbaan.com/">Fullon<span>Baan</span></a>
+  <nav><ul class="topbar-nav">
+    <li><a href="https://fobrepo.vercel.app/">Repo</a></li>
+    <li><a href="https://fobtraining.vercel.app/">Training</a></li>
+    <li><a href="https://fobinterview.vercel.app/">Interview</a></li>
+    <li><a href="https://fobjobs.vercel.app/">Jobs</a></li>
+    <li><a href="https://fobexams.vercel.app/">Certification</a></li>
+    <li><a href="https://www.fullonbaan.com/">About</a></li>
+  </ul></nav>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+    <span class="toggle-icon" id="toggleIcon">☀️</span>
+    <span class="toggle-label" id="toggleLabel">Light</span>
+    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+  </button>
+</header>
+
+<!-- PLAYBOOK BANNER -->
+<section class="playbook-banner">
+  <div class="pb-eyebrow"><span>FullonBaan · Infor LN Knowledge Series</span></div>
+  <h1 class="pb-title">FullonBaan's <em>Infor LN Playbook</em></h1>
+  <p class="pb-sub">Practitioner-written guides on Infor LN, Infor ION, and the Infor OS ecosystem — for consultants, developers, and ERP professionals.</p>
+  <div class="pb-stats">
+    <div><div class="pb-stat-num">9</div><div class="pb-stat-label">Articles Published</div></div>
+    <div><div class="pb-stat-num">1</div><div class="pb-stat-label">In Pipeline</div></div>
+    <div><div class="pb-stat-num">Finance</div><div class="pb-stat-label">Current Focus</div></div>
+  </div>
+</section>
+
+<!-- ARTICLE INDEX -->
+<div class="article-index">
+  <div class="article-index-inner">
+    <div class="ai-title">All Articles — Jump To</div>
+    <div class="ai-grid">
+      <a class="ai-card" href="#article-1">
+        <div class="ai-num">01</div>
+        <div><div class="ai-card-tag">ION · Workflow</div><div class="ai-card-title">Automating Approvals with Infor ION Workflows</div></div>
+      </a>
+      <a class="ai-card" href="#article-2">
+        <div class="ai-num">02</div>
+        <div><div class="ai-card-tag">ION · API Gateway</div><div class="ai-card-title">Mastering the Infor ION API Gateway</div></div>
+      </a>
+      <a class="ai-card" href="#article-3">
+        <div class="ai-num">03</div>
+        <div><div class="ai-card-tag">LN Dev · Domains</div><div class="ai-card-title">Domains, Data Types, Additional Attributes &amp; Validations in Infor LN</div></div>
+      </a>
+      <a class="ai-card" href="#article-4">
+        <div class="ai-num">04</div>
+        <div><div class="ai-card-tag">LN Dev · Architecture</div><div class="ai-card-title">Functions vs Libraries in Infor LN — Understanding the Architectural Difference</div></div>
+      </a>
+      <a class="ai-card" href="#article-5">
+        <div class="ai-num">05</div>
+        <div><div class="ai-card-tag">LN Dev · Sessions</div><div class="ai-card-title">How to Create Multi Main Table (MMT) Sessions in Infor LN</div></div>
+      </a>
+      <a class="ai-card" href="#article-6">
+        <div class="ai-num">06</div>
+        <div><div class="ai-card-tag">LN Dev · Sessions</div><div class="ai-card-title">How to Create &amp; Understand Sessions in Infor LN — A Practical Example</div></div>
+      </a>
+      <a class="ai-card" href="#article-7">
+        <div class="ai-num">07</div>
+        <div><div class="ai-card-tag">LN Dev · VRC</div><div class="ai-card-title">Understanding VRC (Version Release Combination) in Infor LN</div></div>
+      </a>
+      <a class="ai-card" href="#article-8">
+        <div class="ai-num">08</div>
+        <div><div class="ai-card-tag">LN Dev · 4GL</div><div class="ai-card-title">Infor LN 4GL Programming — Key Concepts &amp; UI Script Fundamentals</div></div>
+      </a>
+      <a class="ai-card" href="#article-9">
+        <div class="ai-num">09</div>
+        <div><div class="ai-card-tag">Finance · GL</div><div class="ai-card-title">Period-End Closing Checklist for Infor LN Finance</div></div>
+      </a>
+      <div class="ai-card coming">
+        <div class="ai-num">10</div>
+        <div><div class="ai-card-tag">Development · DAL</div><div class="ai-card-title">DAL Scripting in Infor LN — A Practical Intro</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 01 — Automating Approvals with Infor ION Workflows
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-1" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 01 · ION · Workflow</div>
+      <h2 class="ah-title">Automating Approvals with <em>Infor ION Workflows</em></h2>
+      <p class="ah-sub">A practical guide to configuring event-driven approval automation in Infor LN using ION Workflow &amp; Events</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">ION</span><span class="tag">Workflow</span><span class="tag">Infor LN</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a1-intro">Introduction</h2>
+      <p>In a competitive ERP environment, manual approval chains are a silent productivity killer. Purchase orders waiting in inboxes, invoices stalling at department heads, customer credit requests stuck in email threads — these delays accumulate into real business cost. Infor ION Workflows offer a structured, rules-driven alternative: automated routing, escalation, and approval that keeps your processes moving without constant human intervention.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 What is Infor ION?</div>
+        <p>Infor ION (Intelligent Open Network) is the integration and workflow middleware within Infor OS. It connects Infor applications — including LN — via Business Object Documents (BODs), and powers event monitoring, alerting, and approval workflows through <strong>ION Desk</strong>.</p>
+      </div>
+
+      <h2 id="a1-what">What Are ION Workflows?</h2>
+      <p>ION Workflow is a component of Infor ION that allows you to model, standardise, and automate business processes — particularly approval chains. Workflows are defined in <code>ION Desk</code> and triggered by BOD events published from Infor LN sessions. When a trigger condition is met — for example, a purchase order value exceeding a threshold — the workflow starts automatically, creates tasks in Infor Ming.le, and waits for approval or rejection before allowing the document to proceed.</p>
+      <ul>
+        <li><strong>Approval workflows</strong> — route documents to one or more approvers in sequence or parallel</li>
+        <li><strong>Task workflows</strong> — assign work items and track completion</li>
+        <li><strong>Escalation workflows</strong> — automatically elevate to a higher authority if SLAs are missed</li>
+        <li><strong>Event monitors</strong> — trigger alerts and actions based on data conditions</li>
+      </ul>
+
+      <h2 id="a1-usecases">Common Use Cases in Infor LN</h2>
+      <h3>Purchase Order Approval</h3>
+      <p>Any PO above a defined monetary threshold requires manager approval before release. ION Workflow intercepts the <code>PurchaseOrder</code> BOD on status change, routes it to the approver in the approval matrix, and locks the PO in a <em>Pending Approval</em> state until action is taken.</p>
+      <h3>Sales Order Credit Check</h3>
+      <p>When a sales order is created for a customer whose outstanding balance exceeds the credit limit, an ION workflow routes the order to Finance for manual credit override approval — preventing shipment until authorised.</p>
+      <h3>Invoice Approval &amp; 3-Way Match</h3>
+      <p>Vendor invoices that fail 3-way match (PO → GR → Invoice) can be held in an <em>Exception</em> state and routed to AP managers for review, providing a controlled exception-handling process rather than a hard block.</p>
+
+      <h2 id="a1-components">Key ION Components</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div class="step-body"><h4>ION Connect — The Message Bus</h4><p>Handles all BOD message routing between Infor LN, Ming.le, and connected applications. Every workflow trigger is ultimately a BOD event on ION Connect.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-body"><h4>ION Desk — Configuration Console</h4><p>Browser-based interface where Document Flows, Workflow definitions, Monitors, and Activation Policies are authored. All custom workflow logic lives here.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-body"><h4>Event Management — Monitor &amp; Alert Engine</h4><p>Watches for exceptions in business data — delays, threshold breaches, missed SLAs — and triggers notifications or initiates workflows in response.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-body"><h4>Infor Ming.le / OS Activity Stream</h4><p>The user-facing task inbox. Approval tasks appear here with drillback into LN sessions, giving approvers a single place to act on documents.</p></div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-body"><h4>Approval Matrix</h4><p>Maps approval requirements to roles, amounts, or cost centres — allowing dynamic routing without hardcoding approver names into workflow definitions.</p></div></div>
+      </div>
+
+      <h2 id="a1-config">Configuration Walkthrough</h2>
+      <h3>Step 1 — Define the Document Flow</h3>
+      <p>Open ION Desk → <strong>Connect → Document Flows</strong>. Locate or create the flow for the <code>PurchaseOrder</code> BOD. Add a <em>Workflow</em> step that intercepts the Sync BOD when PO status changes to <code>Pending Approval</code>.</p>
+      <h3>Step 2 — Create the Workflow Definition</h3>
+      <p>Navigate to <strong>Workflow → Workflow Definitions</strong>. Create a new definition with a custom namespace prefix (never <code>LN_</code>). Define the trigger condition, approval steps, drillback view, and on-approve / on-reject actions.</p>
+      <h3>Step 3 — Configure the Approval Matrix</h3>
+      <p>Use <strong>Workflow → Approval Matrix</strong> to define routing logic based on amount ranges, department codes, or cost centre. Changing approval authorities later requires only a matrix update — no workflow redeploy.</p>
+      <h3>Step 4 — Activate &amp; Test</h3>
+      <p>Link the workflow via an Activation Policy and activate it. Create a test PO in LN meeting the trigger criteria, verify the Ming.le task, check drillback, and monitor execution in <code>ION OneView</code>.</p>
+
+      <div class="callout">
+        <div class="callout-title">⚠️ Naming Convention</div>
+        <p>Never use the <code>LN_</code> prefix for custom workflow definitions — Infor-standard content uses this prefix and upgrades may overwrite your work. Choose a unique company prefix (e.g. <code>FOB_</code>) for all custom content.</p>
+      </div>
+
+      <h2 id="a1-escalation">Escalation &amp; SLA Management</h2>
+      <p>ION Workflow supports automatic escalation when an approver fails to act within a defined window. Configure reminders, escalation to the approver's manager, or auto-resolution for low-risk documents — transforming ION Workflow from a passive routing engine into an active governance tool.</p>
+
+      <h2 id="a1-bestpractices">Best Practices</h2>
+      <ul>
+        <li>Always copy and rename standard LN content — never edit <code>LN_*</code> definitions directly</li>
+        <li>Keep trigger conditions specific to avoid noise and approver fatigue</li>
+        <li>Use the Approval Matrix for dynamic routing; avoid hardcoding user IDs</li>
+        <li>Test in a non-production tenant before going live</li>
+        <li>Monitor ION OneView backlogs during the first weeks post-go-live</li>
+        <li>Document every custom workflow with business justification, trigger logic, and owner</li>
+      </ul>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for ION configuration references. Take the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> to validate your Infor LN knowledge.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 01 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a1-intro">Introduction</a></li>
+          <li><a href="#a1-what">What Are ION Workflows?</a></li>
+          <li><a href="#a1-usecases">Common Use Cases</a></li>
+          <li><a href="#a1-components">Key Components</a></li>
+          <li><a href="#a1-config">Configuration Walkthrough</a></li>
+          <li><a href="#a1-escalation">Escalation &amp; SLA</a></li>
+          <li><a href="#a1-bestpractices">Best Practices</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
+          <a class="nav-link" href="#article-2" style="color:var(--gold)">↓ Next: ION API Gateway</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="/cdn-cgi/l/email-protection#6b0d1e07070405090a0a052b0c060a02074508040654181e09010e081f5627254e595b3b070a12090404004e595b2e051a1e0219124d09040f125623024e595b2d1e07070405290a0a054e595b3f0e0a064e59284e5b2a4e5b2a224e595b190e0a0f4e595b12041e194e595b22050d04194e595b27254e595b3b070a12090404004e595b0a050f4e595b030a1d0e4e595b0a4e595b1a1e0e181f0204054e582a4e5b2a"><span class="__cf_email__" data-cfemail="b8decdd4d4d7d6dad9d9d6f8dfd5d9d1d496dbd7d5">[email&#160;protected]</span></a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-1 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 02 — Mastering the Infor ION API Gateway
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-2" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 02 · ION · API Gateway</div>
+      <h2 class="ah-title">Mastering the <em>Infor ION API Gateway</em></h2>
+      <p class="ah-sub">A deep-dive into Infor's API management layer — authentication, API suites, integration patterns, and practical configuration for Infor LN professionals</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">ION API</span><span class="tag">OAuth 2.0</span><span class="tag">Integration</span><span class="tag">Infor OS</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a2-intro">Introduction</h2>
+      <p>As Infor LN landscapes grow more connected — feeding data to analytics platforms, external portals, mobile apps, and third-party ERP modules — the need for a secure, governed API layer becomes critical. The <strong>Infor ION API Gateway</strong> is exactly that: a centralised API management server that sits in front of all Infor products, enforcing authentication, throttling, policy transformations, and audit logging for every inbound API call.</p>
+      <p>For LN consultants and technical architects, understanding the ION API Gateway is no longer optional. It is the standard integration mechanism in Infor OS cloud deployments, and a growing expectation in on-premise projects that require external connectivity.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 What is the ION API Gateway?</div>
+        <p>The ION API Gateway is a NodeJS reverse proxy that acts as the single API front-end for all Infor products. It accepts HTTP requests, enforces OAuth 2.0 security policies, passes requests to the correct backend service, and returns the response — adding throttling, analytics, caching, and transformation along the way.</p>
+      </div>
+
+      <h2 id="a2-architecture">Architecture Overview</h2>
+      <p>At its core, the ION API Gateway is a <em>reverse proxy with intelligence</em>. When a client application needs data from Infor LN, it does not call LN directly. Instead, it sends an authenticated HTTP request to the Gateway, which validates the OAuth 2.0 Bearer token, enforces throttling, applies transformation policies, routes the request to the LN backend, and returns the enriched response to the caller.</p>
+      <p>The Gateway is configured and monitored through its own UI within Infor OS, where administrators can register API Suites, manage authorised clients, review logs, and test endpoints interactively.</p>
+
+      <h2 id="a2-auth">Authentication — OAuth 2.0 Flows</h2>
+      <p>All API calls through the ION API Gateway require a valid OAuth 2.0 Bearer token. The Gateway supports multiple grant types, and choosing the right one for your integration pattern is critical.</p>
+
+      <div class="compare">
+        <div class="compare-box">
+          <h4>Authorization Code Grant</h4>
+          <ul>
+            <li>Best for web apps and native clients with a logged-in user</li>
+            <li>User authenticates interactively through Infor IFS</li>
+            <li>Token issued on behalf of the specific logged-in user</li>
+            <li>Suitable for portals, mobile apps, and user-facing integrations</li>
+          </ul>
+        </div>
+        <div class="compare-box">
+          <h4>Resource Owner / Service Account</h4>
+          <ul>
+            <li>Best for backend or daemon integrations with no user present</li>
+            <li>A Service Account in IFS acts as the calling "user"</li>
+            <li>Client ID + Secret used to obtain token via back-channel POST</li>
+            <li>Standard pattern for middleware, ETL pipelines, scheduled jobs</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>To obtain a token using the Resource Owner grant, your application sends an HTTP POST to the IFS token endpoint (<code>/as/token</code> or <code>/connect/token</code>) with Client ID, Client Secret, Service Account credentials, and grant type. The four required values — <strong>Token URL</strong>, <strong>Client ID</strong>, <strong>Client Secret</strong>, and <strong>Service Account credentials</strong> — are all generated when you register your application in IFS.</p>
+
+      <div class="callout">
+        <div class="callout-title">🔐 The .ionapi File</div>
+        <p>When a non-SSO backend application is registered, the Gateway produces a <code>.ionapi</code> file — a JSON credential bundle containing OAuth endpoints, Client ID, Client Secret, and tenant information. Store it securely; treat it exactly like a password. It is the standard credential artefact for all ION API integrations.</p>
+      </div>
+
+      <h2 id="a2-apisuites">API Suites — Registering and Exposing APIs</h2>
+      <p>The ION API Gateway aggregates APIs from multiple Infor products into <strong>API Suites</strong>. Each Suite represents a logical grouping of endpoints from a single application (e.g. all LN Sales Order APIs in one suite). Infor ships pre-built suites for LN in cloud deployments; for bespoke integrations, custom suites can be registered.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Create Swagger 2.0 / OpenAPI Documentation</h4><p>Use Swagger Editor to describe your target API — HTTP verbs (GET, POST, PUT, DELETE), request/response schemas, and parameters. The Gateway requires proper API documentation to register any custom suite.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Register the API Suite in ION API UI</h4><p>Navigate to <strong>API → Suites → New Suite</strong>. Provide Suite name, API Context path, and description. Then add the Target Endpoint URL and configure Proxy Security (passthrough, mutual SSL, or API key).</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Configure Authentication for the Target</h4><p>Specify how the Gateway authenticates to the backend: Anonymous, Basic, OAuth, API Key (HMAC), or Mutual SSL. For LN backends, OAuth passthrough is the standard choice.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Apply Policies (Optional)</h4><p>Policies enrich requests and responses in flight — add headers, log response fields, transform payloads, or convert SOAP to REST. This is the mechanism for wrapping legacy WSDL services as REST suites consumable by ION Connect.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Test via the Try It Out Panel</h4><p>The Gateway UI provides an interactive test panel. Expand a resource, click <em>Try it out</em>, supply the API key or token, and verify the response before connecting the suite to a live ION Document Flow.</p></div></div>
+      </div>
+
+      <h2 id="a2-ionconnect">Connecting the Gateway to ION Connect</h2>
+      <p>Once an API Suite is registered and tested in the Gateway, it can be used as an <strong>API Connection Point</strong> in ION Connect — enabling ION Document Flows to call external REST APIs as part of a BOD-triggered integration pipeline. The integration path looks like this:</p>
+      <ul>
+        <li>An LN business event publishes a BOD to ION Connect (e.g. a confirmed Sales Order)</li>
+        <li>ION Connect routes the BOD through a Document Flow containing an API connection point</li>
+        <li>The API connection point calls the registered Gateway suite endpoint with the BOD payload</li>
+        <li>The external system receives the data, processes it, and returns a response</li>
+        <li>ION can optionally process the response and trigger further LN updates</li>
+      </ul>
+      <p>This pattern makes the ION API Gateway the bridge between Infor's event-driven BOD world and the HTTP REST world of external applications — enabling bi-directional integration without custom middleware.</p>
+
+      <h2 id="a2-security">Security Roles &amp; Administration</h2>
+      <p>Two key security roles govern ION API access:</p>
+      <ul>
+        <li><code>IONDeskAdmin</code> — required for managing ION Desk document flows that reference API connection points</li>
+        <li><code>IONAPI-Administrator</code> — required for administering the API Gateway: registering suites, managing authorised clients, reviewing logs</li>
+      </ul>
+      <p>Authorised client applications are registered under <strong>API → Authorized Apps</strong>. Each registered app is issued a Client ID and optional API Key, scoped to the specific suites it may call. This granular model ensures that third-party integrations access only the LN APIs they legitimately require.</p>
+
+      <h2 id="a2-monitoring">Monitoring, Throttling &amp; Analytics</h2>
+      <p>The ION API Gateway provides built-in operational visibility: every API call is logged with caller identity, timestamp, endpoint, response code, and latency. Throttling policies can be set per API Suite or per authorised client. The analytics dashboard shows traffic trends, error rates, and top consumers. GET responses can be cached at the Gateway layer to reduce LN backend load for high-frequency read operations.</p>
+
+      <h2 id="a2-bestpractices">Best Practices</h2>
+      <ul>
+        <li>Store <code>.ionapi</code> credential files in a secrets manager — never commit them to source control</li>
+        <li>Use Service Accounts with minimum required permissions — avoid admin accounts for integration credentials</li>
+        <li>Prefix all custom API Suites with a company-specific namespace</li>
+        <li>Always document custom suites with Swagger 2.0 before registering — undocumented APIs create maintenance debt</li>
+        <li>Test API calls via the <em>Try It Out</em> panel before wiring into ION Document Flows</li>
+        <li>Review throttling limits under load — tune to your actual call volumes</li>
+        <li>When wrapping SOAP services as REST via API policies, explicitly map SOAP faults to HTTP error codes</li>
+      </ul>
+
+      <h2 id="a2-conclusion">Conclusion</h2>
+      <p>The Infor ION API Gateway is far more than a simple proxy — it is the security perimeter, integration hub, and governance layer for all programmatic access to Infor products. For LN consultants moving into integration and technical architecture roles, understanding how to register API Suites, manage OAuth credentials, apply policies, and connect the Gateway to ION Document Flows is a foundational skill.</p>
+      <p>Combined with the ION Workflow knowledge from Article 01, these two capabilities — approval automation and API-driven integration — represent the core of what makes the Infor OS platform a modern, connected ERP ecosystem rather than a siloed back-office system.</p>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Take the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> — ION and integration topics are covered across the technical tracks. Visit the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for ION API configuration scripts and reference downloads. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--gold)">FOB Training</a> for structured, practitioner-led Infor LN courses.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 02 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a2-intro">Introduction</a></li>
+          <li><a href="#a2-architecture">Architecture Overview</a></li>
+          <li><a href="#a2-auth">Authentication — OAuth 2.0</a></li>
+          <li><a href="#a2-apisuites">API Suites</a></li>
+          <li><a href="#a2-ionconnect">Connecting to ION Connect</a></li>
+          <li><a href="#a2-security">Security Roles</a></li>
+          <li><a href="#a2-monitoring">Monitoring &amp; Analytics</a></li>
+          <li><a href="#a2-bestpractices">Best Practices</a></li>
+          <li><a href="#a2-conclusion">Conclusion</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
+          <a class="nav-link" href="#article-1" style="color:var(--gold-dim)">↑ Back to Article 01</a>
+          <a class="nav-link" href="#article-3" style="color:var(--gold)">↓ Next: Domains &amp; CDFs</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="/cdn-cgi/l/email-protection#e5839089898a8b8784848ba58288848c89cb868a88da9690878f808691d8acaaabc0d7d5a4b5acc0d7d5a284918092849cc0d7d5a08b94908c979cc3878a819cd8ad8cc0d7d5a39089898a8ba784848bc0d7d5b1808488c0d7a6c0d5a4c0d5a4acc0d7d597808481c0d7d59c8a9097c0d7d58497918c868980c0d7d58a8bc0d7d5acaaabc0d7d5a4b5acc0d7d5a284918092849cc0d7d5848b81c0d7d58d849380c0d7d584c0d7d594908096918c8a8bc0d6a4c0d5a4"><span class="__cf_email__" data-cfemail="96f0e3fafaf9f8f4f7f7f8d6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-2 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 03 — Domains, Data Types, Additional Attributes & Validations
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-3" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 03 · LN Development · Data Dictionary</div>
+      <h2 class="ah-title">Domains, Data Types, <em>Additional Attributes &amp; Validations</em> in Infor LN</h2>
+      <p class="ah-sub">A developer's guide to how Infor LN structures data — from the Data Dictionary and domain definitions to Customer Defined Fields, validation hooks, and the Additional Information framework</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">Domains</span><span class="tag">CDF</span><span class="tag">Validations</span><span class="tag">LN Dev</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a3-intro">Introduction</h2>
+      <p>One of the defining strengths of Infor LN as a development platform is the discipline it brings to data modelling. Every field in every LN table is not just a column in a database — it is a typed, governed entity described by a <strong>domain</strong> in the LN Data Dictionary. Understanding how domains work, what data types they support, how to extend LN tables with Customer Defined Fields (CDFs), and how to enforce business rules through validations is foundational knowledge for any LN developer or technical consultant.</p>
+      <p>This article covers the full data layer stack: the Data Dictionary, domain types, Additional Information Fields, CDFs, and the validation hook framework available in LN's extensibility layer.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 Why This Matters</div>
+        <p>Every time you write a DAL script, create a CDF, or extend a BOD, you are working with domains. Getting domain types wrong causes runtime errors, data truncation, and integration failures. Getting them right produces clean, upgrade-safe extensions that behave exactly like standard LN fields.</p>
+      </div>
+
+      <h2 id="a3-datadictionary">The LN Data Dictionary</h2>
+      <p>The LN Data Dictionary is the central metadata repository that defines the structure of all LN tables, form fields, and program variables. It stores three critical things:</p>
+      <ul>
+        <li><strong>Domains</strong> — reusable data type definitions that specify the type, length, format, and validation rules for a field</li>
+        <li><strong>Schemas (Tables)</strong> — the field composition of every LN database table, each field linked to a domain</li>
+        <li><strong>Referential integrity rules</strong> — foreign key relationships enforced by the ES runtime</li>
+      </ul>
+      <p>When an LN application reads or writes a field, it consults the Data Dictionary to determine how to format the value, what input length to allow, whether to uppercase input, and what the valid range of values is. This means consistent behaviour across all sessions that touch the same field — a core principle of LN's architecture.</p>
+      <p>Domains can be linked to <strong>table fields</strong>, <strong>form fields</strong>, and <strong>program variables</strong>. When the domain definition changes (for example, a string length extension), all linked fields inherit the change automatically — provided the runtime data dictionary is updated via <code>Convert to Runtime</code>.</p>
+
+      <h2 id="a3-datatypes">Domain Data Types</h2>
+      <p>LN supports a well-defined set of primitive data types. Each domain is assigned exactly one type, which determines the physical storage, display behaviour, and valid operations on the field.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num" style="font-size:.7rem">STR</div><div class="step-body"><h4>String / Multi-byte String</h4><p>Used for alphanumeric text. The default input and display length is 30 characters. Can be flagged for uppercase conversion. String domains support length extension via the Domain Extension feature in LN Studio — the only type that supports this safely.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.7rem">LONG</div><div class="step-body"><h4>Long (Integer)</h4><p>Used for whole numbers. Default is 10 digits. Suitable for quantities, counters, and integer identifiers. No decimal places — use Float or Double if decimals are required.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.7rem">FLOAT</div><div class="step-body"><h4>Float / Double</h4><p>Used for decimal numbers. You configure the number of digits before the decimal (precision) and digits after the decimal (scale). Used for amounts, rates, percentages, and measurements. Float for single-precision; Double for extended precision.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.7rem">ENUM</div><div class="step-body"><h4>Enumerated (Enum)</h4><p>Used for fields with a fixed set of valid values — status fields, type codes, yes/no flags. Each enum value maps to an integer internally but displays as a label. Enums are the correct type for any field with a finite, predefined option list.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.7rem">DATE</div><div class="step-body"><h4>Date / Date-Time</h4><p>Used for calendar dates and timestamps. Date-Time (UTC) is the modern standard for cloud-compatible LN development — it stores timestamps in UTC and converts to the user's timezone for display. Plain Date is legacy and should be avoided in new extensions.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.7rem">TEXT</div><div class="step-body"><h4>Text (Multi-line)</h4><p>Used for free-form, multi-line text such as descriptions, notes, and memo fields. Unlike String, Text fields are not length-constrained in the same way and do not support sorting or indexing at the database level.</p></div></div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">🔑 Domain Reuse Principle</div>
+        <p>In LN, you should always reuse an existing standard domain if one matches your field's semantics — for example, use <code>tcmcs.camt</code> for monetary amounts rather than creating a custom float domain. This ensures your field inherits the correct display format, currency precision, and any future updates Infor makes to the standard domain.</p>
+      </div>
+
+      <h2 id="a3-cdf">Customer Defined Fields (CDFs)</h2>
+      <p>Customer Defined Fields are Infor LN's built-in mechanism for adding custom data fields to standard tables without creating unsupported customisations. CDFs store additional data in LN tables, with their definitions held separately in the Data Dictionary — not mixed with the standard schema. To the end user, a CDF behaves identically to a standard LN field: it appears on screens, can be printed on reports, exported in BODs, and referenced in DAL scripts.</p>
+
+      <h3>Where CDFs Are Configured</h3>
+      <p>CDF management sessions are found under <strong>Tools → Application Configuration</strong>:</p>
+      <ul>
+        <li><code>ttadv4591m000</code> — Customer Defined Fields: define field name, table, domain, and type</li>
+        <li><code>ttadv4592m000</code> — Lists: define enumerated value lists for CDF fields of type "List"</li>
+        <li><code>ttadv4593m000</code> — List Constants: define the valid values for each list</li>
+        <li><code>ttadv5215m000</code> — Convert to Runtime Data Dictionary: physically adds the CDF columns to the LN database tables</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">⚠️ Convert to Runtime is Destructive</div>
+        <p>Running <code>Convert to Runtime Data Dictionary</code> changes the physical structure of LN tables. Users must be logged out during this operation, and it should always be performed in a test environment before production. Plan a maintenance window and communicate to all users before running it.</p>
+      </div>
+
+      <h3>CDF Types</h3>
+      <p>CDFs can be defined with the following types, corresponding to the domain types covered above:</p>
+      <ul>
+        <li><strong>String</strong> — free text, configured with a standard or custom string domain</li>
+        <li><strong>Long</strong> — integer values</li>
+        <li><strong>Float / Double</strong> — decimal values</li>
+        <li><strong>Date / Date-Time</strong> — calendar fields</li>
+        <li><strong>List</strong> — enumerated values defined via the Lists and List Constants sessions</li>
+        <li><strong>Reference</strong> — a CDF that references another LN table (acts as a foreign key lookup)</li>
+      </ul>
+      <p>CDFs can also use a standard existing domain (e.g. reuse <code>tcmcs.item</code> for an item code field) or define an implicit domain if no suitable standard domain exists. Using standard domains is always preferred — it ensures consistent label display, zoom functionality, and future compatibility.</p>
+
+      <h3>Package Combination Scope</h3>
+      <p>CDFs are configured <em>per package combination</em>. When migrating companies between package combinations, CDF definitions must be explicitly exported from the source and imported into the target using PMC (from LN 10.6 onward) or the legacy <code>ttadv4291m000</code> / <code>ttadv4292m000</code> sessions. Failing to migrate CDF definitions means the physical columns exist in the database but LN will not know about them — leading to silent data loss on subsequent conversions.</p>
+
+      <h2 id="a3-additional">Additional Information Fields</h2>
+      <p>Additional Information Fields (AIF) are a separate mechanism from CDFs, designed for capturing supplementary business data at the document or transaction level — particularly in scenarios where the same extra data needs to be captured across multiple document types (orders, contracts, deliveries) and transferred between them.</p>
+      <p>AIFs are defined in the <strong>Additional Information Definitions (tcstl2100m000)</strong> session, linked to specific LN database tables, and optionally restricted to specific business partner definition levels (General, Sold-to BP, Buy-from BP). Unlike CDFs, which extend a table's physical structure, AIFs store their data in a separate shared structure and propagate through document chains — for example, from a sales contract to its contract lines and then to the contract deliverable lines.</p>
+
+      <div class="compare">
+        <div class="compare-box">
+          <h4>Customer Defined Fields (CDF)</h4>
+          <ul>
+            <li>Physically added to the LN table</li>
+            <li>Configured per package combination</li>
+            <li>Can carry validation hooks via table extensions</li>
+            <li>Best for persistent, structured data that must integrate with BODs or be queried by SQL</li>
+            <li>Requires Convert to Runtime — plan a maintenance window</li>
+          </ul>
+        </div>
+        <div class="compare-box">
+          <h4>Additional Information Fields (AIF)</h4>
+          <ul>
+            <li>Stored in a separate shared data structure</li>
+            <li>Propagate automatically through document chains</li>
+            <li>Definition-level scoping (General / BP-specific)</li>
+            <li>Best for supplementary business data that flows across order-to-delivery chains</li>
+            <li>No Convert to Runtime required</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="a3-validations">Validation Framework — Hooks in Table Extensions</h2>
+      <p>Infor LN provides a structured hook-based validation framework through the <strong>Table Extension</strong> feature in LN Studio (Extension Modeler). A table extension is an extension to the Data Access Layer (DAL) of an LN table. Hooks defined in the extension are executed whenever the DAL processes that table — regardless of which session triggered the operation.</p>
+
+      <h3>Key Validation Hooks</h3>
+      <div class="steps">
+        <div class="step"><div class="step-num" style="font-size:.55rem">FLD</div><div class="step-body"><h4>Field-level Hooks (on CDF)</h4><p>Hooks defined at the CDF level fire when the field value changes. Use these for field-specific validation (e.g. "this CDF must be a positive number"), defaulting (populate the CDF based on another field's value), or making the field mandatory under certain conditions.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.55rem">SAV</div><div class="step-body"><h4>before.save</h4><p>Fires before a record is saved (insert or update). Use this for cross-field validations that cannot be done at individual field level — for example, "field A must be populated if field B has value X". The mode parameter tells you whether this is an insert or update.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.55rem">AFT</div><div class="step-body"><h4>after.save</h4><p>Fires after a record is successfully saved. Use this to trigger downstream updates — for example, updating a related table when a CDF changes, or writing to an audit log. Do not raise validation errors here; the save has already committed.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.55rem">DEL</div><div class="step-body"><h4>after.destroy</h4><p>Fires after a record is deleted. All field values of the deleted record are available. Use this for cascading cleanup operations or audit trail writes.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.55rem">CAN</div><div class="step-body"><h4>canAdd / canUpdate / canDelete</h4><p>Control whether records can be added, updated, or deleted. These hooks can only <em>restrict</em> actions — they cannot allow something that standard LN logic already blocks. Return false with an error message to prevent the operation.</p></div></div>
+      </div>
+
+      <h3>Returning Errors and Messages</h3>
+      <p>In validation hooks, use the standard DAL error message functions to surface errors to the user. Returning an error from a field-level or before.save hook prevents the save operation and displays the message in the LN session — exactly as if it were a standard validation built into the application. This makes the extension invisible to the user: they simply see a familiar LN error message.</p>
+
+      <h2 id="a3-domains-custom">Creating Custom Domains in LN Studio</h2>
+      <p>When no standard domain matches your CDF's semantics, you can create a custom domain using LN Studio. Custom domains are created in the Data Dictionary component of LN Studio and published to the development package combination. Key considerations:</p>
+      <ul>
+        <li>Choose the correct base data type for your domain — this cannot be changed after the domain is used in a CDF and converted to runtime</li>
+        <li>For string domains, set a conservative initial length — domain length can be <em>increased</em> via Domain Extension, but never decreased without data loss risk</li>
+        <li>For enumerated domains, define all valid values at design time — adding new values later requires a runtime update</li>
+        <li>Follow a consistent naming convention: use your company prefix (e.g. <code>fob.cust_type</code>) to avoid collisions with standard domains</li>
+        <li>Custom domains require the LN development license (product ID 10146) — ensure it is present in your environment</li>
+      </ul>
+
+      <h2 id="a3-bestpractices">Best Practices</h2>
+      <ul>
+        <li>Always reuse a standard domain if one semantically matches your field — never create a custom domain for "item code" when <code>tcmcs.item</code> already exists</li>
+        <li>Use the List CDF type for any field with a finite set of valid options — enumerating values prevents dirty data and enables translation labels</li>
+        <li>Run <code>Convert to Runtime</code> in a test environment first, with users logged out — document the change and communicate a maintenance window for production</li>
+        <li>For CDFs that must appear in BODs, confirm BOD extensibility support for your LN version (requires 10.5+ and relevant KB patches)</li>
+        <li>Prefer CDF field-level hooks for field-specific validation; use before.save for multi-field cross-validation</li>
+        <li>Name all CDFs with a unique company prefix — this is mandatory to survive LN upgrades without definition conflicts</li>
+        <li>When using Additional Information Fields for document chains, test propagation end-to-end (contract → line → deliverable) before going live</li>
+        <li>CDFs are not available in the classic Baan Web UI — ensure your users are on LN Web UI or LN UI before deploying CDF-dependent workflows</li>
+      </ul>
+
+      <h2 id="a3-conclusion">Conclusion</h2>
+      <p>The combination of a governed Data Dictionary, typed domains, CDF extensibility, Additional Information Fields, and a hook-based validation framework makes Infor LN one of the more disciplined ERP platforms for data architecture. For LN developers, mastering this stack means being able to extend the system cleanly — without modifying standard code, without risking upgrade breaks, and without compromising the data integrity guarantees that the LN runtime enforces.</p>
+      <p>Whether you're adding a simple CDF to capture a project code on a purchase order, or building a full validation layer that enforces complex cross-field business rules, the patterns covered in this article are the foundation you'll return to repeatedly throughout your LN development career.</p>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for CDF configuration scripts and Data Dictionary references. The <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> covers LN development topics including domains, CDFs, and DAL scripting across the technical tracks.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 03 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a3-intro">Introduction</a></li>
+          <li><a href="#a3-datadictionary">The LN Data Dictionary</a></li>
+          <li><a href="#a3-datatypes">Domain Data Types</a></li>
+          <li><a href="#a3-cdf">Customer Defined Fields</a></li>
+          <li><a href="#a3-additional">Additional Information Fields</a></li>
+          <li><a href="#a3-validations">Validation Hooks</a></li>
+          <li><a href="#a3-domains-custom">Creating Custom Domains</a></li>
+          <li><a href="#a3-bestpractices">Best Practices</a></li>
+          <li><a href="#a3-conclusion">Conclusion</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
+          <a class="nav-link" href="#article-2" style="color:var(--gold-dim)">↑ Back to Article 02</a>
+          <a class="nav-link" href="#article-4" style="color:var(--gold)">↓ Next: Functions vs Libraries</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%20Domains%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20Domains%20and%20CDFs%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-3 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 04 — Functions vs Libraries in Infor LN
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-4" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 04 · LN Development · Architecture</div>
+      <h2 class="ah-title">Functions vs Libraries in Infor LN — <em>Understanding the Architectural Difference</em></h2>
+      <p class="ah-sub">A developer's guide to when to use inline functions, include scripts, and DLL libraries in Infor LN — and how each fits into the runtime architecture</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">Functions</span><span class="tag">Libraries</span><span class="tag">3GL</span><span class="tag">LN Dev</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a4-intro">Introduction</h2>
+      <p>One of the first architectural decisions every Infor LN developer faces is where to put reusable logic. LN offers three distinct mechanisms for code reuse: <strong>inline functions</strong> declared within a script, <strong>include/function scripts</strong> shared across scripts in the same component, and <strong>library DLLs</strong> compiled as dynamic-link libraries callable across the entire application. Understanding the difference — and choosing the right one — is fundamental to writing maintainable, upgrade-safe LN code.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 Core Principle</div>
+        <p>A <strong>function</strong> is a named, reusable block of logic declared in a script. A <strong>library</strong> is a compiled DLL containing functions callable from any script system-wide. The key difference is <em>scope</em>: functions live in a script, libraries live at the system level.</p>
+      </div>
+
+      <h2 id="a4-functions">Functions — Inline and Script-Scoped</h2>
+      <p>Functions in LN 4GL/3GL allow you to perform a task multiple times with different input values. They can be declared in three locations, each with different scope:</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num" style="font-size:.65rem">LOC</div><div class="step-body"><h4>Local (Inline) Function</h4><p>Declared in the <code>functions</code> section of a single script. Visible only within that script. Best for short utility logic specific to one session or DAL. Zero compilation overhead — compiled as part of the parent script.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.65rem">INC</div><div class="step-body"><h4>Include / Function Script</h4><p>A separate script whose contents are textually included into other scripts at compile time. Declared as <code>EXTERN</code> in the calling script. Useful when logic is shared by a few scripts in the same package-VRC but doesn't warrant a full library. Changes require recompiling all including scripts.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.65rem">EXT</div><div class="step-body"><h4>EXTERN Function in a Library DLL</h4><p>Compiled into a separate DLL. Callable from any script at runtime without recompiling callers. This is the full library pattern — the most powerful and most reusable form of shared logic in LN.</p></div></div>
+      </div>
+
+      <h3>Naming Convention for Library Functions</h3>
+      <p>When a function lives in a library, its name must be prefixed with the library name. For example, a function <code>getItemStatus</code> in library <code>tcmcsbl123</code> is named <code>tcmcsbl123.getItemStatus</code>. This fully-qualified naming prevents collisions and makes the origin of any call immediately clear when reading code.</p>
+
+      <h2 id="a4-libraries">Libraries — DLLs and the Compiled Code Layer</h2>
+      <p>A library in Infor LN is a compiled Dynamic-Link Library (DLL) — a binary component loaded at runtime, providing functions callable from any 4GL/3GL script in the system.</p>
+
+      <div class="compare">
+        <div class="compare-box">
+          <h4>Application Libraries (sb / st)</h4>
+          <ul>
+            <li>Standard libraries delivered by Infor</li>
+            <li>Named with the <code>bl</code> suffix (e.g. <code>tcibd0bl123</code>)</li>
+            <li>Auto-generated <code>sb</code> (stub) and <code>st</code> (structure) variants</li>
+            <li>Cannot be modified — part of standard LN software</li>
+          </ul>
+        </div>
+        <div class="compare-box">
+          <h4>Customisation Libraries (cc)</h4>
+          <ul>
+            <li>Customer-created libraries in a customisation VRC</li>
+            <li>Named with the <code>cc</code> suffix (e.g. <code>tcmcsbl123cc00</code>)</li>
+            <li>Never part of standard LN — upgrade-safe</li>
+            <li>Can contain any custom business logic callable system-wide</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">🔑 Customisation Library Naming</div>
+        <p>Your customisation library must follow the pattern <code>[pkg][module]bl[table]cc[version]</code>. The <code>cc</code> suffix is mandatory — it signals to LN tooling that this is customer-owned code, never to be overwritten by Infor standard updates.</p>
+      </div>
+
+      <h3>User Exit DLLs — A Lightweight Alternative</h3>
+      <p>For adding logic around standard LN save/delete events at the table level, <strong>User Exit DLLs</strong> provide a clean hook point without a full table extension. Named by appending <code>ue</code> to the table code (e.g. <code>tccom001ue</code>), they fire automatically before and after standard save/delete handling — ideal for conditionally publishing data changes to external systems.</p>
+
+      <h2 id="a4-when">When to Use What</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Use an inline function when…</h4><p>Logic is used only in one script, is short, and has no value being shared. Keeps the script self-contained with no library overhead.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Use an include/function script when…</h4><p>Logic is shared by 2–5 scripts in the same package-VRC, doesn't change often, and recompiling all callers on change is acceptable.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Use a library DLL when…</h4><p>Logic must be reusable across multiple packages, sessions, or DALs; or when the function evolves independently of its callers. Libraries are the right choice for any significant business logic component.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Use a User Exit DLL when…</h4><p>You need to fire custom logic around standard LN table-level save/delete events — particularly for outbound integration scenarios.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Delegate to a version-dependent library when…</h4><p>Logic must behave differently across LN releases. Implement the function differently per version in the library, keeping the hook itself clean and version-agnostic.</p></div></div>
+      </div>
+
+      <h2 id="a4-lifecycle">Library Lifecycle — Compile, Deploy, Debug</h2>
+      <p>Libraries are managed through <strong>LN Studio</strong>. The key steps: create the library component in <code>Program Scripts / Libraries (ttadv2530m000)</code>; author functions prefixed with the library name, declared <code>EXTERN</code> for external callers; compile to DLL via LN Studio; deploy via PMC (cloud) or copy to the BSE directory (on-premises); debug with the LN Studio debugger using breakpoints exactly like script code. Extension scripts generated by the Extension Modeler are themselves DLLs — fully visible in LN Studio and debuggable.</p>
+
+      <h2 id="a4-bestpractices">Best Practices</h2>
+      <ul>
+        <li>Always use the <code>cc</code> suffix for customisation libraries — never omit it</li>
+        <li>Prefix all library function names with the library name — ambiguous names cause runtime resolution errors</li>
+        <li>Keep individual library functions focused on a single responsibility</li>
+        <li>Avoid calling UI-layer functions from within library DLLs — libraries operate at the data/business logic layer only</li>
+        <li>Document the EXTERN signature in every calling script so future developers don't need to open the library</li>
+        <li>Test library compilation in isolation — a compile error in a widely-used library can block many sessions simultaneously</li>
+      </ul>
+
+      <h2 id="a4-conclusion">Conclusion</h2>
+      <p>Functions and libraries represent a spectrum of code reuse patterns in Infor LN, from the narrowly-scoped inline function to the system-wide DLL. Choosing correctly produces code that is maintainable, upgrade-safe, and architecturally appropriate for the scale of the problem. Applying naming conventions and deployment patterns consistently is the mark of a practitioner who understands not just how LN works, but how to extend it responsibly.</p>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>See the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for LN development scripts and library templates. The <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> covers LN development architecture across technical tracks.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 04 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a4-intro">Introduction</a></li>
+          <li><a href="#a4-functions">Functions — Inline &amp; Script-Scoped</a></li>
+          <li><a href="#a4-libraries">Libraries — DLLs</a></li>
+          <li><a href="#a4-when">When to Use What</a></li>
+          <li><a href="#a4-lifecycle">Library Lifecycle</a></li>
+          <li><a href="#a4-bestpractices">Best Practices</a></li>
+          <li><a href="#a4-conclusion">Conclusion</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
+          <a class="nav-link" href="#article-3" style="color:var(--gold-dim)">↑ Back to Article 03</a>
+          <a class="nav-link" href="#article-5" style="color:var(--gold)">↓ Next: MMT Sessions</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%20Functions%20Libraries%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20Functions%20vs%20Libraries%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-4 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 05 — How to Create MMT Sessions in Infor LN
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-5" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 05 · LN Development · Sessions</div>
+      <h2 class="ah-title">How to Create <em>Multi Main Table (MMT) Sessions</em> in Infor LN — A Complete Practical Guide</h2>
+      <p class="ah-sub">Step-by-step walkthrough for building MMT sessions in Infor LN Studio — from controller design and satellite session configuration to implicit save behaviour and deployment</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">MMT</span><span class="tag">Sessions</span><span class="tag">LN Studio</span><span class="tag">LN Dev</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a5-intro">Introduction</h2>
+      <p>The Multi Main Table (MMT) session is one of Infor LN's most powerful and recognisable UI patterns. Every time a user opens a Sales Order and sees the header at the top with order lines, shipping details, and financial summaries as tabs below — that is an MMT session. Understanding how to design, build, and deploy MMT sessions is essential for any LN developer working on custom session development or extension work.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 What is an MMT Session?</div>
+        <p>A Multi Main Table session combines multiple individual LN sessions — each with its own main table — into a single unified interface with a parent-child structure. A <strong>controller session</strong> (header) sits at the top; one or more <strong>satellite sessions</strong> (child data) display as tabs in the lower panel. Maintenance commands work independently on each section's own table.</p>
+      </div>
+
+      <h2 id="a5-architecture">MMT Architecture — Components</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num" style="font-size:.65rem">CTL</div><div class="step-body"><h4>Controller Session (Header)</h4><p>The primary record session displayed at the top — a Sales Order header, a Purchase Order, an Item master. The controller's selected record drives the filter for all satellite tabs. When the user selects a different header record, all satellite tabs refresh automatically.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.65rem">SAT</div><div class="step-body"><h4>Satellite Sessions (Lines / Detail Tabs)</h4><p>The child sessions displayed as tabs in the lower panel. Each satellite has its own main table and form. Multiple satellites can be defined — each becomes a separate tab with its session title as the label.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.65rem">LNK</div><div class="step-body"><h4>Link Field Mapping</h4><p>The configuration that maps key fields in the controller to foreign key fields in each satellite — telling the MMT engine how to filter satellite data for the selected header record. Incorrect mapping is the most common cause of empty or wrong satellite data.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.65rem">FRM</div><div class="step-body"><h4>Forms</h4><p>Each session in the MMT has its own form defining field layout and grid columns. Forms are designed in LN Studio and linked to their respective sessions. The satellite form determines what columns are visible in each tab.</p></div></div>
+      </div>
+
+      <h2 id="a5-implicit-save">Implicit Save Behaviour</h2>
+      <p>A critical behavioural difference in MMT sessions is <strong>implicit save</strong>. LN automatically saves the current record when:</p>
+      <ul>
+        <li>The user changes focus from the controller (header) to a satellite tab</li>
+        <li>The user changes focus from one satellite tab to another satellite tab</li>
+      </ul>
+      <p>Users do not need to explicitly click "Save" when moving between sections — the system persists their data silently. Developers must ensure validation logic in <code>before.save</code> hooks is robust, because saves fire on focus change, not only on explicit user action.</p>
+
+      <h2 id="a5-procedure">Step-by-Step: Creating an MMT Session</h2>
+      <p>This procedure uses <code>Sessions (ttadv2500m000)</code> in LN Studio. You need the LN development license (product ID 10146) and an active development activity set in your user context.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Design the Data Model First</h4><p>Confirm that all tables, domains, and key field relationships are defined in the Data Dictionary before creating sessions. Define the header table (controller) and all child tables (satellites), and confirm the foreign key fields that will drive link mappings.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Create the Controller (Header) Session</h4><p>Open <code>Sessions (ttadv2500m000)</code> and create a new session. Set the type to <strong>MMT Header</strong>. Assign the main table, create or assign a form, and set the session title. Follow LN's naming convention: <code>xxyyy2500m000</code> for MMT headers.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Create the Detail Session</h4><p>Create a Details session for the controller — the expanded single-record view opened when the user drills into an individual header record. Set type to <strong>Details</strong>, assign the same main table, link the form. Convention: <code>xxyyy2100m000</code>.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Create Each Satellite Session</h4><p>For each child table, create a session with type <strong>Satellite</strong>. Assign the satellite's main table and form. The session title becomes the tab label — make it clear and descriptive. Convention: <code>xxyyy2200m000</code>, <code>xxyyy2300m000</code>, etc.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Assign Satellites to the Controller &amp; Map Link Fields</h4><p>In the MMT Header session record, add each satellite in the desired tab order. For each satellite, configure the <strong>link field mapping</strong> — map every component of the controller's primary key to the corresponding foreign key fields in the satellite table. Verify field names exactly as they appear in the Data Dictionary.</p></div></div>
+        <div class="step"><div class="step-num">6</div><div class="step-body"><h4>Integrate into the Menu</h4><p>Add the MMT controller session to the relevant LN menu module via the Menus session. MMT sessions can also be launched programmatically from a list session using a <code>start.session</code> call from the "Open" action of the corresponding header overview session.</p></div></div>
+        <div class="step"><div class="step-num">7</div><div class="step-body"><h4>Test Navigation and Implicit Save</h4><p>Start the MMT session and verify: header records load correctly; selecting a different header record refreshes all satellite tabs; editing a satellite and switching tabs triggers implicit save; deep copy/delete operate on the full header-plus-lines structure as expected.</p></div></div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">⚠️ Most Common Pitfall — Link Field Mapping</div>
+        <p>The most frequent cause of a satellite showing no data or wrong data is an incorrect link field mapping. If the header key is composite (e.g. <code>company + order.number</code>), <em>every</em> component must be mapped. Mapping only <code>order.number</code> will return records across all companies — a subtle but serious data visibility bug.</p>
+      </div>
+
+      <h2 id="a5-deepcopy">Deep Copy and Deep Delete</h2>
+      <p>MMT sessions support <strong>deep copy</strong> — copying the header record and all child records across all satellite tabs in a single action — and <strong>deep delete</strong>, which removes the header and all satellite records atomically. Both must be explicitly configured on the controller session. When designing deep copy, ensure auto-generated fields (document numbers, system dates) invoke the standard number generation logic rather than duplicating sequence-controlled identifiers blindly.</p>
+
+      <h2 id="a5-filtering">Filtering in MMT Sessions</h2>
+      <p>MMT sessions support two filtering mechanisms at the controller level: <strong>Easy Filtering</strong> (a filter row displayed inline in the header grid, controlled by <code>Tools Parameters ttaad0100m000</code>) and the standard <strong>Filter Menu</strong> for advanced query-style filtering. Satellite sessions are always filtered implicitly by the controller's selection — they do not independently support user-initiated filtering in the standard MMT pattern.</p>
+
+      <h2 id="a5-bestpractices">Best Practices</h2>
+      <ul>
+        <li>Design the data model completely before creating MMT sessions — retrofitting a key change after session creation is painful</li>
+        <li>Use meaningful satellite session titles — they become the tab labels and are the primary navigation cue for users</li>
+        <li>Validate link field mappings with a live test record — do not assume mapping is correct until satellites demonstrably show filtered data</li>
+        <li>Consider implicit save when designing validation hooks — before.save must handle partial-entry states gracefully</li>
+        <li>Never start a satellite session directly as standalone — always launch the MMT via its controller session</li>
+        <li>Test deep copy with composite-key tables — these are the most common source of data integrity issues in custom MMT sessions</li>
+        <li>Follow LN session code naming conventions: <code>m000</code> for MMT headers, <code>m100</code> for details, <code>m200+</code> for satellites</li>
+      </ul>
+
+      <h2 id="a5-conclusion">Conclusion</h2>
+      <p>MMT sessions are the gold standard UX pattern in Infor LN for presenting hierarchical data — and once you have built one end-to-end, you understand why they are so prevalent throughout the standard application. The controller-satellite architecture, implicit save behaviour, link field mapping, and deep copy/delete capabilities combine to produce sessions that are powerful and intuitive for end users.</p>
+      <p>For LN developers, mastering MMT session creation is a natural progression from understanding the data model and domain layer (Article 03) and the code organisation patterns of functions and libraries (Article 04). Together, these three layers — data, logic, and presentation — form the complete picture of custom LN session development.</p>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for LN session development references. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--gold)">FOB Training</a> for hands-on Infor LN development courses, or take the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> to benchmark your LN development knowledge.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 05 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a5-intro">Introduction</a></li>
+          <li><a href="#a5-architecture">MMT Architecture</a></li>
+          <li><a href="#a5-implicit-save">Implicit Save Behaviour</a></li>
+          <li><a href="#a5-procedure">Step-by-Step Creation</a></li>
+          <li><a href="#a5-deepcopy">Deep Copy &amp; Delete</a></li>
+          <li><a href="#a5-filtering">Filtering</a></li>
+          <li><a href="#a5-bestpractices">Best Practices</a></li>
+          <li><a href="#a5-conclusion">Conclusion</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
+          <a class="nav-link" href="#article-4" style="color:var(--gold-dim)">↑ Back to Article 04</a>
+          <a class="nav-link" href="#article-6" style="color:var(--gold)">↓ Next: Creating Sessions</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%20MMT%20Sessions%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20MMT%20Sessions%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-5 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 06 — How to Create & Understand Sessions in Infor LN
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-6" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 06 · LN Development · Sessions</div>
+      <h2 class="ah-title">How to Create &amp; Understand Sessions in Infor LN — <em>A Practical Example</em></h2>
+      <p class="ah-sub">A ground-up walkthrough of what an LN session is, how the 4GL engine and UI script interact, the session creation procedure, and a concrete practical example from table to running session</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">Sessions</span><span class="tag">UI Script</span><span class="tag">4GL</span><span class="tag">LN Dev</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a6-intro">Introduction</h2>
+      <p>In Infor LN, a <strong>session</strong> is the fundamental unit of user interaction — every screen a user opens to view, edit, or process data is a session. Developers building custom applications or extending standard LN functionality need to understand not just how to configure sessions, but what is happening under the hood: how the 4GL engine drives the default behaviour, how UI scripts override it, and how a session connects to its table, form, and Data Access Layer.</p>
+      <p>This article builds a conceptual model of LN sessions from first principles, then walks through the complete procedure to create a simple maintenance session from scratch — from table definition through to a running, functional session in LN UI.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 What is an LN Session?</div>
+        <p>A session is the basic functional element of an Infor LN application. It is a runtime object that combines a <strong>table</strong> (the data), a <strong>form</strong> (the UI layout), and a <strong>UI script</strong> (optional custom behaviour) to present and process data for the user. Sessions are created and maintained via <code>Sessions (ttadv2500m000)</code> in LN Studio.</p>
+      </div>
+
+      <h2 id="a6-anatomy">Anatomy of an LN Session</h2>
+      <p>Every session in LN is built from the same core components, regardless of whether it is a simple maintenance session or a complex process session:</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num" style="font-size:.6rem">TBL</div><div class="step-body"><h4>Main Table</h4><p>The primary database table the session operates on. The session's object allocates memory for a record buffer based on the table definition at startup. All field values in the form bind to fields in this record buffer. A session always has exactly one main table — additional related tables are accessed via DAL calls or secondary table operations.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.6rem">FRM</div><div class="step-body"><h4>Form</h4><p>The visual layout definition — which fields appear, their positions, labels, input lengths, and display formats. Forms are designed in LN Studio's form editor and stored as separate components linked to the session. A single session can have multiple forms (e.g. different layouts for overview vs. detail modes), but typically has one primary form.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.6rem">4GL</div><div class="step-body"><h4>4GL Engine (Default Behaviour)</h4><p>The LN runtime engine handles all default session behaviour without any developer code: loading records, navigating between them, executing saves and deletes, applying domain formatting, managing cursor focus, and enforcing DAL business rules. For many simple maintenance sessions, the 4GL engine alone is sufficient — no UI script is needed.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.6rem">UIS</div><div class="step-body"><h4>UI Script (Program Script)</h4><p>A 4GL script that overrides or extends the default engine behaviour for a specific session. UI scripts handle session-specific logic that cannot be expressed in the DAL — dynamic field enabling/disabling, conditional zoom targets, custom menu actions, print triggers, and special navigation flows. A UI script is optional; add it only when the default behaviour is insufficient.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.6rem">DAL</div><div class="step-body"><h4>Data Access Layer (DAL)</h4><p>The table-level business logic layer. DAL scripts contain hooks that fire on field changes, before/after save, and before/after delete. Unlike the UI script (which is session-specific), the DAL is table-level — its hooks fire regardless of which session triggered the operation. The DAL is the correct location for all data validation and business rule enforcement.</p></div></div>
+      </div>
+
+      <h2 id="a6-types">Session Types</h2>
+      <p>LN sessions are classified into types that determine their default runtime behaviour and the commands available to the user:</p>
+      <div class="compare">
+        <div class="compare-box">
+          <h4>Overview Session</h4>
+          <ul>
+            <li>Displays records in a grid (list) layout</li>
+            <li>Supports navigation, search, and selection</li>
+            <li>Typically read-only or single-field editable</li>
+            <li>Named with <code>m000</code> suffix convention</li>
+            <li>Can launch Detail or Process sessions</li>
+          </ul>
+        </div>
+        <div class="compare-box">
+          <h4>Maintenance / Details Session</h4>
+          <ul>
+            <li>Displays one record at a time in a form layout</li>
+            <li>Full edit capability: add, modify, delete</li>
+            <li>Named with <code>m100</code> / <code>s000</code> suffix convention</li>
+            <li>The primary session type for data entry</li>
+            <li>Linked to the overview via "Open" or "Details" action</li>
+          </ul>
+        </div>
+        <div class="compare-box">
+          <h4>Process Session</h4>
+          <ul>
+            <li>Executes a batch operation — no direct record edit</li>
+            <li>Has parameter input fields and a "Process" button</li>
+            <li>Named with <code>m200</code> / <code>m300</code> suffix convention</li>
+            <li>Typical for posting, generation, and archiving jobs</li>
+          </ul>
+        </div>
+        <div class="compare-box">
+          <h4>Find Session</h4>
+          <ul>
+            <li>A specialised overview used as a zoom/lookup target</li>
+            <li>Presented when the user zooms from a field in another session</li>
+            <li>Returns the selected value to the calling session field</li>
+            <li>Named with <code>m000</code> or dedicated find session code</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="a6-procedure">Practical Example — Creating a Maintenance Session</h2>
+      <p>The following walkthrough builds a simple item classification maintenance session from scratch. The scenario: we need a session to maintain a custom table of <em>Item Classification Codes</em> — a lookup table with a code, description, and classification type.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Define the Table in LN Studio</h4><p>In LN Studio, create a new table component (e.g. <code>xxyyy001</code>) in your development VRC. Add the fields: <code>comp</code> (company, Long domain), <code>code</code> (String domain, 10 chars), <code>descr</code> (String domain, 60 chars), <code>type</code> (Enum domain). Set the primary key as <code>comp + code</code>. Compile and run <code>Convert to Runtime</code>.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Create the Session Record</h4><p>Open <code>Sessions (ttadv2500m000)</code> and create a new session. Set Session Code to <code>xxyyy0101m000</code> (overview) and <code>xxyyy0101m100</code> (details). Set Main Table to <code>xxyyy001</code>. Set Session Type to Overview and Details respectively. Enter a Session Title (this appears in the window title bar and menu).</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Design the Form</h4><p>From the session record, open the Form Editor. For the overview session, add grid columns for <code>code</code>, <code>descr</code>, and <code>type</code> fields. Set column widths from the domain display length. For the details session, arrange fields in a logical layout — code and type at the top, description below. Add labels using standard LN label components.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Define Commands and Indices</h4><p>In the session definition, configure the available commands: New, Modify, Delete, Copy, Find. Define the index used for record navigation — for a grid session, the primary key index controls the default sort order. Additional indices can be added for alternative sort/search paths accessible via the session's Find functionality.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Write a Minimal UI Script (if needed)</h4><p>For a simple maintenance session, the 4GL engine handles everything by default. Add a UI script only if you need custom behaviour — for example, to make the <code>type</code> field read-only after first save, or to populate <code>descr</code> with a default value based on <code>type</code>. Keep UI scripts minimal: push validation logic to the DAL, keep only session-specific presentation logic in the UI script.</p></div></div>
+        <div class="step"><div class="step-num">6</div><div class="step-body"><h4>Add to Menu and Test</h4><p>Add both sessions to the relevant LN menu module using <code>Menus (ttadv1510m000)</code>. Start the overview session from LN UI, add a test record, verify the details session opens correctly, edit and save, then confirm the DAL validation hooks fire as expected. Check that zoom functionality works for any reference fields.</p></div></div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">🔑 4GL Engine vs UI Script — The Golden Rule</div>
+        <p>The 4GL engine provides all default session behaviour for free. Only add a UI script when the default behaviour is genuinely insufficient. Every line in a UI script is a maintenance liability — future LN upgrades may change default behaviours, and UI script logic that duplicated standard behaviour can break silently. Less is more.</p>
+      </div>
+
+      <h2 id="a6-naming">Session Code Naming Conventions</h2>
+      <p>LN session codes follow a strict convention: <code>[package][module][table][sequence][type]</code>. For example, <code>tcmcs0101m000</code> breaks down as: package <code>tc</code>, module <code>mcs</code>, table <code>01</code>, sequence <code>01</code>, type <code>m000</code> (overview). For custom sessions, use your company prefix (e.g. <code>xx</code>) and a module code from your customisation VRC. The suffix encodes the session type:</p>
+      <ul>
+        <li><code>m000</code> — Overview (grid/list)</li>
+        <li><code>m100</code> — Details (single-record maintenance)</li>
+        <li><code>m200</code> / <code>m300</code> — Process sessions</li>
+        <li><code>s000</code> — Sub-session (called from another session)</li>
+        <li><code>m500</code> — Find/zoom sessions</li>
+      </ul>
+      <p>Following these conventions consistently is not just style — it enables the LN tooling to correctly categorise sessions in menus, authorisation models, and the VRC derivation search path.</p>
+
+      <h2 id="a6-bestpractices">Best Practices</h2>
+      <ul>
+        <li>Always define the table and compile it before creating the session — the session editor needs the table definition to bind fields to the form</li>
+        <li>Name sessions with the correct suffix convention from the start — renaming sessions after they are referenced in menus and other sessions is painful</li>
+        <li>Resist adding UI script logic for things the 4GL engine already does — consult the LN Programmer's Guide to understand what "default behaviour" covers before writing custom code</li>
+        <li>Separate concerns cleanly: presentation logic in UI script, data logic in DAL — never validate business rules in a UI script</li>
+        <li>Use standard LN label codes for all field labels — never hardcode text strings in forms, as labels support multi-language translation automatically</li>
+        <li>Test sessions in both LN UI and LN UI Classic (if applicable to your deployment) — form field sizes that look fine in one may clip in the other</li>
+      </ul>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>The <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> has LN session development templates and UI script examples. Take the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> — LN development session architecture is tested across the technical tracks.</p>
+      </div>
+
+    </article>
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 06 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a6-intro">Introduction</a></li>
+          <li><a href="#a6-anatomy">Anatomy of an LN Session</a></li>
+          <li><a href="#a6-types">Session Types</a></li>
+          <li><a href="#a6-procedure">Practical Example</a></li>
+          <li><a href="#a6-naming">Naming Conventions</a></li>
+          <li><a href="#a6-bestpractices">Best Practices</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
+          <a class="nav-link" href="#article-5" style="color:var(--gold-dim)">↑ Back to Article 05</a>
+          <a class="nav-link" href="#article-7" style="color:var(--gold)">↓ Next: VRC Explained</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%20Sessions%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20creating%20LN%20Sessions%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-6 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 07 — Understanding VRC in Infor LN
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-7" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 07 · LN Development · VRC &amp; Environment Management</div>
+      <h2 class="ah-title">Understanding <em>VRC (Version Release Combination)</em> in Infor LN</h2>
+      <p class="ah-sub">A clear explanation of the VRC concept — how LN organises software versions, how derivation works, how package combinations are structured, and how to set up a development environment correctly</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">VRC</span><span class="tag">Package Combination</span><span class="tag">Dev Environment</span><span class="tag">LN Dev</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a7-intro">Introduction</h2>
+      <p>If there is one concept that confuses new Infor LN developers more than any other, it is the <strong>VRC</strong> — Version Release Combination. VRCs are the mechanism by which LN manages coexisting versions of software components: the standard software delivered by Infor, customer customisations, and environment-specific variations all live in different VRCs within the same LN installation, resolved at runtime by a layered derivation search.</p>
+      <p>Understanding VRCs is essential for anyone setting up a development environment, deploying customisations, or troubleshooting why a session is (or isn't) picking up custom code. This article explains the VRC concept from scratch and shows how to apply it correctly in a real LN development workflow.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 VRC Stands For…</div>
+        <p><strong>V</strong>ersion · <strong>R</strong>elease · <strong>C</strong>ustomer code — three characters that together identify the development stage of an LN software package. Every software component in LN (sessions, scripts, libraries, tables) belongs to exactly one VRC, and the VRC determines when and to whom that version of the component is visible.</p>
+      </div>
+
+      <h2 id="a7-anatomy">Anatomy of a VRC Code</h2>
+      <p>A VRC code has three parts:</p>
+      <ul>
+        <li><strong>Version</strong> — a letter (e.g. <code>B</code>) identifying the major LN software release</li>
+        <li><strong>Release</strong> — a number (e.g. <code>61</code>) identifying the minor release within that version</li>
+        <li><strong>Customer extension</strong> — a letter code (e.g. <code>a</code>, <code>cus</code>, <code>dev</code>) identifying who owns this layer of the software</li>
+      </ul>
+      <p>For example, <code>tcB61_a</code> is a package VRC for LN Common (<code>tc</code>), version B, release 61, customer extension <code>a</code> (standard Infor software). A customisation VRC for the same package might be <code>tcB61O_a_cus</code> — the same package and version, with customer extension <code>cus</code> indicating customer-owned customisations, and the <code>O</code> flag indicating this is a customer-defined package combination.</p>
+
+      <h2 id="a7-derivation">VRC Derivation — How the VM Resolves Components</h2>
+      <p>When a user starts a session, the LN Virtual Machine (VM) does not simply load the session from a single location. Instead, it traverses the <strong>VRC derivation chain</strong> — searching from the outermost (most specific) VRC inward toward the standard Infor VRC. The VM uses the first version of the component it finds in this chain:</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Search the Developer's VRC (dev)</h4><p>If the user is a developer with an active development VRC (<code>dev</code>), the VM first looks here. This allows a developer to test modified components without affecting other users — only the developer sees their in-progress changes.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Search the Customisation VRC (cus)</h4><p>If no component is found in <code>dev</code>, the VM searches the customer customisation VRC. This is where committed, tested customisations live — all users in the runtime package combination see these.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Search the Standard VRC (stnd / update)</h4><p>If no customisation exists, the VM falls through to the standard Infor VRC. This is the factory-delivered software. The derivation search stops here — this is the bottom of the chain.</p></div></div>
+      </div>
+      <p>This layered resolution is what makes LN customisations upgrade-safe: the standard VRC can be updated by Infor patches without touching the customisation VRC. As long as your customisations use the <code>cus</code> VRC pattern and reference the correct base, a patch that updates the standard layer does not overwrite your code.</p>
+
+      <div class="callout">
+        <div class="callout-title">⚠️ Maximum VRC Depth</div>
+        <p>The LN VM supports a maximum derivation depth of <strong>40 VRCs</strong>. In practice, keep the depth as low as possible — deep derivation chains degrade session startup performance as the VM traverses more layers. A well-structured environment typically needs no more than 3–5 VRC layers.</p>
+      </div>
+
+      <h2 id="a7-packagecombination">Package Combinations</h2>
+      <p>A <strong>Package Combination</strong> is a named set of package VRCs — one per LN package — that defines the complete runtime software environment for a group of users or companies. Every company in LN is linked to a package combination, and every user inherits the package combination of their company (or has an individual override).</p>
+      <p>Typical package combinations in a well-structured LN environment:</p>
+      <ul>
+        <li><strong>Standard runtime</strong> — standard Infor VRCs only; used for baseline testing</li>
+        <li><strong>Customer runtime</strong> — standard + <code>cus</code> VRCs; used by all production users</li>
+        <li><strong>Development</strong> — standard + <code>cus</code> + <code>dev</code> VRCs; used by active developers only</li>
+        <li><strong>Test/UAT</strong> — mirrors customer runtime but on a separate database; used for pre-production verification</li>
+      </ul>
+      <p>The <code>Create New Package Combination / VRCs (ttaad1222m000)</code> session automates the creation of a new environment in a single step — deriving new package VRCs from the source combination, creating runtime directories, and linking companies and users.</p>
+
+      <h2 id="a7-setup">Setting Up a Development Environment</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Create a Customisation VRC</h4><p>In <code>Package VRCs (ttadv1511m000)</code>, create a new VRC for each package you plan to customise. Derive it from the standard <code>stnd</code> VRC of that package. Use the <code>cus</code> customer extension code. This is the layer where all committed customisations will live.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Create a Development VRC</h4><p>Create a second VRC per package, derived from the <code>cus</code> VRC, with the <code>dev</code> extension. This is the working sandbox for active development — changes here are only visible to developers with this VRC in their package combination.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Create the Development Package Combination</h4><p>In <code>Package Combinations (ttaad1520m000)</code>, create a new package combination that includes the <code>dev</code> VRCs for packages under development, and the <code>cus</code> VRCs (or standard VRCs) for packages not being changed. Assign this combination to your developer users via <code>Change Package Combinations for Users (ttaad2200m000)</code>.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Set Developer Authorisations</h4><p>Developers need authorisation to create and modify components in their VRC. Set this in the developer authorisation sessions. Without authorisation, the LN Studio component wizards will not allow saving new components to the target VRC.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Set the Activity Context in LN Studio</h4><p>Before developing in LN Studio, open an <em>activity</em> — a logical grouping of related components being developed together (e.g. "Item Classification Extension"). The activity context determines which VRC new and modified components are saved to. Always verify your current activity before creating components.</p></div></div>
+      </div>
+
+      <h2 id="a7-deploy">Deploying Customisations — From dev to cus to Production</h2>
+      <p>The typical deployment flow for customisations in LN follows the VRC derivation chain in reverse:</p>
+      <ul>
+        <li><strong>Development:</strong> code authored in <code>dev</code> VRC, tested by developer against a development database</li>
+        <li><strong>Check-in:</strong> tested components are checked in from <code>dev</code> to <code>cus</code> VRC using LN Studio's CM (Configuration Management) check-in action — at this point all users with the customer runtime package combination can see the changes</li>
+        <li><strong>UAT:</strong> the <code>cus</code> VRC is promoted to the test environment for user acceptance testing</li>
+        <li><strong>Production:</strong> validated components in <code>cus</code> VRC are deployed to the production package combination via PMC (Package Management Console) for cloud, or through direct VRC promotion for on-premises</li>
+      </ul>
+      <p>PMC is the modern, preferred deployment mechanism for both cloud and on-premises LN. It packages components into versioned Solutions that can be imported, exported, and rolled back — providing a controlled change management process.</p>
+
+      <h2 id="a7-bestpractices">Best Practices</h2>
+      <ul>
+        <li>Never develop directly in the standard Infor VRC — always use a derived <code>dev</code> or <code>cus</code> VRC</li>
+        <li>Keep the VRC derivation depth minimal — each additional layer adds startup overhead to every session launched in that environment</li>
+        <li>Always set your activity context in LN Studio before creating or modifying components — a component saved to the wrong VRC can be very difficult to track down</li>
+        <li>Maintain separate package combinations for development, test, and production — never share the development VRC with production users</li>
+        <li>Use PMC for all deployments in cloud environments — do not attempt direct VRC manipulation in multi-tenant cloud instances</li>
+        <li>Document your VRC structure: which VRC contains which type of customisations, which package combination is used by which group of users</li>
+      </ul>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>The <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> includes VRC setup checklists and LN environment configuration guides. Prepare for the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> — VRC and environment management concepts are covered in the LN technical development track.</p>
+      </div>
+
+    </article>
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 07 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a7-intro">Introduction</a></li>
+          <li><a href="#a7-anatomy">Anatomy of a VRC Code</a></li>
+          <li><a href="#a7-derivation">VRC Derivation</a></li>
+          <li><a href="#a7-packagecombination">Package Combinations</a></li>
+          <li><a href="#a7-setup">Setting Up a Dev Environment</a></li>
+          <li><a href="#a7-deploy">Deploying Customisations</a></li>
+          <li><a href="#a7-bestpractices">Best Practices</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
+          <a class="nav-link" href="#article-6" style="color:var(--gold-dim)">↑ Back to Article 06</a>
+          <a class="nav-link" href="#article-8" style="color:var(--gold)">↓ Next: 4GL Programming</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%20VRC%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20VRC%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-7 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 08 — Infor LN 4GL Programming — Key Concepts & UI Script Fundamentals
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-8" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 08 · LN Development · 4GL Programming</div>
+      <h2 class="ah-title">Infor LN 4GL Programming — <em>Key Concepts &amp; UI Script Fundamentals</em></h2>
+      <p class="ah-sub">An introduction to LN's 4GL programming language — syntax essentials, the UI script structure, hook categories, field dependencies, and debugging techniques for LN developers</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">4GL</span><span class="tag">UI Script</span><span class="tag">DAL</span><span class="tag">LN Dev</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a8-intro">Introduction</h2>
+      <p>Infor LN is built on a proprietary 4th-generation programming language — commonly called <strong>LN 4GL</strong> or <strong>Baan 4GL</strong>. Unlike generic languages such as Java or Python, LN 4GL is deeply integrated with the LN runtime environment: it has native constructs for accessing database tables, navigating sessions, firing domain validations, and calling DAL hooks. Understanding 4GL is the entry point to all meaningful LN customisation and development work.</p>
+      <p>This article covers the essential 4GL concepts every LN developer needs: the language structure, the two script types (UI script and DAL), the hook event model, field dependencies in DAL 2, and how to debug 4GL code effectively in both LN Studio and LN UI.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 4GL vs 3GL in LN</div>
+        <p>LN supports both 4GL (the standard LN scripting language for sessions and DALs) and 3GL (a lower-level C-style language used primarily for library DLLs). Most developers work exclusively in 4GL — it is sufficient for all session logic, DAL hooks, UI scripts, and reports. 3GL is needed only for library DLLs requiring low-level system access or performance-critical computation.</p>
+      </div>
+
+      <h2 id="a8-structure">4GL Script Structure</h2>
+      <p>Every 4GL script follows the same structural layout, regardless of whether it is a UI script, a DAL, or a library:</p>
+      <div class="steps">
+        <div class="step"><div class="step-num" style="font-size:.6rem">DCL</div><div class="step-body"><h4>Declaration Section</h4><p>Declares tables, variables, and includes used in the script. Table declarations give the script access to record buffers for the named table. Variable declarations specify the data type (using domain names) of all local variables. All tables and variables must be declared before use — LN 4GL is a statically-typed language.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.6rem">FNC</div><div class="step-body"><h4>Functions Section</h4><p>Contains all function definitions local to this script. As discussed in Article 04, inline functions defined here are only visible within this script. EXTERN function declarations reference functions in external libraries.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.6rem">HKS</div><div class="step-body"><h4>Hooks</h4><p>The executable code sections — predefined function names called by the 4GL engine at specific lifecycle events. In a UI script these are session events (on.display, before.save, etc.). In a DAL these are table events (field.hooks, before.save, after.destroy, etc.). Hooks are the primary mechanism for all custom logic in LN 4GL.</p></div></div>
+      </div>
+
+      <h2 id="a8-uiscript">UI Script — Session Lifecycle Hooks</h2>
+      <p>A UI script (Program Script) customises the behaviour of a specific session. The 4GL engine calls its hooks at defined points in the session lifecycle. Key UI script hooks:</p>
+      <ul>
+        <li><code>initialize</code> — fires once when the session starts; use for setting initial field states, loading session parameters, or calling process sessions to pre-populate data</li>
+        <li><code>on.display</code> — fires each time a record is loaded for display; use for dynamically enabling/disabling fields based on record state, or setting computed display values</li>
+        <li><code>before.save</code> — fires before the 4GL engine executes the save; use for session-level pre-save checks that cannot be expressed in the DAL (rare — prefer DAL for validation)</li>
+        <li><code>after.save</code> — fires after a successful save; use for triggering downstream session actions or refreshing related display data</li>
+        <li><code>on.field.[fieldname]</code> — fires when the user leaves a specific field; use for dynamic field-level reactions in the UI layer (enable/disable other fields, zoom filter adjustments)</li>
+        <li><code>on.action.[command]</code> — fires when the user invokes a specific menu command; use for custom button logic, print triggers, and confirmation dialogs</li>
+      </ul>
+
+      <h2 id="a8-dal">DAL Hooks vs UI Script Hooks — The Dividing Line</h2>
+      <p>The most important architectural discipline in LN 4GL development is knowing <em>which layer</em> a piece of logic belongs in. The rule is clear:</p>
+      <div class="compare">
+        <div class="compare-box">
+          <h4>DAL Script (Table Layer)</h4>
+          <ul>
+            <li>Business rules and data validation</li>
+            <li>Cross-field dependency logic</li>
+            <li>Default value calculation</li>
+            <li>Referential integrity enforcement</li>
+            <li>Fires for ALL sessions on this table</li>
+            <li>Cannot access session UI state</li>
+          </ul>
+        </div>
+        <div class="compare-box">
+          <h4>UI Script (Session Layer)</h4>
+          <ul>
+            <li>Field enable/disable based on record state</li>
+            <li>Session-specific navigation and actions</li>
+            <li>Print and report triggers</li>
+            <li>Zoom target customisation</li>
+            <li>Fires ONLY for this specific session</li>
+            <li>Can access session UI state and form fields</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="a8-dal2">DAL 2 — Field Dependencies</h2>
+      <p>DAL 2 (introduced in LN 6.1) added a powerful feature absent from DAL 1: <strong>field dependencies</strong>. A field dependency declares that field B should be recalculated whenever field A changes. Once defined, the 4GL engine automatically re-fires the dependent field's hook whenever its dependency changes — in the UI, this means fields update reactively as the user types, without requiring explicit <code>on.field</code> hooks in the UI script.</p>
+      <p>Field dependencies also drive conditional enum value filtering (showing only valid enum options based on other field values) and field enable/disable state in the UI layer — making DAL 2 field dependencies a cleaner alternative to many <code>on.field</code> hooks in the UI script. The packing field example is canonical: the <em>Packing</em> boolean is automatically recalculated whenever the <em>Gross Weight</em> or <em>Net Weight</em> fields change, because a field dependency is defined between them in the DAL.</p>
+
+      <h2 id="a8-debugging">Debugging 4GL Code</h2>
+      <p>LN provides two complementary debugging modes for 4GL development:</p>
+      <div class="steps">
+        <div class="step"><div class="step-num" style="font-size:.6rem">STD</div><div class="step-body"><h4>LN Studio Debugger (On-premises)</h4><p>The full interactive debugger — set breakpoints in any UI script or DAL, step through execution line by line, inspect variable values and table record buffers in real time. Access via LN Studio's Debug perspective. Not available in multi-tenant cloud environments.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.6rem">CLD</div><div class="step-body"><h4>Debug and Profile 4GL (ttadv1123m000) — Cloud</h4><p>The cloud-compatible debug workbench. Start this session, select the activity containing the component you want to test, then run the session. Provides tracing and profiling output without requiring a direct LN Studio connection. The go-to tool for cloud and multi-tenant LN environments.</p></div></div>
+        <div class="step"><div class="step-num" style="font-size:.6rem">TRC</div><div class="step-body"><h4>LN UI Trace Mode</h4><p>Activate via <strong>Options → Activate Trace Mode</strong> in LN UI. Opens a trace window showing the message flow between browser and LN UI server. Useful for diagnosing UI rendering issues, field binding problems, and session startup failures — particularly for Report Designer and form rendering investigations.</p></div></div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">⚠️ Cloud Debugging Constraint</div>
+        <p>In multi-tenant cloud LN environments, the LN Studio interactive debugger is <em>not available</em> — the direct OLE connection it requires cannot be established. Use <code>Debug and Profile 4GL (ttadv1123m000)</code> and LN UI Trace Mode instead. Design code to be testable via these tools: add logging output and use activity-scoped testing to isolate extension behaviour.</p>
+      </div>
+
+      <h2 id="a8-bestpractices">Best Practices</h2>
+      <ul>
+        <li>Always declare all tables and variables in the declaration section — LN 4GL does not support implicit variable declaration</li>
+        <li>Use DAL 2 field dependencies rather than <code>on.field</code> UI script hooks wherever possible — dependencies are re-fired correctly by the engine in all contexts, whereas UI hooks are session-specific</li>
+        <li>Keep UI script hooks short — if a hook exceeds ~20 lines, extract the logic into a local function or library call</li>
+        <li>Never perform database I/O directly in a UI script hook — all table access should go through DAL calls or library functions that wrap DAL operations</li>
+        <li>Use standard LN message functions for all error messages — never hardcode string literals; use message codes so messages are translatable</li>
+        <li>Add meaningful comments to hook code — the next developer to read your script may not have access to the original requirements document</li>
+        <li>Test all hooks in both insert and update mode — the <code>mode</code> parameter in before.save hooks distinguishes between the two, and logic that works for inserts may behave incorrectly on updates</li>
+      </ul>
+
+      <h2 id="a8-conclusion">Conclusion</h2>
+      <p>LN 4GL is a specialised, deeply integrated language — once you understand the hook model, the DAL/UI script separation, field dependencies, and the debugging tools, you have the foundation to build, extend, and maintain any LN application layer component. The language's design philosophy — default behaviour from the engine, extension through hooks, data logic in the DAL — is consistent throughout the entire LN codebase, which means patterns learned in one area apply everywhere else.</p>
+      <p>Combined with the VRC and session creation knowledge from Articles 06 and 07, the 4GL programming fundamentals in this article complete the core LN developer toolkit covered in this Playbook series.</p>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>The <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> has 4GL script templates, DAL hook examples, and UI script patterns. The <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> tests 4GL and development concepts across multiple technical tracks. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--gold)">FOB Training</a> for structured, hands-on LN development courses.</p>
+      </div>
+
+    </article>
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 08 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a8-intro">Introduction</a></li>
+          <li><a href="#a8-structure">4GL Script Structure</a></li>
+          <li><a href="#a8-uiscript">UI Script Hooks</a></li>
+          <li><a href="#a8-dal">DAL vs UI Script</a></li>
+          <li><a href="#a8-dal2">DAL 2 Field Dependencies</a></li>
+          <li><a href="#a8-debugging">Debugging 4GL Code</a></li>
+          <li><a href="#a8-bestpractices">Best Practices</a></li>
+          <li><a href="#a8-conclusion">Conclusion</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
+          <a class="nav-link" href="#article-7" style="color:var(--gold-dim)">↑ Back to Article 07</a>
+          <a class="nav-link" href="#article-9" style="color:var(--gold)">↓ Next: Period-End Closing</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%204GL%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%204GL%20Programming%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-8 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 09 — Period-End Closing Checklist for Infor LN Finance
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-9" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 09 · Finance · General Ledger</div>
+      <h2 class="ah-title">Period-End Closing Checklist for <em>Infor LN Finance</em></h2>
+      <p class="ah-sub">A practitioner's month-end and year-end closing checklist for Infor LN Finance — covering GL period management, sub-ledger reconciliation, integration transactions, currency revaluation, and the full year-end procedure with session references</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">GL</span><span class="tag">Period Close</span><span class="tag">Finance</span><span class="tag">Year-End</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a9-intro">Introduction</h2>
+      <p>Period-end closing in Infor LN Finance is a structured, multi-step process that spans the General Ledger, Accounts Payable, Accounts Receivable, and the integration layer connecting logistic transactions to financial postings. Done correctly, it produces accurate financial statements, clean sub-ledger reconciliations, and a locked period that prevents backdated entries. Done carelessly, it results in open reconciling items, transactions posted to wrong periods, and year-end surprises.</p>
+      <p>This article presents a complete, LN-specific period-end checklist — covering both the <strong>monthly close</strong> and the <strong>annual year-end close</strong> — with the exact session codes used at each step. The checklist is designed to be followed in sequence: each phase depends on the prior one being complete.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 Three Period Types in LN</div>
+        <p>Infor LN Finance maintains three independent period types, each with its own open/closed/finally-closed status: <strong>Fiscal</strong> (the official accounting periods used for all financial transaction postings), <strong>Reporting</strong> (used for management reporting to parent companies), and <strong>Tax</strong> (used for VAT/tax authority submissions). All three must be managed during period close — but they are closed independently and on potentially different schedules.</p>
+      </div>
+
+      <h2 id="a9-before">Before You Start — Prerequisites</h2>
+      <p>Before initiating any period close steps, confirm the following are in place. Skipping this phase is the most common cause of close delays.</p>
+      <ul>
+        <li>A current <strong>system backup</strong> has been taken and verified — period close operations (especially year-end) make irreversible data changes</li>
+        <li>All users have been notified of the close timeline and cut-off deadlines</li>
+        <li>Next year's financial periods are defined in <code>Periods (tfgld0105m000)</code> — LN requires the new year's period structure to exist before the current year can be finally closed</li>
+        <li>Exchange rates for all foreign currencies used in the period have been entered and are current in <code>Exchange Rates (tcmcs0108m000)</code></li>
+        <li>Any recurring journal templates have been verified and are ready to generate</li>
+      </ul>
+
+      <h2 id="a9-phase1">Phase 1 — Complete All Sub-module Transactions</h2>
+      <p>The GL is fed by integration transactions from logistic modules (Sales, Purchasing, Warehousing, Manufacturing) and financial sub-ledgers (AP, AR). All of these must be finalised before the GL period can be closed. Work through the sub-modules in this order:</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Finalise All Logistic Integration Transactions</h4>
+            <p>Run <code>Finalize Integration Transactions (tfgld1201m000)</code> to process any pending integration messages from Sales, Purchasing, Warehousing, and Manufacturing modules. These are the postings generated by logistic events (goods receipts, invoices, warehouse transfers) that feed into the GL. Check the integration log for any transactions in error status and resolve them before proceeding — unprocessed integration transactions will leave the GL out of balance with the logistic sub-ledgers.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Post All AP Invoices and Payments</h4>
+            <p>Confirm all supplier invoices for the period have been entered, approved, and finalised in Accounts Payable. Ensure all payment runs for the period have been processed and posted. Unposted AP transactions will cause a mismatch between the AP sub-ledger and the GL creditor control account. Check for any invoices on hold or awaiting approval that should be included in the current period.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Post All AR Invoices and Receipts</h4>
+            <p>Confirm all customer invoices for the period have been finalised and all receipts (cash allocations) have been posted. Check for any unallocated receipts sitting on account — these distort the debtor ageing and AR balance. Resolve any unapplied credits or disputed invoices where resolution has been reached during the period.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Generate and Post Recurring Journal Entries</h4>
+            <p>Run any periodic recurring journal templates (accruals, prepayments, depreciation adjustments) set up in the LN recurring journal master data. Verify each generated journal entry is correct before posting — recurring journals are a common source of period-end errors when template parameters have not been updated to reflect changed business conditions.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h4>Post Manual Journal Adjustments</h4>
+            <p>Post any manual accrual journals, reclassifications, or correction entries required for the period. Ensure each manual journal has appropriate documentation and approval. All manual journals must be in Finalised status — journals in Draft or Approved status are not included in GL balances and will cause reconciling differences.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="a9-phase2">Phase 2 — Sub-ledger Reconciliations</h2>
+      <p>With all transactions posted, reconcile the sub-ledgers to the GL control accounts. Discrepancies found here must be resolved <em>before</em> closing the period — a closed period with unresolved reconciling items is much harder to correct.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <h4>Reconcile AP Sub-ledger to GL</h4>
+            <p>Compare the total outstanding balance in the AP sub-ledger against the balance on the creditor control account in the GL. In LN, use the AP reconciliation reports to print the AP ledger detail and compare to the GL trial balance for the control account. Any difference indicates either an unprocessed integration transaction, a posting to the control account from a non-AP source, or a finalisation error. Investigate and resolve all differences before proceeding.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">7</div>
+          <div class="step-body">
+            <h4>Reconcile AR Sub-ledger to GL</h4>
+            <p>Run the AR ageing report and compare the total outstanding AR balance to the debtor control account on the GL trial balance. Differences here commonly arise from: direct journal postings to the debtor account (which bypass AR), unallocated receipts, or credit notes that have been issued but not matched. Resolve all differences. The AR and GL figures must tie exactly before closing.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">8</div>
+          <div class="step-body">
+            <h4>Reconcile GRNI (Goods Received Not Invoiced)</h4>
+            <p>Run the GRNI reconciliation to ensure that goods received but not yet invoiced are properly accrued. In LN, use the GRNI reconciliation session. Before starting: close the Integration period using <code>Close Periods (tfgld1206m000)</code> to prevent new transactions being posted while you reconcile. GRNI balances should reflect actual uninvoiced receipts only — investigate any aged GRNI items that have been sitting beyond your normal AP processing cycle.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">9</div>
+          <div class="step-body">
+            <h4>Bank Reconciliation</h4>
+            <p>Reconcile all bank accounts to the corresponding GL bank/cash accounts. Ensure bank statement transactions (charges, interest, returned items) that are not yet recorded in LN have been entered as manual journals. Any outstanding items (deposits in transit, unpresented cheques) must be identified and aged. The adjusted book balance in LN must equal the adjusted bank statement balance for every bank account.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">10</div>
+          <div class="step-body">
+            <h4>Foreign Currency Revaluation</h4>
+            <p>For companies with foreign currency transactions, run the currency revaluation process to mark open AR, AP, and bank balances at the closing exchange rate. This generates unrealised gain/loss entries posted to the designated exchange difference accounts. Verify the revaluation exchange rates are correct before running — using stale rates produces misleading financial statements. Revaluation entries will automatically reverse at the start of the next period if configured to do so.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="a9-phase3">Phase 3 — GL Review and Trial Balance</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">11</div>
+          <div class="step-body">
+            <h4>Run the Trial Balance</h4>
+            <p>Print or review the trial balance for the period to confirm total debits equal total credits. In LN, use the standard GL reporting sessions to generate the trial balance by ledger account. Review all accounts for unusual balances — debit balances on liability accounts, credit balances on asset accounts, or accounts with significantly different balances from prior periods. Investigate material variances before closing.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">12</div>
+          <div class="step-body">
+            <h4>Check GL Diagnostics Workbench</h4>
+            <p>Run the <strong>GL Diagnostics Workbench</strong> — LN's built-in tool for monitoring the general ledger for exceptions, errors, and integrity issues. The workbench detects issues such as transactions that failed to post correctly, dimension validation failures, and integration batches in error status. Resolve all flagged items before period close. Using the diagnostics workbench proactively (ideally daily during the last week of the period) dramatically reduces last-minute surprises on close day.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">13</div>
+          <div class="step-body">
+            <h4>Review and Approve Intercompany Transactions</h4>
+            <p>In multi-company LN environments, ensure all intercompany transactions for the period have been posted on both sides and that intercompany balancing accounts net to zero. Unmatched intercompany entries cause consolidated balance sheet accounts to appear out of balance and are a significant source of audit queries.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="a9-phase4">Phase 4 — Period Status Management</h2>
+      <p>Once all reconciliations are clean and the trial balance is verified, set the period statuses to prevent further posting.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">14</div>
+          <div class="step-body">
+            <h4>Close Sub-module Periods</h4>
+            <p>Use <code>Period Status (tfgld0107m000)</code> to set the period status for individual modules (AP, AR, Integration, etc.) to <strong>Closed</strong>. This prevents new transactions from being posted to the period in these modules. Close sub-module periods before closing the GLD (General Ledger) period — the GLD period typically closes last, after all sub-module feeds are confirmed complete.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">15</div>
+          <div class="step-body">
+            <h4>Close the GL Period — tfgld1206m000</h4>
+            <p>Run <code>Close Periods (tfgld1206m000)</code> to close the fiscal, reporting, and tax periods. This session allows bulk closing of periods across multiple financial companies in a financial company group. Setting a period to <strong>Closed</strong> prevents new transaction entry. Setting it to <strong>Finally Closed</strong> is irreversible — Finally Closed periods cannot be reopened and no transactions can ever be posted to them again. Use Finally Closed only once you are certain the period is complete and audited.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">⚠️ Finally Closed is Irreversible</div>
+        <p>The <strong>Finally Closed</strong> status in <code>tfgld1206m000</code> cannot be undone. A period can only be Finally Closed if all prior periods in sequence also have Finally Closed status. In practice, most organisations set periods to <strong>Closed</strong> at month-end and reserve Finally Closed for audit sign-off — typically weeks after the period ends. Never Finally Close the current year's last GL period before running the year-end close procedure.</p>
+      </div>
+
+      <h2 id="a9-yearend">Year-End Closing — Additional Steps</h2>
+      <p>The annual year-end close in Infor LN requires additional steps beyond the standard monthly close. Follow this sequence after completing the month-end steps for the final period:</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">Y1</div>
+          <div class="step-body">
+            <h4>Set Up Next Year's Periods</h4>
+            <p>Define all fiscal, reporting, and tax periods for the new financial year in <code>Periods (tfgld0105m000)</code>. LN requires the new year's period structure to exist before the current year can be finally closed. Set the first period of the new year to Open status so transactions can be processed once the year-end procedure completes.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">Y2</div>
+          <div class="step-body">
+            <h4>Provisional Year Close — tfgld6201m000</h4>
+            <p>Run <code>Provisional Year Closing (tfgld6201m000)</code> to simulate the year-end close without creating any permanent transactions. LN accumulates all P&amp;L account balances and builds provisional opening balances for all balance sheet accounts in the new year. You can run this session multiple times — each run overwrites the previous provisional result. Use it to preview the opening balance sheet and verify it is correct before committing to the final close. Crucially, you can continue posting corrections to the current year after a provisional close.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">Y3</div>
+          <div class="step-body">
+            <h4>Close P&amp;L Accounts — tfgld6202m000</h4>
+            <p>Run <code>Close Profit and Loss Accounts (tfgld6202m000)</code> to clear P&amp;L account balances to zero and post the net profit/loss to the Retained Earnings account. The balancing method (configured in <code>Company Parameters tfgld0503m000</code>) determines whether individual P&amp;L accounts are each cleared to retained earnings, or whether the net amount is posted as a single entry. Check for any blocked ledger accounts or dimensions on P&amp;L accounts before running — blocked accounts will prevent the closing entry from posting.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">Y4</div>
+          <div class="step-body">
+            <h4>Finally Close All Periods (Except Last GLD Period)</h4>
+            <p>Use <code>Close Periods (tfgld1206m000)</code> to set all periods of the current year to Finally Closed — for all modules and all period types, <em>except</em> the GLD module in the last fiscal period (typically the correction/adjustment period 13). The last GLD period must remain open because LN needs to create rounding difference entries and the P&amp;L closing entries in it during the final year close step.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">Y5</div>
+          <div class="step-body">
+            <h4>Final Year Close — tfgld6203m000</h4>
+            <p>Run <code>Close Year (tfgld6203m000)</code> to finally close the current financial year. This creates the opening balances for the new year, overwrites the provisional balances created in step Y2, and posts the final rounding difference entries. The result is a new opening balance batch in the new year that must be finalised. Once this session completes successfully, the current year is permanently closed — no further transactions can be posted to it.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">Y6</div>
+          <div class="step-body">
+            <h4>Rebuild Opening Balance / History (Optional) — tfgld3203m000</h4>
+            <p>Run <code>Rebuild Opening Balance/History from Transactions (tfgld3203m000)</code> to verify that all ledger history tables match the finalised transactions. This session is intensive and can take hours or days on high-volume environments — run it only if there is a question about the integrity of the ledger history tables (tfgld2xx). No financial transactions can be entered while this session is running.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">Y7</div>
+          <div class="step-body">
+            <h4>Finally Close the Last GLD Period</h4>
+            <p>After the year-end close is complete and the opening balance batch in the new year has been finalised, return to <code>Close Periods (tfgld1206m000)</code> and Finally Close the last GLD period of the previous year. At this point, the year is fully locked. Note: the Tax period cannot be Finally Closed until the tax return has been submitted — it is normal for the tax period to remain at Closed (not Finally Closed) until the tax filing deadline passes.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">Y8</div>
+          <div class="step-body">
+            <h4>Archive / Delete Period Totals (Optional) — tfgld6206m000</h4>
+            <p>Once the retention period defined in <code>Group Company Parameters (tfgld0101s000)</code> has expired for an old financial year, run <code>Archive/Delete Period Totals (tfgld6206m000)</code> to archive and/or delete the historical financial data. LN does not perform this automatically — it is a manual housekeeping step run periodically to manage database growth. Always archive to an external store before deleting from LN.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="a9-sessions">Quick Reference — Key Sessions</h2>
+      <p>The table below summarises the primary LN sessions used in the period-end process:</p>
+      <ul>
+        <li><code>tfgld0105m000</code> — Periods: define financial period structures</li>
+        <li><code>tfgld0107m000</code> — Period Status: view and change period status per module and period type</li>
+        <li><code>tfgld1201m000</code> — Finalize Integration Transactions: process pending integration postings from logistic modules</li>
+        <li><code>tfgld1206m000</code> — Close Periods: close and finally close periods across financial companies</li>
+        <li><code>tfgld0503m000</code> — Company Parameters: GL configuration including P&amp;L balancing method</li>
+        <li><code>tfgld0508m000</code> — Chart of Accounts: ledger account definitions, blocked status, dual accounting settings</li>
+        <li><code>tfgld6201m000</code> — Provisional Year Closing: simulate year-end without committing</li>
+        <li><code>tfgld6202m000</code> — Close Profit and Loss Accounts: clear P&amp;L balances to retained earnings</li>
+        <li><code>tfgld6203m000</code> — Close Year: execute the final year-end close and create opening balances</li>
+        <li><code>tfgld3203m000</code> — Rebuild Opening Balance/History from Transactions: integrity rebuild of ledger history</li>
+        <li><code>tfgld3201m000</code> — Rebuild Ledger History: rebuild sublevel history for changed account parenting</li>
+        <li><code>tfgld6206m000</code> — Archive/Delete Period Totals: housekeeping for expired historical years</li>
+        <li><code>tcmcs0108m000</code> — Exchange Rates: maintain currency rates for revaluation</li>
+      </ul>
+
+      <h2 id="a9-bestpractices">Best Practices</h2>
+      <ul>
+        <li>Run the GL Diagnostics Workbench daily in the final week of each period — catching errors early avoids last-minute close-day panic</li>
+        <li>Always take a system backup before executing year-end sessions — <code>tfgld6203m000</code> makes permanent, irreversible changes</li>
+        <li>Never Finally Close a period until the finance team has signed off on the period's financial statements — the cost of a correction in a Finally Closed period is very high</li>
+        <li>Reserve the last fiscal period (period 13) as a correction/adjustment period and keep the GLD module open until year-end close is complete</li>
+        <li>Set realistic cut-off deadlines and communicate them clearly — most period-end problems are caused by late AP invoices or unposted adjustments, not system issues</li>
+        <li>In multi-currency environments, always run currency revaluation before closing — missing this step produces financial statements that do not comply with accounting standards</li>
+        <li>Document the balancing method configured in <code>Company Parameters (tfgld0503m000)</code> — the individual account method and aggregate method produce different journal entries, and auditors will ask which was used</li>
+        <li>Check for blocked GL accounts before running <code>tfgld6202m000</code> — a single blocked P&amp;L account will abort the entire closing entry run</li>
+      </ul>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for LN Finance configuration guides and period-close checklists. The <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> covers Infor LN Finance topics including GL period management across the functional tracks. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--gold)">FOB Training</a> for structured Infor LN Finance courses.</p>
+      </div>
+
+    </article>
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 09 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a9-intro">Introduction</a></li>
+          <li><a href="#a9-before">Prerequisites</a></li>
+          <li><a href="#a9-phase1">Phase 1 — Sub-module Transactions</a></li>
+          <li><a href="#a9-phase2">Phase 2 — Reconciliations</a></li>
+          <li><a href="#a9-phase3">Phase 3 — GL Review</a></li>
+          <li><a href="#a9-phase4">Phase 4 — Period Status</a></li>
+          <li><a href="#a9-yearend">Year-End Steps</a></li>
+          <li><a href="#a9-sessions">Quick Reference Sessions</a></li>
+          <li><a href="#a9-bestpractices">Best Practices</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
+          <a class="nav-link" href="#article-8" style="color:var(--gold-dim)">↑ Back to Article 08</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%20Finance%20Period%20Close%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20Period-End%20Closing%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-9 -->
+
+
+<!-- MORE ARTICLES -->
+<section class="more-articles">
+  <div class="more-articles-inner">
+    <h2>Coming Up in the Playbook</h2>
+    <div class="articles-grid">
+      <div class="article-card coming">
+        <div class="article-card-tag">Development · DAL</div>
+        <h3>DAL Scripting in Infor LN — A Practical Introduction</h3>
+        <p>Write Data Access Layer scripts to extend LN session logic without modifying standard software.</p>
+        <div class="article-card-meta">Article 10 · Planned</div>
+      </div>
+      <div class="article-card coming">
+        <div class="article-card-tag">ION · BOD</div>
+        <h3>BOD Nouns &amp; Verbs in Infor LN Integration</h3>
+        <p>How Business Object Documents structure data and drive event-driven integration across the Infor stack.</p>
+        <div class="article-card-meta">Article 11 · Planned</div>
+      </div>
+      <div class="article-card coming">
+        <div class="article-card-tag">Finance · LN</div>
+        <h3>Infor LN Accounts Payable — Configuration &amp; Processing Guide</h3>
+        <p>Complete guide to AP invoice processing, payment runs, three-way matching, and supplier reconciliation in LN.</p>
+        <div class="article-card-meta">Article 12 · Planned</div>
+      </div>
+      <div class="article-card coming">
+        <div class="article-card-tag">Warehousing · LN</div>
+        <h3>Advanced Warehousing Configuration in Infor LN</h3>
+        <p>Warehouse structures, handling units, and advanced picking strategies in Infor LN WH module.</p>
+        <div class="article-card-meta">Article 13 · Planned</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">FullonBaan</div>
+  <div class="footer-sub">One Stop Destination for IT Solutions &nbsp;·&nbsp; Bangalore, India &nbsp;·&nbsp; fullonbaan.com</div>
+</footer>
+
+<script>
+(function(){
+  var html = document.documentElement;
+  var btn  = document.getElementById('themeToggle');
+  var icon = document.getElementById('toggleIcon');
+  var lbl  = document.getElementById('toggleLabel');
+
+  // Restore saved preference
+  var saved = localStorage.getItem('fob-theme');
+  var isLight = saved === 'light';
+  if(isLight){ html.classList.add('light'); icon.textContent='🌙'; lbl.textContent='Dark'; }
+
+  btn.addEventListener('click', function(){
+    isLight = !isLight;
+    if(isLight){
+      html.classList.add('light');
+      icon.textContent = '🌙';
+      lbl.textContent  = 'Dark';
+      localStorage.setItem('fob-theme','light');
+    } else {
+      html.classList.remove('light');
+      icon.textContent = '☀️';
+      lbl.textContent  = 'Light';
+      localStorage.setItem('fob-theme','dark');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

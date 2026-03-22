@@ -6,46 +6,51 @@
 <title>FullonBaan's Infor LN Playbook</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
 <style>
 /* ── DARK MODE (default) ── */
 :root {
-  --gold:       #c9a84c;
-  --gold-light: #e8c97a;
-  --gold-dim:   #8a6a28;
-  --bg:         #0d0d0d;
-  --bg2:        #131313;
-  --bg3:        #1a1a1a;
-  --border:     rgba(201,168,76,.18);
-  --border-hi:  rgba(201,168,76,.45);
-  --text:       #e0d8cc;
-  --text-muted: #8a8070;
-  --text-dim:   #5a5040;
-  --tag-bg:     rgba(201,168,76,.10);
-  --radius:     6px;
-  --topbar-bg:  rgba(10,10,10,.97);
-  --shadow:     0 2px 12px rgba(0,0,0,.4);
-  --code-bg:    rgba(201,168,76,.09);
+  --primary:             #e6c364;
+  --primary-container:   #c9a84c;
+  --secondary:           #cdc5ba;
+  --secondary-fixed-dim: #cdc5ba;
+  --bg:                  #131313;
+  --bg2:                 #1c1b1b;
+  --bg3:                 #201f1f;
+  --surface-container:   #2a2a2a;
+  --border:              rgba(230,195,100,.15);
+  --border-hi:           rgba(230,195,100,.35);
+  --text:                #e5e2e1;
+  --text-muted:          #d0c5b2;
+  --text-dim:            #99907e;
+  --tag-bg:              rgba(230,195,100,.12);
+  --radius:              8px;
+  --topbar-bg:           rgba(19,19,19,.85);
+  --shadow:              0 8px 24px rgba(0,0,0,.24);
+  --code-bg:             rgba(230,195,100,.10);
 }
 
 /* ── LIGHT MODE ── */
 html.light {
-  --gold:       #a07828;
-  --gold-light: #c49a38;
-  --gold-dim:   #c49a38;
-  --bg:         #f5f2ec;
-  --bg2:        #ede9e0;
-  --bg3:        #e6e1d6;
-  --border:     rgba(140,105,40,.18);
-  --border-hi:  rgba(140,105,40,.42);
-  --text:       #2a2218;
-  --text-muted: #5c4e38;
-  --text-dim:   #9c8c74;
-  --tag-bg:     rgba(140,105,40,.08);
-  --topbar-bg:  rgba(237,233,224,.97);
-  --shadow:     0 2px 12px rgba(0,0,0,.10);
-  --code-bg:    rgba(140,105,40,.08);
+  --primary:             #a07828;
+  --primary-container:   #c49a38;
+  --secondary:           #6b6b6b;
+  --secondary-fixed-dim: #a89080;
+  --bg:                  #faf8f3;
+  --bg2:                 #f0ede6;
+  --bg3:                 #e8e5de;
+  --surface-container:   #dddad3;
+  --border:              rgba(160,120,40,.12);
+  --border-hi:           rgba(160,120,40,.28);
+  --text:                #2a2218;
+  --text-muted:          #5c4e38;
+  --text-dim:            #8a7a68;
+  --tag-bg:              rgba(160,120,40,.08);
+  --topbar-bg:           rgba(250,248,243,.92);
+  --shadow:              0 4px 16px rgba(0,0,0,.08);
+  --code-bg:             rgba(160,120,40,.08);
 }
 
 /* ── TRANSITION ── */
@@ -56,179 +61,269 @@ body,header,.playbook-banner,.article-index,.article-section,.article-header,
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased}
+::selection{background:var(--primary-container);color:#2a2218}
+body{background:var(--bg);color:var(--text);font-family:'Newsreader',Georgia,serif;font-size:18px;line-height:1.8;-webkit-font-smoothing:antialiased;margin-top:68px}
+
+/* MATERIAL SYMBOLS */
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;line-height:1}
 
 /* TOPBAR */
-.topbar{position:sticky;top:0;z-index:200;background:var(--topbar-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;gap:1rem}
-.topbar-brand{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.04em;white-space:nowrap}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--topbar-bg);border-top:3px solid var(--primary);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:68px;gap:2rem;box-shadow:var(--shadow)}
+.topbar-brand{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;color:var(--primary);text-decoration:none;letter-spacing:.08em;white-space:nowrap}
 .topbar-brand span{color:var(--text)}
-.topbar-nav{display:flex;align-items:center;gap:.1rem;list-style:none}
-.topbar-nav a{font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;padding:.32rem .65rem;border-radius:var(--radius);transition:color .2s,background .2s}
-.topbar-nav a:hover{color:var(--gold);background:var(--tag-bg)}
+.topbar-nav{display:flex;align-items:center;gap:.5rem;list-style:none}
+.topbar-nav a{font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;padding:.4rem .8rem;border-radius:var(--radius);transition:color .2s,background .2s,border-color .2s}
+.topbar-nav a:hover{color:var(--primary);background:var(--tag-bg);border-color:var(--primary)}
 
 /* THEME TOGGLE BUTTON */
 .theme-toggle{
   flex-shrink:0;
-  display:flex;align-items:center;gap:.5rem;
+  display:flex;align-items:center;gap:.6rem;
   background:var(--tag-bg);
   border:1px solid var(--border-hi);
-  border-radius:20px;
-  padding:.28rem .7rem;
+  border-radius:24px;
+  padding:.35rem .85rem;
   cursor:pointer;
-  font-family:'JetBrains Mono',monospace;
-  font-size:.58rem;
-  letter-spacing:.08em;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:.6rem;
+  letter-spacing:.12em;
   color:var(--text-muted);
   white-space:nowrap;
   transition:background .2s,border-color .2s,color .2s;
   user-select:none;
 }
-.theme-toggle:hover{background:var(--border);color:var(--gold);border-color:var(--border-hi)}
+.theme-toggle:hover{background:var(--border);color:var(--primary);border-color:var(--border-hi)}
 .theme-toggle .toggle-track{
-  width:28px;height:15px;
+  width:30px;height:16px;
   background:var(--bg3);
   border:1px solid var(--border-hi);
-  border-radius:10px;
+  border-radius:12px;
   position:relative;
   flex-shrink:0;
   transition:background .25s;
 }
-html.light .theme-toggle .toggle-track{background:var(--gold);}
+html.light .theme-toggle .toggle-track{background:var(--primary);}
 .theme-toggle .toggle-thumb{
-  width:11px;height:11px;
+  width:12px;height:12px;
   background:var(--text-dim);
   border-radius:50%;
-  position:absolute;top:1px;left:1px;
+  position:absolute;top:2px;left:2px;
   transition:transform .25s,background .25s;
 }
-html.light .theme-toggle .toggle-thumb{transform:translateX(13px);background:#fff;}
-.toggle-icon{font-size:.75rem;line-height:1}
+html.light .theme-toggle .toggle-thumb{transform:translateX(14px);background:#fff;}
+.toggle-icon{font-size:.8rem;line-height:1}
 
 /* PLAYBOOK BANNER */
-.playbook-banner{position:relative;overflow:hidden;padding:4.5rem 2rem 3.5rem;text-align:center;border-bottom:1px solid var(--border)}
-.playbook-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(201,168,76,.09) 0%,transparent 70%),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(201,168,76,.025) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(201,168,76,.025) 40px);pointer-events:none}
-html.light .playbook-banner::before{background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(140,105,40,.07) 0%,transparent 70%),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(140,105,40,.04) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(140,105,40,.04) 40px)}
-.pb-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.22em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:1.2rem}
-.pb-eyebrow span{display:inline-block;border:1px solid var(--border-hi);padding:.28rem .9rem;border-radius:2px}
-.pb-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4.5vw,3.2rem);font-weight:700;color:var(--text);line-height:1.15;margin-bottom:.7rem}
-.pb-title em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.pb-sub{font-size:1rem;color:var(--text-muted);font-style:italic;max-width:580px;margin:0 auto 2rem}
-.pb-stats{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
-.pb-stat-num{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:700;color:var(--gold);text-align:center}
-.pb-stat-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:var(--text-dim);text-transform:uppercase;text-align:center}
+/* HERO — full-viewport */
+.playbook-banner{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;justify-content:flex-start;padding:0 clamp(2rem,5vw,6rem);border-bottom:2px solid var(--border)}
+.hero-bg{position:absolute;right:0;top:0;width:55%;height:100%;background:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;opacity:.30;mix-blend-mode:luminosity;pointer-events:none}
+html.light .hero-bg{opacity:.18;mix-blend-mode:multiply}
+.hero-gradient{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 0%,var(--bg) 95%),linear-gradient(to right,var(--bg) 35%,transparent 70%);pointer-events:none;z-index:1}
+.hero-content{position:relative;z-index:2;max-width:760px;padding:8rem 0 6rem}
+.pb-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
+.pb-eyebrow-line{width:48px;height:1px;background:var(--primary);flex-shrink:0}
+.pb-eyebrow-text{font-family:'Space Grotesk',sans-serif;font-size:.68rem;letter-spacing:.22em;color:var(--primary);text-transform:uppercase}
+.pb-title{font-family:'Cinzel',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;color:var(--text);line-height:.92;margin-bottom:2rem;letter-spacing:-.03em}
+.pb-title em{font-family:'Crimson Pro',serif;font-style:italic;font-weight:300;background:linear-gradient(135deg,var(--primary),var(--secondary-fixed-dim));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pb-sub{font-family:'Crimson Pro',serif;font-size:1.35rem;color:var(--text-muted);font-style:italic;max-width:580px;line-height:1.7;margin-bottom:3rem}
+.pb-actions{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;margin-bottom:4rem}
+.pb-btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,var(--primary),var(--primary-container));color:#2a2218;padding:.95rem 2.4rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .15s}
+.pb-btn-primary:hover{opacity:.88}
+.pb-btn-primary:active{transform:scale(.97)}
+.pb-btn-primary .material-symbols-outlined{font-size:.85rem}
+.pb-btn-secondary{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border-hi);padding-bottom:3px;transition:border-color .2s,color .2s}
+.pb-btn-secondary:hover{border-color:var(--primary);color:var(--primary)}
+.pb-stats{display:flex;align-items:center;gap:3.5rem;flex-wrap:wrap}
+.pb-stat-num{font-family:'Cinzel',serif;font-size:1.8rem;font-weight:700;color:var(--primary);letter-spacing:-.02em}
+.pb-stat-label{font-family:'Space Grotesk',sans-serif;font-size:.62rem;letter-spacing:.14em;color:var(--text-dim);text-transform:uppercase}
+/* hero progress indicator */
+.hero-progress{position:absolute;bottom:3rem;right:clamp(2rem,5vw,6rem);z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:.5rem}
+.hero-progress-text{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase}
+.hero-progress-bar{width:120px;height:3px;background:var(--surface-container);border-radius:2px;overflow:hidden}
+.hero-progress-fill{width:33%;height:100%;background:var(--primary);border-radius:2px}
+
+/* FEATURED ARTICLES */
+.featured{background:var(--bg2);padding:clamp(3rem,6vw,6rem) clamp(2rem,5vw,6rem);border-bottom:2px solid var(--border)}
+.featured-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(2.5rem,4vw,4.5rem)}
+.featured-eyebrow{font-family:'Space Grotesk',sans-serif;font-size:.68rem;letter-spacing:.2em;color:var(--primary);text-transform:uppercase;margin-bottom:.6rem;font-weight:500}
+.featured-heading{font-family:'Cinzel',serif;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:700;color:var(--text);letter-spacing:-.01em}
+.featured-viewall{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;text-underline-offset:8px;text-decoration-color:var(--border-hi);transition:color .2s}
+.featured-viewall:hover{color:var(--primary);text-decoration:underline;text-decoration-color:var(--primary)}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,3rem)}
+.feat-card{text-decoration:none;display:block;cursor:pointer;transition:transform .3s}
+.feat-card:hover{transform:translateY(-3px)}
+.feat-card.stagger{transform:translateY(2.5rem)}
+.feat-card.stagger:hover{transform:translateY(calc(2.5rem - 3px))}
+.feat-card-img{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:var(--radius);background:var(--surface-container);margin-bottom:1.5rem}
+.feat-card-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%);opacity:.8;transition:filter .7s,transform .7s,opacity .5s}
+.feat-card:hover .feat-card-img img{filter:grayscale(0%);transform:scale(1.08);opacity:1}
+.feat-card-img .feat-overlay{position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 0%,transparent 50%);opacity:0;transition:opacity .5s}
+.feat-card:hover .feat-card-img .feat-overlay{opacity:.8}
+.feat-card-tag{font-family:'Space Grotesk',sans-serif;font-size:.56rem;letter-spacing:.16em;color:var(--primary-container);text-transform:uppercase;margin-bottom:.5rem;font-weight:500}
+.feat-card-title{font-family:'Cinzel',serif;font-size:clamp(.9rem,1.6vw,1.3rem);font-weight:600;color:var(--text);line-height:1.3;margin-bottom:.5rem;transition:color .25s}
+.feat-card:hover .feat-card-title{color:var(--primary)}
+.feat-card-desc{font-family:'Crimson Pro',serif;font-style:italic;font-size:.92rem;color:var(--text-muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:820px){.featured-grid{grid-template-columns:1fr 1fr}.feat-card.stagger{transform:none}.feat-card.stagger:hover{transform:translateY(-3px)}}
+@media(max-width:560px){.featured-grid{grid-template-columns:1fr}.featured-header{flex-direction:column;align-items:flex-start;gap:1rem}}
 
 /* ARTICLE INDEX */
-.article-index{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem 2rem}
-.article-index-inner{max-width:1120px;margin:0 auto}
-.ai-title{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:1.1rem}
-.ai-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.75rem}
-.ai-card{display:flex;align-items:flex-start;gap:.75rem;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;text-decoration:none;transition:border-color .2s,transform .15s,background .25s}
-.ai-card:hover{border-color:var(--border-hi);transform:translateY(-1px)}
-.ai-num{font-family:'Cinzel',serif;font-size:.82rem;font-weight:700;color:var(--gold-dim);flex-shrink:0;width:22px;padding-top:.12rem}
-.ai-card-tag{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.12em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:.2rem}
-.ai-card-title{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.025em;color:var(--text);line-height:1.3}
-.ai-card.coming{opacity:.37;cursor:default}
-.ai-card.coming:hover{transform:none;border-color:var(--border)}
+.article-index{background:var(--bg);border-bottom:1px solid var(--border);padding:clamp(2.5rem,5vw,5rem) clamp(2rem,5vw,6rem)}
+.article-index-inner{max-width:1200px;margin:0 auto}
+.ai-title{font-family:'Space Grotesk',sans-serif;font-size:.68rem;letter-spacing:.2em;color:var(--primary);text-transform:uppercase;margin-bottom:2rem;font-weight:500;display:flex;align-items:center;gap:1.2rem}
+.ai-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.ai-card{position:relative;display:flex;align-items:flex-start;gap:1.2rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.6rem;text-decoration:none;transition:all .3s ease;overflow:hidden}
+.ai-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(180deg,var(--primary),var(--primary-container));border-radius:0 0 3px 3px;transition:height .3s ease}
+.ai-card:hover::before{height:100%}
+.ai-card:hover{border-color:var(--border-hi);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.2),0 0 0 1px var(--border-hi);background:var(--bg3)}
+.ai-num{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--primary-container));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0;width:28px;padding-top:.05rem}
+.ai-card-tag{font-family:'Space Grotesk',sans-serif;font-size:.56rem;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-bottom:.4rem;font-weight:500;opacity:.8}
+.ai-card-title{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.01em;color:var(--text);line-height:1.4;font-weight:600;transition:color .2s}
+.ai-card:hover .ai-card-title{color:var(--primary)}
+.ai-card.coming{opacity:.35;cursor:default;border-style:dashed}
+.ai-card.coming:hover{transform:none;border-color:var(--border);box-shadow:none;background:var(--bg2)}
+.ai-card.coming:hover::before{height:0}
+.ai-card.coming:hover .ai-card-title{color:var(--text)}
 
 /* TAG */
-.tag{display:inline-block;background:var(--tag-bg);border:1px solid var(--border-hi);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:.16rem .52rem;border-radius:2px}
+.tag{display:inline-block;background:linear-gradient(135deg,rgba(230,195,100,.12),rgba(230,195,100,.06));border:1px solid var(--border-hi);color:var(--primary);font-family:'Space Grotesk',sans-serif;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .7rem;border-radius:20px;font-weight:500}
 
 /* ARTICLE SECTION */
 .article-section{border-bottom:2px solid var(--border)}
 
 /* article header */
-.article-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2.4rem 2rem 1.9rem}
-.article-header-inner{max-width:1120px;margin:0 auto}
-.ah-num{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.2em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:.55rem}
-.ah-title{font-family:'Cinzel',serif;font-size:clamp(1.35rem,3vw,2rem);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:.5rem}
-.ah-title em{font-style:normal;color:var(--gold-light)}
-.ah-sub{font-size:.97rem;color:var(--text-muted);font-style:italic;margin-bottom:1rem}
-.ah-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--text-dim);letter-spacing:.06em}
+.article-header{position:relative;background:var(--bg2);border-bottom:1px solid var(--border);padding:clamp(2.5rem,5vw,4.5rem) clamp(2rem,5vw,6rem) clamp(2rem,4vw,3rem);overflow:hidden}
+.article-header::before{content:'';position:absolute;top:-80px;right:-40px;width:300px;height:300px;background:radial-gradient(circle,rgba(230,195,100,.04) 0%,transparent 70%);pointer-events:none}
+.article-header-inner{max-width:1200px;margin:0 auto;position:relative}
+.ah-num{font-family:'Space Grotesk',sans-serif;font-size:.64rem;letter-spacing:.22em;color:var(--primary);text-transform:uppercase;margin-bottom:1rem;font-weight:500;display:flex;align-items:center;gap:.8rem}
+.ah-num::before{content:'';width:32px;height:2px;background:linear-gradient(90deg,var(--primary),transparent)}
+.ah-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--text);line-height:1.12;margin-bottom:.8rem;letter-spacing:-.02em}
+.ah-title em{font-style:normal;background:linear-gradient(135deg,var(--primary),var(--secondary-fixed-dim));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ah-sub{font-family:'Crimson Pro',serif;font-size:1.12rem;color:var(--text-muted);font-style:italic;margin-bottom:1.5rem;line-height:1.65;max-width:720px}
+.ah-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--text-dim);letter-spacing:.08em;font-weight:500}
 
 /* LAYOUT */
-.layout{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 285px;gap:3rem;padding:2.8rem 2rem 4rem;align-items:start}
+.layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:4rem;padding:clamp(2.5rem,5vw,4.5rem) clamp(2rem,5vw,6rem) clamp(3rem,5vw,5rem);align-items:start}
 
 /* ARTICLE BODY */
 .article{min-width:0}
-.article h2{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:600;color:var(--gold-light);border-left:3px solid var(--gold);padding-left:.85rem;margin:2.6rem 0 .85rem;letter-spacing:.03em}
-html.light .article h2{color:var(--gold)}
-.article h3{font-family:'Cinzel',serif;font-size:.92rem;font-weight:600;color:var(--text);margin:1.7rem 0 .45rem;letter-spacing:.04em}
-.article p{margin-bottom:1.1rem;color:var(--text)}
-.article ul,.article ol{margin:.45rem 0 1.2rem 1.2rem}
-.article li{margin-bottom:.38rem;color:var(--text)}
-.article li::marker{color:var(--gold-dim)}
-code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:var(--code-bg);border:1px solid var(--border);padding:.1em .36em;border-radius:3px;color:var(--gold-light)}
-html.light code{color:var(--gold)}
-.rule{border:none;border-top:1px solid var(--border);margin:2rem 0}
+.article h2{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:700;color:var(--text);position:relative;padding-left:1.4rem;margin:3.5rem 0 1.2rem;letter-spacing:.01em;line-height:1.25}
+.article h2::before{content:'';position:absolute;left:0;top:.15em;bottom:.15em;width:4px;background:linear-gradient(180deg,var(--primary),var(--primary-container));border-radius:4px}
+.article h3{font-family:'Cinzel',serif;font-size:1.08rem;font-weight:600;color:var(--text);margin:2.2rem 0 .7rem;letter-spacing:.02em}
+.article h3::before{content:'—';color:var(--primary);margin-right:.5rem;font-weight:400}
+.article p{margin-bottom:1.4rem;color:var(--text);line-height:1.85;font-size:1.02rem}
+.article ul,.article ol{margin:.6rem 0 1.5rem 1.8rem}
+.article li{margin-bottom:.55rem;color:var(--text);line-height:1.75;font-size:1rem}
+.article li::marker{color:var(--primary)}
+code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:var(--code-bg);border:1px solid var(--border);padding:.14em .45em;border-radius:4px;color:var(--primary)}
+.rule{border:none;border-top:1px solid var(--border);margin:3rem 0}
 
 /* callout */
-.callout{background:var(--bg3);border:1px solid var(--border-hi);border-left:4px solid var(--gold);border-radius:var(--radius);padding:1.05rem 1.35rem;margin:1.5rem 0}
-.callout-title{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
-.callout p{margin:0;font-size:.93rem}
+.callout{position:relative;background:linear-gradient(135deg,var(--bg3),var(--bg2));border:1px solid var(--border-hi);border-left:none;border-radius:12px;padding:1.6rem 1.8rem 1.6rem 2rem;margin:2.5rem 0;overflow:hidden}
+.callout::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--primary),var(--primary-container));border-radius:5px 0 0 5px}
+.callout-title{font-family:'Space Grotesk',sans-serif;font-size:.66rem;letter-spacing:.18em;color:var(--primary);text-transform:uppercase;margin-bottom:.7rem;font-weight:600}
+.callout p{margin:0;font-size:.96rem;line-height:1.75;color:var(--text-muted)}
 
 /* steps */
-.steps{display:flex;flex-direction:column;gap:.85rem;margin:1.1rem 0 1.7rem}
-.step{display:grid;grid-template-columns:44px 1fr;gap:1rem;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1.05rem;transition:border-color .2s,background .25s}
-.step:hover{border-color:var(--border-hi)}
-.step-num{width:44px;height:44px;background:var(--tag-bg);border:1px solid var(--border-hi);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);flex-shrink:0;align-self:start;margin-top:.08rem}
-.step-body h4{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.06em;color:var(--gold-light);margin-bottom:.28rem}
-html.light .step-body h4{color:var(--gold)}
-.step-body p{margin:0;font-size:.92rem;color:var(--text-muted)}
+.steps{display:flex;flex-direction:column;gap:1.1rem;margin:1.8rem 0 2.5rem}
+.step{position:relative;display:grid;grid-template-columns:56px 1fr;gap:1.4rem;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;transition:all .3s ease}
+.step:hover{border-color:var(--border-hi);box-shadow:0 6px 20px rgba(0,0,0,.15);transform:translateX(4px)}
+.step-num{width:56px;height:56px;background:linear-gradient(135deg,var(--tag-bg),rgba(230,195,100,.18));border:1px solid var(--border-hi);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:var(--primary);flex-shrink:0;align-self:start;transition:background .3s}
+.step:hover .step-num{background:linear-gradient(135deg,rgba(230,195,100,.2),rgba(230,195,100,.28))}
+.step-body h4{font-family:'Cinzel',serif;font-size:.88rem;letter-spacing:.02em;color:var(--primary);margin-bottom:.5rem;font-weight:600;line-height:1.35}
+.step-body p{margin:0;font-size:.95rem;color:var(--text-muted);line-height:1.65}
 
 /* compare */
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.1rem 0 1.7rem}
-.compare-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:.95rem 1.1rem}
-.compare-box h4{font-family:'Cinzel',serif;font-size:.76rem;letter-spacing:.07em;color:var(--gold);margin-bottom:.55rem;padding-bottom:.38rem;border-bottom:1px solid var(--border)}
-.compare-box ul{margin:.15rem 0 0 1rem}
-.compare-box li{font-size:.88rem;color:var(--text-muted);margin-bottom:.28rem}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;margin:1.8rem 0 2.5rem}
+.compare-box{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.6rem;transition:border-color .3s,box-shadow .3s}
+.compare-box:hover{border-color:var(--border-hi);box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.compare-box h4{font-family:'Cinzel',serif;font-size:.88rem;letter-spacing:.02em;color:var(--primary);margin-bottom:.8rem;padding-bottom:.6rem;border-bottom:2px solid var(--border);font-weight:600}
+.compare-box ul{margin:.25rem 0 0 1.4rem}
+.compare-box li{font-size:.92rem;color:var(--text-muted);margin-bottom:.4rem;line-height:1.55}
 
 /* SIDEBAR */
-.sidebar{position:sticky;top:76px}
-.sidebar-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1.3rem}
-.sidebar-card-title{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:.85rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.sidebar{position:sticky;top:88px}
+.sidebar-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.6rem;margin-bottom:1.6rem;transition:border-color .3s}
+.sidebar-card:hover{border-color:var(--border-hi)}
+.sidebar-card-title{font-family:'Space Grotesk',sans-serif;font-size:.64rem;letter-spacing:.18em;color:var(--primary);text-transform:uppercase;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:2px solid var(--border);font-weight:500;display:flex;align-items:center;gap:.5rem}
+.sidebar-card-title::before{content:'';width:6px;height:6px;background:var(--primary);border-radius:50%;flex-shrink:0}
 .toc-list{list-style:none}
-.toc-list li{margin-bottom:.16rem}
-.toc-list a{font-family:'Crimson Pro',serif;font-size:.84rem;color:var(--text-muted);text-decoration:none;display:block;padding:.16rem .48rem;border-radius:3px;border-left:2px solid transparent;transition:color .15s,border-color .15s,background .15s}
-.toc-list a:hover{color:var(--gold);border-left-color:var(--gold);background:var(--tag-bg)}
-.eco-link{display:flex;align-items:center;gap:.62rem;text-decoration:none;padding:.42rem .3rem;border-radius:var(--radius);border:1px solid transparent;margin-bottom:.22rem;transition:background .15s,border-color .15s}
-.eco-link:hover{background:var(--tag-bg);border-color:var(--border-hi)}
-.eco-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.eco-link-name{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.05em;color:var(--text);display:block}
-.eco-link-url{font-family:'JetBrains Mono',monospace;font-size:.54rem;color:var(--text-dim)}
-.contact-item{font-size:.83rem;color:var(--text-muted);margin-bottom:.35rem}
-.contact-item a{color:var(--gold);text-decoration:none}
-.contact-item a:hover{color:var(--gold-light);text-decoration:underline}
-.nav-link{display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-decoration:none;padding:.28rem .48rem;border-radius:3px;transition:background .15s}
-.nav-link:hover{background:var(--tag-bg)}
+.toc-list li{margin-bottom:.3rem}
+.toc-list a{font-family:'Newsreader',serif;font-size:.88rem;color:var(--text-muted);text-decoration:none;display:block;padding:.28rem .65rem;border-radius:6px;border-left:3px solid transparent;transition:all .2s}
+.toc-list a:hover{color:var(--primary);border-left-color:var(--primary);background:var(--tag-bg);transform:translateX(3px)}
+.eco-link{display:flex;align-items:center;gap:.8rem;text-decoration:none;padding:.55rem .5rem;border-radius:10px;border:1px solid transparent;margin-bottom:.35rem;transition:all .2s}
+.eco-link:hover{background:var(--tag-bg);border-color:var(--border-hi);transform:translateX(3px)}
+.eco-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;box-shadow:0 0 6px currentColor}
+.eco-link-name{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.02em;color:var(--text);display:block}
+.eco-link-url{font-family:'Space Grotesk',sans-serif;font-size:.55rem;color:var(--text-dim);font-weight:400}
+.contact-item{font-size:.88rem;color:var(--text-muted);margin-bottom:.5rem;line-height:1.5}
+.contact-item a{color:var(--primary);text-decoration:none;transition:color .2s}
+.contact-item a:hover{color:var(--text);text-decoration:underline}
+.nav-link{display:flex;align-items:center;gap:.4rem;font-family:'Space Grotesk',sans-serif;font-size:.62rem;letter-spacing:.12em;text-decoration:none;padding:.4rem .65rem;border-radius:6px;transition:all .2s;font-weight:500}
+.nav-link:hover{background:var(--tag-bg);color:var(--primary);transform:translateX(2px)}
 
 /* MORE ARTICLES */
-.more-articles{background:var(--bg2);border-top:1px solid var(--border);padding:2.8rem 2rem 3.5rem}
-.more-articles-inner{max-width:1120px;margin:0 auto}
-.more-articles h2{font-family:'Cinzel',serif;font-size:.88rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:1.6rem}
-.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.95rem}
-.article-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;text-decoration:none;display:block;transition:border-color .2s,transform .2s,background .25s}
-.article-card:hover{border-color:var(--border-hi);transform:translateY(-2px)}
-.article-card-tag{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:.4rem}
-.article-card h3{font-family:'Cinzel',serif;font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:.4rem;line-height:1.35}
-.article-card p{font-size:.83rem;color:var(--text-muted);line-height:1.5;margin-bottom:.65rem}
-.article-card-meta{font-family:'JetBrains Mono',monospace;font-size:.54rem;color:var(--text-dim);letter-spacing:.06em}
+.more-articles{background:var(--bg);border-top:2px solid var(--border);padding:clamp(3rem,5vw,5rem) clamp(2rem,5vw,6rem) clamp(3.5rem,5vw,5rem)}
+.more-articles-inner{max-width:1200px;margin:0 auto}
+.more-articles h2{font-family:'Cinzel',serif;font-size:1.2rem;letter-spacing:.08em;color:var(--text);text-transform:uppercase;margin-bottom:2.5rem;font-weight:700;display:flex;align-items:center;gap:1.2rem}
+.more-articles h2::after{content:'';flex:1;height:1px;background:var(--border)}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.3rem}
+.article-card{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.8rem;text-decoration:none;display:block;transition:all .3s ease;overflow:hidden}
+.article-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--primary-container));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.article-card:hover::after{transform:scaleX(1)}
+.article-card:hover{border-color:var(--border-hi);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+.article-card-tag{font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-bottom:.7rem;font-weight:500}
+.article-card h3{font-family:'Cinzel',serif;font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:.7rem;line-height:1.4;transition:color .2s}
+.article-card:hover h3{color:var(--primary)}
+.article-card p{font-family:'Newsreader',serif;font-size:.88rem;color:var(--text-muted);line-height:1.65;margin-bottom:1rem}
+.article-card-meta{font-family:'Space Grotesk',sans-serif;font-size:.56rem;color:var(--text-dim);letter-spacing:.1em;font-weight:500;display:flex;align-items:center;gap:.5rem}
+.article-card-meta::before{content:'';width:12px;height:1px;background:var(--primary)}
 .article-card.coming{opacity:.4;cursor:default;border-style:dashed}
-.article-card.coming:hover{transform:none;border-color:var(--border)}
+.article-card.coming:hover{transform:none;border-color:var(--border);box-shadow:none}
+.article-card.coming:hover::after{transform:scaleX(0)}
+.article-card.coming:hover h3{color:var(--text)}
 
 /* FOOTER */
-footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center}
-.footer-brand{font-family:'Cinzel',serif;font-size:.92rem;font-weight:700;color:var(--gold);margin-bottom:.3rem}
-.footer-sub{font-size:.72rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5rem 3rem;text-align:center}
+.footer-brand{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;color:var(--primary);margin-bottom:.8rem;letter-spacing:.08em}
+.footer-sub{font-size:.75rem;color:var(--text-dim);font-family:'Space Grotesk',sans-serif;letter-spacing:.1em;margin-bottom:2rem}
+.footer-social{display:flex;align-items:center;justify-content:center;gap:2rem;margin-bottom:2rem}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;color:var(--text-muted);text-decoration:none;transition:color .2s,transform .2s}
+.footer-social a:hover{color:var(--primary);transform:scale(1.15)}
+.footer-social .material-symbols-outlined{font-size:20px;width:20px;height:20px}
+.footer-links{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;font-family:'Space Grotesk',sans-serif;font-size:.65rem;letter-spacing:.1em;margin-bottom:2rem}
+.footer-links a{color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:var(--primary)}
+.footer-copyright{font-family:'Space Grotesk',sans-serif;font-size:.62rem;color:var(--text-dim);letter-spacing:.08em;text-transform:uppercase}
 
 /* RESPONSIVE */
 @media(max-width:820px){
   .layout{grid-template-columns:1fr}
-  .sidebar{position:static}
+  .sidebar{position:static;top:auto}
   .topbar-nav{display:none}
   .compare{grid-template-columns:1fr}
+  .playbook-banner{min-height:auto;padding:0 2rem}
+  .hero-content{padding:6rem 0 4rem}
+  .hero-bg{width:100%;opacity:.15}
+  .hero-progress{display:none}
+  .pb-stats{gap:2rem}
+  .ai-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+  .articles-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .footer-social{gap:1.5rem}
+  .footer-links{gap:1.5rem}
 }
 @media(max-width:480px){
   .toggle-label{display:none}
+  body{margin-top:64px}
+  .topbar{height:64px;padding:0 1.5rem}
+  .playbook-banner{min-height:auto;padding:0 1.5rem}
+  .hero-content{padding:4.5rem 0 3rem}
+  .article-index{padding:2rem 1.5rem}
+  .article-header{padding:2rem 1.5rem 1.5rem}
+  .layout{padding:2rem 1.5rem 3rem;gap:2rem}
+  footer{padding:2.5rem 1.5rem}
+  .pb-title{font-size:clamp(1.6rem,4vw,2.2rem)}
+  .ah-title{font-size:clamp(1.2rem,2.5vw,1.8rem)}
 }
 </style>
 </head>
@@ -236,7 +331,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
 
 <!-- TOPBAR -->
 <header class="topbar">
-  <a class="topbar-brand" href="https://www.fullonbaan.com/">Fullon<span>Baan</span></a>
+  <a class="topbar-brand" href="https://www.fullonbaan.com/">FullOn<span>Baan</span></a>
   <nav><ul class="topbar-nav">
     <li><a href="https://fobrepo.vercel.app/">Repo</a></li>
     <li><a href="https://fobtraining.vercel.app/">Training</a></li>
@@ -245,6 +340,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
     <li><a href="https://fobexams.vercel.app/">Certification</a></li>
     <li><a href="https://www.fullonbaan.com/">About</a></li>
   </ul></nav>
+  <div style="flex:1"></div>
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
     <span class="toggle-icon" id="toggleIcon">☀️</span>
     <span class="toggle-label" id="toggleLabel">Light</span>
@@ -252,15 +348,76 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
   </button>
 </header>
 
-<!-- PLAYBOOK BANNER -->
+<!-- HERO -->
 <section class="playbook-banner">
-  <div class="pb-eyebrow"><span>FullonBaan · Infor LN Knowledge Series</span></div>
-  <h1 class="pb-title">FullonBaan's <em>Infor LN Playbook</em></h1>
-  <p class="pb-sub">Practitioner-written guides on Infor LN, Infor ION, and the Infor OS ecosystem — for consultants, developers, and ERP professionals.</p>
-  <div class="pb-stats">
-    <div><div class="pb-stat-num">9</div><div class="pb-stat-label">Articles Published</div></div>
-    <div><div class="pb-stat-num">1</div><div class="pb-stat-label">In Pipeline</div></div>
-    <div><div class="pb-stat-num">Finance</div><div class="pb-stat-label">Current Focus</div></div>
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="pb-eyebrow">
+      <span class="pb-eyebrow-line"></span>
+      <span class="pb-eyebrow-text">Volume I · FullOnBaan Knowledge Series</span>
+    </div>
+    <h1 class="pb-title">The <em>Infor LN</em><br/>Playbook</h1>
+    <p class="pb-sub">Practitioner-written guides on Infor LN, Infor ION, and the Infor OS ecosystem — for consultants, developers, and ERP professionals.</p>
+    <div class="pb-actions">
+      <a class="pb-btn-primary" href="#article-1">
+        Explore the Articles
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+      <a class="pb-btn-secondary" href="https://www.fullonbaan.com/">About FullOnBaan</a>
+    </div>
+    <div class="pb-stats">
+      <div><div class="pb-stat-num">9</div><div class="pb-stat-label">Articles Published</div></div>
+      <div><div class="pb-stat-num">4</div><div class="pb-stat-label">In Pipeline</div></div>
+      <div><div class="pb-stat-num">Finance</div><div class="pb-stat-label">Current Focus</div></div>
+    </div>
+  </div>
+  <div class="hero-progress">
+    <span class="hero-progress-text">01 // Introduction</span>
+    <div class="hero-progress-bar"><div class="hero-progress-fill"></div></div>
+  </div>
+</section>
+
+<!-- FEATURED ARTICLES -->
+<section class="featured">
+  <div class="featured-header">
+    <div>
+      <div class="featured-eyebrow">Curated Series</div>
+      <h2 class="featured-heading">Featured Articles</h2>
+    </div>
+    <a class="featured-viewall" href="#article-1">View All Articles</a>
+  </div>
+  <div class="featured-grid">
+    <!-- Card 1 — ION Workflows -->
+    <a class="feat-card" href="#article-1">
+      <div class="feat-card-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop" alt="Network nodes and workflow connections"/>
+        <div class="feat-overlay"></div>
+      </div>
+      <div class="feat-card-tag">ION · Workflow</div>
+      <div class="feat-card-title">Automating Approvals with Infor ION Workflows</div>
+      <p class="feat-card-desc">A practical guide to configuring event-driven approval automation in Infor LN using ION Workflow & Events.</p>
+    </a>
+    <!-- Card 2 — 4GL Programming (staggered) -->
+    <a class="feat-card stagger" href="#article-8">
+      <div class="feat-card-img">
+        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=800&auto=format&fit=crop" alt="Code editor with programming syntax"/>
+        <div class="feat-overlay"></div>
+      </div>
+      <div class="feat-card-tag">LN Dev · 4GL</div>
+      <div class="feat-card-title">Infor LN 4GL Programming — Key Concepts & UI Script Fundamentals</div>
+      <p class="feat-card-desc">An introduction to LN's 4GL language — syntax essentials, the UI script structure, hook categories, and debugging techniques.</p>
+    </a>
+    <!-- Card 3 — Period-End Closing -->
+    <a class="feat-card" href="#article-9">
+      <div class="feat-card-img">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop" alt="Financial ledger and accounting documents"/>
+        <div class="feat-overlay"></div>
+      </div>
+      <div class="feat-card-tag">Finance · GL</div>
+      <div class="feat-card-title">Period-End Closing Checklist for Infor LN Finance</div>
+      <p class="feat-card-desc">A practitioner's month-end and year-end closing checklist covering GL period management, reconciliation, and the full year-end procedure.</p>
+    </a>
   </div>
 </section>
 
@@ -397,7 +554,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
       <hr class="rule"/>
       <div class="callout">
         <div class="callout-title">📚 Continue Learning</div>
-        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for ION configuration references. Take the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> to validate your Infor LN knowledge.</p>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> for ION configuration references. Take the <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> to validate your Infor LN knowledge.</p>
       </div>
 
     </article>
@@ -415,7 +572,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
           <li><a href="#a1-bestpractices">Best Practices</a></li>
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
-          <a class="nav-link" href="#article-2" style="color:var(--gold)">↓ Next: ION API Gateway</a>
+          <a class="nav-link" href="#article-2" style="color:var(--primary)">↓ Next: ION API Gateway</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -551,7 +708,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
       <hr class="rule"/>
       <div class="callout">
         <div class="callout-title">📚 Continue Learning</div>
-        <p>Take the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> — ION and integration topics are covered across the technical tracks. Visit the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for ION API configuration scripts and reference downloads. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--gold)">FOB Training</a> for structured, practitioner-led Infor LN courses.</p>
+        <p>Take the <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> — ION and integration topics are covered across the technical tracks. Visit the <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> for ION API configuration scripts and reference downloads. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--primary)">FOB Training</a> for structured, practitioner-led Infor LN courses.</p>
       </div>
 
     </article>
@@ -571,8 +728,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
           <li><a href="#a2-conclusion">Conclusion</a></li>
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
-          <a class="nav-link" href="#article-1" style="color:var(--gold-dim)">↑ Back to Article 01</a>
-          <a class="nav-link" href="#article-3" style="color:var(--gold)">↓ Next: Domains &amp; CDFs</a>
+          <a class="nav-link" href="#article-1" style="color:var(--text-dim)">↑ Back to Article 01</a>
+          <a class="nav-link" href="#article-3" style="color:var(--primary)">↓ Next: Domains &amp; CDFs</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -752,7 +909,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
       <hr class="rule"/>
       <div class="callout">
         <div class="callout-title">📚 Continue Learning</div>
-        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for CDF configuration scripts and Data Dictionary references. The <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> covers LN development topics including domains, CDFs, and DAL scripting across the technical tracks.</p>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> for CDF configuration scripts and Data Dictionary references. The <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> covers LN development topics including domains, CDFs, and DAL scripting across the technical tracks.</p>
       </div>
 
     </article>
@@ -772,8 +929,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
           <li><a href="#a3-conclusion">Conclusion</a></li>
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
-          <a class="nav-link" href="#article-2" style="color:var(--gold-dim)">↑ Back to Article 02</a>
-          <a class="nav-link" href="#article-4" style="color:var(--gold)">↓ Next: Functions vs Libraries</a>
+          <a class="nav-link" href="#article-2" style="color:var(--text-dim)">↑ Back to Article 02</a>
+          <a class="nav-link" href="#article-4" style="color:var(--primary)">↓ Next: Functions vs Libraries</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -894,7 +1051,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
       <hr class="rule"/>
       <div class="callout">
         <div class="callout-title">📚 Continue Learning</div>
-        <p>See the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for LN development scripts and library templates. The <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> covers LN development architecture across technical tracks.</p>
+        <p>See the <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> for LN development scripts and library templates. The <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> covers LN development architecture across technical tracks.</p>
       </div>
 
     </article>
@@ -912,8 +1069,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
           <li><a href="#a4-conclusion">Conclusion</a></li>
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
-          <a class="nav-link" href="#article-3" style="color:var(--gold-dim)">↑ Back to Article 03</a>
-          <a class="nav-link" href="#article-5" style="color:var(--gold)">↓ Next: MMT Sessions</a>
+          <a class="nav-link" href="#article-3" style="color:var(--text-dim)">↑ Back to Article 03</a>
+          <a class="nav-link" href="#article-5" style="color:var(--primary)">↓ Next: MMT Sessions</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -1020,7 +1177,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
       <hr class="rule"/>
       <div class="callout">
         <div class="callout-title">📚 Continue Learning</div>
-        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for LN session development references. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--gold)">FOB Training</a> for hands-on Infor LN development courses, or take the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> to benchmark your LN development knowledge.</p>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> for LN session development references. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--primary)">FOB Training</a> for hands-on Infor LN development courses, or take the <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> to benchmark your LN development knowledge.</p>
       </div>
 
     </article>
@@ -1039,8 +1196,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
           <li><a href="#a5-conclusion">Conclusion</a></li>
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
-          <a class="nav-link" href="#article-4" style="color:var(--gold-dim)">↑ Back to Article 04</a>
-          <a class="nav-link" href="#article-6" style="color:var(--gold)">↓ Next: Creating Sessions</a>
+          <a class="nav-link" href="#article-4" style="color:var(--text-dim)">↑ Back to Article 04</a>
+          <a class="nav-link" href="#article-6" style="color:var(--primary)">↓ Next: Creating Sessions</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -1185,7 +1342,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
       <hr class="rule"/>
       <div class="callout">
         <div class="callout-title">📚 Continue Learning</div>
-        <p>The <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> has LN session development templates and UI script examples. Take the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> — LN development session architecture is tested across the technical tracks.</p>
+        <p>The <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> has LN session development templates and UI script examples. Take the <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> — LN development session architecture is tested across the technical tracks.</p>
       </div>
 
     </article>
@@ -1201,8 +1358,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
           <li><a href="#a6-bestpractices">Best Practices</a></li>
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
-          <a class="nav-link" href="#article-5" style="color:var(--gold-dim)">↑ Back to Article 05</a>
-          <a class="nav-link" href="#article-7" style="color:var(--gold)">↓ Next: VRC Explained</a>
+          <a class="nav-link" href="#article-5" style="color:var(--text-dim)">↑ Back to Article 05</a>
+          <a class="nav-link" href="#article-7" style="color:var(--primary)">↓ Next: VRC Explained</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -1318,7 +1475,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
       <hr class="rule"/>
       <div class="callout">
         <div class="callout-title">📚 Continue Learning</div>
-        <p>The <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> includes VRC setup checklists and LN environment configuration guides. Prepare for the <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> — VRC and environment management concepts are covered in the LN technical development track.</p>
+        <p>The <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> includes VRC setup checklists and LN environment configuration guides. Prepare for the <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> — VRC and environment management concepts are covered in the LN technical development track.</p>
       </div>
 
     </article>
@@ -1335,8 +1492,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
           <li><a href="#a7-bestpractices">Best Practices</a></li>
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
-          <a class="nav-link" href="#article-6" style="color:var(--gold-dim)">↑ Back to Article 06</a>
-          <a class="nav-link" href="#article-8" style="color:var(--gold)">↓ Next: 4GL Programming</a>
+          <a class="nav-link" href="#article-6" style="color:var(--text-dim)">↑ Back to Article 06</a>
+          <a class="nav-link" href="#article-8" style="color:var(--primary)">↓ Next: 4GL Programming</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -1467,7 +1624,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
       <hr class="rule"/>
       <div class="callout">
         <div class="callout-title">📚 Continue Learning</div>
-        <p>The <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> has 4GL script templates, DAL hook examples, and UI script patterns. The <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> tests 4GL and development concepts across multiple technical tracks. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--gold)">FOB Training</a> for structured, hands-on LN development courses.</p>
+        <p>The <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> has 4GL script templates, DAL hook examples, and UI script patterns. The <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> tests 4GL and development concepts across multiple technical tracks. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--primary)">FOB Training</a> for structured, hands-on LN development courses.</p>
       </div>
 
     </article>
@@ -1485,8 +1642,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
           <li><a href="#a8-conclusion">Conclusion</a></li>
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.2rem">
-          <a class="nav-link" href="#article-7" style="color:var(--gold-dim)">↑ Back to Article 07</a>
-          <a class="nav-link" href="#article-9" style="color:var(--gold)">↓ Next: Period-End Closing</a>
+          <a class="nav-link" href="#article-7" style="color:var(--text-dim)">↑ Back to Article 07</a>
+          <a class="nav-link" href="#article-9" style="color:var(--primary)">↓ Next: Period-End Closing</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -1774,7 +1931,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
       <hr class="rule"/>
       <div class="callout">
         <div class="callout-title">📚 Continue Learning</div>
-        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--gold)">FOB Repository</a> for LN Finance configuration guides and period-close checklists. The <a href="https://fobexams.vercel.app/" style="color:var(--gold)">FOB Certification Exam</a> covers Infor LN Finance topics including GL period management across the functional tracks. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--gold)">FOB Training</a> for structured Infor LN Finance courses.</p>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> for LN Finance configuration guides and period-close checklists. The <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> covers Infor LN Finance topics including GL period management across the functional tracks. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--primary)">FOB Training</a> for structured Infor LN Finance courses.</p>
       </div>
 
     </article>
@@ -1793,7 +1950,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
           <li><a href="#a9-bestpractices">Best Practices</a></li>
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
-          <a class="nav-link" href="#article-8" style="color:var(--gold-dim)">↑ Back to Article 08</a>
+          <a class="nav-link" href="#article-8" style="color:var(--text-dim)">↑ Back to Article 08</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -1851,8 +2008,31 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem 2r
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">FullonBaan</div>
-  <div class="footer-sub">One Stop Destination for IT Solutions &nbsp;·&nbsp; Bangalore, India &nbsp;·&nbsp; fullonbaan.com</div>
+  <div class="footer-brand">FullOnBaan</div>
+  <div class="footer-sub">Infor LN Knowledge & ERP Expertise · Bangalore, India</div>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/company/fullonbaan/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+      <span class="material-symbols-outlined">share</span>
+    </a>
+    <a href="https://www.facebook.com/p/FullonBaaN-100067220493183/" target="_blank" title="Facebook" aria-label="Facebook">
+      <span class="material-symbols-outlined">public</span>
+    </a>
+    <a href="https://www.instagram.com/fullonbaan/" target="_blank" title="Instagram" aria-label="Instagram">
+      <span class="material-symbols-outlined">photo_camera</span>
+    </a>
+    <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA" target="_blank" title="YouTube" aria-label="YouTube">
+      <span class="material-symbols-outlined">play_circle</span>
+    </a>
+    <a href="https://wa.me/916360593122" target="_blank" title="WhatsApp" aria-label="WhatsApp">
+      <span class="material-symbols-outlined">mail</span>
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:fullonbaan@gmail.com">Contact</a>
+    <a href="https://www.fullonbaan.com/">Website</a>
+    <a href="tel:+916360593122">+91 63605 93122</a>
+  </div>
+  <div class="footer-copyright">© 2026 FullOnBaan. All rights reserved. Bangalore, India.</div>
 </footer>
 
 <script>

@@ -262,6 +262,81 @@ code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:var(--cod
 .nav-link{display:flex;align-items:center;gap:.4rem;font-family:'Space Grotesk',sans-serif;font-size:.62rem;letter-spacing:.12em;text-decoration:none;padding:.4rem .65rem;border-radius:6px;transition:all .2s;font-weight:500}
 .nav-link:hover{background:var(--tag-bg);color:var(--primary);transform:translateX(2px)}
 
+/* DAL ARTICLE — CODE BLOCKS */
+.dal-code-block{background:var(--bg);border-radius:8px;overflow:hidden;margin:1.8rem 0;border:1px solid var(--border)}
+.dal-code-bar{background:var(--bg3);padding:7px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--text-dim)}
+.dal-cd{width:8px;height:8px;border-radius:50%}
+.dal-code-content{padding:16px 18px;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.9;color:var(--text-muted);white-space:pre;overflow-x:auto}
+.dal-ck{color:#C792EA}.dal-cs{color:#A8E5A8}.dal-cn{color:#E8D898}.dal-cc{color:var(--text-dim);font-style:italic}.dal-cv{color:#82AAFF}.dal-ct{color:var(--primary)}.dal-cop{color:#F07070}
+html.light .dal-ck{color:#7B2D8E}html.light .dal-cs{color:#2E7D32}html.light .dal-cn{color:#6D5700}html.light .dal-cc{color:#8a7a68}html.light .dal-cv{color:#1565C0}html.light .dal-cop{color:#C62828}
+
+/* DAL ARTICLE — DIAGRAM CARD */
+.dal-diagram-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1.8rem 0}
+.dal-diagram-label{background:var(--bg3);padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--text-dim);border-bottom:1px solid var(--border);letter-spacing:.08em;text-transform:uppercase}
+.dal-diagram-body{padding:18px 14px 14px;overflow-x:auto}
+
+/* DAL ARTICLE — INFO BOXES */
+.dal-info-box{border-radius:8px;padding:1.2rem 1.4rem;margin:1.5rem 0;border-left:4px solid}
+.dal-info-box.dal-tip{background:rgba(40,167,69,.08);border-color:#28A745}
+.dal-info-box.dal-warn{background:rgba(201,168,76,.08);border-color:var(--primary)}
+.dal-info-box.dal-info{background:rgba(74,122,170,.08);border-color:#4A7AAA}
+.dal-info-box.dal-danger{background:rgba(163,45,45,.08);border-color:#A32D2D}
+.dal-info-label{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.dal-tip .dal-info-label{color:#28A745}.dal-warn .dal-info-label{color:var(--primary)}.dal-info .dal-info-label{color:#4A7AAA}.dal-danger .dal-info-label{color:#A32D2D}
+.dal-info-box p{font-size:.92rem;color:var(--text-muted);margin:0;line-height:1.7}
+
+/* DAL ARTICLE — PULL QUOTE */
+.dal-pull-quote{border-left:3px solid var(--primary);padding:1.2rem 1.6rem;margin:2rem 0;background:var(--bg2);border-radius:0 8px 8px 0}
+.dal-pull-quote p{font-family:'Crimson Pro',serif;font-size:1.08rem;font-style:italic;color:var(--primary);line-height:1.6;margin:0}
+.dal-pull-quote cite{display:block;margin-top:8px;font-size:.68rem;font-family:'JetBrains Mono',monospace;color:var(--text-dim);font-style:normal;letter-spacing:.06em}
+
+/* DAL ARTICLE — COMPARE GRID */
+.dal-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+.dal-compare-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem}
+.dal-compare-card h4{font-size:.78rem;font-family:'JetBrains Mono',monospace;font-weight:500;margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.dal-compare-card ul{list-style:none;padding:0;margin:0}
+.dal-compare-card ul li{font-size:.88rem;color:var(--text-muted);padding:3px 0;display:flex;align-items:baseline;gap:6px;line-height:1.5}
+.dal-compare-card ul li::before{content:'>';font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--primary);flex-shrink:0}
+
+/* DAL ARTICLE — SCREEN MOCK */
+.dal-screen-mock{background:var(--bg);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:1.8rem 0}
+.dal-screen-titlebar{background:var(--bg3);padding:7px 14px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border)}
+.dal-screen-dots{display:flex;gap:5px}
+.dal-screen-dot{width:8px;height:8px;border-radius:50%}
+.dal-screen-url{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 9px;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--text-dim)}
+
+/* DAL ARTICLE — INTERACTIVE MISTAKES */
+.dal-sim-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.6rem;margin:1.8rem 0}
+.dal-sim-title{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px}
+.dal-sim-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.dal-sim-tab{padding:6px 12px;border-radius:5px;font-size:.72rem;font-family:'JetBrains Mono',monospace;cursor:pointer;border:1px solid var(--border);background:var(--bg);color:var(--text-dim);transition:all .2s}
+.dal-sim-tab.active{background:var(--primary);color:var(--bg);border-color:var(--primary);font-weight:700}
+.dal-sim-tab.done{background:var(--bg3);color:var(--text-muted);border-color:var(--border-hi)}
+.dal-sim-out{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:14px 16px;min-height:120px;font-size:.88rem;line-height:1.8;color:var(--text-muted)}
+.dal-sim-out .dal-sim-label{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.dal-sim-btns{display:flex;gap:10px;margin-top:12px}
+.dal-sim-btn{padding:7px 18px;border-radius:5px;font-size:.72rem;font-family:'JetBrains Mono',monospace;cursor:pointer;border:1px solid var(--border-hi);background:transparent;color:var(--text-muted);transition:all .15s}
+.dal-sim-btn:hover{background:var(--bg3);color:var(--primary)}
+.dal-sim-btn.dal-primary{background:var(--primary);color:var(--bg);border-color:var(--primary);font-weight:700}
+.dal-sim-btn.dal-primary:hover{opacity:.85}
+
+/* DAL ARTICLE — NEXT STEPS */
+.dal-steps-grid{display:flex;flex-direction:column;gap:0;margin:1.5rem 0}
+.dal-step-card{display:flex;gap:0;position:relative;padding-bottom:.8rem}
+.dal-step-card:not(:last-child){border-bottom:1px solid var(--border);margin-bottom:.8rem}
+.dal-step-arrow{width:40px;height:40px;border-radius:50%;background:var(--bg3);color:var(--primary);font-family:'JetBrains Mono',monospace;font-size:.8rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border)}
+.dal-step-body{padding:4px 0 0 14px}
+.dal-step-title{font-family:'Cinzel',serif;font-size:.92rem;font-weight:600;color:var(--text);margin-bottom:4px}
+.dal-step-desc{font-size:.88rem;color:var(--text-muted);line-height:1.7}
+/* DAL ARTICLE — DAL TYPES GRID (v2) */
+.dal-types-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.5rem 0}
+.dal-type-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;transition:border-color .3s}
+.dal-type-card:hover{border-color:var(--border-hi)}
+.dal-type-card h4{font-family:'JetBrains Mono',monospace;font-size:.72rem;margin-bottom:6px;letter-spacing:.06em}
+.dal-type-card .dal-since{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--text-dim);margin-bottom:10px;display:block}
+.dal-hook-tag{display:inline-block;background:var(--bg2);border:1px solid var(--border-hi);border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--primary);padding:2px 7px;margin:2px 2px 2px 0}
+@media(max-width:600px){.dal-compare-grid,.dal-types-grid{grid-template-columns:1fr}}
+
 /* MORE ARTICLES */
 .more-articles{background:var(--bg);border-top:2px solid var(--border);padding:clamp(3rem,5vw,5rem) clamp(2rem,5vw,6rem) clamp(3.5rem,5vw,5rem)}
 .more-articles-inner{max-width:1200px;margin:0 auto}
@@ -367,8 +442,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
       <a class="pb-btn-secondary" href="https://www.fullonbaan.com/">About FullOnBaan</a>
     </div>
     <div class="pb-stats">
-      <div><div class="pb-stat-num">9</div><div class="pb-stat-label">Articles Published</div></div>
-      <div><div class="pb-stat-num">4</div><div class="pb-stat-label">In Pipeline</div></div>
+      <div><div class="pb-stat-num">10</div><div class="pb-stat-label">Articles Published</div></div>
+      <div><div class="pb-stat-num">3</div><div class="pb-stat-label">In Pipeline</div></div>
       <div><div class="pb-stat-num">Finance</div><div class="pb-stat-label">Current Focus</div></div>
     </div>
   </div>
@@ -462,10 +537,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
         <div class="ai-num">09</div>
         <div><div class="ai-card-tag">Finance · GL</div><div class="ai-card-title">Period-End Closing Checklist for Infor LN Finance</div></div>
       </a>
-      <div class="ai-card coming">
+      <a class="ai-card" href="#article-10">
         <div class="ai-num">10</div>
         <div><div class="ai-card-tag">Development · DAL</div><div class="ai-card-title">DAL Scripting in Infor LN — A Practical Intro</div></div>
-      </div>
+      </a>
     </div>
   </div>
 </div>
@@ -1973,17 +2048,408 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
 </div><!-- /article-9 -->
 
 
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 10 — DAL Scripting in Infor LN — A Practical Intro
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-10" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 10 · Development · DAL</div>
+      <h2 class="ah-title">DAL Scripting in Infor LN<br>— <em>A Practical Intro</em></h2>
+      <p class="ah-sub">DAL is the table-linked business rule layer in Infor LN. This article covers the architecture, hook types, session references, and practical code examples for both DAL 1 and DAL 2.</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">DAL</span><span class="tag">Development</span><span class="tag">Infor LN</span><span class="tag">DAL 2</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a10-what">What is DAL and what it actually does</h2>
+      <p><strong>DAL</strong> stands for <em>Data Access Layer</em>. In Infor LN, it is a <strong>compiled</strong> scripting layer, linked to a database table, that implements business rules ensuring the logical integrity of the database. Because DAL is linked to a <em>table</em> (not a session), the rules fire regardless of which session, import job, or external integration modifies the data.</p>
+      <p>The design principle is precise: a DAL is linked to a table, not a session. Therefore, when the table is accessed, the DAL is used. In this way, different sessions can update a table by using the same rules. In addition, integration capabilities use the DAL to ensure updates are also processed with the same rules.</p>
+      <p>DAL scripts are <strong>compiled into library objects (DLLs)</strong> as part of the LN build process. The application server loads the compiled DAL object whenever a session performs an action on that table. There is no interpretation at runtime — a compile step is mandatory after every edit.</p>
+
+      <div class="dal-pull-quote">
+        <p>"DAL scripts implement the business rules of the application to ensure the logical integrity of the database. When a session performs an action on a table, the DAL for the table is loaded."</p>
+        <cite>— Infor LN Development Tools Development Guide · docs.infor.com</cite>
+      </div>
+
+      <h2 id="a10-versions">DAL 1 vs DAL 2: both versions explained</h2>
+      <p>Infor LN has two DAL versions with meaningfully different capabilities. Knowing which one a table uses determines what hook types are available and how well the table works in integration scenarios.</p>
+      <div class="dal-types-grid">
+        <div class="dal-type-card">
+          <h4 style="color:var(--primary)">DAL 1</h4>
+          <span class="dal-since">Introduced: Infor Baan 5.0</span>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:10px">Contains database logic (integrity rules) but usually <em>not</em> all business logic. The remainder lives in UI scripts. Business logic is split.</p>
+          <div style="margin-bottom:10px">
+            <span class="dal-hook-tag">Object hooks</span>
+            <span class="dal-hook-tag">Property hooks</span>
+          </div>
+          <p style="font-size:.68rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace">Session: ttadv2530m000 · Script type: "DAL"</p>
+        </div>
+        <div class="dal-type-card">
+          <h4 style="color:#7AB8D8">DAL 2</h4>
+          <span class="dal-since">Introduced: Infor LN 6.1</span>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:10px">Contains <em>all</em> business logic for the table. UI scripts hold only UI logic. Perfect for integrations — external apps get full rule enforcement automatically.</p>
+          <div style="margin-bottom:10px">
+            <span class="dal-hook-tag">Object hooks</span>
+            <span class="dal-hook-tag">Field hooks</span>
+            <span class="dal-hook-tag">Business method hooks</span>
+            <span class="dal-hook-tag">Field dependencies</span>
+          </div>
+          <p style="font-size:.68rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace">Session: ttadv2530m000 · Script type: "DAL (version 2)"</p>
+        </div>
+      </div>
+      <div class="dal-info-box dal-info">
+        <div class="dal-info-label">Why DAL 2 matters for integrations</div>
+        <p>With DAL 1, when an external application connects to an LN table via BOIs (Business Object Interfaces), the DAL 1 fires — but any additional logic in the UI script is silently bypassed. With DAL 2, all logic is in the DAL script — so integrations automatically inherit the complete rule set without any extra work.</p>
+      </div>
+
+      <h2 id="a10-vs4gl">DAL vs. UI Script (4GL): when to use each</h2>
+      <div class="dal-compare-grid">
+        <div class="dal-compare-card">
+          <h4 style="color:var(--primary)">DAL Script</h4>
+          <ul>
+            <li>Compiled into library objects (DLLs)</li>
+            <li>Linked to a table — not a session</li>
+            <li>Fires for all access paths (UI, integration, import, batch)</li>
+            <li>Business rules, integrity checks, field defaults</li>
+            <li>Hook types: Object, Property, Field, Business Method</li>
+            <li>DAL 2 preferred for integration-enabled tables</li>
+            <li>Ideal for validations, defaults, cross-field logic</li>
+            <li>Accessible to LN-certified developers</li>
+          </ul>
+        </div>
+        <div class="dal-compare-card">
+          <h4 style="color:var(--text-dim)">UI Script (4GL)</h4>
+          <ul>
+            <li>Compiled 4GL language</li>
+            <li>Linked to a session and its forms</li>
+            <li>Only fires via that session's UI flow</li>
+            <li>Form navigation, non-table fields, UI behaviour</li>
+            <li>Event sections: field, form, group, zoom, program</li>
+            <li>In DAL 2 sessions: UI script contains only UI logic</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dal-info-box dal-info">
+        <div class="dal-info-label">Rule of thumb</div>
+        <p>Business rules (validation, defaults, cross-table updates, referential integrity) belong in DAL. Pure UI behaviour (non-table field handling, form flow, screen-context field enabling) belongs in the UI script. In DAL 2, even most field-level UI behaviour (read-only, invisible, mandatory, enum filtering) moves into DAL field hooks.</p>
+      </div>
+
+      <h2 id="a10-hookmodel">The DAL hook model</h2>
+      <p>All business rules in DAL are implemented as <strong>hooks</strong> — pre-defined function names that you create inside a DAL script. The 4GL engine calls these functions at specific points in the data lifecycle. The hook categories differ between DAL 1 and DAL 2.</p>
+
+      <div class="dal-diagram-card">
+        <div class="dal-diagram-label">FIG 1 — DAL HOOK CATEGORIES BY VERSION (SOURCE: DOCS.INFOR.COM)</div>
+        <div class="dal-diagram-body">
+          <svg width="100%" viewBox="0 0 680 316" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="18" width="290" height="278" rx="10" fill="rgba(230,195,100,.04)" stroke="var(--primary,#C9A84C)" stroke-width="0.8"/>
+            <text x="165" y="44" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="var(--primary,#C9A84C)" letter-spacing="0.05em">DAL 1  (Baan 5.0+)</text>
+            <rect x="36" y="56" width="258" height="100" rx="7" fill="var(--bg2,#13110D)" stroke="var(--border,#3A2E18)" stroke-width="0.6"/>
+            <text x="165" y="78" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#E8D898">Object hooks</text>
+            <text x="165" y="96" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">Row/record level. Check integrity,</text>
+            <text x="165" y="112" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">perform side-effects on save/delete.</text>
+            <text x="165" y="132" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--text-dim,#5A4A30)">before.save.object()</text>
+            <text x="165" y="148" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--text-dim,#5A4A30)">after.save.object() · before.destroy.object()</text>
+            <rect x="36" y="168" width="258" height="76" rx="7" fill="var(--bg2,#13110D)" stroke="var(--border,#3A2E18)" stroke-width="0.6"/>
+            <text x="165" y="190" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#E8D898">Property hooks</text>
+            <text x="165" y="208" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">Field level. Verify input values,</text>
+            <text x="165" y="224" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">calculate default values.</text>
+            <text x="165" y="268" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--text-dim,#4A3A20)">Script type: "DAL"</text>
+            <rect x="370" y="18" width="290" height="278" rx="10" fill="rgba(74,122,170,.04)" stroke="#5A8AAA" stroke-width="0.8"/>
+            <text x="515" y="44" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7AB8D8" letter-spacing="0.05em">DAL 2  (LN 6.1+)</text>
+            <rect x="386" y="56" width="258" height="56" rx="7" fill="var(--bg2,#0A1318)" stroke="#2A4A5A" stroke-width="0.6"/>
+            <text x="515" y="78" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#E8D898">Object hooks</text>
+            <text x="515" y="96" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">Identical to DAL 1 object hooks</text>
+            <rect x="386" y="120" width="258" height="84" rx="7" fill="var(--bg2,#0A1318)" stroke="#2A4A5A" stroke-width="0.6"/>
+            <text x="515" y="142" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#E8D898">Field hooks  ✦ new in DAL 2</text>
+            <text x="515" y="160" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">Validate, read-only, invisible, mandatory,</text>
+            <text x="515" y="176" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">enum filtering, auto-update on change</text>
+            <rect x="386" y="212" width="258" height="56" rx="7" fill="var(--bg2,#0A1318)" stroke="#2A4A5A" stroke-width="0.6"/>
+            <text x="515" y="234" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#E8D898">Business method hooks  ✦ new</text>
+            <text x="515" y="252" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">Enable/disable/hide form commands</text>
+            <text x="515" y="276" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--text-dim,#4A4A5A)">Script type: "DAL (version 2)"</text>
+          </svg>
+        </div>
+      </div>
+
+      <h2 id="a10-objecthooks">Object hooks: before.save, after.save, destroy</h2>
+      <p>Object hooks are the most commonly written DAL hooks. They operate on the row or record as a whole. The 4GL engine calls them before and after save and delete operations. The key hook names documented by Infor are: <code>before.save.object()</code>, <code>after.save.object()</code>, <code>before.destroy.object()</code>, and <code>after.destroy.object()</code>.</p>
+      <p>Below is a <code>before.save.object()</code> hook that blocks saving a Purchase Order line if the requested delivery date is in the past.</p>
+
+      <div class="dal-code-block">
+        <div class="dal-code-bar">
+          <div style="display:flex;gap:5px"><div class="dal-cd" style="background:#FF5F57"></div><div class="dal-cd" style="background:#FEBC2E"></div><div class="dal-cd" style="background:#28C840"></div></div>
+          <span style="margin-left:8px">tppdm630 · before.save.object()</span>
+        </div>
+        <div class="dal-code-content"><span class="dal-cc">| DAL script for table: tppdm630 (Purchase Order Lines)</span>
+<span class="dal-cc">| Hook: before.save.object()</span>
+<span class="dal-cc">| Purpose: Block save if requested delivery date is in the past</span>
+
+<span class="dal-ck">function</span> <span class="dal-cn">before.save.object</span>()
+
+  <span class="dal-cc">| t$pdlv = requested delivery date on the PO line</span>
+  <span class="dal-cc">| Check for non-empty date (LN stores empty dates as 0)</span>
+  <span class="dal-ck">if</span> tppdm630.t$pdlv <span class="dal-cop">&lt;</span> <span class="dal-cv">gtod()</span>
+     <span class="dal-ck">and</span> tppdm630.t$pdlv <span class="dal-cop">&lt;&gt;</span> <span class="dal-cv">0</span>
+  <span class="dal-ck">then</span>
+    <span class="dal-cc">| iserror sets the message shown to the user and blocks the save</span>
+    <span class="dal-cv">iserror</span>  <span class="dal-cs">"Delivery date cannot be in the past."</span>
+    <span class="dal-ck">return false</span>
+  <span class="dal-ck">endif</span>
+
+  <span class="dal-ck">return true</span>
+
+<span class="dal-ck">end.function</span></div>
+      </div>
+
+      <div class="dal-info-box dal-warn">
+        <div class="dal-info-label">DAL syntax: comments, empty dates, and error messages</div>
+        <p>DAL scripts use <code>|</code> (pipe) for single-line comments. Empty dates are stored as <code>0</code> in LN's internal representation — not as SQL null. Always guard with <code>field &lt;&gt; 0</code> to avoid false failures on new records. The <code>iserror</code> keyword sets the error message displayed to the user and signals that the operation should be blocked.</p>
+      </div>
+
+      <h2 id="a10-property">Property hooks (DAL 1): defaults and field validation</h2>
+      <p>In DAL 1, <strong>property hooks</strong> operate at the field level. They are used to verify valid input values and to calculate default values for table fields. Property hooks follow a naming convention based on the operation and the table/field: <code>default.tablename.fieldname</code> for default-setting, and <code>check.tablename.fieldname</code> for validation.</p>
+
+      <div class="dal-code-block">
+        <div class="dal-code-bar">
+          <div style="display:flex;gap:5px"><div class="dal-cd" style="background:#FF5F57"></div><div class="dal-cd" style="background:#FEBC2E"></div><div class="dal-cd" style="background:#28C840"></div></div>
+          <span style="margin-left:8px">DAL 1 · Property hook · field default</span>
+        </div>
+        <div class="dal-code-content"><span class="dal-cc">| DAL 1 Property hook: set default warehouse on new PO line</span>
+<span class="dal-cc">| Hook fires when tppdm630.t$cwar (warehouse field) is initialised</span>
+
+<span class="dal-ck">function</span> <span class="dal-cn">default.tppdm630.t$cwar</span>()
+
+  <span class="dal-cc">| Read the default warehouse from the purchase parameters table</span>
+  <span class="dal-ck">select</span> tpptr300
+    <span class="dal-ck">where</span> tpptr300.t$lcol <span class="dal-cop">=</span> tppdm630.t$lcol
+      <span class="dal-ck">and</span>   tpptr300.t$bpid <span class="dal-cop">=</span> tppdm630.t$bpid
+  <span class="dal-ck">do</span>
+    tppdm630.t$cwar <span class="dal-cop">=</span> tpptr300.t$cwar
+  <span class="dal-ck">end.select</span>
+
+<span class="dal-ck">end.function</span></div>
+      </div>
+
+      <h2 id="a10-fieldhooks">Field hooks and business methods (DAL 2)</h2>
+      <p>DAL 2 introduces <strong>field hooks</strong> — a richer replacement for property hooks that handle all field-level logic in one place. According to official documentation, field hooks can: verify valid values, make a field read-only, make a field invisible, automatically update a field after a related field changes, make a field mandatory, and hide specific enum constants from an enum list.</p>
+      <p><strong>Business methods</strong> are named operations on a row or set of rows. They can be called from sessions, from other DAL scripts, or from external integrations through the Business Object Layer (BOL). They are the correct, documented mechanism for complex cross-table operations initiated from a DAL hook.</p>
+
+      <div class="dal-code-block">
+        <div class="dal-code-bar">
+          <div style="display:flex;gap:5px"><div class="dal-cd" style="background:#FF5F57"></div><div class="dal-cd" style="background:#FEBC2E"></div><div class="dal-cd" style="background:#28C840"></div></div>
+          <span style="margin-left:8px">DAL 2 · after.save.object() · calling a business method</span>
+        </div>
+        <div class="dal-code-content"><span class="dal-cc">| DAL 2: tssls400 (Sales Order Header)</span>
+<span class="dal-cc">| Hook: after.save.object(mode)</span>
+<span class="dal-cc">| Purpose: Trigger warehouse allocation business method on confirm</span>
+
+<span class="dal-ck">function</span> <span class="dal-cn">after.save.object</span>(mode)
+
+  <span class="dal-cc">| mode 1 = insert, mode 2 = update</span>
+  <span class="dal-cc">| Only act when this is an update that sets status to Confirmed (2)</span>
+  <span class="dal-ck">if</span> mode <span class="dal-cop">=</span> <span class="dal-cv">2</span> <span class="dal-ck">and</span> tssls400.t$hdst <span class="dal-cop">=</span> <span class="dal-cv">2</span> <span class="dal-ck">then</span>
+
+    <span class="dal-cc">| Call the business method defined on this table</span>
+    <span class="dal-cc">| Business methods are the correct cross-table mechanism in DAL</span>
+    tssls400.AllocateWarehouseOrder(
+      tssls400.t$orno,
+      tssls400.t$cwar
+    )
+
+  <span class="dal-ck">endif</span>
+
+<span class="dal-ck">end.function</span></div>
+      </div>
+
+      <div class="dal-info-box dal-tip">
+        <div class="dal-info-label">Detecting insert vs update: use the mode argument</div>
+        <p>In DAL object hooks, the <code>mode</code> argument passed to <code>before.save.object(mode)</code> and <code>after.save.object(mode)</code> distinguishes inserts (mode=1) from updates (mode=2). This is the documented way to branch on operation type in DAL.</p>
+      </div>
+
+      <h2 id="a10-editor">Where to create and edit DAL scripts in LN</h2>
+      <p>Both DAL 1 and DAL 2 scripts are created, edited, and compiled in <strong><code>Program Scripts / Libraries (ttadv2530m000)</code></strong>. The Script Type field distinguishes them: <code>"DAL"</code> for DAL 1 and <code>"DAL (version 2)"</code> for DAL 2.</p>
+
+      <div class="dal-screen-mock">
+        <div class="dal-screen-titlebar">
+          <div class="dal-screen-dots">
+            <div class="dal-screen-dot" style="background:#FF5F57"></div>
+            <div class="dal-screen-dot" style="background:#FEBC2E"></div>
+            <div class="dal-screen-dot" style="background:#28C840"></div>
+          </div>
+          <div class="dal-screen-url">Infor LN · Tools · Program Scripts / Libraries · ttadv2530m000</div>
+        </div>
+        <svg width="100%" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="680" height="28" fill="var(--bg,#0A0908)"/>
+          <rect x="8" y="6" width="52" height="15" rx="3" fill="var(--bg3,#1A1710)" stroke="var(--border,#3A2E18)" stroke-width="0.5"/>
+          <text x="34" y="18" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--text-muted,#9A8A6A)">New</text>
+          <rect x="68" y="6" width="56" height="15" rx="3" fill="var(--bg3,#1A1710)" stroke="var(--border,#3A2E18)" stroke-width="0.5"/>
+          <text x="96" y="18" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--text-muted,#9A8A6A)">Compile</text>
+          <rect x="132" y="6" width="62" height="15" rx="3" fill="var(--bg3,#1A1710)" stroke="var(--border,#3A2E18)" stroke-width="0.5"/>
+          <text x="163" y="18" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--text-muted,#9A8A6A)">Check Out</text>
+          <rect x="202" y="6" width="58" height="15" rx="3" fill="var(--bg3,#1A1710)" stroke="var(--border,#3A2E18)" stroke-width="0.5"/>
+          <text x="231" y="18" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--text-muted,#9A8A6A)">Check In</text>
+          <rect x="0" y="28" width="680" height="24" fill="var(--bg3,#1A1710)"/>
+          <text x="16" y="44" font-family="JetBrains Mono,monospace" font-size="9.5" fill="var(--text-dim,#5A4A30)">SCRIPT CODE</text>
+          <text x="190" y="44" font-family="JetBrains Mono,monospace" font-size="9.5" fill="var(--text-dim,#5A4A30)">DESCRIPTION</text>
+          <text x="420" y="44" font-family="JetBrains Mono,monospace" font-size="9.5" fill="var(--text-dim,#5A4A30)">SCRIPT TYPE</text>
+          <text x="580" y="44" font-family="JetBrains Mono,monospace" font-size="9.5" fill="var(--text-dim,#5A4A30)">TABLE</text>
+          <rect x="0" y="52" width="680" height="32" fill="rgba(230,195,100,.04)"/>
+          <rect x="4" y="60" width="3" height="16" rx="1" fill="var(--primary,#C9A84C)"/>
+          <text x="16" y="72" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--primary,#C9A84C)">tppdm630.dal</text>
+          <text x="190" y="72" font-family="Georgia,serif" font-size="11" fill="var(--primary,#D4C898)">PO Lines — delivery date check</text>
+          <rect x="420" y="59" width="74" height="14" rx="3" fill="rgba(230,195,100,.08)" stroke="var(--border,#3A2E18)" stroke-width="0.5"/>
+          <text x="457" y="70" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" fill="var(--primary,#C9A84C)">DAL</text>
+          <text x="580" y="72" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--text-muted,#9A8A6A)">tppdm630</text>
+          <rect x="0" y="84" width="680" height="32" fill="var(--bg,#0A0908)"/>
+          <text x="16" y="104" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--text-dim,#7A7060)">tssls400.dal2</text>
+          <text x="190" y="104" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">Sales Order Header — full business logic</text>
+          <rect x="420" y="91" width="108" height="14" rx="3" fill="rgba(74,122,170,.08)" stroke="#2A3A4A" stroke-width="0.5"/>
+          <text x="474" y="102" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#7AB8D8">DAL (version 2)</text>
+          <text x="580" y="104" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--text-dim,#7A7060)">tssls400</text>
+          <rect x="0" y="116" width="680" height="32" fill="var(--bg,#0A0908)"/>
+          <text x="16" y="136" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--text-dim,#7A7060)">tccom001.dal2</text>
+          <text x="190" y="136" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">Business Partner — field hooks</text>
+          <rect x="420" y="123" width="108" height="14" rx="3" fill="rgba(74,122,170,.08)" stroke="#2A3A4A" stroke-width="0.5"/>
+          <text x="474" y="134" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#7AB8D8">DAL (version 2)</text>
+          <text x="580" y="136" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--text-dim,#7A7060)">tccom001</text>
+          <rect x="0" y="148" width="680" height="32" fill="var(--bg,#0A0908)"/>
+          <text x="16" y="168" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--text-dim,#7A7060)">tcibd001.dal</text>
+          <text x="190" y="168" font-family="Georgia,serif" font-size="11" fill="var(--text-dim,#7A7060)">Item — base data validations</text>
+          <rect x="420" y="155" width="74" height="14" rx="3" fill="rgba(230,195,100,.08)" stroke="var(--border,#3A2E18)" stroke-width="0.5"/>
+          <text x="457" y="166" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" fill="var(--primary,#C9A84C)">DAL</text>
+          <text x="580" y="168" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--text-dim,#7A7060)">tcibd001</text>
+          <rect x="0" y="196" width="680" height="24" fill="var(--bg2,#13110D)"/>
+          <line x1="0" y1="196" x2="680" y2="196" stroke="var(--border,#2A2418)" stroke-width="0.5"/>
+          <text x="14" y="212" font-family="JetBrains Mono,monospace" font-size="8.5" fill="var(--text-dim,#5A4A30)">4 scripts · Current package VRC · LN 10.7</text>
+          <rect x="580" y="200" width="88" height="13" rx="3" fill="rgba(40,100,40,.12)"/>
+          <text x="624" y="211" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#5EC87E">✓ Compiled OK</text>
+        </svg>
+      </div>
+      <p style="font-size:.78rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:6px">↑ ttadv2530m000. The Script Type column distinguishes DAL 1 ("DAL") from DAL 2 ("DAL (version 2)"). Both are compiled here.</p>
+
+      <div class="dal-info-box dal-info">
+        <div class="dal-info-label">Infor LN Studio for modern development</div>
+        <p>Current LN development is done in <strong>Infor LN Studio</strong>, an Eclipse-based IDE providing syntax highlighting, a content assistant, compilation, debugging, and activity-based version control for DAL scripts and all other LN components. The session <code>ttadv2530m000</code> remains available for viewing, but production development work uses LN Studio.</p>
+      </div>
+
+      <h2 id="a10-mistakes">Common mistakes and how to avoid them</h2>
+      <p>Step through the five most common errors developers make when starting with DAL scripts.</p>
+
+      <div class="dal-sim-box">
+        <div class="dal-sim-title">DAL Beginner Mistakes · Interactive Reference</div>
+        <div class="dal-sim-tabs" id="a10-mtabs">
+          <div class="dal-sim-tab active" data-idx="0">Wrong hook names</div>
+          <div class="dal-sim-tab" data-idx="1">DAL 1 + integration</div>
+          <div class="dal-sim-tab" data-idx="2">Empty date check</div>
+          <div class="dal-sim-tab" data-idx="3">Wrong session</div>
+          <div class="dal-sim-tab" data-idx="4">Forgetting compile</div>
+        </div>
+        <div class="dal-sim-out" id="a10-mout">
+          <div class="dal-sim-label">loading...</div>
+        </div>
+        <div class="dal-sim-btns">
+          <button class="dal-sim-btn" onclick="a10mPrev()">&#8592; Prev</button>
+          <button class="dal-sim-btn dal-primary" onclick="a10mNext()">Next &#8594;</button>
+        </div>
+      </div>
+
+      <h2 id="a10-next">What to learn next</h2>
+
+      <div class="dal-steps-grid">
+        <div class="dal-step-card">
+          <div class="dal-step-arrow">→</div>
+          <div class="dal-step-body">
+            <div class="dal-step-title">Field dependencies in DAL 2</div>
+            <div class="dal-step-desc">DAL 2 field dependencies auto-update dependent fields when a source field changes and drive the UI (enabling/disabling fields, filtering enum values). Mastering this removes most reasons to write UI script field logic.</div>
+          </div>
+        </div>
+        <div class="dal-step-card">
+          <div class="dal-step-arrow">→</div>
+          <div class="dal-step-body">
+            <div class="dal-step-title">Business methods: design and calling patterns</div>
+            <div class="dal-step-desc">Business methods are the correct way to expose named table-level operations callable from other DAL scripts, from sessions, and from integrations via the BOL. Understanding when to use a business method vs. an object hook is a key design decision.</div>
+          </div>
+        </div>
+        <div class="dal-step-card">
+          <div class="dal-step-arrow">→</div>
+          <div class="dal-step-body">
+            <div class="dal-step-title">LN Extensions framework for customer customisations</div>
+            <div class="dal-step-desc">For customer-specific rules, Infor recommends the Extensions framework (<code>Tools &gt; Application Extensibility</code>) rather than directly modifying delivered DAL scripts. Extension scripts are DAL-based, managed in LN Studio with activity-based version control, and survive upgrades cleanly.</div>
+          </div>
+        </div>
+        <div class="dal-step-card">
+          <div class="dal-step-arrow">→</div>
+          <div class="dal-step-body">
+            <div class="dal-step-title">FOB Certification: Infor LN Development track</div>
+            <div class="dal-step-desc">The FullonBaan Certification portal (fobexams.vercel.app) includes a dedicated Development track with DAL scripting scenario-based questions and a certificate on completion — recognised by Infor LN employers globally.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dal-pull-quote" style="margin-top:2.5rem">
+        <p>DAL is the foundation of correct Infor LN development. Get the hook model right — object, property, field — and you have a customisation framework that is stable, integration-safe, and documented by Infor itself.</p>
+        <cite>— FullonBaan Consulting Services · fullonbaan@gmail.com · +91 63605 93122 · www.fullonbaan.com</cite>
+      </div>
+
+      <p>Follow <strong>FullonBaan</strong> for the complete series. Training batches for 2026/2027 are open.</p>
+      <p style="margin-top:6px">Contact: <a href="mailto:fullonbaan@gmail.com?subject=DAL Training Enquiry" style="color:var(--primary);text-decoration:none">fullonbaan@gmail.com</a> &nbsp;·&nbsp; +91 63605 93122 &nbsp;·&nbsp; <span style="color:var(--primary)">www.fullonbaan.com</span></p>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> for DAL scripting references and code examples. The <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> includes a dedicated Development track covering DAL scripting. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--primary)">FOB Training</a> for structured Infor LN Development courses.</p>
+      </div>
+
+    </article>
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 10 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a10-what">What is DAL</a></li>
+          <li><a href="#a10-versions">DAL 1 vs DAL 2</a></li>
+          <li><a href="#a10-vs4gl">DAL vs. UI Script</a></li>
+          <li><a href="#a10-hookmodel">The Hook Model</a></li>
+          <li><a href="#a10-objecthooks">Object Hooks</a></li>
+          <li><a href="#a10-property">Property Hooks (DAL 1)</a></li>
+          <li><a href="#a10-fieldhooks">Field Hooks &amp; Methods (DAL 2)</a></li>
+          <li><a href="#a10-editor">DAL Script Editor</a></li>
+          <li><a href="#a10-mistakes">Common Mistakes</a></li>
+          <li><a href="#a10-next">What to Learn Next</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
+          <a class="nav-link" href="#article-9" style="color:var(--text-dim)">↑ Back to Article 09</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=DAL%20Scripting%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20DAL%20Scripting%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-10 -->
+
+
 <!-- MORE ARTICLES -->
 <section class="more-articles">
   <div class="more-articles-inner">
     <h2>Coming Up in the Playbook</h2>
     <div class="articles-grid">
-      <div class="article-card coming">
-        <div class="article-card-tag">Development · DAL</div>
-        <h3>DAL Scripting in Infor LN — A Practical Introduction</h3>
-        <p>Write Data Access Layer scripts to extend LN session logic without modifying standard software.</p>
-        <div class="article-card-meta">Article 10 · Planned</div>
-      </div>
       <div class="article-card coming">
         <div class="article-card-tag">ION · BOD</div>
         <h3>BOD Nouns &amp; Verbs in Infor LN Integration</h3>
@@ -2061,6 +2527,31 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
       localStorage.setItem('fob-theme','dark');
     }
   });
+})();
+
+// Article 10 — DAL Beginner Mistakes Interactive Panel
+(function(){
+  var mistakes=[
+    {label:"Mistake 01 · Using wrong hook names (beforeWrite / afterWrite)",body:"Many developers search for a single <code>beforeWrite</code> or <code>afterWrite</code> event as they would in other frameworks. <strong>DAL does not use those names.</strong> Those are UI script / 4GL event section names, not DAL hook names. The correct DAL object hook names (documented by Infor) are <code>before.save.object()</code>, <code>after.save.object()</code>, <code>before.destroy.object()</code>, and <code>after.destroy.object()</code>. Using the wrong function name means the 4GL engine never finds your hook — it silently does nothing.<br><br><span style='color:var(--primary)'>Fix:</span> Always use the documented hook names from the Infor ES Programmer's Guide or docs.infor.com. Verify the correct hook API for your LN version before writing any new hook."},
+    {label:"Mistake 02 · Using DAL 1 for integration-critical tables",body:"A developer writes validation logic in a DAL 1 script, expecting it to fire for all access paths. When the table is accessed via a BOI (Business Object Interface) integration, the DAL 1 fires — but any additional logic in the UI script is silently bypassed. The integration sees incomplete enforcement.<br><br><span style='color:var(--primary)'>Fix:</span> For tables used in Business Objects and integrations, use <strong>DAL 2</strong>. DAL 2 contains all business logic for the table, so integrations automatically inherit the full rule set. Check whether a DAL 2 script already exists for your table — Infor ships DAL 2 for all tables in predefined Business Objects."},
+    {label:"Mistake 03 · Comparing empty dates to null",body:"A developer writes <code>if t$pdlv = null</code> to detect a missing delivery date. In Infor LN, date fields do not use SQL null. An empty (unset) date is stored as the integer <code>0</code> — LN's internal day-count representation of an unset date. Comparing to null will never match, and the check never fires.<br><br><span style='color:var(--primary)'>Fix:</span> Compare directly to <code>0</code>: <code>if t$pdlv = 0 then</code>. Always pair your business-logic date check with an explicit empty-date guard to avoid false validation failures on new records where the date field has not yet been filled in."},
+    {label:"Mistake 04 · Looking for DAL scripts in the wrong session",body:"Developers searching for DAL scripts sometimes look in sessions like <code>ttadv9560m000</code> or navigate to the wrong Tools menu path and find nothing — concluding no DAL scripts exist for the table.<br><br><span style='color:var(--primary)'>Fix:</span> Both DAL 1 and DAL 2 scripts are in <strong>Program Scripts / Libraries (ttadv2530m000)</strong>. Filter by Script Type = 'DAL' or 'DAL (version 2)' to find all DAL scripts. In modern LN, use <strong>Infor LN Studio</strong> (Eclipse-based IDE) for browsing, editing, and debugging — it provides a Component Explorer with full script navigation."},
+    {label:"Mistake 05 · Saving a DAL script without recompiling",body:"A developer edits a DAL script in <code>ttadv2530m000</code>, saves the source, then tests the session — and the old behaviour still fires. This is because DAL scripts must be <strong>compiled into library objects</strong> before changes take effect. Saving the source does not automatically compile it. The LN runtime loads the compiled object, not the source.<br><br><span style='color:var(--primary)'>Fix:</span> After every edit, run the explicit <strong>Compile</strong> action in <code>ttadv2530m000</code> for the changed script. In Infor LN Studio, use Build / Compile and check the Problems view for errors. Never assume a save equals a compile."}
+  ];
+  var mc=0;
+  function renderM(){
+    var m=mistakes[mc];
+    document.getElementById('a10-mout').innerHTML='<div class="dal-sim-label">'+m.label+'</div><div id="a10-mout-body" style="margin-top:8px;line-height:1.8;color:var(--text-muted)">'+m.body+'</div>';
+    document.querySelectorAll('#a10-mtabs .dal-sim-tab').forEach(function(el,i){
+      el.className='dal-sim-tab'+(i===mc?' active':i<mc?' done':'');
+    });
+  }
+  window.a10mNext=function(){if(mc<mistakes.length-1){mc++;renderM();}};
+  window.a10mPrev=function(){if(mc>0){mc--;renderM();}};
+  document.querySelectorAll('#a10-mtabs .dal-sim-tab').forEach(function(el){
+    el.addEventListener('click',function(){mc=+el.dataset.idx;renderM();});
+  });
+  renderM();
 })();
 </script>
 

@@ -400,6 +400,55 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
   .pb-title{font-size:clamp(1.6rem,4vw,2.2rem)}
   .ah-title{font-size:clamp(1.2rem,2.5vw,1.8rem)}
 }
+
+/* ── ARTICLE 11 — BOD NOUNS & VERBS ── */
+.bod-pull-quote{border-left:3px solid var(--primary);padding:1.2rem 1.6rem;margin:2rem 0;background:var(--bg2);border-radius:0 8px 8px 0}
+.bod-pull-quote p{font-family:'Cinzel',serif;font-size:1.05rem;font-style:italic;color:var(--text);line-height:1.6}
+.bod-pull-quote cite{display:block;margin-top:.5rem;font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-dim);font-style:normal;letter-spacing:.06em}
+.bod-section-heading{display:flex;align-items:center;gap:.8rem;margin:2.8rem 0 1.2rem}
+.bod-section-number{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-dim);min-width:24px}
+.bod-section-heading h3{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;color:var(--text)}
+.bod-section-heading h3::before{display:none}
+.bod-section-divider{flex:1;height:1px;background:var(--border)}
+.bod-diagram-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1.8rem 0}
+.bod-diagram-label{background:var(--bg3);padding:.6rem 1rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--text-dim);border-bottom:1px solid var(--border);letter-spacing:.08em}
+.bod-diagram-body{padding:1.4rem 1.2rem 1.2rem}
+.bod-code-block{background:#0F1C2E;border-radius:8px;overflow:hidden;margin:1.5rem 0}
+.bod-code-bar{background:#1A3050;padding:.5rem .9rem;display:flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#5B85AA}
+.bod-code-dot{width:8px;height:8px;border-radius:50%}
+.bod-dot-r{background:#FF5F57}.bod-dot-y{background:#FEBC2E}.bod-dot-g{background:#28C840}
+.bod-code-content{padding:1rem 1.1rem;font-family:'JetBrains Mono',monospace;font-size:.75rem;line-height:1.9;color:#A8C8E8;white-space:pre;overflow-x:auto}
+.bod-code-k{color:#C792EA}.bod-code-s{color:#A8E5B5}.bod-code-n{color:#FFCB6B}.bod-code-v{color:#82AAFF}
+.bod-steps-grid{display:flex;flex-direction:column;gap:0;margin:1.5rem 0}
+.bod-step-card{display:flex;gap:0;position:relative}
+.bod-step-card:not(:last-child)::after{content:'';position:absolute;left:19px;top:44px;width:2px;height:calc(100% - 24px);background:var(--border)}
+.bod-step-num{width:40px;height:40px;border-radius:50%;background:var(--bg3);color:var(--primary);font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1.5px solid var(--border-hi);position:relative;z-index:1}
+.bod-step-body{padding:.35rem 0 1.6rem 1rem}
+.bod-step-title{font-family:'Cinzel',serif;font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.35rem}
+.bod-step-desc{font-size:.9rem;color:var(--text-muted);line-height:1.75}
+.bod-step-desc code{background:var(--code-bg);color:var(--primary);padding:.15em .4em;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.8rem}
+.bod-info-box{border-radius:8px;padding:1rem 1.3rem;margin:1.5rem 0;border-left:3px solid}
+.bod-info-box.tip{background:rgba(40,167,69,.08);border-color:#28A745}
+.bod-info-box.warn{background:rgba(217,119,6,.08);border-color:#D97706}
+.bod-info-box.info{background:rgba(29,111,164,.08);border-color:var(--primary)}
+.bod-info-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem}
+.bod-info-box.tip .bod-info-label{color:#28A745}
+.bod-info-box.warn .bod-info-label{color:#D97706}
+.bod-info-box.info .bod-info-label{color:var(--primary)}
+.bod-info-box p{font-size:.88rem;color:var(--text-muted);margin:0;line-height:1.7}
+.bod-info-box p code{background:var(--code-bg);color:var(--primary);padding:.15em .4em;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+.bod-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.06em;margin:0 2px}
+.bod-badge-blue{background:rgba(29,111,164,.15);color:#5BB8FF}
+.bod-badge-green{background:rgba(40,167,69,.15);color:#5ABE7A}
+.bod-badge-amber{background:rgba(255,203,107,.15);color:#FFCB6B}
+.bod-badge-purple{background:rgba(199,146,234,.15);color:#C792EA}
+.bod-matrix-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.78rem;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.bod-matrix-table thead th{background:var(--bg3);color:var(--primary);font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--border)}
+.bod-matrix-table tbody td{padding:.6rem .8rem;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.78rem;vertical-align:top}
+.bod-matrix-table tbody tr:nth-child(even){background:var(--bg2)}
+.bod-matrix-table tbody tr:hover{background:var(--bg3)}
+.bod-matrix-table .noun-cell{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--primary);font-size:.72rem}
+.bod-matrix-table .verb-cell{font-family:'JetBrains Mono',monospace;font-size:.65rem}
 </style>
 </head>
 <body>
@@ -442,8 +491,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
       <a class="pb-btn-secondary" href="https://www.fullonbaan.com/">About FullOnBaan</a>
     </div>
     <div class="pb-stats">
-      <div><div class="pb-stat-num">10</div><div class="pb-stat-label">Articles Published</div></div>
-      <div><div class="pb-stat-num">3</div><div class="pb-stat-label">In Pipeline</div></div>
+      <div><div class="pb-stat-num">11</div><div class="pb-stat-label">Articles Published</div></div>
+      <div><div class="pb-stat-num">2</div><div class="pb-stat-label">In Pipeline</div></div>
       <div><div class="pb-stat-num">Finance</div><div class="pb-stat-label">Current Focus</div></div>
     </div>
   </div>
@@ -540,6 +589,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
       <a class="ai-card" href="#article-10">
         <div class="ai-num">10</div>
         <div><div class="ai-card-tag">Development · DAL</div><div class="ai-card-title">DAL Scripting in Infor LN — A Practical Intro</div></div>
+      </a>
+      <a class="ai-card" href="#article-11">
+        <div class="ai-num">11</div>
+        <div><div class="ai-card-tag">ION · BOD</div><div class="ai-card-title">BOD Nouns &amp; Verbs in Infor LN Integration</div></div>
       </a>
     </div>
   </div>
@@ -2423,6 +2476,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
           <a class="nav-link" href="#article-9" style="color:var(--text-dim)">↑ Back to Article 09</a>
+          <a class="nav-link" href="#article-11" style="color:var(--primary)">↓ Next: BOD Nouns &amp; Verbs</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -2445,17 +2499,495 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
 </div><!-- /article-10 -->
 
 
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 11 — BOD Nouns & Verbs in Infor LN Integration
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-11" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 11 · ION · BOD</div>
+      <h2 class="ah-title">BOD <em>Nouns &amp; Verbs</em><br>in Infor LN Integration</h2>
+      <p class="ah-sub">The complete guide to understanding Business Object Document structure — how Nouns identify data and Verbs define the action — with real examples from Infor LN implementations.</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">BOD</span><span class="tag">ION</span><span class="tag">Integration</span><span class="tag">OAGIS</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a11-what">What is a BOD? The Noun-Verb Paradigm</h2>
+      <p>A <strong>Business Object Document (BOD)</strong> is the standard XML message format used across the entire Infor product suite for application-to-application communication. It was defined by the <span class="bod-badge bod-badge-blue">OAGIS</span> (Open Applications Group Integration Specification) standard and adopted by Infor as the backbone of its <span class="bod-badge bod-badge-blue">ION</span> middleware platform. Every time Infor LN needs to tell another system that a Sales Order was created, a Purchase Order was approved, or an Item Master record changed — it speaks in BODs.</p>
+      <p>The genius of the BOD architecture is its naming convention. Every BOD name is formed by combining exactly two components: a <strong>Verb</strong> (the action being performed) and a <strong>Noun</strong> (the business entity being acted upon). This is not a metaphor — it is a literal naming scheme. <code>Sync.SalesOrder</code>, <code>Process.PurchaseOrder</code>, <code>Show.ItemMaster</code> — each name tells you exactly what is happening and to what.</p>
+
+      <div class="bod-pull-quote">
+        <p>"If you understand Nouns and Verbs, you understand 80% of Infor ION integration. Everything else — connection points, data flows, mappings — is plumbing around this core concept."</p>
+        <cite>— FullOnBaan Consulting Services</cite>
+      </div>
+
+      <p>This is fundamentally different from a REST API where the endpoint path and HTTP method encode the action. In the BOD world, the <em>message itself</em> declares what it is and what it wants. This makes BODs self-describing, routable, and auditable by middleware — which is exactly why ION can orchestrate complex multi-application workflows without custom code.</p>
+
+      <h2 id="a11-anatomy">Anatomy of a BOD Message</h2>
+      <p>Every BOD message, regardless of which application produces it, follows a strict two-part structure: the <strong>ApplicationArea</strong> (the envelope) and the <strong>DataArea</strong> (the payload). Understanding this structure is essential before you configure a single document flow in ION.</p>
+
+      <div class="bod-diagram-card">
+        <div class="bod-diagram-label">FIG 1 — BOD MESSAGE STRUCTURE: APPLICATION AREA + DATA AREA</div>
+        <div class="bod-diagram-body">
+          <svg width="100%" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="10" width="640" height="360" rx="12" fill="none" stroke="var(--border-hi)" stroke-width="1.2" stroke-dasharray="6 3"/>
+            <text x="40" y="36" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" fill="var(--primary)" letter-spacing="0.1em">BOD: Sync.SalesOrder</text>
+            <rect x="40" y="50" width="600" height="110" rx="8" fill="rgba(255,203,107,.08)" stroke="var(--primary)" stroke-width="0.8"/>
+            <text x="60" y="74" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="var(--primary)" letter-spacing="0.1em">APPLICATION AREA (ENVELOPE)</text>
+            <rect x="60" y="86" width="170" height="28" rx="5" fill="var(--bg3)" stroke="var(--border)" stroke-width="0.5"/>
+            <text x="145" y="105" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--text-muted)">Sender (LogicalID)</text>
+            <rect x="240" y="86" width="170" height="28" rx="5" fill="var(--bg3)" stroke="var(--border)" stroke-width="0.5"/>
+            <text x="325" y="105" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--text-muted)">CreationDateTime</text>
+            <rect x="420" y="86" width="200" height="28" rx="5" fill="var(--bg3)" stroke="var(--border)" stroke-width="0.5"/>
+            <text x="520" y="105" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--text-muted)">BODID (Unique ID)</text>
+            <rect x="60" y="122" width="170" height="28" rx="5" fill="var(--bg3)" stroke="var(--border)" stroke-width="0.5"/>
+            <text x="145" y="141" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--text-muted)">Confirmation Code</text>
+            <rect x="240" y="122" width="170" height="28" rx="5" fill="var(--bg3)" stroke="var(--border)" stroke-width="0.5"/>
+            <text x="325" y="141" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--text-muted)">BOD Version</text>
+            <rect x="40" y="178" width="600" height="178" rx="8" fill="rgba(90,190,122,.08)" stroke="#5ABE7A" stroke-width="0.8"/>
+            <text x="60" y="202" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="#5ABE7A" letter-spacing="0.1em">DATA AREA (PAYLOAD)</text>
+            <rect x="60" y="214" width="180" height="126" rx="6" fill="#0F1C2E" stroke="#2A5F8A" stroke-width="0.8"/>
+            <text x="150" y="238" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#5BB8FF" letter-spacing="0.1em">VERB</text>
+            <rect x="74" y="248" width="152" height="24" rx="4" fill="#1A3050"/>
+            <text x="150" y="265" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#A8E5B5">Sync</text>
+            <rect x="74" y="278" width="152" height="24" rx="4" fill="#1A3050"/>
+            <text x="150" y="295" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#78AEDD">ActionCriteria</text>
+            <rect x="74" y="308" width="152" height="24" rx="4" fill="#1A3050"/>
+            <text x="150" y="325" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#78AEDD">expressionLanguage</text>
+            <text x="262" y="280" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="18" fill="#5ABE7A">+</text>
+            <rect x="284" y="214" width="340" height="126" rx="6" fill="#0F1C2E" stroke="#2A5F8A" stroke-width="0.8"/>
+            <text x="454" y="238" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#5BB8FF" letter-spacing="0.1em">NOUN</text>
+            <rect x="298" y="248" width="154" height="24" rx="4" fill="#1A3050"/>
+            <text x="375" y="265" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#FFCB6B">SalesOrder</text>
+            <rect x="460" y="248" width="148" height="24" rx="4" fill="#1A3050"/>
+            <text x="534" y="265" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#78AEDD">Header Fields</text>
+            <rect x="298" y="278" width="154" height="24" rx="4" fill="#1A3050"/>
+            <text x="375" y="295" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#78AEDD">Line Items[]</text>
+            <rect x="460" y="278" width="148" height="24" rx="4" fill="#1A3050"/>
+            <text x="534" y="295" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#78AEDD">Custom Fields</text>
+            <rect x="298" y="308" width="312" height="24" rx="4" fill="#1A3050"/>
+            <text x="454" y="325" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#78AEDD">UserArea (LN-specific extensions)</text>
+          </svg>
+        </div>
+      </div>
+
+      <p>The <strong>ApplicationArea</strong> carries metadata: who sent the BOD, when it was created, a unique BODID for tracking, and an optional confirmation code that tells the receiver whether to send back an acknowledgement. Think of it as the postal envelope — it tells the mail system where the message came from and how to handle delivery.</p>
+      <p>The <strong>DataArea</strong> is where the Verb-Noun pair lives. The Verb element defines the action (Sync, Process, Get, etc.) along with optional action criteria. The Noun element contains the actual business data — a SalesOrder with its header, lines, and custom fields. In Infor LN, the <code>UserArea</code> section inside the Noun is where LN-specific fields that are not part of the standard OAGIS schema get mapped.</p>
+
+      <div class="bod-info-box info">
+        <div class="bod-info-label">Key insight</div>
+        <p>The BOD name <code>Sync.SalesOrder</code> is not just a label — it maps directly to the XML root element structure. The DataArea always contains exactly one Verb element and one or more Noun elements. One BOD, one action, one data type.</p>
+      </div>
+
+      <h2 id="a11-verbs">The Six BOD Verbs Every LN Consultant Must Know</h2>
+      <p>There are over a dozen OAGIS-defined verbs, but in practical Infor LN integration work, six verbs account for 95% of all BOD traffic. Master these and you can design, debug, and optimise almost any ION document flow.</p>
+
+      <div class="bod-steps-grid">
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:#C792EA;border-color:#9C27B0;color:#fff;font-size:.6rem">SYNC</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Sync — "Here is the latest state after a change"</div>
+            <div class="bod-step-desc">The most common verb in LN integration. A <code>Sync</code> message is a broadcast published by the system of record to inform other applications about the latest information for the noun after a business event causes a change in the data. When LN publishes a <code>Sync.SalesOrder</code>, every subscriber receives the current state. The Sync verb supports two actionCodes: <code>Add</code> (a new record was created) and <code>Replace</code> (an existing record was updated). The receiver typically performs an upsert operation.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:#82AAFF;border-color:#1D6FA4;color:#fff;font-size:.55rem">PROCESS</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Process — "Please execute this action"</div>
+            <div class="bod-step-desc">A <code>Process</code> BOD is a point-to-point request from a non-system of record to the system of record. When an external system sends a <code>Process.PurchaseOrder</code> to LN, it is instructing LN to create or update that Purchase Order. Process supports two actionCodes: <code>Add</code> (create a new document) and <code>Change</code> (update an existing one). The system of record responds with an <code>Acknowledge</code> BOD indicating acceptance or rejection.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:#A8E5B5;border-color:#28A745;color:#0D5928;font-size:.68rem">GET</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Get — "Send me the data"</div>
+            <div class="bod-step-desc">A <code>Get</code> BOD is a request-response pattern. The sender issues a <code>Get.SalesOrder</code> with filter criteria (e.g., Order Number = SO-10042), and the receiving system responds with a <code>Show.SalesOrder</code> containing the matching data. Get never modifies data — it is purely a read operation.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:#FFCB6B;border-color:#D4A017;color:#7A4500;font-size:.6rem">SHOW</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Show — "Here is what you asked for"</div>
+            <div class="bod-step-desc">The response to a Get. A <code>Show</code> BOD carries one or more Noun instances that match the criteria specified in the original Get request. In LN integrations, the Get/Show pattern is commonly used for on-demand data retrieval — for example, a warehouse system requesting the current BOM (Bill of Material) before starting a pick operation.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:#F78C6C;border-color:#E85D24;color:#fff;font-size:.5rem">CONFIRM</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Confirm — "Something went wrong"</div>
+            <div class="bod-step-desc">The <code>ConfirmBOD</code> is primarily an error notification message. It is used to notify users of an error condition and is sent to Infor ION where it can be viewed in ION Desk. When the ApplicationArea's <code>ConfirmationCode</code> is set to <code>Always</code> or <code>OnError</code>, a ConfirmBOD is generated upon processing failure. This is your first line of defence for catching integration errors in production.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:#FF8A80;border-color:#D32F2F;color:#fff;font-size:.42rem">ACKNOWLEDGE</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Acknowledge — "Your Process request was accepted or rejected"</div>
+            <div class="bod-step-desc">An <code>Acknowledge</code> BOD is the direct response to a <code>Process</code> message. When a system of record receives a Process BOD, it validates the data and sends back an Acknowledge to notify the requesting system whether the request was accepted or rejected. This verb completes the Process/Acknowledge request-response pair.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bod-info-box tip">
+        <div class="bod-info-label">Quick rule of thumb</div>
+        <p><strong>Sync</strong> = outbound broadcast (source pushes state). <strong>Process</strong> = inbound instruction (target receives command). <strong>Get/Show</strong> = request/response pair for data retrieval. <strong>ConfirmBOD</strong> = error notification. <strong>Acknowledge</strong> = response to Process (accepted/rejected). Memorise this and you will read any ION data flow document like a storyboard.</p>
+      </div>
+
+      <h2 id="a11-nouns">Common BOD Nouns in Infor LN — Reference Matrix</h2>
+      <p>Infor LN supports hundreds of BOD Nouns across its modules — Sales, Purchasing, Warehousing, Manufacturing, Finance, and more. Below is the reference matrix of the most frequently used Nouns, grouped by functional area, along with which Verbs are typically configured for each.</p>
+
+      <table class="bod-matrix-table">
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>BOD Noun</th>
+            <th>Common Verbs</th>
+            <th>Typical Direction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Sales</td><td class="noun-cell">SalesOrder</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-blue">Process</span> <span class="bod-badge bod-badge-green">Show</span></td><td>LN → CRM / WMS / 3PL</td></tr>
+          <tr><td>Sales</td><td class="noun-cell">CustomerPartyMaster</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-blue">Process</span></td><td>LN ↔ CRM</td></tr>
+          <tr><td>Purchasing</td><td class="noun-cell">PurchaseOrder</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-blue">Process</span> <span class="bod-badge bod-badge-amber">Acknowledge</span></td><td>LN ↔ Supplier Portal</td></tr>
+          <tr><td>Purchasing</td><td class="noun-cell">SupplierPartyMaster</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-blue">Process</span></td><td>LN ↔ SRM</td></tr>
+          <tr><td>Inventory</td><td class="noun-cell">ItemMaster</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-blue">Process</span> <span class="bod-badge bod-badge-green">Show</span></td><td>LN → WMS / PLM / eComm</td></tr>
+          <tr><td>Inventory</td><td class="noun-cell">BillOfMaterials</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-green">Show</span></td><td>LN → MES / PLM</td></tr>
+          <tr><td>Warehouse</td><td class="noun-cell">Shipment</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-blue">Process</span></td><td>LN ↔ WMS / TMS</td></tr>
+          <tr><td>Warehouse</td><td class="noun-cell">ReceiveDelivery</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-blue">Process</span></td><td>WMS → LN</td></tr>
+          <tr><td>Finance</td><td class="noun-cell">SourceSystemJournalEntry</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span></td><td>LN → GL / Consolidation</td></tr>
+          <tr><td>Finance</td><td class="noun-cell">PayableTransaction</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-blue">Process</span></td><td>LN ↔ AP Automation</td></tr>
+          <tr><td>Finance</td><td class="noun-cell">ReceivableTransaction</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span></td><td>LN → AR Reporting</td></tr>
+          <tr><td>Manufacturing</td><td class="noun-cell">ProductionOrder</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span> <span class="bod-badge bod-badge-blue">Process</span> <span class="bod-badge bod-badge-amber">Acknowledge</span></td><td>LN ↔ MES</td></tr>
+          <tr><td>General</td><td class="noun-cell">CodeDefinition</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span></td><td>LN → Any (reference data)</td></tr>
+          <tr><td>General</td><td class="noun-cell">ChartOfAccounts</td><td class="verb-cell"><span class="bod-badge bod-badge-purple">Sync</span></td><td>LN → Financial Systems</td></tr>
+        </tbody>
+      </table>
+
+      <div class="bod-info-box info">
+        <div class="bod-info-label">Important</div>
+        <p>Not all Verb-Noun combinations are pre-configured in LN out of the box. Some must be activated through BOD publishing sessions in <strong>Common → BOD Messaging → Manage Publishing</strong>. If you do not see a BOD in the ION desk monitor, verify that publishing has been enabled for that specific Noun.</p>
+      </div>
+
+      <h2 id="a11-flow">How BODs Flow Through the ION Backbone</h2>
+      <p>Understanding the physical journey of a BOD from Infor LN to a subscribing application is essential for debugging integration failures. Here is the step-by-step flow.</p>
+
+      <div class="bod-diagram-card">
+        <div class="bod-diagram-label">FIG 2 — BOD LIFECYCLE: FROM LN PUBLISH TO SUBSCRIBER DELIVERY</div>
+        <div class="bod-diagram-body">
+          <svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="bod-fa1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+              <marker id="bod-fa2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#5ABE7A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <rect x="10" y="60" width="100" height="80" rx="8" fill="var(--bg2)" stroke="var(--border-hi)" stroke-width="0.8"/>
+            <text x="60" y="90" text-anchor="middle" font-family="Cinzel, serif" font-size="12" font-weight="600" fill="var(--primary)">Infor LN</text>
+            <text x="60" y="108" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--text-muted)">BOD Publish</text>
+            <text x="60" y="122" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--text-dim)">Session Active</text>
+            <line x1="112" y1="100" x2="168" y2="100" stroke="var(--primary)" stroke-width="1.5" marker-end="url(#bod-fa1)"/>
+            <text x="140" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--primary)">XML</text>
+            <rect x="170" y="50" width="110" height="100" rx="8" fill="#0F1C2E" stroke="#2A5F8A" stroke-width="1"/>
+            <text x="225" y="74" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5BB8FF" letter-spacing="0.08em">ION CONNECT</text>
+            <rect x="182" y="82" width="86" height="20" rx="4" fill="#1A3050"/>
+            <text x="225" y="96" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#78AEDD">Connection Pt</text>
+            <rect x="182" y="108" width="86" height="20" rx="4" fill="#1A3050"/>
+            <text x="225" y="122" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#78AEDD">Doc Flow</text>
+            <rect x="182" y="132" width="86" height="12" rx="3" fill="#1A3050"/>
+            <text x="225" y="142" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#5BB8FF">Validation</text>
+            <line x1="282" y1="100" x2="338" y2="100" stroke="var(--primary)" stroke-width="1.5" marker-end="url(#bod-fa1)"/>
+            <text x="310" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--primary)">BOD</text>
+            <rect x="340" y="50" width="110" height="100" rx="8" fill="#0F1C2E" stroke="#2A5F8A" stroke-width="1"/>
+            <text x="395" y="74" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5BB8FF" letter-spacing="0.08em">ION MESSAGING</text>
+            <rect x="352" y="82" width="86" height="20" rx="4" fill="#1A3050"/>
+            <text x="395" y="96" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#78AEDD">Topic Queue</text>
+            <rect x="352" y="108" width="86" height="20" rx="4" fill="#1A3050"/>
+            <text x="395" y="122" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#78AEDD">Persistence</text>
+            <rect x="352" y="132" width="86" height="12" rx="3" fill="#1A3050"/>
+            <text x="395" y="142" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#5BB8FF">Retry Logic</text>
+            <line x1="452" y1="80" x2="508" y2="60" stroke="#5ABE7A" stroke-width="1.5" marker-end="url(#bod-fa2)"/>
+            <line x1="452" y1="100" x2="508" y2="100" stroke="#5ABE7A" stroke-width="1.5" marker-end="url(#bod-fa2)"/>
+            <line x1="452" y1="120" x2="508" y2="140" stroke="#5ABE7A" stroke-width="1.5" marker-end="url(#bod-fa2)"/>
+            <rect x="510" y="30" width="150" height="40" rx="6" fill="rgba(90,190,122,.1)" stroke="#5ABE7A" stroke-width="0.8"/>
+            <text x="585" y="48" text-anchor="middle" font-family="Cinzel, serif" font-size="11" font-weight="600" fill="#5ABE7A">WMS / 3PL</text>
+            <text x="585" y="62" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--text-dim)">Subscriber A</text>
+            <rect x="510" y="80" width="150" height="40" rx="6" fill="rgba(90,190,122,.1)" stroke="#5ABE7A" stroke-width="0.8"/>
+            <text x="585" y="98" text-anchor="middle" font-family="Cinzel, serif" font-size="11" font-weight="600" fill="#5ABE7A">CRM System</text>
+            <text x="585" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--text-dim)">Subscriber B</text>
+            <rect x="510" y="130" width="150" height="40" rx="6" fill="rgba(90,190,122,.1)" stroke="#5ABE7A" stroke-width="0.8"/>
+            <text x="585" y="148" text-anchor="middle" font-family="Cinzel, serif" font-size="11" font-weight="600" fill="#5ABE7A">Data Lake</text>
+            <text x="585" y="162" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--text-dim)">Subscriber C</text>
+            <line x1="24" y1="188" x2="48" y2="188" stroke="var(--primary)" stroke-width="1.5"/>
+            <text x="54" y="192" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--text-dim)">Internal ION Flow</text>
+            <line x1="200" y1="188" x2="224" y2="188" stroke="#5ABE7A" stroke-width="1.5"/>
+            <text x="230" y="192" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--text-dim)">Fan-out to Subscribers</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="bod-steps-grid">
+        <div class="bod-step-card">
+          <div class="bod-step-num">1</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">LN Publishes the BOD</div>
+            <div class="bod-step-desc">When a business event occurs (e.g., a Sales Order is saved), LN's BOD publishing session generates the XML BOD and hands it off to the ION connection point. This happens asynchronously — the user does not wait for the BOD to be delivered.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num">2</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">ION Connect Validates &amp; Routes</div>
+            <div class="bod-step-desc">The ION Connect layer validates the BOD against the OAGIS schema, checks the document flow configuration, and applies any field-level transformations or mappings defined in the ION Desk. If the BOD fails schema validation, it lands in the ION error queue.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num">3</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">ION Messaging Persists &amp; Delivers</div>
+            <div class="bod-step-desc">The ION Grid messaging engine queues the BOD on a persistent topic. Every subscriber registered for that BOD type (e.g., <code>Sync.SalesOrder</code>) receives a copy. If a subscriber is temporarily unavailable, the message is retained and retried automatically — this is guaranteed delivery.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num">4</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Subscriber Consumes &amp; Confirms</div>
+            <div class="bod-step-desc">Each subscribing application processes the BOD according to its own business logic and, if confirmation was requested, sends back a <code>ConfirmBOD</code> through the same ION channel. The ConfirmBOD travels the reverse path and is visible in ION Desk for monitoring.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="a11-config">Configuring BOD Publishing &amp; Subscribing in LN</h2>
+      <p>Before any BOD leaves Infor LN, two things must be configured: a <strong>BOD publishing session</strong> that defines which Nouns to publish and under what conditions, and an <strong>ION connection point</strong> that establishes the link between LN and the ION backbone.</p>
+      <p>Here is the step-by-step configuration path used in every production LN deployment.</p>
+
+      <div class="bod-steps-grid">
+        <div class="bod-step-card">
+          <div class="bod-step-num">1</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Activate BOD Content</div>
+            <div class="bod-step-desc">Navigate to <code>Common → BOD Messaging → BOD Content</code>. Here you enable the specific Verb-Noun combinations you need — for example, activate <code>Sync.SalesOrder</code> and <code>Sync.ItemMaster</code>. Each combination maps to a BOD content code in LN's internal BOD registry.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num">2</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Create a Publishing Session</div>
+            <div class="bod-step-desc">Go to <code>Common → BOD Messaging → Manage Publishing BOD Messages</code>. Create a new session, select the BOD content codes from Step 1, define the company and selection ranges (e.g., only publish Sales Orders for company 100), and activate the session.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num">3</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Verify Connection Point in ION</div>
+            <div class="bod-step-desc">In the ION Desk, open <code>Connect → Connection Points</code> and verify that your LN connection point is registered and active. The connection point defines the technical link — including the LN application name, the logical ID (used in BOD ApplicationArea), and the ION messaging endpoints.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num">4</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Build a Document Flow</div>
+            <div class="bod-step-desc">Still in ION Desk, go to <code>Connect → Data Flows</code> and create a new document flow. Drag LN as the source, the target application as the destination, and select the specific BODs (e.g., <code>Sync.SalesOrder</code>) that should flow between them. Optionally, add field-level mappings.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num">5</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Test with a Single Transaction</div>
+            <div class="bod-step-desc">Trigger a BOD by modifying a Sales Order in LN. Then check the ION Desk's <strong>OneView</strong> monitor to see the BOD in transit. Verify it reaches the subscriber, inspect the XML payload, and confirm that the ConfirmBOD (if configured) returns successfully.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bod-code-block">
+        <div class="bod-code-bar">
+          <div style="display:flex;gap:5px">
+            <div class="bod-code-dot bod-dot-r"></div>
+            <div class="bod-code-dot bod-dot-y"></div>
+            <div class="bod-code-dot bod-dot-g"></div>
+          </div>
+          <span style="margin-left:8px">Sync.SalesOrder — Simplified BOD XML</span>
+        </div>
+        <div class="bod-code-content"><span class="bod-code-k">&lt;SyncSalesOrder</span> <span class="bod-code-n">xmlns</span>=<span class="bod-code-s">"http://schema.infor.com/InforOAGIS/2"</span>
+    <span class="bod-code-n">releaseID</span>=<span class="bod-code-s">"9.2"</span> <span class="bod-code-n">versionID</span>=<span class="bod-code-s">"2.12.2"</span><span class="bod-code-k">&gt;</span>
+
+  <span class="bod-code-k">&lt;ApplicationArea&gt;</span>
+    <span class="bod-code-k">&lt;Sender&gt;</span>
+      <span class="bod-code-k">&lt;LogicalID&gt;</span><span class="bod-code-v">lid://infor.ln.LN_Production</span><span class="bod-code-k">&lt;/LogicalID&gt;</span>
+      <span class="bod-code-k">&lt;ComponentID&gt;</span><span class="bod-code-v">erp</span><span class="bod-code-k">&lt;/ComponentID&gt;</span>
+    <span class="bod-code-k">&lt;/Sender&gt;</span>
+    <span class="bod-code-k">&lt;CreationDateTime&gt;</span><span class="bod-code-v">2026-03-25T14:30:00Z</span><span class="bod-code-k">&lt;/CreationDateTime&gt;</span>
+    <span class="bod-code-k">&lt;BODID&gt;</span><span class="bod-code-v">infor-nid:infor:LN::SO:100:4200012</span><span class="bod-code-k">&lt;/BODID&gt;</span>
+  <span class="bod-code-k">&lt;/ApplicationArea&gt;</span>
+
+  <span class="bod-code-k">&lt;DataArea&gt;</span>
+    <span class="bod-code-k">&lt;Sync&gt;</span>
+      <span class="bod-code-k">&lt;ActionCriteria&gt;</span>
+        <span class="bod-code-k">&lt;ActionExpression</span> <span class="bod-code-n">actionCode</span>=<span class="bod-code-s">"Add"</span><span class="bod-code-k">/&gt;</span>
+      <span class="bod-code-k">&lt;/ActionCriteria&gt;</span>
+    <span class="bod-code-k">&lt;/Sync&gt;</span>
+    <span class="bod-code-k">&lt;SalesOrder&gt;</span>
+      <span class="bod-code-k">&lt;SalesOrderHeader&gt;</span>
+        <span class="bod-code-k">&lt;DocumentID&gt;&lt;ID&gt;</span><span class="bod-code-n">4200012</span><span class="bod-code-k">&lt;/ID&gt;&lt;/DocumentID&gt;</span>
+        <span class="bod-code-k">&lt;CustomerParty&gt;&lt;PartyIDs&gt;&lt;ID&gt;</span><span class="bod-code-n">CUS-0042</span><span class="bod-code-k">&lt;/ID&gt;&lt;/PartyIDs&gt;&lt;/CustomerParty&gt;</span>
+        <span class="bod-code-k">&lt;DocumentDateTime&gt;</span><span class="bod-code-v">2026-03-25</span><span class="bod-code-k">&lt;/DocumentDateTime&gt;</span>
+      <span class="bod-code-k">&lt;/SalesOrderHeader&gt;</span>
+      <span class="bod-code-k">&lt;SalesOrderLine&gt;</span>
+        <span class="bod-code-k">&lt;LineNumber&gt;</span><span class="bod-code-n">10</span><span class="bod-code-k">&lt;/LineNumber&gt;</span>
+        <span class="bod-code-k">&lt;Item&gt;&lt;ItemID&gt;&lt;ID&gt;</span><span class="bod-code-n">ITEM-A100</span><span class="bod-code-k">&lt;/ID&gt;&lt;/ItemID&gt;&lt;/Item&gt;</span>
+        <span class="bod-code-k">&lt;Quantity</span> <span class="bod-code-n">unitCode</span>=<span class="bod-code-s">"EA"</span><span class="bod-code-k">&gt;</span><span class="bod-code-n">50</span><span class="bod-code-k">&lt;/Quantity&gt;</span>
+      <span class="bod-code-k">&lt;/SalesOrderLine&gt;</span>
+    <span class="bod-code-k">&lt;/SalesOrder&gt;</span>
+  <span class="bod-code-k">&lt;/DataArea&gt;</span>
+
+<span class="bod-code-k">&lt;/SyncSalesOrder&gt;</span></div>
+      </div>
+
+      <h2 id="a11-errors">Common BOD Errors &amp; How to Debug Them</h2>
+      <p>After supporting hundreds of LN integration deployments, these are the five BOD-related errors encountered most often — and how to resolve each one systematically.</p>
+
+      <div class="bod-info-box warn">
+        <div class="bod-info-label">BOD stuck in "Pending" in ION Desk</div>
+        <p><strong>Cause:</strong> The LN BOD publishing session is active, but the ION connection point is not running or has lost its heartbeat. Navigate to <code>ION Desk → Connect → Connection Points</code>, verify the LN connector shows a green status. If it is yellow or red, restart the ION Grid agent on the LN application server.</p>
+      </div>
+      <div class="bod-info-box warn">
+        <div class="bod-info-label">Schema validation error — "Element not expected"</div>
+        <p><strong>Cause:</strong> A custom field in LN's UserArea does not match the registered BOD schema. This happens when LN patches update the BOD version but the ION schema mapping was not refreshed. Go to <code>Common → BOD Messaging → BOD Content</code>, regenerate the schema, and re-import it into ION.</p>
+      </div>
+      <div class="bod-info-box warn">
+        <div class="bod-info-label">ConfirmBOD returns "Application Error"</div>
+        <p><strong>Cause:</strong> The subscribing application rejected the BOD — typically because of a data validation failure. Open the ConfirmBOD's XML in ION OneView, read the <code>&lt;Description&gt;</code> element inside the <code>&lt;BODFailureMessage&gt;</code>. Common causes: duplicate key, missing mandatory field, or currency code mismatch.</p>
+      </div>
+      <div class="bod-info-box warn">
+        <div class="bod-info-label">BOD published but not received by subscriber</div>
+        <p><strong>Cause:</strong> The document flow in ION Desk does not include the specific Verb.Noun combination, or the subscriber's connection point is filtering by BOD type and the filter is misconfigured. Check <code>ION Desk → Connect → Data Flows</code> and verify the exact BOD name appears in the flow definition.</p>
+      </div>
+      <div class="bod-info-box warn">
+        <div class="bod-info-label">Duplicate BODs flooding the subscriber</div>
+        <p><strong>Cause:</strong> The LN publishing session is set to "Full Publish" mode (republishes all existing records), but the document flow was expecting incremental changes. Check the publishing session's run mode. For ongoing integration, always use <strong>Change-based publishing</strong>, not Full Publish — reserve Full Publish for initial data loads or reconciliation runs only.</p>
+      </div>
+
+      <div class="bod-info-box tip">
+        <div class="bod-info-label">Debug tip</div>
+        <p>The fastest way to diagnose any BOD issue is <strong>ION Desk → OneView</strong>. Search by BODID, document number, or time range. OneView shows you the complete BOD lifecycle — from publish to delivery to confirmation — with the full XML payload at each stage. Master this screen and you will cut your debugging time by 80%.</p>
+      </div>
+
+      <h2 id="a11-best">Best Practices for BOD-Based Integrations</h2>
+      <p>Here are the practices that separate smooth go-lives from chaotic ones in BOD-based integrations.</p>
+
+      <div class="bod-steps-grid">
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:rgba(90,190,122,.15);border-color:#5ABE7A;color:#5ABE7A">✓</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Map Nouns to business processes, not to tables</div>
+            <div class="bod-step-desc">Think in terms of "Sales Order lifecycle" not "tdsls400 table." Each Noun represents a business document with header, lines, and status. Map your integration at the document level, and let the BOD standard handle the field-level structure.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:rgba(90,190,122,.15);border-color:#5ABE7A;color:#5ABE7A">✓</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Always enable ConfirmBOD for critical flows</div>
+            <div class="bod-step-desc">If a BOD carries financial data (SourceSystemJournalEntry, PayableTransaction) or order data (SalesOrder, PurchaseOrder), set <code>ConfirmationCode = Always</code> or <code>OnError</code>. Without it, integration failures go undetected until someone notices missing data downstream.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:rgba(90,190,122,.15);border-color:#5ABE7A;color:#5ABE7A">✓</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Use ActionExpression codes correctly</div>
+            <div class="bod-step-desc">The <code>actionCode</code> inside the Verb's ActionCriteria tells the subscriber exactly how to process the Noun. <code>Add</code> = new entity, <code>Change</code> = modified entity, <code>Delete</code> = removed entity, <code>Replace</code> = full replacement (snapshot). Sync BODs use Add and Replace; Process BODs use Add and Change.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:rgba(90,190,122,.15);border-color:#5ABE7A;color:#5ABE7A">✓</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Keep UserArea mappings minimal</div>
+            <div class="bod-step-desc">LN's UserArea section in the BOD Noun is where you map custom or LN-specific fields. Only include fields the subscriber actually needs. Over-mapping increases BOD size, slows processing, and creates more failure points during LN upgrades.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:rgba(90,190,122,.15);border-color:#5ABE7A;color:#5ABE7A">✓</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Monitor ION Desk daily — not just at go-live</div>
+            <div class="bod-step-desc">Set up ION alerts for BOD failures, ConfirmBOD errors, and queue depth thresholds. Many teams configure perfect integrations at go-live and then never look at ION Desk again — until a month later when they discover thousands of Sales Orders never made it to the WMS.</div>
+          </div>
+        </div>
+        <div class="bod-step-card">
+          <div class="bod-step-num" style="background:rgba(90,190,122,.15);border-color:#5ABE7A;color:#5ABE7A">✓</div>
+          <div class="bod-step-body">
+            <div class="bod-step-title">Version your BOD schemas</div>
+            <div class="bod-step-desc">When Infor releases a patch or upgrade that changes a BOD schema, do not assume backward compatibility. Compare the BOD schema versions (<code>releaseID</code> and <code>versionID</code> in the XML root) before and after the upgrade. Test all active document flows in a non-production environment first.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bod-pull-quote" style="margin-top:2.5rem">
+        <p>BODs are the universal language of the Infor ecosystem. Master the Nouns and Verbs, and you unlock the ability to connect Infor LN to any application, any platform, and any workflow — without writing a single line of custom integration code.</p>
+        <cite>— FullonBaan Consulting Services · fullonbaan@gmail.com · +91 63605 93122 · www.fullonbaan.com</cite>
+      </div>
+
+      <p>Follow <strong>FullonBaan</strong> for the complete series. Training batches for 2026/2027 are open.</p>
+      <p style="margin-top:6px">Contact: <a href="mailto:fullonbaan@gmail.com?subject=BOD%20Nouns%20Verbs%20Enquiry" style="color:var(--primary);text-decoration:none">fullonbaan@gmail.com</a> &nbsp;·&nbsp; +91 63605 93122 &nbsp;·&nbsp; <span style="color:var(--primary)">www.fullonbaan.com</span></p>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">Continue Learning</div>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> for BOD integration references and code examples. The <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> includes a dedicated ION Integration track covering BOD architecture. Enrol in <a href="https://fobtraining.vercel.app/" style="color:var(--primary)">FOB Training</a> for structured Infor LN Integration courses.</p>
+      </div>
+
+    </article>
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 11 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a11-what">What is a BOD</a></li>
+          <li><a href="#a11-anatomy">Anatomy of a BOD</a></li>
+          <li><a href="#a11-verbs">The Six BOD Verbs</a></li>
+          <li><a href="#a11-nouns">Common BOD Nouns</a></li>
+          <li><a href="#a11-flow">BOD Flow in ION</a></li>
+          <li><a href="#a11-config">Publishing &amp; Subscribing</a></li>
+          <li><a href="#a11-errors">Common Errors</a></li>
+          <li><a href="#a11-best">Best Practices</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
+          <a class="nav-link" href="#article-10" style="color:var(--text-dim)">↑ Back to Article 10</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=BOD%20Nouns%20Verbs%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20BOD%20Nouns%20%26%20Verbs%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-11 -->
+
+
 <!-- MORE ARTICLES -->
 <section class="more-articles">
   <div class="more-articles-inner">
     <h2>Coming Up in the Playbook</h2>
     <div class="articles-grid">
-      <div class="article-card coming">
+      <a class="article-card" href="#article-11">
         <div class="article-card-tag">ION · BOD</div>
         <h3>BOD Nouns &amp; Verbs in Infor LN Integration</h3>
         <p>How Business Object Documents structure data and drive event-driven integration across the Infor stack.</p>
-        <div class="article-card-meta">Article 11 · Planned</div>
-      </div>
+        <div class="article-card-meta">Article 11 · Published</div>
+      </a>
       <div class="article-card coming">
         <div class="article-card-tag">Finance · LN</div>
         <h3>Infor LN Accounts Payable — Configuration &amp; Processing Guide</h3>

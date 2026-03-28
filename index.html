@@ -449,30 +449,476 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
 .bod-matrix-table tbody tr:hover{background:var(--bg3)}
 .bod-matrix-table .noun-cell{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--primary);font-size:.72rem}
 .bod-matrix-table .verb-cell{font-family:'JetBrains Mono',monospace;font-size:.65rem}
+
+/* ── PROTOTYPE LAYOUT — SIDEBAR + TOPBAR ── */
+.proto-topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: var(--topbar-bg); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); border-top: 3px solid var(--primary);
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; gap: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.proto-topbar-brand {
+  font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700;
+  color: var(--text); letter-spacing: .06em; text-transform: uppercase;
+  white-space: nowrap; text-decoration: none;
+}
+.proto-topbar-nav {
+  display: flex; align-items: center; gap: .4rem; list-style: none;
+}
+.proto-topbar-nav a {
+  font-family: 'Space Grotesk', sans-serif; font-size: .62rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted);
+  text-decoration: none; padding: .4rem .8rem; border-radius: var(--radius);
+  transition: color .2s, background .2s;
+}
+.proto-topbar-nav a:hover, .proto-topbar-nav a.active {
+  color: var(--primary); background: var(--tag-bg);
+}
+.proto-topbar-right {
+  display: flex; align-items: center; gap: 1rem;
+}
+.proto-search {
+  position: relative;
+}
+.proto-search input {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 20px;
+  padding: .4rem 1rem .4rem 2.2rem; font-family: 'Space Grotesk', sans-serif;
+  font-size: .72rem; color: var(--text); width: 220px;
+  transition: border-color .2s, width .2s;
+}
+.proto-search input:focus {
+  outline: none; border-color: var(--primary); width: 280px;
+}
+.proto-search .material-symbols-outlined {
+  position: absolute; left: .6rem; top: 50%; transform: translateY(-50%);
+  font-size: 1rem; color: var(--text-dim);
+}
+.proto-topbar-icon {
+  color: var(--text-muted); cursor: pointer; transition: color .2s;
+  background: none; border: none; padding: .25rem;
+}
+.proto-topbar-icon:hover { color: var(--primary); }
+
+/* SIDEBAR */
+.proto-sidebar {
+  position: fixed; left: 0; top: 0; height: 100%; width: 280px; z-index: 190;
+  background: var(--bg2); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; padding: 1.5rem 0; overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0,0,0,.08);
+}
+html:not(.light) .proto-sidebar { box-shadow: 4px 0 24px rgba(0,0,0,.25); }
+.proto-sidebar-header {
+  display: flex; align-items: center; gap: .8rem; padding: .5rem 1.5rem 1.5rem;
+  border-bottom: 1px solid var(--border); margin-bottom: 1rem;
+}
+.proto-sidebar-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  display: flex; align-items: center; justify-content: center;
+  color: #2a2218; flex-shrink: 0;
+}
+.proto-sidebar-title {
+  font-family: 'Cinzel', serif; font-size: .88rem; font-weight: 700;
+  color: var(--text); line-height: 1.2;
+}
+.proto-sidebar-sub {
+  font-family: 'Space Grotesk', sans-serif; font-size: .52rem;
+  color: var(--text-dim); letter-spacing: .14em; text-transform: uppercase; margin-top: .15rem;
+}
+.proto-sidebar-nav {
+  flex: 1; padding: 0 .8rem; overflow-y: auto;
+}
+.proto-sidebar-nav a {
+  display: flex; align-items: center; gap: .7rem; padding: .55rem .8rem;
+  border-radius: 8px; text-decoration: none; font-family: 'Space Grotesk', sans-serif;
+  font-size: .68rem; color: var(--text-muted); transition: all .2s;
+  margin-bottom: .15rem; border: 1px solid transparent;
+}
+.proto-sidebar-nav a:hover {
+  color: var(--primary); background: var(--tag-bg); border-color: var(--border);
+  transform: translateX(3px);
+}
+.proto-sidebar-nav a .material-symbols-outlined {
+  font-size: 1.1rem; color: var(--text-dim); transition: color .2s; flex-shrink: 0;
+}
+.proto-sidebar-nav a:hover .material-symbols-outlined { color: var(--primary); }
+.proto-sidebar-nav a .nav-num {
+  font-family: 'JetBrains Mono', monospace; font-size: .58rem;
+  color: var(--text-dim); min-width: 18px;
+}
+.proto-sidebar-footer {
+  padding: 1rem 1.2rem 0; border-top: 1px solid var(--border); margin-top: auto;
+}
+.proto-sidebar-btn {
+  display: flex; align-items: center; justify-content: center; gap: .5rem;
+  width: 100%; padding: .7rem 1rem; border-radius: 8px; border: none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: #2a2218; font-family: 'JetBrains Mono', monospace; font-size: .65rem;
+  letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+  cursor: pointer; transition: opacity .2s; margin-bottom: .8rem;
+}
+.proto-sidebar-btn:hover { opacity: .85; }
+.proto-sidebar-footer-links {
+  display: flex; flex-direction: column; gap: .2rem;
+}
+.proto-sidebar-footer-links a {
+  display: flex; align-items: center; gap: .5rem; padding: .35rem .5rem;
+  font-family: 'Space Grotesk', sans-serif; font-size: .62rem;
+  color: var(--text-muted); text-decoration: none; transition: color .2s;
+}
+.proto-sidebar-footer-links a:hover { color: var(--primary); }
+.proto-sidebar-footer-links a .material-symbols-outlined { font-size: 1rem; }
+
+/* MAIN CONTENT SHIFT */
+.sidebar-main {
+  margin-left: 280px; padding-top: 64px; min-height: 100vh;
+}
+/* Override the old body margin-top since we now use padding-top on main */
+body { margin-top: 0 !important; }
+
+/* RESPONSIVE — collapse sidebar on small screens */
+@media (max-width: 960px) {
+  .proto-sidebar { display: none; }
+  .sidebar-main { margin-left: 0; }
+}
+@media (max-width: 480px) {
+  .proto-topbar { height: 56px; padding: 0 1rem; }
+  .sidebar-main { padding-top: 56px; }
+  .proto-search { display: none; }
+  .proto-topbar-nav { display: none; }
+}
+
+/* ── ARTICLE 12 — INFOR LN VERSION COMPARISON ── */
+.vc-wrap {
+  --vc-gold-dark: #B8860B;
+  --vc-gold-mid: #DAA520;
+  --vc-gold-light: #FFD700;
+  --vc-bg-card: var(--bg2);
+  --vc-bg-card-hover: var(--bg3);
+  --vc-border: var(--border);
+  --vc-text-primary: var(--text);
+  --vc-text-secondary: var(--text-muted);
+  --vc-text-muted: var(--text-dim);
+  --vc-accent-green: #34d399;
+  --vc-accent-blue: #60a5fa;
+  --vc-accent-purple: #a78bfa;
+  --vc-accent-red: #f87171;
+  --vc-accent-orange: #fb923c;
+  --vc-accent-cyan: #22d3ee;
+  --vc-accent-pink: #f472b6;
+  --vc-accent-lime: #a3e635;
+}
+
+/* timeline */
+.vc-timeline {
+  display: flex; align-items: center; gap: 0;
+  margin: 40px 0 48px; overflow-x: auto; padding: 20px 0;
+}
+.vc-tl-node {
+  display: flex; flex-direction: column; align-items: center;
+  min-width: 110px; flex: 1; position: relative;
+}
+.vc-tl-node::after {
+  content: ''; position: absolute; top: 22px; left: 55%;
+  width: calc(100% - 10px); height: 2px;
+  background: linear-gradient(90deg, var(--vc-gold-dark), var(--vc-gold-mid));
+  z-index: 0;
+}
+.vc-tl-node:last-child::after { display: none; }
+.vc-tl-dot {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px;
+  z-index: 1; border: 2px solid var(--vc-gold-mid);
+  background: var(--bg); color: var(--vc-gold-light);
+  transition: all .3s;
+}
+.vc-tl-dot:hover {
+  background: var(--vc-gold-dark); color: #fff; transform: scale(1.15);
+}
+.vc-tl-year {
+  font-size: 11px; color: var(--vc-text-muted); margin-top: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.vc-tl-label {
+  font-size: 10px; color: var(--vc-text-secondary); margin-top: 2px;
+  text-align: center; max-width: 100px;
+}
+
+/* section titles */
+.vc-section-title {
+  font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--text); margin: 3.5rem 0 .5rem; padding-left: 1.4rem;
+  border-left: 4px solid var(--vc-gold-mid); position: relative; line-height: 1.25;
+}
+.vc-section-subtitle {
+  color: var(--text-muted); font-size: .92rem; margin-bottom: 1.8rem;
+  padding-left: 1.6rem; font-family: 'Crimson Pro', serif; font-style: italic;
+}
+
+/* tables */
+.vc-table-wrap {
+  overflow-x: auto; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--bg2); margin-bottom: 2.5rem;
+}
+.vc-table-wrap table {
+  width: 100%; border-collapse: collapse; font-size: .78rem;
+}
+.vc-table-wrap thead th {
+  background: var(--bg3);
+  font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: .62rem;
+  text-transform: uppercase; letter-spacing: .1em; padding: 12px 14px;
+  text-align: left; color: var(--primary); border-bottom: 2px solid var(--vc-gold-dark);
+  position: sticky; top: 0; z-index: 2; white-space: nowrap;
+}
+.vc-table-wrap thead th:first-child {
+  min-width: 130px; position: sticky; left: 0; z-index: 3;
+}
+.vc-table-wrap tbody td {
+  padding: 12px 14px; border-bottom: 1px solid var(--border);
+  vertical-align: top; color: var(--text-muted); line-height: 1.55;
+}
+.vc-table-wrap tbody td:first-child {
+  font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: .65rem;
+  color: var(--primary); text-transform: uppercase; letter-spacing: .05em;
+  background: var(--bg2); position: sticky; left: 0; z-index: 1;
+  min-width: 130px; border-right: 1px solid var(--border);
+}
+.vc-table-wrap tbody tr:hover td { background: var(--bg3); }
+.vc-table-wrap tbody tr:hover td:first-child { background: var(--bg3); }
+.vc-row-highlight td { background: rgba(218,165,32,.03) !important; }
+
+/* tags — namespaced */
+.vc-tag {
+  display: inline-block; font-family: 'JetBrains Mono', monospace;
+  font-size: .56rem; font-weight: 600; padding: 2px 7px; border-radius: 4px;
+  margin: 2px 2px; letter-spacing: .06em;
+}
+.vc-tag-new      { background: rgba(52,211,153,.12); color: var(--vc-accent-green); border: 1px solid rgba(52,211,153,.25); }
+.vc-tag-enhanced { background: rgba(96,165,250,.12); color: var(--vc-accent-blue); border: 1px solid rgba(96,165,250,.25); }
+.vc-tag-cloud    { background: rgba(167,139,250,.12); color: var(--vc-accent-purple); border: 1px solid rgba(167,139,250,.25); }
+.vc-tag-tech     { background: rgba(251,146,60,.12); color: var(--vc-accent-orange); border: 1px solid rgba(251,146,60,.25); }
+.vc-tag-eol      { background: rgba(248,113,113,.12); color: var(--vc-accent-red); border: 1px solid rgba(248,113,113,.25); }
+.vc-tag-industry { background: rgba(34,211,238,.12); color: var(--vc-accent-cyan); border: 1px solid rgba(34,211,238,.25); }
+.vc-tag-ai       { background: rgba(244,114,182,.12); color: var(--vc-accent-pink); border: 1px solid rgba(244,114,182,.25); }
+.vc-tag-current  { background: rgba(163,230,53,.12); color: var(--vc-accent-lime); border: 1px solid rgba(163,230,53,.25); }
+
+/* feature cards */
+.vc-cards-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.3rem; margin-bottom: 2.5rem;
+}
+.vc-feature-card {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.6rem; transition: all .3s ease; position: relative; overflow: hidden;
+}
+.vc-feature-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--vc-gold-dark), var(--vc-gold-light));
+  opacity: 0; transition: opacity .3s;
+}
+.vc-feature-card:hover {
+  border-color: var(--border-hi); transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.2);
+}
+.vc-feature-card:hover::before { opacity: 1; }
+.vc-card-version {
+  font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.vc-card-release {
+  font-size: .68rem; color: var(--text-dim); margin-bottom: .8rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+.vc-card-highlights { list-style: none; padding: 0; margin: 0; }
+.vc-card-highlights li {
+  padding: 4px 0 4px 18px; position: relative; font-size: .82rem;
+  color: var(--text-muted); line-height: 1.55;
+}
+.vc-card-highlights li::before {
+  content: '▸'; position: absolute; left: 0; color: var(--primary); font-size: .82rem;
+}
+
+/* stat bars */
+.vc-stat-card {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.6rem; margin-bottom: 2.5rem;
+}
+.vc-stat-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
+.vc-stat-label {
+  font-family: 'JetBrains Mono', monospace; font-size: .6rem;
+  color: var(--text-dim); min-width: 70px; text-align: right;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.vc-stat-bar-bg {
+  flex: 1; height: 20px; background: rgba(255,255,255,.04);
+  border-radius: 4px; overflow: hidden; position: relative;
+}
+.vc-stat-bar {
+  height: 100%; border-radius: 4px; display: flex; align-items: center;
+  justify-content: flex-end; padding-right: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: .56rem;
+  font-weight: 700; color: #fff; transition: width 1s ease;
+}
+
+/* status badges */
+.vc-status-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: 'JetBrains Mono', monospace; font-size: .58rem;
+  font-weight: 600; padding: 3px 8px; border-radius: 20px;
+}
+.vc-status-eol { background: rgba(248,113,113,.1); color: var(--vc-accent-red); border: 1px solid rgba(248,113,113,.2); }
+.vc-status-extended { background: rgba(251,146,60,.1); color: var(--vc-accent-orange); border: 1px solid rgba(251,146,60,.2); }
+.vc-status-mainstream { background: rgba(52,211,153,.1); color: var(--vc-accent-green); border: 1px solid rgba(52,211,153,.2); }
+.vc-status-current { background: rgba(163,230,53,.1); color: var(--vc-accent-lime); border: 1px solid rgba(163,230,53,.2); }
+
+/* legend */
+.vc-legend {
+  display: flex; flex-wrap: wrap; gap: 12px; margin: 1.5rem 0 2rem;
+  padding: 1rem 1.2rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 10px;
+}
+.vc-legend-item { display: flex; align-items: center; gap: 6px; font-size: .72rem; color: var(--text-muted); }
+
+/* icons */
+.vc-icon-check { color: var(--vc-accent-green); font-weight: bold; }
+.vc-icon-partial { color: var(--vc-accent-orange); }
+.vc-icon-none { color: var(--text-dim); }
+
+@media (max-width: 600px) {
+  .vc-cards-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
 <!-- TOPBAR -->
-<header class="topbar">
-  <a class="topbar-brand" href="https://www.fullonbaan.com/">FullOn<span>Baan</span></a>
-  <nav><ul class="topbar-nav">
-    <li><a href="https://fobrepo.vercel.app/">Repo</a></li>
-    <li><a href="https://fobtraining.vercel.app/">Training</a></li>
-    <li><a href="https://fobinterview.vercel.app/">Interview</a></li>
-    <li><a href="https://fobjobs.vercel.app/">Jobs</a></li>
-    <li><a href="https://fobexams.vercel.app/">Certification</a></li>
-    <li><a href="https://www.fullonbaan.com/">About</a></li>
+<header class="proto-topbar">
+  <a class="proto-topbar-brand" href="https://www.fullonbaan.com/">The Playbook</a>
+  <nav><ul class="proto-topbar-nav">
+    <li><a href="#playbook-hero">Strategy</a></li>
+    <li><a href="#article-index">Articles</a></li>
+    <li><a href="https://www.fullonbaan.com/">Ecosystem</a></li>
   </ul></nav>
   <div style="flex:1"></div>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
-    <span class="toggle-icon" id="toggleIcon">☀️</span>
-    <span class="toggle-label" id="toggleLabel">Light</span>
-    <span class="toggle-track"><span class="toggle-thumb"></span></span>
-  </button>
+  <div class="proto-topbar-right">
+    <div class="proto-search">
+      <span class="material-symbols-outlined">search</span>
+      <input type="text" placeholder="Search articles..." />
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+      <span class="toggle-icon" id="toggleIcon">☀️</span>
+      <span class="toggle-label" id="toggleLabel">Light</span>
+      <span class="toggle-track"><span class="toggle-thumb"></span></span>
+    </button>
+    <button class="proto-topbar-icon" title="Notifications">
+      <span class="material-symbols-outlined">notifications</span>
+    </button>
+    <button class="proto-topbar-icon" title="Help">
+      <span class="material-symbols-outlined">help_outline</span>
+    </button>
+  </div>
 </header>
 
+<!-- SIDEBAR -->
+<aside class="proto-sidebar">
+  <div class="proto-sidebar-header">
+    <div class="proto-sidebar-icon">
+      <span class="material-symbols-outlined">book</span>
+    </div>
+    <div>
+      <div class="proto-sidebar-title">Infor LN Playbook</div>
+      <div class="proto-sidebar-sub">v1.0 FullOnBaan</div>
+    </div>
+  </div>
+
+  <nav class="proto-sidebar-nav">
+    <a href="#article-1">
+      <span class="nav-num">01</span>
+      <span class="material-symbols-outlined">account_tree</span>
+      <span>ION Workflows</span>
+    </a>
+    <a href="#article-2">
+      <span class="nav-num">02</span>
+      <span class="material-symbols-outlined">api</span>
+      <span>ION API Gateway</span>
+    </a>
+    <a href="#article-3">
+      <span class="nav-num">03</span>
+      <span class="material-symbols-outlined">dataset</span>
+      <span>Domains & Data Types</span>
+    </a>
+    <a href="#article-4">
+      <span class="nav-num">04</span>
+      <span class="material-symbols-outlined">compare_arrows</span>
+      <span>Functions vs Libraries</span>
+    </a>
+    <a href="#article-5">
+      <span class="nav-num">05</span>
+      <span class="material-symbols-outlined">view_list</span>
+      <span>MMT Sessions</span>
+    </a>
+    <a href="#article-6">
+      <span class="nav-num">06</span>
+      <span class="material-symbols-outlined">terminal</span>
+      <span>Sessions in LN</span>
+    </a>
+    <a href="#article-7">
+      <span class="nav-num">07</span>
+      <span class="material-symbols-outlined">history</span>
+      <span>VRC in LN</span>
+    </a>
+    <a href="#article-8">
+      <span class="nav-num">08</span>
+      <span class="material-symbols-outlined">code</span>
+      <span>4GL Programming</span>
+    </a>
+    <a href="#article-9">
+      <span class="nav-num">09</span>
+      <span class="material-symbols-outlined">event_note</span>
+      <span>Period-End Closing</span>
+    </a>
+    <a href="#article-10">
+      <span class="nav-num">10</span>
+      <span class="material-symbols-outlined">integration_instructions</span>
+      <span>DAL Scripting</span>
+    </a>
+    <a href="#article-11">
+      <span class="nav-num">11</span>
+      <span class="material-symbols-outlined">hub</span>
+      <span>BOD Nouns & Verbs</span>
+    </a>
+    <a href="#article-12">
+      <span class="nav-num">12</span>
+      <span class="material-symbols-outlined">compare</span>
+      <span>LN Version Comparison</span>
+    </a>
+  </nav>
+
+  <div class="proto-sidebar-footer">
+    <a class="proto-sidebar-btn" href="https://www.fullonbaan.com/">
+      <span class="material-symbols-outlined">download</span>
+      Visit FullOnBaan
+    </a>
+    <div class="proto-sidebar-footer-links">
+      <a href="https://www.fullonbaan.com/">
+        <span class="material-symbols-outlined">settings</span>
+        Settings
+      </a>
+      <a href="mailto:fullonbaan@gmail.com">
+        <span class="material-symbols-outlined">help_outline</span>
+        Support
+      </a>
+    </div>
+  </div>
+</aside>
+
 <!-- HERO -->
+<main class="sidebar-main">
+
 <section class="playbook-banner">
   <div class="hero-bg"></div>
   <div class="hero-gradient"></div>
@@ -491,7 +937,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
       <a class="pb-btn-secondary" href="https://www.fullonbaan.com/">About FullOnBaan</a>
     </div>
     <div class="pb-stats">
-      <div><div class="pb-stat-num">11</div><div class="pb-stat-label">Articles Published</div></div>
+      <div><div class="pb-stat-num">12</div><div class="pb-stat-label">Articles Published</div></div>
       <div><div class="pb-stat-num">2</div><div class="pb-stat-label">In Pipeline</div></div>
       <div><div class="pb-stat-num">Finance</div><div class="pb-stat-label">Current Focus</div></div>
     </div>
@@ -593,6 +1039,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
       <a class="ai-card" href="#article-11">
         <div class="ai-num">11</div>
         <div><div class="ai-card-tag">ION · BOD</div><div class="ai-card-title">BOD Nouns &amp; Verbs in Infor LN Integration</div></div>
+      </a>
+      <a class="ai-card" href="#article-12">
+        <div class="ai-num">12</div>
+        <div><div class="ai-card-tag">Platform · Versions</div><div class="ai-card-title">Infor LN Version Comparison (10.1–10.8)</div></div>
       </a>
     </div>
   </div>
@@ -2955,6 +3405,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
           <a class="nav-link" href="#article-10" style="color:var(--text-dim)">↑ Back to Article 10</a>
+          <a class="nav-link" href="#article-12" style="color:var(--primary)">↓ Next: LN Version Comparison</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -2977,28 +3428,443 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
 </div><!-- /article-11 -->
 
 
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 12 — Infor LN Version Comparison (10.1–10.8)
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-12" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 12 · Platform · Versions</div>
+      <h2 class="ah-title">Infor LN <em>Version Comparison</em><br>10.1 through 10.8</h2>
+      <p class="ah-sub">Technical &amp; functional differences across Infor LN 10.1 through 10.8 — helping you understand the evolution and plan your upgrade path.</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">LN Versions</span><span class="tag">Upgrade Path</span><span class="tag">CloudSuite</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article vc-wrap">
+
+      <h2 id="a12-timeline">Release Timeline</h2>
+      <p>Infor LN's 10.x platform has evolved through eight major releases since approximately 2012, each adding significant functional and technical capabilities. Understanding this timeline is essential for planning upgrades and evaluating which features are available at your current version level.</p>
+
+      <div class="vc-timeline">
+        <div class="vc-tl-node">
+          <div class="vc-tl-dot">10.1</div>
+          <div class="vc-tl-year">~2012</div>
+          <div class="vc-tl-label">Foundation</div>
+        </div>
+        <div class="vc-tl-node">
+          <div class="vc-tl-dot">10.2</div>
+          <div class="vc-tl-year">~2013</div>
+          <div class="vc-tl-label">Web UI</div>
+        </div>
+        <div class="vc-tl-node">
+          <div class="vc-tl-dot">10.3</div>
+          <div class="vc-tl-year">~2014</div>
+          <div class="vc-tl-label">Project Mgt</div>
+        </div>
+        <div class="vc-tl-node">
+          <div class="vc-tl-dot">10.4</div>
+          <div class="vc-tl-year">~2015</div>
+          <div class="vc-tl-label">Claims &amp; Multi-Currency</div>
+        </div>
+        <div class="vc-tl-node">
+          <div class="vc-tl-dot">10.5</div>
+          <div class="vc-tl-year">~2016</div>
+          <div class="vc-tl-label">Industry Verticals</div>
+        </div>
+        <div class="vc-tl-node">
+          <div class="vc-tl-dot">10.6</div>
+          <div class="vc-tl-year">~2018</div>
+          <div class="vc-tl-label">Multisite Mfg</div>
+        </div>
+        <div class="vc-tl-node">
+          <div class="vc-tl-dot">10.7</div>
+          <div class="vc-tl-year">2019</div>
+          <div class="vc-tl-label">Multisite Mfg</div>
+        </div>
+        <div class="vc-tl-node">
+          <div class="vc-tl-dot" style="border-color:var(--vc-accent-lime);color:var(--vc-accent-lime);">10.8</div>
+          <div class="vc-tl-year">2023</div>
+          <div class="vc-tl-label">Latest On-Prem</div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="vc-legend">
+        <div class="vc-legend-item"><span class="vc-tag vc-tag-new">NEW</span> New feature</div>
+        <div class="vc-legend-item"><span class="vc-tag vc-tag-enhanced">ENHANCED</span> Enhancement</div>
+        <div class="vc-legend-item"><span class="vc-tag vc-tag-cloud">CLOUD</span> Cloud capability</div>
+        <div class="vc-legend-item"><span class="vc-tag vc-tag-tech">TECH</span> Technical change</div>
+        <div class="vc-legend-item"><span class="vc-tag vc-tag-industry">INDUSTRY</span> Vertical capability</div>
+        <div class="vc-legend-item"><span class="vc-tag vc-tag-ai">AI / ANALYTICS</span> Intelligence</div>
+        <div class="vc-legend-item"><span class="vc-tag vc-tag-eol">EOL</span> End of life</div>
+        <div class="vc-legend-item"><span class="vc-tag vc-tag-current">CURRENT</span> Active version</div>
+      </div>
+
+      <h2 id="a12-highlights">Version Highlights</h2>
+      <p>Each release brought key capabilities. Below is a summary of the most significant features introduced in each version.</p>
+
+      <div class="vc-cards-grid">
+        <!-- 10.1 -->
+        <div class="vc-feature-card">
+          <div class="vc-card-version">10.1</div>
+          <div class="vc-card-release">~2012 &nbsp; <span class="vc-status-badge vc-status-eol">&#x25cf; End of Life</span></div>
+          <ul class="vc-card-highlights">
+            <li>Initial 10.x platform rewrite — transition from Baan/ERP LN 6.1</li>
+            <li>Infor Enterprise Server (IES) foundation layer introduced</li>
+            <li>SQL Server &amp; Oracle database support (64-bit)</li>
+            <li>Classic rich-client (Windows) UI as primary interface</li>
+            <li>Basic Infor ION connectivity for BOD messaging</li>
+            <li>Standard Manufacturing, Finance, Logistics modules</li>
+          </ul>
+        </div>
+        <!-- 10.2 -->
+        <div class="vc-feature-card">
+          <div class="vc-card-version">10.2</div>
+          <div class="vc-card-release">~2013 &nbsp; <span class="vc-status-badge vc-status-eol">&#x25cf; End of Life</span></div>
+          <ul class="vc-card-highlights">
+            <li>Web UI (browser-based client) introduced alongside rich client</li>
+            <li>Enhanced ION integration — workflow &amp; alert support</li>
+            <li>Improved localization framework for multi-country deployments</li>
+            <li>Service module enhancements for field-service scenarios</li>
+            <li>New Authorization Management System (AMS) features</li>
+            <li>Extended support ended June 30, 2021</li>
+          </ul>
+        </div>
+        <!-- 10.3 -->
+        <div class="vc-feature-card">
+          <div class="vc-card-version">10.3</div>
+          <div class="vc-card-release">~2014 &nbsp; <span class="vc-status-badge vc-status-eol">&#x25cf; End of Life</span></div>
+          <ul class="vc-card-highlights">
+            <li>Project management overhaul — budget adjustments &amp; cost forecasting</li>
+            <li>External scheduling interfaces for integration with MS Project</li>
+            <li>Multi-currency project support introduced</li>
+            <li>Enhanced cost &amp; service item handling across project domains</li>
+            <li>Improved warehouse management &amp; lot tracking</li>
+            <li>Tighter integration with Infor Ming.le social platform</li>
+          </ul>
+        </div>
+        <!-- 10.4 -->
+        <div class="vc-feature-card">
+          <div class="vc-card-version">10.4</div>
+          <div class="vc-card-release">~2015 &nbsp; <span class="vc-status-badge vc-status-eol">&#x25cf; Maint. Withdrawn Mar 2025</span></div>
+          <ul class="vc-card-highlights">
+            <li>Credit &amp; Rebill invoice functionality for corrective invoicing</li>
+            <li>New Claims management module for customer/supplier claims</li>
+            <li>Project enhancements — control accounts &amp; billing improvements</li>
+            <li>Improved intercompany trade processing</li>
+            <li>Enhanced revenue recognition workflows</li>
+            <li>Data authorization objects for fine-grained security</li>
+          </ul>
+        </div>
+        <!-- 10.5 -->
+        <div class="vc-feature-card">
+          <div class="vc-card-version">10.5</div>
+          <div class="vc-card-release">~2016 &nbsp; <span class="vc-status-badge vc-status-eol">&#x25cf; Maint. Withdrawn Mar 2025</span></div>
+          <ul class="vc-card-highlights">
+            <li>Industry-specific functionality for Aerospace &amp; Defense micro-vertical</li>
+            <li>Automotive industry capabilities — contract flow-down</li>
+            <li>Repetitive manufacturing enhancements</li>
+            <li>Manufacturer certifications &amp; compliance tracking</li>
+            <li>Remote application launch for global partner access</li>
+            <li>Real-time data viewing from any location</li>
+          </ul>
+        </div>
+        <!-- 10.6 -->
+        <div class="vc-feature-card">
+          <div class="vc-card-version">10.6</div>
+          <div class="vc-card-release">August 2018 &nbsp; <span class="vc-status-badge vc-status-eol">&#x25cf; Maint. Withdrawn Mar 2025</span></div>
+          <ul class="vc-card-highlights">
+            <li>GDPR Anonymization &amp; enhanced Authorization Management System (AMS/DEM)</li>
+            <li>Multisite model with local item management &amp; standard cost by Enterprise Unit</li>
+            <li>Personalization Workbench — flexible form layout &amp; conditional formatting</li>
+            <li>Kanban enhancements — signals, supply orders, average daily usage</li>
+            <li>Packaging Fill-up logic, Lot Splitting at receipt, Virtual Handling Units</li>
+            <li>Shipment Workbench, Shipment Execution &amp; Planning Workbenches</li>
+            <li>Purchase Change Requests, Target Pricing, Retro-Billing</li>
+            <li>Price Stages in pricing &amp; Letter of Credit for Global Trade Compliance</li>
+          </ul>
+        </div>
+        <!-- 10.7 -->
+        <div class="vc-feature-card">
+          <div class="vc-card-version">10.7</div>
+          <div class="vc-card-release">March 2019 &nbsp; <span class="vc-status-badge vc-status-mainstream">&#x25cf; Mainstream Support</span></div>
+          <ul class="vc-card-highlights">
+            <li><strong>Multisite production for Job Shop</strong> — Job Shop by Site parameter, BOM &amp; routing by site</li>
+            <li>Configurable start page with company logo, Favorites, Bookmarks &amp; Recently Used per user</li>
+            <li>Report Designer — exact positioning for PDF, printing to Excel with row/column control</li>
+            <li>RFQ Comparison Workbench for procurement bid evaluation</li>
+            <li>Financial Statements module enabled for multi-tenant cloud</li>
+            <li>Inventory aging analysis &amp; in-transit inventory reports (new)</li>
+            <li>Quality: conformance documentation, non-conformance for non-material, qualitative testing norms</li>
+            <li>Global HR integration via BOD (employee, absence, teams) &amp; country localizations</li>
+          </ul>
+        </div>
+        <!-- 10.8 -->
+        <div class="vc-feature-card" style="border-color:rgba(163,230,53,.3);">
+          <div class="vc-card-version">10.8</div>
+          <div class="vc-card-release">March 2023 &nbsp; <span class="vc-status-badge vc-status-current">&#x25cf; Latest On-Premises</span></div>
+          <ul class="vc-card-highlights">
+            <li><strong>Latest on-premises release</strong> — recommended for all on-prem deployments</li>
+            <li>Enhanced CloudSuite alignment — 6-month feature releases in cloud</li>
+            <li>Advanced API framework &amp; expanded BOD library</li>
+            <li>Improved Infor OS integration (ION, Ming.le, Homepages)</li>
+            <li>AI-driven analytics via Infor Coleman &amp; Birst embedded BI</li>
+            <li>Supplier Collaboration, EAM &amp; CPQ componentization</li>
+            <li>Enhanced multi-site &amp; intercompany scenarios</li>
+            <li>Ongoing monthly CloudSuite updates beyond 10.8 baseline</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="a12-tech">Technical Architecture Comparison</h2>
+      <p>The table below shows how the underlying platform, database support, user interface, and infrastructure capabilities have evolved across LN versions.</p>
+
+      <div class="vc-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th><th>10.1</th><th>10.2</th><th>10.3</th><th>10.4</th><th>10.5</th><th>10.6</th><th>10.7</th><th>10.8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary UI</td>
+              <td>Rich Client (Win)</td><td>Rich Client + Web UI</td><td>Rich Client + Web UI</td><td>Rich Client + Web UI</td><td>Rich Client + Web UI</td><td>Web UI (primary) + Rich Client</td><td>Web UI + Configurable Start Page + User Profiles</td><td>Web UI + Infor Homepages</td>
+            </tr>
+            <tr>
+              <td>Platform (64-bit)</td>
+              <td>Windows / Unix</td><td>Windows / Unix</td><td>Windows / Unix</td><td>Windows / Unix / Linux</td><td>Windows / Unix / Linux</td><td>Windows / Linux</td><td>Windows / Linux (RHEL, SUSE)</td><td>Windows / Linux (RHEL, SUSE)</td>
+            </tr>
+            <tr>
+              <td>Database</td>
+              <td>Oracle, SQL Server</td><td>Oracle, SQL Server</td><td>Oracle, SQL Server</td><td>Oracle, SQL Server</td><td>Oracle, SQL Server</td><td>Oracle, SQL Server</td><td>SQL Server (incl. Linux), Oracle</td><td>SQL Server (incl. Linux), Oracle</td>
+            </tr>
+            <tr>
+              <td>Character Set</td>
+              <td>Single / Multi / Unicode</td><td>Single / Multi / Unicode</td><td>Single / Multi / Unicode</td><td>Single / Multi / Unicode</td><td>Single / Multi / Unicode</td><td>Single / Multi / Unicode</td><td><span class="vc-tag vc-tag-tech">UNICODE ONLY</span></td><td><span class="vc-tag vc-tag-tech">UNICODE ONLY</span></td>
+            </tr>
+            <tr>
+              <td>Cloud Ready</td>
+              <td><span class="vc-icon-none">—</span></td><td><span class="vc-icon-none">—</span></td><td><span class="vc-icon-none">—</span></td><td><span class="vc-icon-partial">Partial</span></td><td><span class="vc-icon-partial">Partial</span></td><td><span class="vc-tag vc-tag-cloud">MULTI-TENANT</span></td><td><span class="vc-tag vc-tag-cloud">MULTI-TENANT</span></td><td><span class="vc-tag vc-tag-cloud">MULTI-TENANT</span></td>
+            </tr>
+            <tr>
+              <td>Infor OS / ION</td>
+              <td>Basic BODs</td><td>Workflows &amp; Alerts</td><td>Enhanced BODs</td><td>ION API Basics</td><td>ION API Extended</td><td><span class="vc-tag vc-tag-tech">ION API Gateway (OAuth)</span></td><td>ION Workflow on invoices, IDM Capture</td><td>Full Infor OS + Expanded BODs</td>
+            </tr>
+            <tr>
+              <td>Mobile Support</td>
+              <td><span class="vc-icon-none">—</span></td><td><span class="vc-icon-none">—</span></td><td><span class="vc-icon-none">—</span></td><td><span class="vc-icon-none">—</span></td><td>Limited</td><td><span class="vc-tag vc-tag-new">Android &amp; iOS</span></td><td>Android &amp; iOS</td><td>Android &amp; iOS (Enhanced)</td>
+            </tr>
+            <tr>
+              <td>Analytics / BI</td>
+              <td>Basic Reporting</td><td>Basic Reporting</td><td>Report Enhancements</td><td>Report Enhancements</td><td><span class="vc-tag vc-tag-enhanced">Data Lake</span></td><td>Data Lake + Doc Mgmt</td><td>Report Designer + Excel output</td><td><span class="vc-tag vc-tag-ai">Birst BI + Coleman AI (Enhanced)</span></td>
+            </tr>
+            <tr>
+              <td>Security Model</td>
+              <td>User / Role based</td><td>AMS Enhancements</td><td>AMS Enhancements</td><td>Data Authorization Objects</td><td>Data Authorization Objects</td><td>OAuth 1.0a + AMS</td><td>Data auth in Quality &amp; FRACAS, GTC enhancements</td><td>Enhanced OAuth + AMS + SSO</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="a12-functional">Functional Module Comparison</h2>
+      <p>Key functional improvements by module area across versions — from manufacturing and finance to procurement, service, and industry verticals.</p>
+
+      <div class="vc-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Module Area</th><th>10.1</th><th>10.2</th><th>10.3</th><th>10.4</th><th>10.5</th><th>10.6</th><th>10.7</th><th>10.8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Manufacturing</td>
+              <td>Standard MRP / MPS</td><td>Improved scheduling</td><td>Enhanced BOM mgmt</td><td>Intercompany production</td><td><span class="vc-tag vc-tag-new">Repetitive Mfg</span></td><td>Resource Mgmt, Kanban enhancements</td><td><span class="vc-tag vc-tag-new">Multisite Job Shop by Site</span></td><td>Advanced planning + CPQ</td>
+            </tr>
+            <tr>
+              <td>Finance</td>
+              <td>GL, AP, AR, Cash Mgmt</td><td>Multi-company ledgers</td><td>Cost forecasting</td><td><span class="vc-tag vc-tag-new">Revenue Recognition</span></td><td>Enhanced consolidation</td><td><span class="vc-tag vc-tag-new">IFRS Reporting</span></td><td><span class="vc-tag vc-tag-new">Fin. Stmts (Cloud)</span> Segment acctg, Reconciliation</td><td>Enhanced multi-site financials</td>
+            </tr>
+            <tr>
+              <td>Project Management</td>
+              <td>Basic project tracking</td><td>Budget management</td><td><span class="vc-tag vc-tag-enhanced">Budget + Forecasting</span></td><td>Control accounts &amp; billing</td><td>Certifications tracking</td><td>Project scheduling tool</td><td>Contract types, Resource assignments, Element projects</td><td>Advanced project analytics</td>
+            </tr>
+            <tr>
+              <td>Warehouse / Logistics</td>
+              <td>Basic WMS</td><td>Enhanced picking</td><td><span class="vc-tag vc-tag-enhanced">Lot Tracking</span></td><td>Improved handling</td><td>Remote access</td><td>Shipment Workbench, Packaging Fill-up, Lot Split</td><td><span class="vc-tag vc-tag-new">Inv. Aging &amp; Transit Reports</span></td><td>Advanced logistics optimization</td>
+            </tr>
+            <tr>
+              <td>Procurement</td>
+              <td>Standard purchasing</td><td>Vendor management</td><td>Enhanced sourcing</td><td>Intercompany trade</td><td>Supplier collaboration</td><td><span class="vc-tag vc-tag-new">Change Requests, Target Pricing</span></td><td><span class="vc-tag vc-tag-new">RFQ Comparison Workbench</span></td><td><span class="vc-tag vc-tag-new">Supplier Collaboration Portal</span></td>
+            </tr>
+            <tr>
+              <td>Sales / CRM</td>
+              <td>Sales orders, quotes</td><td>Enhanced pricing</td><td>Multi-currency quotes</td><td><span class="vc-tag vc-tag-new">Credit &amp; Rebill</span></td><td>Improved invoicing</td><td>Consignment, After Sales Service</td><td>Delivery patterns, Customer item codes, ATP recalc</td><td>Configure Price Quote (CPQ)</td>
+            </tr>
+            <tr>
+              <td>Service</td>
+              <td>Basic service mgmt</td><td><span class="vc-tag vc-tag-enhanced">Field Service</span></td><td>Service contracts</td><td><span class="vc-tag vc-tag-new">Claims Management</span></td><td>After-sales enhancements</td><td>Mobile service apps</td><td>Depot repair, Unified quotes, Cost pegging</td><td>EAM integration</td>
+            </tr>
+            <tr>
+              <td>Industry Verticals</td>
+              <td>Generic manufacturing</td><td>Generic manufacturing</td><td>Generic manufacturing</td><td>Generic manufacturing</td><td><span class="vc-tag vc-tag-industry">A&amp;D, Automotive</span></td><td><span class="vc-tag vc-tag-industry">A&amp;D, Auto, Industrial</span></td><td><span class="vc-tag vc-tag-industry">+High-Tech, Equipment</span></td><td><span class="vc-tag vc-tag-industry">Full CloudSuite Verticals</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="a12-lifecycle">Support &amp; Lifecycle Status</h2>
+      <p>Current maintenance status and recommended upgrade path for each version of Infor LN.</p>
+
+      <div class="vc-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Version</th><th>Status</th><th>Mainstream End</th><th>Extended End</th><th>Recommendation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>10.1</td><td><span class="vc-status-badge vc-status-eol">End of Life</span></td><td>Ended</td><td>Jun 2021</td><td>Upgrade to 10.8 or CloudSuite immediately</td></tr>
+            <tr><td>10.2</td><td><span class="vc-status-badge vc-status-eol">End of Life</span></td><td>Ended</td><td>Jun 2021</td><td>Upgrade to 10.8 or CloudSuite immediately</td></tr>
+            <tr><td>10.3</td><td><span class="vc-status-badge vc-status-eol">End of Life</span></td><td>Ended</td><td>Ended</td><td>Upgrade to 10.8 or CloudSuite</td></tr>
+            <tr><td>10.4</td><td><span class="vc-status-badge vc-status-eol">Maint. Withdrawn</span></td><td>Mar 2025</td><td>—</td><td>Upgrade to 10.8 or CloudSuite</td></tr>
+            <tr><td>10.5</td><td><span class="vc-status-badge vc-status-eol">Maint. Withdrawn</span></td><td>Mar 2025</td><td>—</td><td>Upgrade to 10.8 or CloudSuite</td></tr>
+            <tr><td>10.6</td><td><span class="vc-status-badge vc-status-eol">Maint. Withdrawn</span></td><td>Mar 2025</td><td>—</td><td>Upgrade to 10.8 or CloudSuite</td></tr>
+            <tr><td>10.7</td><td><span class="vc-status-badge vc-status-mainstream">Mainstream</span></td><td>Active</td><td>—</td><td>Plan upgrade to 10.8 or CloudSuite</td></tr>
+            <tr class="vc-row-highlight"><td>10.8</td><td><span class="vc-status-badge vc-status-current">Latest On-Prem</span></td><td>Active</td><td>—</td><td>Current recommended on-premises version</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="a12-evolution">Capability Evolution</h2>
+      <p>Relative capability growth across key dimensions — Cloud readiness, ION/API maturity, industry vertical depth, and AI/BI sophistication.</p>
+
+      <div class="vc-stat-card">
+        <div class="vc-stat-row"><div class="vc-stat-label">Cloud</div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:12%;background:linear-gradient(90deg,#333,#444);">10.1</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:18%;background:linear-gradient(90deg,#444,#555);">10.2–10.3</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:35%;background:linear-gradient(90deg,#666,#777);">10.4–10.5</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:70%;background:linear-gradient(90deg,var(--vc-gold-dark),var(--vc-gold-mid));">10.6</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:85%;background:linear-gradient(90deg,var(--vc-gold-mid),var(--vc-gold-light));">10.7</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:97%;background:linear-gradient(90deg,var(--vc-gold-light),var(--vc-accent-lime));">10.8</div></div></div>
+
+        <div style="height:20px;"></div>
+
+        <div class="vc-stat-row"><div class="vc-stat-label">ION / API</div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:20%;background:linear-gradient(90deg,#555,#666);">10.1–10.2</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:40%;background:linear-gradient(90deg,#666,#888);">10.3–10.4</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:60%;background:linear-gradient(90deg,var(--vc-gold-dark),var(--vc-gold-mid));">10.5–10.6</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:90%;background:linear-gradient(90deg,var(--vc-gold-mid),var(--vc-gold-light));">10.7</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:98%;background:linear-gradient(90deg,var(--vc-gold-light),var(--vc-accent-lime));">10.8</div></div></div>
+
+        <div style="height:20px;"></div>
+
+        <div class="vc-stat-row"><div class="vc-stat-label">Verticals</div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:15%;background:linear-gradient(90deg,#444,#555);">10.1–10.4</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:50%;background:linear-gradient(90deg,var(--vc-gold-dark),var(--vc-gold-mid));">10.5</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:70%;background:linear-gradient(90deg,var(--vc-gold-mid),var(--vc-gold-light));">10.6–10.7</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:95%;background:linear-gradient(90deg,var(--vc-gold-light),var(--vc-accent-lime));">10.8</div></div></div>
+
+        <div style="height:20px;"></div>
+
+        <div class="vc-stat-row"><div class="vc-stat-label">AI / BI</div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:10%;background:linear-gradient(90deg,#333,#444);">10.1–10.4</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:30%;background:linear-gradient(90deg,#666,var(--vc-gold-dark));">10.5–10.6</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:75%;background:linear-gradient(90deg,var(--vc-gold-mid),var(--vc-accent-pink));">10.7</div></div></div>
+        <div class="vc-stat-row"><div class="vc-stat-label"></div><div class="vc-stat-bar-bg"><div class="vc-stat-bar" style="width:95%;background:linear-gradient(90deg,var(--vc-accent-pink),var(--vc-accent-purple));">10.8</div></div></div>
+      </div>
+
+      <h2 id="a12-milestones">Critical Upgrade Milestones</h2>
+      <p>Breaking changes and must-know transitions when planning your upgrade path through the Infor LN 10.x release series.</p>
+
+      <div class="vc-cards-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));">
+        <div class="vc-feature-card">
+          <div style="font-size:1.4rem;margin-bottom:.5rem;">&#x1F310;</div>
+          <div style="font-family:'Cinzel',serif;font-weight:700;font-size:.92rem;color:var(--primary);margin-bottom:.5rem;">10.2 — Web UI Introduction</div>
+          <p style="font-size:.88rem;color:var(--text-muted);line-height:1.65;margin:0">First version to offer a browser-based client alongside the traditional Windows rich client. Marks the beginning of the transition away from desktop-only access.</p>
+        </div>
+        <div class="vc-feature-card">
+          <div style="font-size:1.4rem;margin-bottom:.5rem;">&#x2601;</div>
+          <div style="font-family:'Cinzel',serif;font-weight:700;font-size:.92rem;color:var(--primary);margin-bottom:.5rem;">10.6 — Multi-Tenant Cloud</div>
+          <p style="font-size:.88rem;color:var(--text-muted);line-height:1.65;margin:0">First version architected for true multi-tenant cloud deployment on AWS. Introduces Infor OS certification, Data Lake integration, and OAuth security for API endpoints.</p>
+        </div>
+        <div class="vc-feature-card">
+          <div style="font-size:1.4rem;margin-bottom:.5rem;">&#x1F520;</div>
+          <div style="font-family:'Cinzel',serif;font-weight:700;font-size:.92rem;color:var(--primary);margin-bottom:.5rem;">10.7 — Unicode Mandate</div>
+          <p style="font-size:.88rem;color:var(--text-muted);line-height:1.65;margin:0">Breaking change: only Unicode environments are supported from 10.7 onwards. Single-byte and multi-byte installations must be migrated before upgrading.</p>
+        </div>
+        <div class="vc-feature-card">
+          <div style="font-size:1.4rem;margin-bottom:.5rem;">&#x1F680;</div>
+          <div style="font-family:'Cinzel',serif;font-weight:700;font-size:.92rem;color:var(--primary);margin-bottom:.5rem;">10.8 — CloudSuite Convergence</div>
+          <p style="font-size:.88rem;color:var(--text-muted);line-height:1.65;margin:0">Latest on-premises version and the bridge to CloudSuite. Features align with cloud releases, and CloudSuites receive bi-annual feature updates + monthly fixes on top of the 10.8 baseline.</p>
+        </div>
+      </div>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Explore the <a href="https://fobrepo.vercel.app/" style="color:var(--primary)">FOB Repository</a> for version-specific configuration references. Take the <a href="https://fobexams.vercel.app/" style="color:var(--primary)">FOB Certification Exam</a> to validate your Infor LN knowledge.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 12 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a12-timeline">Release Timeline</a></li>
+          <li><a href="#a12-highlights">Version Highlights</a></li>
+          <li><a href="#a12-tech">Technical Comparison</a></li>
+          <li><a href="#a12-functional">Functional Comparison</a></li>
+          <li><a href="#a12-lifecycle">Support &amp; Lifecycle</a></li>
+          <li><a href="#a12-evolution">Capability Evolution</a></li>
+          <li><a href="#a12-milestones">Upgrade Milestones</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
+          <a class="nav-link" href="#article-11" style="color:var(--primary)">↑ Prev: BOD Nouns &amp; Verbs</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-12 -->
+
+
 <!-- MORE ARTICLES -->
 <section class="more-articles">
   <div class="more-articles-inner">
     <h2>Coming Up in the Playbook</h2>
     <div class="articles-grid">
-      <a class="article-card" href="#article-11">
-        <div class="article-card-tag">ION · BOD</div>
-        <h3>BOD Nouns &amp; Verbs in Infor LN Integration</h3>
-        <p>How Business Object Documents structure data and drive event-driven integration across the Infor stack.</p>
-        <div class="article-card-meta">Article 11 · Published</div>
+      <a class="article-card" href="#article-12">
+        <div class="article-card-tag">Platform · Versions</div>
+        <h3>Infor LN Version Comparison (10.1–10.8)</h3>
+        <p>Technical &amp; functional differences across Infor LN versions — timeline, tables, lifecycle status, and upgrade milestones.</p>
+        <div class="article-card-meta">Article 12 · Published</div>
       </a>
       <div class="article-card coming">
         <div class="article-card-tag">Finance · LN</div>
         <h3>Infor LN Accounts Payable — Configuration &amp; Processing Guide</h3>
         <p>Complete guide to AP invoice processing, payment runs, three-way matching, and supplier reconciliation in LN.</p>
-        <div class="article-card-meta">Article 12 · Planned</div>
+        <div class="article-card-meta">Article 13 · Planned</div>
       </div>
       <div class="article-card coming">
         <div class="article-card-tag">Warehousing · LN</div>
         <h3>Advanced Warehousing Configuration in Infor LN</h3>
         <p>Warehouse structures, handling units, and advanced picking strategies in Infor LN WH module.</p>
-        <div class="article-card-meta">Article 13 · Planned</div>
+        <div class="article-card-meta">Article 14 · Planned</div>
       </div>
     </div>
   </div>
@@ -3032,6 +3898,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2.5r
   </div>
   <div class="footer-copyright">© 2026 FullOnBaan. All rights reserved. Bangalore, India.</div>
 </footer>
+</main>
 
 <script>
 (function(){

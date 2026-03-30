@@ -591,6 +591,36 @@ body { margin-top: 0 !important; }
   .proto-topbar-nav { display: none; }
 }
 
+/* ── SUBSCRIPTION FORM ── */
+.subscribe-banner{background:linear-gradient(135deg,var(--bg2),var(--bg3));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:clamp(3rem,5vw,5rem) clamp(2rem,5vw,6rem);text-align:center;position:relative;overflow:hidden}
+.subscribe-banner::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(230,195,100,.06) 0%,transparent 70%);pointer-events:none}
+.subscribe-inner{max-width:560px;margin:0 auto;position:relative}
+.subscribe-icon{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--primary),var(--primary-container));display:inline-flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
+.subscribe-icon .material-symbols-outlined{font-size:28px;color:#2a2218}
+.subscribe-heading{font-family:'Cinzel',serif;font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;color:var(--text);margin-bottom:.6rem}
+.subscribe-desc{font-family:'Crimson Pro',serif;font-size:1rem;color:var(--text-muted);font-style:italic;margin-bottom:1.8rem;line-height:1.6}
+.subscribe-form{display:flex;gap:.6rem;max-width:440px;margin:0 auto}
+.subscribe-form input[type="email"]{flex:1;background:var(--bg);border:1px solid var(--border-hi);border-radius:8px;padding:.7rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.78rem;color:var(--text);transition:border-color .2s}
+.subscribe-form input[type="email"]:focus{outline:none;border-color:var(--primary)}
+.subscribe-form input[type="email"]::placeholder{color:var(--text-dim)}
+.subscribe-form button{background:linear-gradient(135deg,var(--primary),var(--primary-container));color:#2a2218;border:none;border-radius:8px;padding:.7rem 1.4rem;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:opacity .2s;white-space:nowrap;display:flex;align-items:center;gap:.4rem}
+.subscribe-form button:hover{opacity:.85}
+.subscribe-note{font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--text-dim);margin-top:1rem;letter-spacing:.04em}
+.subscribe-success{display:none;font-family:'Space Grotesk',sans-serif;font-size:.82rem;color:var(--primary);padding:1rem;border:1px solid var(--border-hi);border-radius:8px;background:var(--tag-bg);margin-top:1rem}
+
+/* sidebar subscribe card */
+.sidebar-subscribe{background:linear-gradient(135deg,rgba(230,195,100,.06),rgba(230,195,100,.02));border:1px solid var(--border-hi);border-radius:14px;padding:1.2rem;margin-bottom:1.6rem;text-align:center}
+.sidebar-subscribe .sidebar-card-title{text-align:left}
+.sidebar-subscribe p{font-size:.78rem;color:var(--text-muted);margin-bottom:.8rem;line-height:1.55}
+.sidebar-subscribe-form{display:flex;flex-direction:column;gap:.45rem}
+.sidebar-subscribe-form input[type="email"]{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem .7rem;font-family:'Space Grotesk',sans-serif;font-size:.72rem;color:var(--text);transition:border-color .2s;width:100%}
+.sidebar-subscribe-form input[type="email"]:focus{outline:none;border-color:var(--primary)}
+.sidebar-subscribe-form input[type="email"]::placeholder{color:var(--text-dim)}
+.sidebar-subscribe-form button{background:linear-gradient(135deg,var(--primary),var(--primary-container));color:#2a2218;border:none;border-radius:6px;padding:.5rem .8rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:opacity .2s;width:100%;display:flex;align-items:center;justify-content:center;gap:.3rem}
+.sidebar-subscribe-form button:hover{opacity:.85}
+.sidebar-subscribe .subscribe-success{font-size:.72rem;padding:.7rem;margin-top:.6rem}
+@media(max-width:480px){.subscribe-form{flex-direction:column}.subscribe-form button{justify-content:center}}
+
 /* ── ARTICLE 12 — INFOR LN VERSION COMPARISON ── */
 .vc-wrap {
   --vc-gold-dark: #B8860B;
@@ -791,6 +821,68 @@ body { margin-top: 0 !important; }
 @media (max-width: 600px) {
   .vc-cards-grid { grid-template-columns: 1fr; }
 }
+
+/* ── ARTICLE 13: M3 vs LN Comparison ── */
+.m3ln-wrap { --m3: #60a5fa; --ln: #4ade80; --m3-bg: rgba(96,165,250,.08); --ln-bg: rgba(74,222,128,.08); }
+.m3ln-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.8rem 0; }
+.m3ln-profile { border-radius: 14px; padding: 1.6rem; border: 1px solid var(--border); transition: border-color .3s; }
+.m3ln-profile:hover { border-color: var(--border-hi); }
+.m3ln-profile.is-m3 { background: linear-gradient(160deg, var(--m3-bg), var(--bg2)); }
+.m3ln-profile.is-ln { background: linear-gradient(160deg, var(--ln-bg), var(--bg2)); }
+.m3ln-profile .m3ln-label { font-family:'Space Grotesk',sans-serif; font-size:.58rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:.6rem; }
+.m3ln-profile.is-m3 .m3ln-label { color: var(--m3); }
+.m3ln-profile.is-ln .m3ln-label { color: var(--ln); }
+.m3ln-profile h4 { font-family:'Cinzel',serif; font-size:.92rem; font-weight:600; color:var(--text); margin-bottom:.6rem; }
+.m3ln-profile p { font-size:.88rem; color:var(--text-muted); line-height:1.65; margin:0; }
+
+.m3ln-table-wrap { overflow-x:auto; border-radius:12px; border:1px solid var(--border); background:var(--bg2); margin:1.8rem 0; }
+.m3ln-table-wrap table { width:100%; border-collapse:collapse; font-size:.8rem; }
+.m3ln-table-wrap thead th { background:var(--bg3); font-family:'JetBrains Mono',monospace; font-weight:600; font-size:.62rem; text-transform:uppercase; letter-spacing:.1em; padding:12px 16px; text-align:left; color:var(--primary); border-bottom:2px solid var(--primary-container); white-space:nowrap; }
+.m3ln-table-wrap tbody td { padding:12px 16px; border-bottom:1px solid var(--border); vertical-align:top; color:var(--text-muted); line-height:1.6; }
+.m3ln-table-wrap tbody td:first-child { font-weight:600; color:var(--text); white-space:nowrap; }
+.m3ln-table-wrap tbody tr:nth-child(even) td { background:var(--bg3); }
+.m3ln-table-wrap tbody tr:hover td { background: rgba(230,195,100,.04); }
+.m3ln-tag { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:.52rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:2px 7px; border-radius:4px; }
+.m3ln-tag-m3 { background:var(--m3-bg); color:var(--m3); }
+.m3ln-tag-ln { background:var(--ln-bg); color:var(--ln); }
+
+.m3ln-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin:1.8rem 0; }
+.m3ln-card { background:var(--bg2); border:1px solid var(--border); border-radius:14px; padding:1.5rem; transition:border-color .3s,transform .3s; }
+.m3ln-card:hover { border-color:var(--border-hi); transform:translateY(-3px); }
+.m3ln-card h4 { font-family:'Cinzel',serif; font-size:.88rem; font-weight:600; color:var(--primary); margin-bottom:.6rem; }
+.m3ln-card p { font-size:.86rem; color:var(--text-muted); line-height:1.6; margin:0; }
+.m3ln-card.border-m3 { border-left:3px solid var(--m3); }
+.m3ln-card.border-ln { border-left:3px solid var(--ln); }
+.m3ln-card.border-m3 h4 { color: var(--m3); }
+.m3ln-card.border-ln h4 { color: var(--ln); }
+
+.m3ln-industry-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.8rem; margin:1.2rem 0 1.8rem; }
+.m3ln-ind { display:flex; align-items:center; gap:.8rem; background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:.85rem 1rem; transition:border-color .3s; }
+.m3ln-ind:hover { border-color:var(--border-hi); }
+.m3ln-ind-icon { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
+.m3ln-ind.is-m3 .m3ln-ind-icon { background:var(--m3-bg); color:var(--m3); }
+.m3ln-ind.is-ln .m3ln-ind-icon { background:var(--ln-bg); color:var(--ln); }
+.m3ln-ind-name { font-size:.82rem; font-weight:600; color:var(--text); }
+.m3ln-ind-erp { font-family:'Space Grotesk',sans-serif; font-size:.52rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; }
+.m3ln-ind.is-m3 .m3ln-ind-erp { color:var(--m3); }
+.m3ln-ind.is-ln .m3ln-ind-erp { color:var(--ln); }
+
+.m3ln-verdict { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin:1.8rem 0; }
+.m3ln-verdict-box { border-radius:14px; padding:1.5rem; border:1px solid var(--border); }
+.m3ln-verdict-box.is-m3 { background:var(--m3-bg); border-color:rgba(96,165,250,.2); }
+.m3ln-verdict-box.is-ln { background:var(--ln-bg); border-color:rgba(74,222,128,.2); }
+.m3ln-verdict-box h4 { font-family:'Cinzel',serif; font-size:.92rem; font-weight:600; margin-bottom:.8rem; }
+.m3ln-verdict-box.is-m3 h4 { color:var(--m3); }
+.m3ln-verdict-box.is-ln h4 { color:var(--ln); }
+.m3ln-verdict-box ul { list-style:none; margin:0; padding:0; }
+.m3ln-verdict-box li { position:relative; padding-left:1.2rem; margin-bottom:.55rem; font-size:.84rem; color:var(--text-muted); line-height:1.55; }
+.m3ln-verdict-box li::before { content:''; position:absolute; left:0; top:.45em; width:6px; height:6px; border-radius:50%; }
+.m3ln-verdict-box.is-m3 li::before { background:var(--m3); }
+.m3ln-verdict-box.is-ln li::before { background:var(--ln); }
+
+@media (max-width: 680px) {
+  .m3ln-dual, .m3ln-verdict { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -895,6 +987,11 @@ body { margin-top: 0 !important; }
       <span class="nav-num">12</span>
       <span class="material-symbols-outlined">compare</span>
       <span>LN Version Comparison</span>
+    </a>
+    <a href="#article-13">
+      <span class="nav-num">13</span>
+      <span class="material-symbols-outlined">swap_horiz</span>
+      <span>M3 vs LN</span>
     </a>
   </nav>
 
@@ -1044,6 +1141,10 @@ body { margin-top: 0 !important; }
         <div class="ai-num">12</div>
         <div><div class="ai-card-tag">Platform · Versions</div><div class="ai-card-title">Infor LN Version Comparison (10.1–10.8)</div></div>
       </a>
+      <a class="ai-card" href="#article-13">
+        <div class="ai-num">13</div>
+        <div><div class="ai-card-tag">Platform · ERP Comparison</div><div class="ai-card-title">Infor M3 vs Infor LN — Which ERP Is Right for You?</div></div>
+      </a>
     </div>
   </div>
 </div>
@@ -1167,6 +1268,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📧 <a href="/cdn-cgi/l/email-protection#6b0d1e07070405090a0a052b0c060a02074508040654181e09010e081f5627254e595b3b070a12090404004e595b2e051a1e0219124d09040f125623024e595b2d1e07070405290a0a054e595b3f0e0a064e59284e5b2a4e5b2a224e595b190e0a0f4e595b12041e194e595b22050d04194e595b27254e595b3b070a12090404004e595b0a050f4e595b030a1d0e4e595b0a4e595b1a1e0e181f0204054e582a4e5b2a"><span class="__cf_email__" data-cfemail="b8decdd4d4d7d6dad9d9d6f8dfd5d9d1d496dbd7d5">[email&#160;protected]</span></a></div>
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
       </div>
     </aside>
   </div>
@@ -1324,6 +1436,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📧 <a href="/cdn-cgi/l/email-protection#e5839089898a8b8784848ba58288848c89cb868a88da9690878f808691d8acaaabc0d7d5a4b5acc0d7d5a284918092849cc0d7d5a08b94908c979cc3878a819cd8ad8cc0d7d5a39089898a8ba784848bc0d7d5b1808488c0d7a6c0d5a4c0d5a4acc0d7d597808481c0d7d59c8a9097c0d7d58497918c868980c0d7d58a8bc0d7d5acaaabc0d7d5a4b5acc0d7d5a284918092849cc0d7d5848b81c0d7d58d849380c0d7d584c0d7d594908096918c8a8bc0d6a4c0d5a4"><span class="__cf_email__" data-cfemail="96f0e3fafaf9f8f4f7f7f8d6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></a></div>
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
       </div>
     </aside>
   </div>
@@ -1526,6 +1649,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
       </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
+      </div>
     </aside>
   </div>
 </div><!-- /article-3 -->
@@ -1666,6 +1800,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
       </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
+      </div>
     </aside>
   </div>
 </div><!-- /article-4 -->
@@ -1792,6 +1937,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%20MMT%20Sessions%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20MMT%20Sessions%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
       </div>
     </aside>
   </div>
@@ -1955,6 +2111,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
       </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
+      </div>
     </aside>
   </div>
 </div><!-- /article-6 -->
@@ -2088,6 +2255,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%20VRC%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20VRC%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
       </div>
     </aside>
   </div>
@@ -2238,6 +2416,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%204GL%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%204GL%20Programming%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
       </div>
     </aside>
   </div>
@@ -2545,6 +2734,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=LN%20Finance%20Period%20Close%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20Period-End%20Closing%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
       </div>
     </aside>
   </div>
@@ -2943,6 +3143,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com?subject=DAL%20Scripting%20Enquiry&body=Hi%20FullonBaan%20Team%2C%0A%0AI%20read%20your%20article%20on%20DAL%20Scripting%20and%20have%20a%20question%3A%0A">fullonbaan@gmail.com</a></div>
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
       </div>
     </aside>
   </div>
@@ -3423,6 +3634,17 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
       </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
+      </div>
     </aside>
   </div>
 </div><!-- /article-11 -->
@@ -3838,9 +4060,298 @@ body { margin-top: 0 !important; }
         <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
         <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
       </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
+      </div>
     </aside>
   </div>
 </div><!-- /article-12 -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 13 — Infor M3 vs Infor LN Comparison
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-13" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 13 · Platform · ERP Comparison</div>
+      <h2 class="ah-title">Infor M3 vs Infor LN<br><em>Which ERP Is Right for You?</em></h2>
+      <p class="ah-sub">Both are flagship Infor ERPs, both run on Infor OS, and both serve manufacturing enterprises. But they were built for different worlds. Here's everything you need to know.</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>March 2026</span>
+        <span class="tag">M3</span><span class="tag">LN</span><span class="tag">ERP Selection</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article m3ln-wrap">
+
+      <h2 id="a13-overview">Meet the Two ERPs</h2>
+      <p>Infor M3 and Infor LN are both enterprise-grade ERP platforms under the Infor umbrella, but they have distinctly different origins, architectures, and target industries. Understanding their DNA is the first step to making the right decision.</p>
+
+      <div class="m3ln-dual">
+        <div class="m3ln-profile is-m3">
+          <div class="m3ln-label">Infor M3</div>
+          <h4>The Process &amp; Distribution Powerhouse</h4>
+          <p>Born from the Intentia/Movex lineage, M3 is a Java-based ERP designed for process manufacturing, food &amp; beverage, fashion, chemicals, and distribution-heavy industries. It excels at formula/recipe management, catch-weight processing, lot traceability, and demand-driven supply chains.</p>
+        </div>
+        <div class="m3ln-profile is-ln">
+          <div class="m3ln-label">Infor LN</div>
+          <h4>The Discrete &amp; Project Manufacturing Specialist</h4>
+          <p>Descended from the Baan product line, LN is built for complex discrete manufacturing, engineer-to-order (ETO), aerospace &amp; defense, automotive, and industrial equipment. It excels at multi-level BOMs, project-driven manufacturing, shop floor control, and complex supply chains with deep configuration.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">💡 Key Insight</div>
+        <p>M3 and LN are not competitors — they are complementary products in Infor's portfolio. Infor positions M3 for process/distribution industries and LN for discrete/project manufacturing. Choosing between them is fundamentally an industry-fit decision.</p>
+      </div>
+
+      <h2 id="a13-architecture">Architecture &amp; Technology Stack</h2>
+      <p>Under the hood, M3 and LN are built on entirely different technology stacks. Both integrate with Infor OS (Ming.le, ION, Coleman AI, Birst, Data Lake), but the core application architectures differ significantly.</p>
+
+      <div class="m3ln-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th><span class="m3ln-tag m3ln-tag-m3">M3</span></th>
+              <th><span class="m3ln-tag m3ln-tag-ln">LN</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Language</td><td>Java (server-side)</td><td>4GL / C-based (Baan heritage)</td></tr>
+            <tr><td>App Server</td><td>M3 Business Engine (MBE) on Java EE</td><td>Infor Enterprise Server</td></tr>
+            <tr><td>Database</td><td>IBM Db2, SQL Server, Oracle</td><td>Oracle, SQL Server</td></tr>
+            <tr><td>UI Framework</td><td>M3 H5 Client (HTML5/JavaScript)</td><td>Infor Ming.le (Web-based)</td></tr>
+            <tr><td>Customization</td><td>M3 Metadata Publisher, MAK, MEC</td><td>Personalization framework, server-side hooks, UI extensions</td></tr>
+            <tr><td>APIs</td><td>M3 API (MI programs), ION API</td><td>BODs via ION, ION API Gateway</td></tr>
+            <tr><td>Integration</td><td>Infor ION, M3 Event Hub, MEC (mapping)</td><td>Infor ION, BODs, connection points</td></tr>
+            <tr><td>Extensions</td><td>M3 SDK, Mashup Designer for custom UIs</td><td>UI Personalizations, server-side scripting</td></tr>
+            <tr><td>Cloud</td><td>Infor CloudSuite (multi-tenant AWS)</td><td>Infor CloudSuite (multi-tenant AWS)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="a13-features">Feature-by-Feature Comparison</h2>
+      <p>While both platforms cover core ERP territory (finance, supply chain, manufacturing, procurement), the depth and approach in each functional area reflects their distinct industry heritage.</p>
+
+      <div class="m3ln-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th><span class="m3ln-tag m3ln-tag-m3">M3</span></th>
+              <th><span class="m3ln-tag m3ln-tag-ln">LN</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>BOM Type</td><td>Formula/recipe-based with co-products and by-products</td><td>Multi-level engineering BOMs with revisions, effectivity, and ECOs</td></tr>
+            <tr><td>Mfg Mode</td><td>Process, batch, repetitive, mixed-mode</td><td>Discrete, project, job-shop, repetitive, lean</td></tr>
+            <tr><td>Project Mgmt</td><td>Basic project accounting</td><td>Deep PCS with earned value, WBS, and progress invoicing</td></tr>
+            <tr><td>Warehouse</td><td>Advanced WMS with catch-weight, lot/batch tracing, quality holds</td><td>Integrated WMS with zone/bin management, wave planning, RF support</td></tr>
+            <tr><td>Quality</td><td>Deep quality with sampling, specs, certificates of analysis (CoA)</td><td>Quality inspection with non-conformance and corrective actions</td></tr>
+            <tr><td>Demand Plan</td><td>Native demand planning with statistical forecasting</td><td>MRP/MPS-driven; advanced planning via Infor SCP add-on</td></tr>
+            <tr><td>Catch Weight</td><td>Native dual unit of measure / catch-weight support</td><td>Not natively supported</td></tr>
+            <tr><td>Service</td><td>Basic service/maintenance</td><td>Full service management (contracts, depot repair, field service, warranty)</td></tr>
+            <tr><td>Multi-Co</td><td>Strong multi-company with intercompany trading</td><td>Extensive multi-company, multi-site, multi-legislation with intercompany hub</td></tr>
+            <tr><td>Configurator</td><td>Basic variant/attribute-based configuration</td><td>Product configurator for ETO and CTO scenarios</td></tr>
+            <tr><td>Finance</td><td>Multi-GAAP, multi-currency, strong allocation engine</td><td>Multi-GAAP, IFRS, integrated banking, revenue recognition</td></tr>
+            <tr><td>Compliance</td><td>FDA, HACCP, GMP, EU food safety features</td><td>ITAR, export control, AS9100, NADCAP-ready features</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="a13-modules">Core Module Differences</h2>
+      <p>Both ERPs have comprehensive module suites, but the organizational logic and boundaries differ. Here's how the core areas map:</p>
+
+      <div class="m3ln-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Functional Area</th><th><span class="m3ln-tag m3ln-tag-m3">M3 Modules</span></th><th><span class="m3ln-tag m3ln-tag-ln">LN Packages</span></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Finance</td><td>General Ledger, AP, AR, Fixed Assets, Cash Mgmt</td><td>Finance (TF) — GL, AP, AR, Fixed Assets, Banking, Budgeting</td></tr>
+            <tr><td>Procurement</td><td>Purchase Order Management, Supplier Portal</td><td>Procurement (TP) — POs, contracts, RFQs, supplier evaluation</td></tr>
+            <tr><td>Sales</td><td>Customer Order Management, Pricing, ATP</td><td>Sales (TD) — Sales orders, pricing, scheduling, rebates</td></tr>
+            <tr><td>Manufacturing</td><td>Process Manufacturing, Production Planning, Shop Floor</td><td>Manufacturing (TI) — BOMs, routings, production orders, SFC, lean</td></tr>
+            <tr><td>Warehousing</td><td>M3 Warehouse Management (WMS)</td><td>Warehousing (WH) — inventory, operations, RF</td></tr>
+            <tr><td>Projects</td><td>Project Accounting (basic)</td><td>Project (TP) — PCS, earned value, WBS, cost control, progress billing</td></tr>
+            <tr><td>Service</td><td>Equipment / Maintenance Management</td><td>Service (TS) — contracts, depot repair, field service, warranty</td></tr>
+            <tr><td>Quality</td><td>Quality Management with full lab/testing support</td><td>Quality with inspection orders and non-conformance tracking</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="a13-industry">Industry Fit &amp; Sweet Spots</h2>
+      <p>The most important factor in choosing between M3 and LN is your industry. Each ERP was shaped by decades of investment in specific verticals. Choosing the one designed for your industry means more standard functionality, less customization, and faster implementation.</p>
+
+      <h3 style="color:var(--m3);font-family:'Cinzel',serif;font-size:.88rem;margin:1.5rem 0 .8rem">Infor M3 Sweet Spots</h3>
+      <div class="m3ln-industry-grid">
+        <div class="m3ln-ind is-m3"><div class="m3ln-ind-icon">🍕</div><div><div class="m3ln-ind-name">Food &amp; Beverage</div><div class="m3ln-ind-erp">M3</div></div></div>
+        <div class="m3ln-ind is-m3"><div class="m3ln-ind-icon">⚗️</div><div><div class="m3ln-ind-name">Chemicals &amp; Life Sciences</div><div class="m3ln-ind-erp">M3</div></div></div>
+        <div class="m3ln-ind is-m3"><div class="m3ln-ind-icon">👔</div><div><div class="m3ln-ind-name">Fashion &amp; Apparel</div><div class="m3ln-ind-erp">M3</div></div></div>
+        <div class="m3ln-ind is-m3"><div class="m3ln-ind-icon">📦</div><div><div class="m3ln-ind-name">Distribution &amp; Wholesale</div><div class="m3ln-ind-erp">M3</div></div></div>
+        <div class="m3ln-ind is-m3"><div class="m3ln-ind-icon">🏭</div><div><div class="m3ln-ind-name">Paper &amp; Packaging</div><div class="m3ln-ind-erp">M3</div></div></div>
+        <div class="m3ln-ind is-m3"><div class="m3ln-ind-icon">🌿</div><div><div class="m3ln-ind-name">Agriculture &amp; Commodities</div><div class="m3ln-ind-erp">M3</div></div></div>
+      </div>
+
+      <h3 style="color:var(--ln);font-family:'Cinzel',serif;font-size:.88rem;margin:1.5rem 0 .8rem">Infor LN Sweet Spots</h3>
+      <div class="m3ln-industry-grid">
+        <div class="m3ln-ind is-ln"><div class="m3ln-ind-icon">✈️</div><div><div class="m3ln-ind-name">Aerospace &amp; Defense</div><div class="m3ln-ind-erp">LN</div></div></div>
+        <div class="m3ln-ind is-ln"><div class="m3ln-ind-icon">🚗</div><div><div class="m3ln-ind-name">Automotive &amp; Tier Suppliers</div><div class="m3ln-ind-erp">LN</div></div></div>
+        <div class="m3ln-ind is-ln"><div class="m3ln-ind-icon">⚙️</div><div><div class="m3ln-ind-name">Industrial Equipment</div><div class="m3ln-ind-erp">LN</div></div></div>
+        <div class="m3ln-ind is-ln"><div class="m3ln-ind-icon">🚢</div><div><div class="m3ln-ind-name">Shipbuilding &amp; Marine</div><div class="m3ln-ind-erp">LN</div></div></div>
+        <div class="m3ln-ind is-ln"><div class="m3ln-ind-icon">🔧</div><div><div class="m3ln-ind-name">Engineer-to-Order (ETO)</div><div class="m3ln-ind-erp">LN</div></div></div>
+        <div class="m3ln-ind is-ln"><div class="m3ln-ind-icon">🏗️</div><div><div class="m3ln-ind-name">High-Tech &amp; Electronics</div><div class="m3ln-ind-erp">LN</div></div></div>
+      </div>
+
+      <h2 id="a13-deployment">Deployment &amp; Cloud Options</h2>
+      <p>Both M3 and LN are available as part of Infor CloudSuite, hosted on AWS with multi-tenant architecture. However, there are differences in how each is packaged and deployed.</p>
+
+      <div class="m3ln-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Deployment</th><th><span class="m3ln-tag m3ln-tag-m3">M3</span></th><th><span class="m3ln-tag m3ln-tag-ln">LN</span></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>CloudSuite</td><td>CS Food &amp; Beverage, CS Distribution, CS Fashion, CS Chemicals</td><td>CS Aerospace &amp; Defense, CS Automotive, CS Industrial Enterprise</td></tr>
+            <tr><td>On-Premise</td><td>Supported (cloud-first strategy)</td><td>Supported (cloud-first strategy)</td></tr>
+            <tr><td>Multi-Tenant</td><td>Yes, on AWS</td><td>Yes, on AWS</td></tr>
+            <tr><td>Infor OS</td><td>Full (Ming.le, ION, Birst, Coleman, Data Lake, IDM)</td><td>Full (Ming.le, ION, Birst, Coleman, Data Lake, IDM)</td></tr>
+            <tr><td>Updates</td><td>Cloud: continuous; On-prem: service packs</td><td>Cloud: continuous; On-prem: service packs</td></tr>
+            <tr><td>Extensions</td><td>Mashup Designer, M3 SDK, MEC</td><td>Personalizations, server-side hooks, ION workflows</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="a13-strengths">Unique Strengths of Each ERP</h2>
+      <p>Beyond feature lists and industry labels, each ERP has unique capabilities that make it the clear winner in specific scenarios.</p>
+
+      <div class="m3ln-cards">
+        <div class="m3ln-card border-m3">
+          <h4>M3: Catch-Weight &amp; Dual UoM</h4>
+          <p>Native support for products sold in one unit but invoiced in another (e.g., cases vs. kilograms). Essential for food, meat, seafood, and commodities where variable weight is the norm.</p>
+        </div>
+        <div class="m3ln-card border-ln">
+          <h4>LN: Project Control System (PCS)</h4>
+          <p>One of the most sophisticated project modules in any ERP. Earned value management, work breakdown structures, milestone billing, and cost-to-complete forecasting — all natively integrated with manufacturing and procurement.</p>
+        </div>
+        <div class="m3ln-card border-m3">
+          <h4>M3: Recipe &amp; Formula Management</h4>
+          <p>Process manufacturers manage recipes with variable inputs, co-products, by-products, and yield calculations. M3 handles this natively with full batch scalability and potency tracking.</p>
+        </div>
+        <div class="m3ln-card border-ln">
+          <h4>LN: Complex BOM &amp; Engineering</h4>
+          <p>Multi-level engineering BOMs with revision control, effectivity dates, engineering change orders (ECOs), and phantom assemblies. Built for products with hundreds or thousands of components.</p>
+        </div>
+        <div class="m3ln-card border-m3">
+          <h4>M3: H5 Client &amp; Mashup Designer</h4>
+          <p>M3's HTML5 client and Mashup Designer allow rapid creation of custom dashboards and composite applications without touching core code. Power users build their own views.</p>
+        </div>
+        <div class="m3ln-card border-ln">
+          <h4>LN: Service &amp; After-Sales</h4>
+          <p>Full lifecycle service management: warranty tracking, service contracts, depot repair, service quotations, installed base management, and serialized part tracking for complex equipment.</p>
+        </div>
+      </div>
+
+      <h2 id="a13-verdict">The Verdict: How to Choose</h2>
+      <p>The decision between M3 and LN is not about which ERP is "better" — it's about which one fits your business model, industry requirements, and manufacturing mode.</p>
+
+      <div class="m3ln-verdict">
+        <div class="m3ln-verdict-box is-m3">
+          <h4>Choose Infor M3 If You…</h4>
+          <ul>
+            <li>Operate in process manufacturing (batch, formula, recipe-driven)</li>
+            <li>Need catch-weight or dual unit-of-measure handling</li>
+            <li>Are in food &amp; beverage, chemicals, fashion, or distribution</li>
+            <li>Require lot traceability, shelf-life management, or quality certificates (CoA)</li>
+            <li>Need advanced demand planning and statistical forecasting natively</li>
+            <li>Want a Java-based platform with HTML5 client and Mashup extensibility</li>
+            <li>Require FDA, HACCP, or GMP compliance features out of the box</li>
+          </ul>
+        </div>
+        <div class="m3ln-verdict-box is-ln">
+          <h4>Choose Infor LN If You…</h4>
+          <ul>
+            <li>Operate in complex discrete manufacturing (job-shop, ETO, CTO)</li>
+            <li>Need deep project management with earned value and progress billing</li>
+            <li>Are in aerospace, defense, automotive, or industrial equipment</li>
+            <li>Require multi-level BOM management with engineering change control</li>
+            <li>Need comprehensive service and after-sales management</li>
+            <li>Operate complex multi-company, multi-site environments with intercompany flows</li>
+            <li>Require ITAR, AS9100, or defense/export compliance features</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">🔀 Hybrid Scenarios</div>
+        <p>Some organizations operate in both process and discrete modes. In hybrid scenarios, Infor's recommended approach is to implement both M3 and LN where appropriate, connected via ION as the integration backbone. This is more common than you'd expect in large multi-division enterprises.</p>
+      </div>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Explore the <a href="https://fob-ln-training.vercel.app/" target="_blank"><strong>FullonBaan Training Platform</strong></a> for comprehensive Infor LN courses, or visit <a href="https://www.fullonbaan.com/" target="_blank"><strong>fullonbaan.com</strong></a> for consulting and migration support.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 13 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a13-overview">Meet the Two ERPs</a></li>
+          <li><a href="#a13-architecture">Architecture &amp; Stack</a></li>
+          <li><a href="#a13-features">Feature Comparison</a></li>
+          <li><a href="#a13-modules">Module Differences</a></li>
+          <li><a href="#a13-industry">Industry Fit</a></li>
+          <li><a href="#a13-deployment">Deployment &amp; Cloud</a></li>
+          <li><a href="#a13-strengths">Unique Strengths</a></li>
+          <li><a href="#a13-verdict">The Verdict</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
+          <a class="nav-link" href="#article-12" style="color:var(--primary)">↑ Prev: LN Version Comparison</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-13 -->
 
 
 <!-- MORE ARTICLES -->
@@ -3848,25 +4359,42 @@ body { margin-top: 0 !important; }
   <div class="more-articles-inner">
     <h2>Coming Up in the Playbook</h2>
     <div class="articles-grid">
-      <a class="article-card" href="#article-12">
-        <div class="article-card-tag">Platform · Versions</div>
-        <h3>Infor LN Version Comparison (10.1–10.8)</h3>
-        <p>Technical &amp; functional differences across Infor LN versions — timeline, tables, lifecycle status, and upgrade milestones.</p>
-        <div class="article-card-meta">Article 12 · Published</div>
+      <a class="article-card" href="#article-13">
+        <div class="article-card-tag">Platform · ERP Comparison</div>
+        <h3>Infor M3 vs Infor LN — Which ERP Is Right for You?</h3>
+        <p>Architecture, features, module mapping, industry fit, and a decision framework for choosing between Infor's two flagship ERPs.</p>
+        <div class="article-card-meta">Article 13 · Published</div>
       </a>
       <div class="article-card coming">
         <div class="article-card-tag">Finance · LN</div>
         <h3>Infor LN Accounts Payable — Configuration &amp; Processing Guide</h3>
         <p>Complete guide to AP invoice processing, payment runs, three-way matching, and supplier reconciliation in LN.</p>
-        <div class="article-card-meta">Article 13 · Planned</div>
+        <div class="article-card-meta">Article 14 · Planned</div>
       </div>
       <div class="article-card coming">
         <div class="article-card-tag">Warehousing · LN</div>
         <h3>Advanced Warehousing Configuration in Infor LN</h3>
         <p>Warehouse structures, handling units, and advanced picking strategies in Infor LN WH module.</p>
-        <div class="article-card-meta">Article 14 · Planned</div>
+        <div class="article-card-meta">Article 15 · Planned</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE BANNER -->
+<section class="subscribe-banner">
+  <div class="subscribe-inner">
+    <div class="subscribe-icon"><span class="material-symbols-outlined">notifications_active</span></div>
+    <h2 class="subscribe-heading">Never Miss an Article</h2>
+    <p class="subscribe-desc">Get notified when new Infor LN articles, guides, and deep-dives are published to the Playbook. No spam — just knowledge drops.</p>
+    <form class="subscribe-form" id="subscribeBanner" action="https://formspree.io/f/xlgobpvp" method="POST">
+      <input type="email" name="email" placeholder="your@email.com" required />
+      <input type="hidden" name="_subject" value="New Playbook Subscriber (Banner)" />
+      <input type="hidden" name="source" value="banner" />
+      <button type="submit"><span class="material-symbols-outlined" style="font-size:16px">send</span> Subscribe</button>
+    </form>
+    <div class="subscribe-success" id="bannerSuccess">You're in! We'll notify you when new articles drop.</div>
+    <p class="subscribe-note">We respect your inbox. Unsubscribe anytime.</p>
   </div>
 </section>
 
@@ -3951,6 +4479,39 @@ body { margin-top: 0 !important; }
     el.addEventListener('click',function(){mc=+el.dataset.idx;renderM();});
   });
   renderM();
+})();
+
+// ── Subscription form handler (Formspree AJAX) ──
+(function(){
+  function handleSubscribe(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      var btn = form.querySelector('button');
+      var origHTML = btn.innerHTML;
+      btn.innerHTML = 'Sending…'; btn.disabled = true;
+      fetch(form.action, {
+        method: 'POST', body: data,
+        headers: {'Accept':'application/json'}
+      }).then(function(r){
+        if(r.ok){
+          form.style.display = 'none';
+          var msg = form.parentElement.querySelector('.subscribe-success');
+          if(msg) msg.style.display = 'block';
+        } else {
+          btn.innerHTML = 'Error — retry'; btn.disabled = false;
+        }
+      }).catch(function(){
+        btn.innerHTML = 'Error — retry'; btn.disabled = false;
+      });
+    });
+  }
+  // Banner form
+  var banner = document.getElementById('subscribeBanner');
+  if(banner) handleSubscribe(banner);
+  // All sidebar forms
+  var sidebars = document.querySelectorAll('[data-subscribe="sidebar"]');
+  for(var i=0;i<sidebars.length;i++) handleSubscribe(sidebars[i]);
 })();
 </script>
 

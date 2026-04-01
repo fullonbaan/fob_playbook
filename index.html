@@ -993,6 +993,11 @@ body { margin-top: 0 !important; }
       <span class="material-symbols-outlined">swap_horiz</span>
       <span>M3 vs LN</span>
     </a>
+    <a href="#article-14">
+      <span class="nav-num">14</span>
+      <span class="material-symbols-outlined">upgrade</span>
+      <span>LN 10.3 → 10.8</span>
+    </a>
   </nav>
 
   <div class="proto-sidebar-footer">
@@ -1144,6 +1149,10 @@ body { margin-top: 0 !important; }
       <a class="ai-card" href="#article-13">
         <div class="ai-num">13</div>
         <div><div class="ai-card-tag">Platform · ERP Comparison</div><div class="ai-card-title">Infor M3 vs Infor LN — Which ERP Is Right for You?</div></div>
+      </a>
+      <a class="ai-card" href="#article-14">
+        <div class="ai-num">14</div>
+        <div><div class="ai-card-tag">Platform · Upgrade</div><div class="ai-card-title">Migrating from Infor LN 10.3 to 10.8 — What Changes &amp; How to Prepare</div></div>
       </a>
     </div>
   </div>
@@ -3772,7 +3781,7 @@ body { margin-top: 0 !important; }
         <!-- 10.4 -->
         <div class="vc-feature-card">
           <div class="vc-card-version">10.4</div>
-          <div class="vc-card-release">~2015 &nbsp; <span class="vc-status-badge vc-status-eol">&#x25cf; Maint. Withdrawn Mar 2025</span></div>
+          <div class="vc-card-release">December 2014 &nbsp; <span class="vc-status-badge vc-status-mainstream">&#x25cf; Mainstream Support</span></div>
           <ul class="vc-card-highlights">
             <li>Credit &amp; Rebill invoice functionality for corrective invoicing</li>
             <li>New Claims management module for customer/supplier claims</li>
@@ -3785,7 +3794,7 @@ body { margin-top: 0 !important; }
         <!-- 10.5 -->
         <div class="vc-feature-card">
           <div class="vc-card-version">10.5</div>
-          <div class="vc-card-release">~2016 &nbsp; <span class="vc-status-badge vc-status-eol">&#x25cf; Maint. Withdrawn Mar 2025</span></div>
+          <div class="vc-card-release">June 2016 &nbsp; <span class="vc-status-badge vc-status-current">&#x25cf; Mainstream Support</span></div>
           <ul class="vc-card-highlights">
             <li>Industry-specific functionality for Aerospace &amp; Defense micro-vertical</li>
             <li>Automotive industry capabilities — contract flow-down</li>
@@ -3798,7 +3807,7 @@ body { margin-top: 0 !important; }
         <!-- 10.6 -->
         <div class="vc-feature-card">
           <div class="vc-card-version">10.6</div>
-          <div class="vc-card-release">August 2018 &nbsp; <span class="vc-status-badge vc-status-eol">&#x25cf; Maint. Withdrawn Mar 2025</span></div>
+          <div class="vc-card-release">March 2018 &nbsp; <span class="vc-status-badge vc-status-current">&#x25cf; Mainstream Support</span></div>
           <ul class="vc-card-highlights">
             <li>GDPR Anonymization &amp; enhanced Authorization Management System (AMS/DEM)</li>
             <li>Multisite model with local item management &amp; standard cost by Enterprise Unit</li>
@@ -4321,6 +4330,7 @@ body { margin-top: 0 !important; }
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
           <a class="nav-link" href="#article-12" style="color:var(--primary)">↑ Prev: LN Version Comparison</a>
+          <a class="nav-link" href="#article-14" style="color:var(--primary)">↓ Next: LN 10.3 → 10.8 Migration</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -4354,28 +4364,260 @@ body { margin-top: 0 !important; }
 </div><!-- /article-13 -->
 
 
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 14 — Migrating from Infor LN 10.3 to 10.8
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-14" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 14 · Platform · Upgrade</div>
+      <h2 class="ah-title">Migrating from Infor LN 10.3 to 10.8<br><em>What Changes &amp; How to Prepare</em></h2>
+      <p class="ah-sub">A plain-English guide for end users and consultants on what's different, what breaks, and how to make the upgrade smooth.</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>April 2026</span>
+        <span class="tag">Upgrade</span><span class="tag">LN 10.3</span><span class="tag">LN 10.8</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a14-why">Why Upgrade from 10.3?</h2>
+      <p>If your organization is still on Infor LN 10.3, you're running a version that went generally available on <strong>July 31, 2013</strong> — nearly 13 years ago. Infor ended Extended Maintenance for 10.3 on June 30, 2023, which means no more patches, no more bug fixes, and no more security updates. You're essentially flying without a safety net.</p>
+      <p>But it's not just about support. Between 10.3 and 10.8, Infor has added five major releases worth of improvements — better screens, smarter planning, cloud readiness, built-in analytics, and dozens of features that your team is currently working around with spreadsheets and manual processes.</p>
+      <p>The good news? Unlike jumping from Baan V to LN, going from 10.3 to 10.8 is a <strong>version upgrade within the same product family</strong>. Your data stays. Your core processes stay. But a lot of things look different and work better.</p>
+
+      <div class="callout">
+        <div class="callout-title">⚠️ Support Status</div>
+        <p>Infor LN 10.3's Mainstream Maintenance ended on <strong>December 31, 2019</strong>, and Extended Maintenance ended on <strong>June 30, 2023</strong> (per Infor's official Product Lifecycle Policy). Running 10.3 in production means you are on an unsupported version with no patches, no bug fixes, and no security updates from Infor. Upgrading is no longer optional — it's urgent.</p>
+      </div>
+
+      <h2 id="a14-whatchanges">What Actually Changes for Users?</h2>
+      <p>Let's start with the stuff your end users will notice on Day 1 — because this is where most upgrade anxiety comes from.</p>
+
+      <h3>The Screen Looks Different</h3>
+      <p>If your team has been using the classic Windows-style LN screens, the first thing they'll notice in 10.8 is the modern web-based interface through <strong>Infor Ming.le</strong>. It runs in a browser. It looks cleaner. Menus are organized differently. There are homepages with widgets and shortcuts instead of the old menu tree.</p>
+      <p>This is the single biggest source of user resistance during upgrades. People know exactly where every button is in the old system. Now they need to relearn navigation. The functionality is the same — but the way you get to it changes.</p>
+
+      <h3>Personalization Is Way Better</h3>
+      <p>In 10.3, if you wanted to hide a field or rearrange a form, you usually needed a developer. In 10.8, users and administrators can do this themselves through the <strong>Personalization Workbench</strong>. You can hide columns, reorder fields, set default values, and apply conditional formatting — all without writing a single line of code.</p>
+
+      <h3>Homepages Replace the Old Menu</h3>
+      <p>Instead of drilling through nested menus, 10.8 gives each role a customizable homepage. A buyer sees their open purchase orders, pending approvals, and supplier alerts in one place. A production planner sees shop floor status, material shortages, and scheduling overviews. Think of it like a personalized dashboard that opens when you log in.</p>
+
+      <h3>Workflows and Approvals Live in the Browser</h3>
+      <p>In 10.3, approval workflows were clunky — often handled through email or external tools. In 10.8, approval tasks show up directly in your Ming.le inbox. You can approve a purchase order from your phone. No need to log into the full LN client.</p>
+
+      <h2 id="a14-technical">Key Technical Changes (10.3 → 10.8)</h2>
+      <p>For consultants and IT teams, here's what changed under the hood across the five intermediate versions (10.4, 10.5, 10.6, 10.7, and 10.8).</p>
+
+      <div class="vc-table-wrap" style="margin:1.8rem 0">
+        <table>
+          <thead>
+            <tr><th>Area</th><th>LN 10.3</th><th>LN 10.8</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>User Interface</td><td>Classic rich client (Windows)</td><td>Web UI via Infor Ming.le + configurable homepages</td></tr>
+            <tr><td>Personalization</td><td>Limited (developer-dependent)</td><td>Personalization Workbench — user/role-level field control</td></tr>
+            <tr><td>Authorization</td><td>Basic user/group model</td><td>Authorization Management System (AMS) with data-level security</td></tr>
+            <tr><td>Integration</td><td>Basic ION connectivity for BODs</td><td>Full ION suite — workflows, event monitors, API Gateway, IDM</td></tr>
+            <tr><td>Analytics</td><td>BW reports, Crystal Reports</td><td>Infor Birst embedded analytics, Data Lake, in-context KPIs</td></tr>
+            <tr><td>AI</td><td>None</td><td>Infor Coleman AI for predictive insights</td></tr>
+            <tr><td>Reports</td><td>Standard report writer</td><td>Report Designer with exact positioning, PDF &amp; Excel output control</td></tr>
+            <tr><td>GDPR</td><td>No native support</td><td>Built-in data anonymization tools (from 10.6)</td></tr>
+            <tr><td>Cloud</td><td>On-premise only</td><td>Multi-tenant CloudSuite on AWS + on-premise</td></tr>
+            <tr><td>Warehousing</td><td>Basic warehouse operations</td><td>Shipment workbenches, packaging fill-up, lot splitting, virtual handling units</td></tr>
+            <tr><td>Manufacturing</td><td>Standard production</td><td>Multisite production by site, Kanban enhancements, lean manufacturing</td></tr>
+            <tr><td>Procurement</td><td>Standard purchasing</td><td>RFQ comparison workbench, purchase change requests, target pricing, retro-billing</td></tr>
+            <tr><td>Finance</td><td>Standard financials</td><td>Credit &amp; rebill invoicing, claims management, financial statements for cloud</td></tr>
+            <tr><td>Projects</td><td>Basic project management</td><td>Enhanced budget adjustments, cost forecasting, multi-currency projects</td></tr>
+            <tr><td>Quality</td><td>Basic quality inspection</td><td>Conformance documentation, non-conformance for non-material, qualitative testing norms</td></tr>
+            <tr><td>Global Trade</td><td>Limited</td><td>Letter of Credit support, price stages, industry-specific compliance (A&amp;D, Automotive)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="a14-features">Top Features You Gain (Version by Version)</h2>
+      <p>Here's a quick summary of the headline features added in each version between 10.3 and 10.8. If you've been on 10.3 all this time, you're getting all of these in one shot.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">10.4</div><div class="step-body"><h4>Claims &amp; Corrective Invoicing</h4><p>New Claims management module for handling customer and supplier disputes. Credit &amp; Rebill functionality for corrective invoicing without reversing the original. Enhanced intercompany trade processing and revenue recognition workflows. Data authorization objects for fine-grained row-level security.</p></div></div>
+        <div class="step"><div class="step-num">10.5</div><div class="step-body"><h4>Industry Verticals &amp; Compliance</h4><p>Industry-specific features for Aerospace &amp; Defense (A&amp;D) and Automotive micro-verticals. Manufacturer certifications and compliance tracking. Repetitive manufacturing enhancements. Remote application launch so global teams can access LN from anywhere.</p></div></div>
+        <div class="step"><div class="step-num">10.6</div><div class="step-body"><h4>GDPR, Personalization &amp; Warehousing</h4><p>GDPR data anonymization built into the platform. The Personalization Workbench arrives — finally letting admins customize forms without coding. Kanban signals and supply orders for lean manufacturing. Shipment Planning and Execution workbenches. Packaging fill-up logic and virtual handling units in warehousing. Purchase Change Requests and retro-billing in procurement.</p></div></div>
+        <div class="step"><div class="step-num">10.7</div><div class="step-body"><h4>Multisite Manufacturing &amp; Reporting</h4><p>Multisite production for Job Shop — BOMs and routings by site. Configurable start pages with favourites, bookmarks, and recently used sessions per user. New Report Designer with exact positioning for PDF and Excel. RFQ Comparison Workbench for procurement. Quality improvements — conformance documentation, qualitative testing norms. HR integration via BODs.</p></div></div>
+        <div class="step"><div class="step-num">10.8</div><div class="step-body"><h4>Cloud Alignment, AI &amp; APIs</h4><p>Latest on-premises release — recommended for all on-prem deployments. Enhanced CloudSuite alignment with 6-month cloud feature cadence. Advanced API framework and expanded BOD library. AI-driven analytics via Infor Coleman and Birst embedded BI. Supplier Collaboration, EAM, and CPQ componentization. Ongoing monthly CloudSuite updates beyond the 10.8 baseline.</p></div></div>
+      </div>
+
+      <h2 id="a14-customizations">What Happens to Your Customizations?</h2>
+      <p>This is the question every consultant dreads, and every project manager asks first. Here's the honest answer:</p>
+      <p><strong>Standard customizations using LN's supported framework</strong> (UI modifications via Personalization, server-side hooks done the "right way") generally survive the upgrade. Infor provides upgrade tooling that carries these forward.</p>
+      <p><strong>Non-standard customizations</strong> — modified base sessions, direct table changes, hardcoded scripts that bypass the extension framework — are at risk. These may break during the upgrade and will need to be reviewed, retested, and possibly rewritten.</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 The Silver Lining</div>
+        <p>Many customizations you built for 10.3 exist because the standard system couldn't do what you needed. Five versions later, a good chunk of those needs are now covered by standard features. Run a fit-gap of your customizations against 10.8 standard — you'll likely retire 30–40% of them.</p>
+      </div>
+
+      <ul>
+        <li><strong>Step 1:</strong> Inventory every custom object — modified sessions, reports, DALs, DLLs, custom menus, and scripts</li>
+        <li><strong>Step 2:</strong> For each, check if 10.8 standard now handles the requirement</li>
+        <li><strong>Step 3:</strong> For those still needed, verify they use supported extension points</li>
+        <li><strong>Step 4:</strong> Rewrite anything that modifies base code — it won't survive the upgrade cleanly</li>
+      </ul>
+
+      <h2 id="a14-data">Data Migration: What to Expect</h2>
+      <p>Unlike a platform migration (say, Baan V to LN), an upgrade within the 10.x family is significantly easier on the data side. Your database structure is compatible. Infor provides upgrade scripts that handle schema changes between versions.</p>
+      <p>That said, there are still things to watch out for:</p>
+      <ul>
+        <li><strong>New mandatory fields:</strong> Some features introduced between 10.4 and 10.8 add new required fields to existing tables. The upgrade scripts set default values, but you should review them to make sure the defaults make sense for your business.</li>
+        <li><strong>Parameter changes:</strong> New parameters have been added and some old ones have been deprecated or restructured. Your parameter settings need a review during the upgrade — don't just accept defaults blindly.</li>
+        <li><strong>Number groups:</strong> If you're using multi-company, the number group logic was refined. Verify your number series after the upgrade.</li>
+        <li><strong>Authorization data:</strong> The move to AMS means your user/group authorization data needs to be mapped to the new role-based model. Plan time for this.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">🧹 Clean Up Before You Upgrade</div>
+        <p>An upgrade is the perfect excuse to clean house. Archive closed orders older than your reporting needs. Purge obsolete item masters. Clean up orphaned records. The less data you upgrade, the faster and smoother it goes.</p>
+      </div>
+
+      <h2 id="a14-approach">High-Level Upgrade Approach</h2>
+      <p>Here's a practical, phase-by-phase approach that works for most organizations upgrading from 10.3 to 10.8. Total timeline is typically <strong>6 to 12 months</strong> depending on your customization footprint and company size.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div class="step-body"><h4>Assessment &amp; Planning (4–6 weeks)</h4><p>Take stock of where you are. Inventory all customizations, integrations, and third-party tools connected to LN. Review Infor's upgrade documentation and release notes for every version between 10.3 and 10.8. Identify deprecated features and new mandatory parameters. Produce a gap analysis and upgrade project plan.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-body"><h4>Environment Setup &amp; Technical Upgrade (4–6 weeks)</h4><p>Set up a non-production (sandbox) environment. Run the Infor upgrade toolkit to bring the database from 10.3 to 10.8. This is a technical step — apply upgrade scripts version by version (10.3 → 10.4 → ... → 10.8). Resolve any script errors. Verify the upgraded system starts up and the base functionality works.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-body"><h4>Customization Review &amp; Remediation (6–10 weeks)</h4><p>Test every customization in the upgraded sandbox. Fix or rewrite anything that broke. Retire customizations now covered by standard 10.8 features. Rebuild integrations that relied on deprecated APIs or exchange schemes. Update reports to work with the new Report Designer if needed.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-body"><h4>Configuration &amp; New Features (3–4 weeks)</h4><p>Configure new 10.8 features your business wants to adopt — Personalization Workbench, homepages, ION workflows, Birst analytics. Set up the new Authorization Management System. Review and adjust all parameters added since 10.3. This is where the upgrade starts paying dividends.</p></div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-body"><h4>Testing (6–8 weeks)</h4><p>Run three rounds minimum. <strong>Round 1:</strong> Technical smoke test — does every session open? Do core processes complete end-to-end? <strong>Round 2:</strong> User Acceptance Testing — business users validate their daily processes in the new version. <strong>Round 3:</strong> Dress rehearsal — simulate the full cutover including upgrade scripts, data validation, and go-live checklist.</p></div></div>
+        <div class="step"><div class="step-num">06</div><div class="step-body"><h4>Training &amp; Change Management (start in Phase 3)</h4><p>Don't wait until go-live to train users. Start with key users during Phase 3 so they can participate in UAT. Build role-based training materials focused on what changed — new navigation, homepages, approval workflows, personalization options. Address the "where did my button go?" questions before they become support tickets.</p></div></div>
+        <div class="step"><div class="step-num">07</div><div class="step-body"><h4>Go-Live &amp; Hypercare (3–4 weeks)</h4><p>Execute the upgrade on your production environment during a planned downtime window. Run data validation scripts. Verify integrations. Open the system to users with a support team standing by. The first week will be busy — mostly navigation and "how do I…" questions. Have floor walkers and a quick-response helpdesk ready.</p></div></div>
+      </div>
+
+      <h2 id="a14-mistakes">Common Mistakes to Avoid</h2>
+      <p>These are the pitfalls we see in almost every 10.3-to-10.8 upgrade project. Avoid them and you'll save yourself weeks of pain.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div class="step-body"><h4>Skipping the Customization Inventory</h4><p>If you don't know what you've customized, you can't test it. "We'll find issues in UAT" is not a strategy — it's a recipe for a delayed go-live. Document every custom object before the upgrade starts.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-body"><h4>Treating It as "Just a Technical Upgrade"</h4><p>Yes, the data migrates in place. But the UI changes, the security model changes, workflows change, and new features need configuration. If your project plan has zero time for functional work, you're in trouble.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-body"><h4>Ignoring Training</h4><p>The number one cause of post-upgrade complaints isn't bugs — it's users who can't find things in the new interface. Budget real time and effort for training. Screenshots of "old vs new" navigation paths are worth their weight in gold.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-body"><h4>Compressing the Timeline</h4><p>Management always asks "can we do it in 3 months?" For a heavily customized 10.3 environment, the answer is almost always no. A realistic timeline is 6–12 months. Rushing leads to incomplete testing, which leads to production issues, which leads to a much longer and more painful stabilization period.</p></div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-body"><h4>Not Adopting New Features</h4><p>If you upgrade to 10.8 but don't turn on homepages, personalization, ION workflows, or Birst — you've paid the cost of the upgrade without capturing the value. Plan time to configure and roll out at least 2–3 new capabilities at go-live.</p></div></div>
+      </div>
+
+      <h2 id="a14-enduser">End-User Survival Guide</h2>
+      <p>If you're an end user reading this and your company just announced an upgrade — don't panic. Here's what to expect:</p>
+
+      <ul>
+        <li><strong>Your data is safe.</strong> All your orders, invoices, inventory, and history come with you. Nothing gets deleted.</li>
+        <li><strong>The screens look different.</strong> It's a web browser now instead of a Windows application. Everything runs in Chrome, Edge, or Firefox. Same data, same fields — new look.</li>
+        <li><strong>Your menu path changes.</strong> The session you used to find under Distribution → Sales Orders might now be on your homepage or in a different menu. Ask your trainer for a "cheat sheet" mapping old paths to new ones.</li>
+        <li><strong>You can customize your own view.</strong> Don't like the column order? Hide fields you never use? Change default values? You can do all of that yourself now. Ask about the Personalization Workbench.</li>
+        <li><strong>Approvals come to you.</strong> No more chasing emails. Approval tasks appear in your Ming.le inbox — you can act on them from your phone.</li>
+        <li><strong>Give it two weeks.</strong> Every system change feels awkward for the first few days. By week two, most users find the new interface faster and more intuitive than the old one.</li>
+      </ul>
+
+      <h2 id="a14-timeline">Realistic Timeline Expectations</h2>
+
+      <div class="vc-table-wrap" style="margin:1.8rem 0">
+        <table>
+          <thead>
+            <tr><th>Organization Size</th><th>Customization Level</th><th>Expected Timeline</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Small (1–2 companies, &lt;200 users)</td><td>Low (few customizations)</td><td>4–6 months</td></tr>
+            <tr><td>Small</td><td>High (many custom sessions/reports)</td><td>6–9 months</td></tr>
+            <tr><td>Medium (3–5 companies, 200–500 users)</td><td>Low to Medium</td><td>6–9 months</td></tr>
+            <tr><td>Medium</td><td>High</td><td>9–12 months</td></tr>
+            <tr><td>Large (5+ companies, 500+ users)</td><td>Any</td><td>10–14 months</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">🎯 Bottom Line</div>
+        <p>Upgrading from 10.3 to 10.8 is necessary, manageable, and ultimately rewarding. You get a modern interface, better analytics, cloud readiness, and five versions' worth of functional improvements. The key is to plan it properly, invest in training, and treat it as a business project — not just an IT task.</p>
+      </div>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Need hands-on help with your upgrade? Explore the <a href="https://fob-ln-training.vercel.app/" target="_blank"><strong>FullonBaan Training Platform</strong></a> for Infor LN courses, or visit <a href="https://www.fullonbaan.com/" target="_blank"><strong>fullonbaan.com</strong></a> for consulting and upgrade support.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 14 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a14-why">Why Upgrade from 10.3?</a></li>
+          <li><a href="#a14-whatchanges">What Changes for Users?</a></li>
+          <li><a href="#a14-technical">Technical Changes</a></li>
+          <li><a href="#a14-features">Features You Gain</a></li>
+          <li><a href="#a14-customizations">Customization Impact</a></li>
+          <li><a href="#a14-data">Data Migration</a></li>
+          <li><a href="#a14-approach">Upgrade Approach</a></li>
+          <li><a href="#a14-mistakes">Common Mistakes</a></li>
+          <li><a href="#a14-enduser">End-User Survival Guide</a></li>
+          <li><a href="#a14-timeline">Timeline Expectations</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
+          <a class="nav-link" href="#article-13" style="color:var(--primary)">↑ Prev: M3 vs LN</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-14 -->
+
+
 <!-- MORE ARTICLES -->
 <section class="more-articles">
   <div class="more-articles-inner">
     <h2>Coming Up in the Playbook</h2>
     <div class="articles-grid">
-      <a class="article-card" href="#article-13">
-        <div class="article-card-tag">Platform · ERP Comparison</div>
-        <h3>Infor M3 vs Infor LN — Which ERP Is Right for You?</h3>
-        <p>Architecture, features, module mapping, industry fit, and a decision framework for choosing between Infor's two flagship ERPs.</p>
-        <div class="article-card-meta">Article 13 · Published</div>
+      <a class="article-card" href="#article-14">
+        <div class="article-card-tag">Platform · Upgrade</div>
+        <h3>Migrating from Infor LN 10.3 to 10.8 — What Changes &amp; How to Prepare</h3>
+        <p>A plain-English guide covering what's different, what happens to customizations, and a step-by-step upgrade approach for end users and consultants.</p>
+        <div class="article-card-meta">Article 14 · Published</div>
       </a>
       <div class="article-card coming">
         <div class="article-card-tag">Finance · LN</div>
         <h3>Infor LN Accounts Payable — Configuration &amp; Processing Guide</h3>
         <p>Complete guide to AP invoice processing, payment runs, three-way matching, and supplier reconciliation in LN.</p>
-        <div class="article-card-meta">Article 14 · Planned</div>
+        <div class="article-card-meta">Article 15 · Planned</div>
       </div>
       <div class="article-card coming">
         <div class="article-card-tag">Warehousing · LN</div>
         <h3>Advanced Warehousing Configuration in Infor LN</h3>
         <p>Warehouse structures, handling units, and advanced picking strategies in Infor LN WH module.</p>
-        <div class="article-card-meta">Article 15 · Planned</div>
+        <div class="article-card-meta">Article 16 · Planned</div>
       </div>
     </div>
   </div>

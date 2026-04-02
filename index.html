@@ -998,6 +998,11 @@ body { margin-top: 0 !important; }
       <span class="material-symbols-outlined">upgrade</span>
       <span>LN 10.3 → 10.8</span>
     </a>
+    <a href="#article-15">
+      <span class="nav-num">15</span>
+      <span class="material-symbols-outlined">smart_toy</span>
+      <span>Industry AI Agents</span>
+    </a>
   </nav>
 
   <div class="proto-sidebar-footer">
@@ -1153,6 +1158,10 @@ body { margin-top: 0 !important; }
       <a class="ai-card" href="#article-14">
         <div class="ai-num">14</div>
         <div><div class="ai-card-tag">Platform · Upgrade</div><div class="ai-card-title">Migrating from Infor LN 10.3 to 10.8 — What Changes &amp; How to Prepare</div></div>
+      </a>
+      <a class="ai-card" href="#article-15">
+        <div class="ai-num">15</div>
+        <div><div class="ai-card-tag">Platform · AI</div><div class="ai-card-title">Infor Industry AI Agents — Role-Based Automation for Manufacturing, Distribution &amp; Service</div></div>
       </a>
     </div>
   </div>
@@ -4563,6 +4572,7 @@ body { margin-top: 0 !important; }
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
           <a class="nav-link" href="#article-13" style="color:var(--primary)">↑ Prev: M3 vs LN</a>
+          <a class="nav-link" href="#article-15" style="color:var(--primary)">↓ Next: Industry AI Agents</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -4596,28 +4606,265 @@ body { margin-top: 0 !important; }
 </div><!-- /article-14 -->
 
 
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 15 — Infor Industry AI Agents
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-15" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 15 · Platform · AI</div>
+      <h2 class="ah-title">Infor Industry AI Agents<br><em>Role-Based Automation for Manufacturing, Distribution &amp; Service</em></h2>
+      <p class="ah-sub">How Infor's October 2025 release introduced micro-vertical AI agents that orchestrate and automate workflows through the GenAI Assistant — and what it means for ERP teams.</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>April 2026</span>
+        <span class="tag">AI Agents</span><span class="tag">GenAI</span><span class="tag">CloudSuite</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a15-what">What Are Infor Industry AI Agents?</h2>
+      <p>On October 9, 2025, Infor announced a fundamental shift in how enterprise AI works inside its CloudSuite platform. Instead of generic chatbots or broad-purpose copilots, Infor introduced <strong>Industry AI Agents</strong> — micro-vertical, role-based AI agents that understand specific industry processes, terminology, compliance requirements, and KPIs out of the box.</p>
+      <p>These aren't just language models answering questions. They are autonomous agents that can <strong>orchestrate multi-step workflows</strong>, coordinate with other agents, and take action across your ERP — all while keeping humans in the loop for decision-making. They live inside the <strong>Infor GenAI Assistant</strong>, accessible through natural language, and they are grounded in real-time data from both Infor and non-Infor systems.</p>
+      <p>The key distinction from other enterprise AI offerings is that these agents are built on <strong>Infor's Industry Process Catalogs and Value Maps</strong> — proprietary frameworks developed across eight industries and dozens of micro-verticals. A Project Agent in aerospace manufacturing doesn't behave the same as a Project Agent in food and beverage distribution. Each one carries the domain context that makes it immediately useful rather than requiring months of fine-tuning.</p>
+
+      <div class="callout">
+        <div class="callout-title">🤖 The Big Idea</div>
+        <p>Infor Industry AI Agents are the first enterprise AI agents that ship with built-in understanding of micro-vertical processes — from dairy producers to EV manufacturers to textile fabricators. They don't need to learn your industry from scratch; they already speak your operational language.</p>
+      </div>
+
+      <h2 id="a15-why">Why This Matters for ERP Teams</h2>
+      <p>Enterprise AI has been a moving target for most ERP teams. The tools available until now — generative AI assistants, embedded analytics copilots, natural-language query builders — are useful but limited. They help you <em>find</em> information faster. They don't <em>do</em> work for you.</p>
+      <p>Industry AI Agents change the equation. Instead of asking a chatbot "show me overdue purchase orders," you can tell an agent "review all overdue POs for our top-tier suppliers, flag anything over $50K that's more than 15 days late, draft exception reports for each, and notify the procurement lead." The agent breaks that down into steps, executes them across the relevant CloudSuite modules, and comes back with results — pausing for your approval at decision points.</p>
+      <p>For Infor LN users specifically, this means the platform is moving toward a model where routine operational tasks — invoice reviews, inventory checks, project status rollups, maintenance scheduling — can be delegated to agents that understand your modules, your data model, and your industry's rules.</p>
+
+      <h2 id="a15-architecture">Architecture: How They Work Under the Hood</h2>
+      <p>Infor built the agent infrastructure on three foundational components that work together to deliver industry-aware automation.</p>
+
+      <h3>The Agentic Orchestrator</h3>
+      <p>At the core is the <strong>Infor Agentic Orchestrator</strong>, which combines <strong>Amazon Bedrock</strong> for flexible access to high-performing large language models (LLMs) with <strong>LangChain</strong> for multi-step workflow orchestration. This isn't a single-model system — the orchestrator can select different models for different tasks based on complexity, cost, and latency requirements.</p>
+      <p>The orchestrator handles the coordination between agents, manages context windows across multi-step processes, and enforces the governance rules that ensure agents don't take unauthorized actions.</p>
+
+      <h3>Three Operational Levels</h3>
+      <p>Agents operate at three distinct levels, each with a different scope of responsibility:</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div class="step-body"><h4>Process-Level Agents</h4><p>These orchestrate end-to-end workflows that span multiple modules. For example, a process-level agent might manage the entire procure-to-pay cycle — from requisition approval through purchase order creation, goods receipt, invoice matching, and payment execution. They coordinate the work of multiple task-level agents below them.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-body"><h4>Supervisor-Level Agents</h4><p>These manage specific initiatives or projects and coordinate other agents. A supervisor agent might oversee a plant maintenance shutdown — scheduling work orders, coordinating technician availability, tracking parts procurement, and reporting progress to stakeholders. They have the authority to delegate tasks and manage dependencies.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-body"><h4>Task-Level Agents</h4><p>These handle detailed, granular actions within a specific module or function. A task-level agent might review a single invoice against its purchase order and goods receipt, flag discrepancies, and prepare the match for approval. They are the workhorses that process-level and supervisor agents call upon to get individual steps done.</p></div></div>
+      </div>
+
+      <h3>Industry Process Catalogs &amp; Value Maps</h3>
+      <p>What makes these agents different from generic AI assistants is their grounding in <strong>Infor's Industry Process Catalogs</strong>. These are curated, structured representations of how specific industries operate — covering processes, KPIs, compliance requirements, and best practices across eight major industry verticals and their micro-verticals.</p>
+      <p>When a Project Agent in aerospace manufacturing flags a delayed project, it doesn't just look at dates. Because it's built on Infor's A&amp;D micro-vertical process catalog, it carries contextual awareness of industry-specific compliance factors, quality standards, and the cascading impact on program milestones — understanding the domain in ways a generic AI agent would not.</p>
+
+      <div class="callout">
+        <div class="callout-title">🔐 Governance &amp; Control</div>
+        <p>Every agent operates under strict governance rules set through the Infor Industry Cloud Platform. Administrators define what agents can automate, what requires human approval, and how they scale across the organization. Full audit trails are maintained for transparency and compliance.</p>
+      </div>
+
+      <h2 id="a15-agents">Industry-Specific Agents by Vertical</h2>
+      <p>Infor announced agent availability across eight industry verticals, each with role-specific agents tailored to that industry's operational patterns. Here's the breakdown of what's available (initially in limited release, with broader availability planned for 2026).</p>
+
+      <div class="vc-table-wrap" style="margin:1.8rem 0">
+        <table>
+          <thead>
+            <tr><th>Industry</th><th>Role-Based Agents</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Aerospace &amp; Defense</td><td>Program Management, Project Performance, Contracts, Quality Control</td></tr>
+            <tr><td>Automotive</td><td>Buyer, Inventory, Shipment, Project Cost</td></tr>
+            <tr><td>Industrial Manufacturing</td><td>Project, Project Schedule, Inventory, Shipment</td></tr>
+            <tr><td>Food &amp; Beverage</td><td>Distribution, Purchasing, Inventory, Customer Service</td></tr>
+            <tr><td>Fashion</td><td>Supplier, Inventory, Purchasing, Sales</td></tr>
+            <tr><td>Distribution</td><td>Distribution, Accounts Receivable, Maintenance, Project</td></tr>
+            <tr><td>Healthcare</td><td>Sourcing, Contract, General Ledger, Scheduling</td></tr>
+            <tr><td>Public Sector</td><td>Requisition Admin, Payables, Cash Operations, Time &amp; Attendance</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Each of these agents is pre-configured with the domain knowledge, process flows, and compliance awareness specific to its industry and role. An Inventory Agent in food and beverage understands shelf-life constraints, lot traceability, and FDA compliance. The same functional role in automotive understands JIT delivery windows, supplier scorecards, and OEM quality standards.</p>
+
+      <h2 id="a15-examples">What Agents Actually Do: Real-World Scenarios</h2>
+      <p>Abstract descriptions of AI agents are everywhere. Here's what these agents actually do in practice, with concrete examples of the tasks they handle.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div class="step-body"><h4>Project Agent — Manufacturing</h4><p>Monitors active production projects for schedule slippage and cost overruns. When a project falls behind, the agent analyzes root causes — material delays, capacity constraints, rework — and generates an impact assessment. It flags projects at risk of margin erosion before they become problems, allowing project managers to intervene early rather than discovering issues at month-end close.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-body"><h4>Workorder Agent — Distribution</h4><p>Analyzes predicted heavy equipment failures and schedules the appropriate technician. By combining maintenance history, sensor data, and technician availability, the agent proposes optimal maintenance windows, creates work orders, and reserves parts — helping organizations shift from reactive to predictive maintenance.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-body"><h4>Inventory Agent — Healthcare</h4><p>Manages inventory levels across multiple hospital locations, cross-referencing purchase orders with consumption patterns and expiration dates. It identifies items approaching expiry that could be transferred to higher-consumption locations, flags unusual usage spikes that might indicate waste or theft, and ensures critical supplies never fall below safety stock levels.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-body"><h4>Payables Agent — Finance</h4><p>Reviews outgoing invoices, prioritizes payments, and highlights risks to cash flow. It can flag discrepancies, identify early-payment discount opportunities, and prepare payment batches for approval — handling the routine analytical work that typically consumes hours of AP staff time daily.</p></div></div>
+      </div>
+
+      <h2 id="a15-genai">The GenAI Assistant: Where Agents Live</h2>
+      <p>All Industry AI Agents are accessed through the <strong>Infor GenAI Assistant</strong> — the conversational interface embedded within Infor CloudSuite. The October 2025 release (version 2025.10) significantly expanded the GenAI Assistant's capabilities beyond simple Q&amp;A into true agent orchestration.</p>
+      <p>Users interact with agents through natural language. You don't need to know which agent to invoke or how to structure a request. The GenAI Assistant routes your request to the appropriate agent based on your role, the context of your conversation, and the task at hand.</p>
+
+      <h3>Key GenAI Embedded Experiences (2025.10)</h3>
+      <p>Alongside the agent framework, the October 2025 release delivered new GenAI embedded experiences across multiple CloudSuite applications:</p>
+
+      <div class="vc-table-wrap" style="margin:1.8rem 0">
+        <table>
+          <thead>
+            <tr><th>CloudSuite</th><th>New GenAI Capabilities</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Distribution</td><td>Extension code reviews, automated dunning letters, notes summarization for customer/order/vendor data</td></tr>
+            <tr><td>CloudSuite Industrial</td><td>Material review report (MRR) generation, corrective action request (CAR) automation, invoice-based dunning</td></tr>
+            <tr><td>Infor LN</td><td>Assisted text authoring — suggests, updates, and translates item sales data text from item attributes</td></tr>
+            <tr><td>Public Sector</td><td>Rich text authoring across CloudSuite modules</td></tr>
+            <tr><td>Birst Analytics</td><td>Dashboard insight summaries, AI-assisted visualization editor</td></tr>
+            <tr><td>EPM</td><td>Financial consolidation summaries, capital project reporting</td></tr>
+            <tr><td>GRC</td><td>Incident reporting automation, EU AI Act compliance validation</td></tr>
+            <tr><td>Commerce (Rhythm)</td><td>Product list upload with automatic item recognition and cart population</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>For Infor LN users, the most immediately relevant feature is assisted text authoring for item sales data. CloudSuite Industrial users get additional capabilities including MRR and CAR automation. As the agent framework matures, both platforms will benefit from agent-driven workflow automation across manufacturing and financial modules.</p>
+
+      <h2 id="a15-factory">The Agent Factory: Building Custom Agents</h2>
+      <p>Infor isn't limiting organizations to pre-built agents. The <strong>Infor GenAI Agent Factory</strong> allows customers to create custom agents tailored to their specific processes, using Infor's tools and integrations as building blocks.</p>
+      <p>This matters because every organization has unique workflows that don't map perfectly to standard templates. A discrete manufacturer with a complex configure-to-order process might need an agent that combines project management, engineering change control, and customer-specific pricing logic — something no pre-built agent covers out of the box.</p>
+      <p>The Agent Factory provides the framework, the guardrails, and the integration connectors. Your team provides the process knowledge and the business rules. The result is a custom agent that operates within the same governance structure as Infor's pre-built agents — with full audit trails, human approval gates, and role-based access control.</p>
+
+      <div class="callout">
+        <div class="callout-title">🏭 Agent Factory Availability</div>
+        <p>The Agent Factory is part of Infor's broader AI platform roadmap. Initial capabilities are available for early adopters, with expanded tooling expected through 2026. Organizations interested in custom agents should engage with Infor's AI advisory team to assess readiness and define use cases.</p>
+      </div>
+
+      <h2 id="a15-ln">What This Means for Infor LN Users</h2>
+      <p>If you're running Infor LN — whether on-premises on 10.8 or in CloudSuite — here's the practical impact of Industry AI Agents on your ERP environment.</p>
+
+      <h3>Immediate Benefits (Available Now)</h3>
+      <p>The GenAI embedded experiences in the 2025.10 release are available across Infor's discrete manufacturing products. Infor LN users get assisted text authoring for item sales data — the system suggests, updates, and translates text from item attributes. CloudSuite Industrial users additionally get automated generation of MRRs and CARs, plus invoice-based dunning letter automation. These are productivity tools that reduce manual typing and standardize document quality.</p>
+
+      <h3>Near-Term Benefits (2026 Rollout)</h3>
+      <p>As Industry AI Agents move from limited release to general availability through 2026, LN users in manufacturing verticals will gain access to Project Agents, Inventory Agents, and Shipment Agents that work directly with LN's production, warehousing, and logistics modules. These agents will be able to monitor shop floor status, flag material shortages, optimize production schedules, and coordinate cross-plant transfers — all through natural language interaction in the GenAI Assistant.</p>
+
+      <h3>The Cloud Migration Angle</h3>
+      <p>It's worth noting that full agent capabilities require CloudSuite deployment. On-premises LN 10.8 users will get some GenAI embedded features, but the full agent orchestration — including the Agentic Orchestrator, multi-agent coordination, and Agent Factory — is a cloud-native capability. Infor simultaneously launched <strong>Infor Leap</strong>, a fast-track cloud migration program, alongside the AI Agents announcement — a clear signal that these capabilities are designed to accelerate cloud adoption.</p>
+
+      <div class="callout">
+        <div class="callout-title">☁️ Cloud vs On-Premises</div>
+        <p>If your organization is evaluating the move from on-premises LN to CloudSuite Industrial, the AI Agents announcement adds significant weight to the business case. The productivity gains from agent-driven automation are substantial — but they require cloud deployment to fully realize. Factor this into your cloud migration timeline and ROI analysis.</p>
+      </div>
+
+      <h2 id="a15-compare">How Infor's Approach Compares</h2>
+      <p>Every major ERP vendor has announced AI agents in some form. Here's how Infor's approach differs from the broader market.</p>
+
+      <div class="vc-table-wrap" style="margin:1.8rem 0">
+        <table>
+          <thead>
+            <tr><th>Dimension</th><th>Infor's Approach</th><th>Typical Industry Approach</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Industry Context</td><td>Pre-built with micro-vertical process knowledge via Industry Process Catalogs</td><td>Generic agents that need to be trained on industry specifics</td></tr>
+            <tr><td>Agent Levels</td><td>Three-tier (process, supervisor, task) with inter-agent coordination</td><td>Usually single-level task automation</td></tr>
+            <tr><td>LLM Strategy</td><td>Multi-model via Amazon Bedrock — selects optimal model per task</td><td>Typically locked to a single model provider</td></tr>
+            <tr><td>Data Grounding</td><td>Real-time data from Infor and non-Infor systems via Data Lake</td><td>Often limited to vendor's own data</td></tr>
+            <tr><td>Customization</td><td>Agent Factory for customer-built agents within governance framework</td><td>Limited to prompt customization or low-code flows</td></tr>
+            <tr><td>Governance</td><td>Enterprise-grade with human-in-the-loop at defined decision points</td><td>Varies — often bolted on after launch</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="a15-ready">Getting Ready: What to Do Now</h2>
+      <p>Even though full agent availability is rolling out through 2026, there are practical steps ERP teams can take today to prepare.</p>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div class="step-body"><h4>Assess Your Cloud Readiness</h4><p>Full agent capabilities require CloudSuite. If you're on-premises, start evaluating the migration path now. The Infor Leap program offers accelerated migration options — explore whether your organization qualifies and what the timeline looks like.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-body"><h4>Identify High-Value Automation Candidates</h4><p>Map your most time-consuming, repetitive operational processes. Invoice matching, inventory reconciliation, project status reporting, maintenance scheduling — these are the workflows where agents will deliver the fastest ROI. Document the current manual effort so you can measure improvement.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-body"><h4>Clean Up Your Data</h4><p>AI agents are only as good as the data they work with. Review your master data quality — item masters, supplier records, customer accounts, cost centers. Fix duplicates, fill in missing fields, and standardize naming conventions. Good data hygiene today means effective agents tomorrow.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-body"><h4>Enable GenAI Embedded Experiences</h4><p>If you're on CloudSuite, activate the GenAI embedded features available today. Get your team comfortable with AI-assisted workflows before the full agent capabilities arrive. This builds familiarity and trust incrementally rather than asking for a big-bang adoption later.</p></div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-body"><h4>Define Governance Policies</h4><p>Decide now which processes you're comfortable automating, which require human approval, and what your escalation paths look like. The governance framework is only useful if you've thought through the rules before deploying agents. Include your compliance, finance, and operations leads in this conversation.</p></div></div>
+      </div>
+
+      <h2 id="a15-bottom">The Bottom Line</h2>
+      <p>Infor's October 2025 release of Industry AI Agents represents a meaningful step forward for enterprise ERP automation. By combining deep industry process knowledge with multi-level agent orchestration and flexible LLM infrastructure, Infor is making a credible case that the future of ERP isn't about doing the same tasks faster — it's about delegating routine operational work to AI agents that understand your industry, your role, and your data.</p>
+      <p>For Infor LN users, this is both an opportunity and a call to action. The embedded GenAI features are available now. The full agent capabilities are coming through 2026. The organizations that prepare their data, their processes, and their people today will be the ones that capture the most value when these agents go live.</p>
+
+      <div class="callout">
+        <div class="callout-title">📚 Continue Learning</div>
+        <p>Want to understand how AI and automation fit into your Infor LN environment? Explore the <a href="https://fob-ln-training.vercel.app/" target="_blank"><strong>FullonBaan Training Platform</strong></a> for Infor LN courses, or visit <a href="https://www.fullonbaan.com/" target="_blank"><strong>fullonbaan.com</strong></a> for consulting and advisory services on CloudSuite migration and AI readiness.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 15 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a15-what">What Are Industry AI Agents?</a></li>
+          <li><a href="#a15-why">Why This Matters for ERP Teams</a></li>
+          <li><a href="#a15-architecture">Architecture &amp; Orchestrator</a></li>
+          <li><a href="#a15-agents">Agents by Industry Vertical</a></li>
+          <li><a href="#a15-examples">Real-World Scenarios</a></li>
+          <li><a href="#a15-genai">GenAI Assistant &amp; 2025.10</a></li>
+          <li><a href="#a15-factory">The Agent Factory</a></li>
+          <li><a href="#a15-ln">Impact on Infor LN Users</a></li>
+          <li><a href="#a15-compare">Competitive Comparison</a></li>
+          <li><a href="#a15-ready">Getting Ready</a></li>
+          <li><a href="#a15-bottom">Bottom Line</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
+          <a class="nav-link" href="#article-14" style="color:var(--primary)">↑ Prev: LN 10.3 → 10.8 Migration</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-15 -->
+
+
 <!-- MORE ARTICLES -->
 <section class="more-articles">
   <div class="more-articles-inner">
     <h2>Coming Up in the Playbook</h2>
     <div class="articles-grid">
-      <a class="article-card" href="#article-14">
-        <div class="article-card-tag">Platform · Upgrade</div>
-        <h3>Migrating from Infor LN 10.3 to 10.8 — What Changes &amp; How to Prepare</h3>
-        <p>A plain-English guide covering what's different, what happens to customizations, and a step-by-step upgrade approach for end users and consultants.</p>
-        <div class="article-card-meta">Article 14 · Published</div>
+      <a class="article-card" href="#article-15">
+        <div class="article-card-tag">Platform · AI</div>
+        <h3>Infor Industry AI Agents — Role-Based Automation for Manufacturing, Distribution &amp; Service</h3>
+        <p>How Infor's October 2025 release introduced micro-vertical AI agents that orchestrate and automate workflows through the GenAI Assistant.</p>
+        <div class="article-card-meta">Article 15 · Published</div>
       </a>
       <div class="article-card coming">
         <div class="article-card-tag">Finance · LN</div>
         <h3>Infor LN Accounts Payable — Configuration &amp; Processing Guide</h3>
         <p>Complete guide to AP invoice processing, payment runs, three-way matching, and supplier reconciliation in LN.</p>
-        <div class="article-card-meta">Article 15 · Planned</div>
+        <div class="article-card-meta">Article 16 · Planned</div>
       </div>
       <div class="article-card coming">
         <div class="article-card-tag">Warehousing · LN</div>
         <h3>Advanced Warehousing Configuration in Infor LN</h3>
         <p>Warehouse structures, handling units, and advanced picking strategies in Infor LN WH module.</p>
-        <div class="article-card-meta">Article 16 · Planned</div>
+        <div class="article-card-meta">Article 17 · Planned</div>
       </div>
     </div>
   </div>

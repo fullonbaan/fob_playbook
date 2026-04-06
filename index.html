@@ -883,6 +883,41 @@ body { margin-top: 0 !important; }
 @media (max-width: 680px) {
   .m3ln-dual, .m3ln-verdict { grid-template-columns: 1fr; }
 }
+
+/* ── ARTICLE 16 — Infor LN Consultant Career Guide ── */
+.a16-card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.1rem; margin:2rem 0; }
+.a16-card { background:var(--bg3); border:1px solid var(--border); border-radius:14px; padding:1.4rem 1.5rem; transition:border-color .3s,transform .3s; }
+.a16-card:hover { border-color:var(--border-hi); transform:translateY(-3px); }
+.a16-card-icon { font-size:1.6rem; margin-bottom:.7rem; }
+.a16-card h4 { font-family:'Cinzel',serif; font-size:.85rem; font-weight:600; color:var(--primary); margin-bottom:.5rem; }
+.a16-card p { font-size:.88rem; color:var(--text-muted); line-height:1.6; margin:0; }
+.a16-cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.1rem; margin:2rem 0; }
+.a16-cert-card { background:var(--bg3); border:1px solid var(--border); border-left:3px solid var(--primary); border-radius:0 14px 14px 0; padding:1.3rem 1.5rem; transition:border-color .3s,box-shadow .3s; }
+.a16-cert-card:hover { border-color:var(--border-hi); box-shadow:0 4px 16px rgba(0,0,0,.15); }
+.a16-cert-card h4 { font-family:'Cinzel',serif; font-size:.82rem; font-weight:600; color:var(--primary); margin-bottom:.5rem; }
+.a16-cert-card p { font-size:.86rem; color:var(--text-muted); line-height:1.58; margin:0 0 .6rem; }
+.a16-cert-card a { font-family:'JetBrains Mono',monospace; font-size:.62rem; letter-spacing:.1em; color:var(--primary); text-decoration:none; text-transform:uppercase; border-bottom:1px solid var(--border-hi); padding-bottom:1px; transition:border-color .2s; }
+.a16-cert-card a:hover { border-color:var(--primary); }
+.a16-skills-cols { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:1.5rem 0 2rem; }
+.a16-skills-cols ul { list-style:none; padding:0; display:flex; flex-direction:column; gap:.5rem; }
+.a16-skills-cols li { font-size:.9rem; color:var(--text-muted); padding:.45rem .8rem; background:var(--bg3); border:1px solid var(--border); border-radius:8px; line-height:1.45; }
+.a16-faq-item { border-bottom:1px solid var(--border); padding:1.3rem 0; }
+.a16-faq-item:last-child { border-bottom:none; }
+.a16-faq-item h4 { font-family:'Cinzel',serif; font-size:.85rem; font-weight:600; color:var(--primary); margin-bottom:.5rem; line-height:1.4; }
+.a16-faq-item p { font-size:.92rem; color:var(--text-muted); line-height:1.7; margin:0; }
+.a16-promo { background:linear-gradient(135deg,var(--bg3),var(--bg2)); border:1px solid var(--border-hi); border-radius:14px; padding:2rem 2.2rem; margin:2.5rem 0; }
+.a16-promo h3 { font-family:'Cinzel',serif; font-size:1rem; font-weight:700; color:var(--primary); margin-bottom:.6rem; }
+.a16-promo p { font-size:.92rem; color:var(--text-muted); margin-bottom:1.2rem; }
+.a16-promo-links { display:flex; gap:1rem; flex-wrap:wrap; }
+.a16-promo-link { display:block; background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:.9rem 1.1rem; text-decoration:none; transition:border-color .2s,transform .2s; flex:1; min-width:160px; }
+.a16-promo-link:hover { border-color:var(--border-hi); transform:translateY(-2px); }
+.a16-plc-icon { font-size:1.2rem; margin-bottom:.3rem; }
+.a16-plc-title { font-family:'JetBrains Mono',monospace; font-size:.62rem; color:var(--primary); letter-spacing:.06em; margin-bottom:.2rem; }
+.a16-plc-desc { font-size:.78rem; color:var(--text-dim); }
+@media (max-width: 680px) {
+  .a16-skills-cols { grid-template-columns: 1fr; }
+  .a16-card-grid, .a16-cert-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -891,9 +926,11 @@ body { margin-top: 0 !important; }
 <header class="proto-topbar">
   <a class="proto-topbar-brand" href="https://www.fullonbaan.com/">The Playbook</a>
   <nav><ul class="proto-topbar-nav">
-    <li><a href="#playbook-hero">Strategy</a></li>
-    <li><a href="#article-index">Articles</a></li>
-    <li><a href="https://www.fullonbaan.com/">Ecosystem</a></li>
+    <li><a href="https://training.fullonbaan.com" target="_blank">eBooks &amp; Videos</a></li>
+    <li><a href="https://courses.fullonbaan.com" target="_blank">Training</a></li>
+    <li><a href="https://certification.fullonbaan.com" target="_blank">Certification</a></li>
+    <li><a href="https://home.fullonbaan.com" target="_blank">Ecosystem</a></li>
+    <li><a href="https://repo.fullonbaan.com" target="_blank">Repository</a></li>
   </ul></nav>
   <div style="flex:1"></div>
   <div class="proto-topbar-right">
@@ -1044,7 +1081,7 @@ body { margin-top: 0 !important; }
       <a class="pb-btn-secondary" href="https://www.fullonbaan.com/">About FullOnBaan</a>
     </div>
     <div class="pb-stats">
-      <div><div class="pb-stat-num">12</div><div class="pb-stat-label">Articles Published</div></div>
+      <div><div class="pb-stat-num">16</div><div class="pb-stat-label">Articles Published</div></div>
       <div><div class="pb-stat-num">2</div><div class="pb-stat-label">In Pipeline</div></div>
       <div><div class="pb-stat-num">Finance</div><div class="pb-stat-label">Current Focus</div></div>
     </div>
@@ -1162,6 +1199,10 @@ body { margin-top: 0 !important; }
       <a class="ai-card" href="#article-15">
         <div class="ai-num">15</div>
         <div><div class="ai-card-tag">Platform · AI</div><div class="ai-card-title">Infor Industry AI Agents — Role-Based Automation for Manufacturing, Distribution &amp; Service</div></div>
+      </a>
+      <a class="ai-card" href="#article-16">
+        <div class="ai-num">16</div>
+        <div><div class="ai-card-tag">Career · Consulting</div><div class="ai-card-title">How to Become an Infor LN Consultant — Career Path, Certifications &amp; Salary Benchmarks</div></div>
       </a>
     </div>
   </div>
@@ -4810,6 +4851,7 @@ body { margin-top: 0 !important; }
         </ul>
         <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
           <a class="nav-link" href="#article-14" style="color:var(--primary)">↑ Prev: LN 10.3 → 10.8 Migration</a>
+          <a class="nav-link" href="#article-16" style="color:var(--primary)">↓ Next: Become an LN Consultant</a>
         </div>
       </div>
       <div class="sidebar-card">
@@ -4843,28 +4885,364 @@ body { margin-top: 0 !important; }
 </div><!-- /article-15 -->
 
 
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTICLE 16 — How to Become an Infor LN Consultant
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="article-16" class="article-section">
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="ah-num">Article 16 · Career · Consulting</div>
+      <h2 class="ah-title">How to Become an Infor LN Consultant<br><em>Career Path, Certifications &amp; Salary Benchmarks</em></h2>
+      <p class="ah-sub">Your complete guide to launching — or levelling up — your Infor LN consulting career: the progression stages, skills that get you hired, certifications that open doors, and salary benchmarks across every region.</p>
+      <div class="ah-meta">
+        <span>FullonBaan Editorial</span><span>·</span><span>April 2026</span>
+        <span class="tag">Career</span><span class="tag">Consulting</span><span class="tag">Certification</span>
+      </div>
+    </div>
+  </div>
+  <div class="layout">
+    <article class="article">
+
+      <h2 id="a16-why">Why Infor LN? The ERP That Runs Complex Manufacturing</h2>
+      <p class="ah-sub" style="font-style:italic;color:var(--text-muted);margin-bottom:1.5rem;">Infor LN is the enterprise ERP of choice for discrete, process, and mixed-mode manufacturers worldwide — and skilled consultants who can implement, configure, and support it are in constant demand.</p>
+      <p>Unlike generic ERP platforms, Infor LN (formerly Baan) is purpose-built for manufacturing and supply chain operations. It handles everything from shop-floor production orders and multi-site planning to global financials and regulatory compliance — making the consultants who master it highly valuable and well-compensated.</p>
+      <p>Whether you are a fresh graduate exploring an ERP career, an existing functional consultant looking to specialise, or a technical professional wanting to cross into consulting, this guide maps the entire journey.</p>
+
+      <div class="a16-card-grid">
+        <div class="a16-card">
+          <div class="a16-card-icon">🏭</div>
+          <h4>Manufacturing Focus</h4>
+          <p>Infor LN powers thousands of manufacturers globally — aerospace, automotive, industrial, and more.</p>
+        </div>
+        <div class="a16-card">
+          <div class="a16-card-icon">📈</div>
+          <h4>High Demand, Low Supply</h4>
+          <p>Certified Infor LN consultants are scarce. Organisations consistently struggle to find qualified talent.</p>
+        </div>
+        <div class="a16-card">
+          <div class="a16-card-icon">💰</div>
+          <h4>Competitive Salaries</h4>
+          <p>Entry-level roles start well above general IT salaries; senior consultants command premium rates.</p>
+        </div>
+        <div class="a16-card">
+          <div class="a16-card-icon">🌍</div>
+          <h4>Global Opportunities</h4>
+          <p>Infor LN is used across EMEA, Americas, and APAC — opening doors to international projects and remote roles.</p>
+        </div>
+      </div>
+
+      <h2 id="a16-career">The Infor LN Consultant Career Path</h2>
+      <p>Most practitioners move through four progressive stages. The timeline varies based on prior ERP experience, training quality, and the modules you specialise in.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h4>Junior Functional / Technical Consultant <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;color:var(--text-dim);font-weight:400;letter-spacing:.08em;">0–2 Years</span></h4>
+            <p>You learn Infor LN navigation, master one or two core modules (e.g., Manufacturing or Financials), support senior consultants during implementations, and handle basic configuration tasks and user training.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h4>Functional Consultant – Module Specialist <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;color:var(--text-dim);font-weight:400;letter-spacing:.08em;">2–5 Years</span></h4>
+            <p>You lead module-level workstreams independently. You conduct fit-gap analyses, design solutions, configure production orders, procurement flows, or financial periods end-to-end, and mentor junior team members.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h4>Senior Consultant / Solution Architect <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;color:var(--text-dim);font-weight:400;letter-spacing:.08em;">5–10 Years</span></h4>
+            <p>You own full project streams or act as the primary client liaison. You design cross-module integrations, lead blueprint workshops, translate complex business requirements into LN configurations, and guide technical teams on customisations.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <h4>Principal Consultant / Practice Lead <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;color:var(--text-dim);font-weight:400;letter-spacing:.08em;">10+ Years</span></h4>
+            <p>You drive overall delivery strategy for large or multi-site implementations, build consulting practices, define methodology standards, and are often involved in pre-sales, bid responses, and executive-level client engagement.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">Functional vs. Technical: Which Path?</div>
+        <p><strong>Functional consultants</strong> focus on business processes — understanding how a manufacturing operation works and configuring LN to match it. A background in supply chain, finance, or operations is a natural entry point. <strong>Technical consultants</strong> focus on customisation, integration (4GL / ION), data migration, and reporting. A background in programming, databases, or IT infrastructure suits this path. Many experienced practitioners develop skills in both areas, commanding the highest rates as cross-functional solution architects.</p>
+      </div>
+
+      <h2 id="a16-skills">Core Skills Every Infor LN Consultant Needs</h2>
+      <p>Becoming a sought-after consultant requires a blend of deep product knowledge and strong professional skills. Here is what hiring managers and project directors consistently look for.</p>
+
+      <div class="a16-skills-cols">
+        <div>
+          <h3 style="font-family:'Cinzel',serif;font-size:.85rem;color:var(--primary);margin-bottom:.8rem;">Functional &amp; Technical</h3>
+          <ul>
+            <li>Infor LN module configuration (Manufacturing, Finance, Procurement, WMS)</li>
+            <li>Business process mapping &amp; fit-gap analysis</li>
+            <li>Infor LN 4GL scripting and customisation</li>
+            <li>ION (Intelligent Open Network) integration</li>
+            <li>Data migration strategy and ETL tools</li>
+            <li>Report development (Crystal Reports, Birst, Atlas)</li>
+            <li>Multi-site &amp; multi-currency LN setups</li>
+            <li>MRP / APS planning configuration</li>
+            <li>LN upgrade and patch management</li>
+            <li>SQL querying for data validation</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-family:'Cinzel',serif;font-size:.85rem;color:var(--primary);margin-bottom:.8rem;">Soft Skills &amp; Business Acumen</h3>
+          <ul>
+            <li>Requirement gathering &amp; stakeholder workshops</li>
+            <li>Clear functional specification writing</li>
+            <li>Project management fundamentals (Agile / Waterfall)</li>
+            <li>End-user training design and delivery</li>
+            <li>Cross-cultural communication (global projects)</li>
+            <li>Problem-solving under project constraints</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="a16-cert">Infor LN Certifications: What You Need to Know</h2>
+      <p>Certifications are one of the fastest ways to differentiate yourself and prove credibility to clients and employers. They signal structured knowledge, commitment to the platform, and readiness to deliver.</p>
+      <p>Infor offers official certification tracks through its Infor Campus learning platform. FullOnBaan also offers focused certification preparation programmes aligned to real-world exam requirements and consulting scenarios.</p>
+
+      <div class="a16-cert-grid">
+        <div class="a16-cert-card">
+          <h4>Infor LN Manufacturing Certification</h4>
+          <p>Validates your ability to configure and manage production orders, BOMs, routings, and shop-floor control in LN.</p>
+          <a href="https://certification.fullonbaan.com" target="_blank">Prepare with FullOnBaan →</a>
+        </div>
+        <div class="a16-cert-card">
+          <h4>Infor LN Finance Certification</h4>
+          <p>Covers General Ledger, Accounts Payable/Receivable, cost accounting, and period-close processes in LN Financials.</p>
+          <a href="https://certification.fullonbaan.com" target="_blank">Prepare with FullOnBaan →</a>
+        </div>
+        <div class="a16-cert-card">
+          <h4>Infor LN Procurement &amp; Logistics</h4>
+          <p>Tests knowledge of purchase orders, vendor management, warehouse management, and outbound logistics flows.</p>
+          <a href="https://certification.fullonbaan.com" target="_blank">Prepare with FullOnBaan →</a>
+        </div>
+        <div class="a16-cert-card">
+          <h4>Infor LN Technical Consultant</h4>
+          <p>Covers LN 4GL development, ION integration, system administration, and performance tuning for technical practitioners.</p>
+          <a href="https://certification.fullonbaan.com" target="_blank">Prepare with FullOnBaan →</a>
+        </div>
+        <div class="a16-cert-card">
+          <h4>Infor ION &amp; Integration Certification</h4>
+          <p>Demonstrates your ability to design, build, and troubleshoot integrations between LN and third-party applications using ION.</p>
+          <a href="https://certification.fullonbaan.com" target="_blank">Prepare with FullOnBaan →</a>
+        </div>
+        <div class="a16-cert-card">
+          <h4>Project Management Certifications</h4>
+          <p>PMP, PRINCE2, or Infor-aligned delivery methodology certifications complement your LN skills at the senior level.</p>
+          <a href="https://courses.fullonbaan.com" target="_blank">Explore LN Courses →</a>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">💡 Certification Tip</div>
+        <p>Combine a module certification with a strong portfolio of real project experience. Certifications open doors; documented, hands-on experience wins the interviews. Certified consultants routinely negotiate 15–25% higher than non-certified peers at the same experience level.</p>
+      </div>
+
+      <h2 id="a16-salary">Infor LN Consultant Salary Benchmarks</h2>
+      <p>Compensation varies significantly by region, seniority, specialisation, and whether you work as an employee or an independent contractor. The figures below reflect typical market rates across major hiring regions.</p>
+
+      <h3 id="a16-salary-emp">Annual Salary — Full-time Employment</h3>
+      <div class="vc-table-wrap" style="margin:1.5rem 0">
+        <table>
+          <thead>
+            <tr><th>Level</th><th>Experience</th><th>USA (USD)</th><th>Europe (EUR)</th><th>India (INR)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Junior Consultant</td><td>0–2 yrs</td><td>$65,000 – $85,000</td><td>€42,000 – €58,000</td><td>₹6L – ₹12L</td></tr>
+            <tr><td>Mid-Level Consultant</td><td>2–5 yrs</td><td>$85,000 – $120,000</td><td>€58,000 – €82,000</td><td>₹12L – ₹22L</td></tr>
+            <tr><td>Senior Consultant</td><td>5–10 yrs</td><td>$120,000 – $160,000</td><td>€80,000 – €110,000</td><td>₹22L – ₹40L</td></tr>
+            <tr><td>Solution Architect / Lead</td><td>10+ yrs</td><td>$150,000 – $200,000+</td><td>€100,000 – €140,000+</td><td>₹40L – ₹70L+</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="a16-salary-contract">Freelance / Contract Day Rates</h3>
+      <div class="vc-table-wrap" style="margin:1.5rem 0">
+        <table>
+          <thead>
+            <tr><th>Level</th><th>USA (USD/day)</th><th>Europe (EUR/day)</th><th>Middle East (USD/day)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Junior Consultant</td><td>$350 – $500</td><td>€280 – €420</td><td>$300 – $450</td></tr>
+            <tr><td>Mid-Level Consultant</td><td>$500 – $750</td><td>€420 – €650</td><td>$450 – $700</td></tr>
+            <tr><td>Senior / Architect</td><td>$750 – $1,200+</td><td>€650 – €1,000+</td><td>$700 – $1,100+</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:.84rem;color:var(--text-dim);">* Salary data is indicative and based on market observations. Actual compensation depends on employer, project scope, specialisation, and negotiation. Certifications and a documented project track record typically increase earning potential by 15–30%.</p>
+
+      <h3 id="a16-salary-boost">Factors That Boost Your Rate</h3>
+      <div class="a16-card-grid">
+        <div class="a16-card">
+          <div class="a16-card-icon">🏆</div>
+          <h4>Infor Certification</h4>
+          <p>Certified consultants routinely negotiate 15–25% higher than non-certified peers at the same experience level.</p>
+        </div>
+        <div class="a16-card">
+          <div class="a16-card-icon">🔧</div>
+          <h4>Rare Module Specialisation</h4>
+          <p>Niche expertise in LN APS, MES integration, or multi-site global setups commands a significant premium.</p>
+        </div>
+        <div class="a16-card">
+          <div class="a16-card-icon">🌐</div>
+          <h4>Industry Vertical Experience</h4>
+          <p>Deep aerospace, defence, or automotive manufacturing knowledge paired with LN is a rare combination employers pay for.</p>
+        </div>
+        <div class="a16-card">
+          <div class="a16-card-icon">📋</div>
+          <h4>Full-cycle Implementation Record</h4>
+          <p>Having led a project from blueprint to go-live and post-live support makes you dramatically more hireable.</p>
+        </div>
+      </div>
+
+      <h2 id="a16-start">Step-by-Step: Getting Started as an Infor LN Consultant</h2>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div class="step-body"><h4>Build Foundational ERP Knowledge</h4><p>If you are new to ERP, begin by understanding how enterprise systems work — master data, transactional flows, and the relationship between modules (Finance, Manufacturing, Procurement, WMS). FullOnBaan's introductory eBooks at <a href="https://training.fullonbaan.com" target="_blank">training.fullonbaan.com</a> are an excellent starting point.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-body"><h4>Learn Infor LN Through Structured Courses</h4><p>Theory alone is not enough. Enrol in structured, hands-on Infor LN courses that walk you through real configuration scenarios. FullOnBaan's course library at <a href="https://courses.fullonbaan.com" target="_blank">courses.fullonbaan.com</a> covers Manufacturing, Financials, Procurement, and more — with practical exercises and real-world case studies.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-body"><h4>Pick a Primary Module to Specialise In</h4><p>Specialisation accelerates career progression. Manufacturing and Finance are the most in-demand starting points. Master one module deeply before branching into others.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-body"><h4>Get Certified</h4><p>Pursue your first Infor LN module certification. FullOnBaan's certification prep programmes at <a href="https://certification.fullonbaan.com" target="_blank">certification.fullonbaan.com</a> include mock exams, study guides, and exam-aligned exercises designed to maximise your pass rate.</p></div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-body"><h4>Build Your Portfolio</h4><p>Contribute to an implementation project — even in a support or shadow role initially. Document every configuration you complete, every process you mapped, and every problem you solved. This becomes the evidence that gets you your next role.</p></div></div>
+        <div class="step"><div class="step-num">06</div><div class="step-body"><h4>Network within the Infor Ecosystem</h4><p>Join Infor user groups, LinkedIn communities, and attend Infor Connect or regional events. Many consulting opportunities come from referrals and professional relationships rather than job boards.</p></div></div>
+        <div class="step"><div class="step-num">07</div><div class="step-body"><h4>Continue Learning and Stay Current</h4><p>Infor LN releases new versions and cloud updates regularly. Stay current through Infor Campus, partner networks, and FullOnBaan's ever-expanding content library. Consultants who stay sharp on the latest LN capabilities maintain a lasting competitive edge.</p></div></div>
+      </div>
+
+      <div class="a16-promo">
+        <h3>Start Your Infor LN Journey with FullOnBaan</h3>
+        <p>Structured courses, expert-authored eBooks, and official certification prep — all in one ecosystem.</p>
+        <div class="a16-promo-links">
+          <a class="a16-promo-link" href="https://training.fullonbaan.com" target="_blank">
+            <div class="a16-plc-icon">📚</div>
+            <div class="a16-plc-title">training.fullonbaan.com</div>
+            <div class="a16-plc-desc">eBooks &amp; video tutorials for self-paced learning</div>
+          </a>
+          <a class="a16-promo-link" href="https://courses.fullonbaan.com" target="_blank">
+            <div class="a16-plc-icon">🎓</div>
+            <div class="a16-plc-title">courses.fullonbaan.com</div>
+            <div class="a16-plc-desc">Structured Infor LN training courses &amp; programs</div>
+          </a>
+          <a class="a16-promo-link" href="https://certification.fullonbaan.com" target="_blank">
+            <div class="a16-plc-icon">🏆</div>
+            <div class="a16-plc-title">certification.fullonbaan.com</div>
+            <div class="a16-plc-desc">Infor LN certification prep &amp; exam readiness</div>
+          </a>
+        </div>
+      </div>
+
+      <h2 id="a16-faq">Frequently Asked Questions</h2>
+
+      <div class="a16-faq-item">
+        <h4>Do I need a manufacturing background to become an Infor LN consultant?</h4>
+        <p>Not necessarily, but it helps for functional roles. Many successful consultants come from finance, supply chain, or IT backgrounds. What matters more is your ability to learn business processes and map them to system configurations. FullOnBaan's courses teach both the LN system and the underlying business logic.</p>
+      </div>
+      <div class="a16-faq-item">
+        <h4>How long does it take to become job-ready as an Infor LN consultant?</h4>
+        <p>With dedicated, structured training, most motivated learners become job-ready in 3–6 months for a junior role. Completing a certification alongside your course significantly strengthens your candidacy and can shorten this timeline by improving your confidence and credibility.</p>
+      </div>
+      <div class="a16-faq-item">
+        <h4>Is Infor LN still relevant with cloud ERP growing?</h4>
+        <p>Yes. Infor LN is actively invested in by Infor (an IBM company since 2024), with a cloud deployment option (Infor CloudSuite Industrial). Thousands of manufacturers globally run LN and have long upgrade cycles, ensuring consulting demand for many years ahead.</p>
+      </div>
+      <div class="a16-faq-item">
+        <h4>Can I work remotely as an Infor LN consultant?</h4>
+        <p>Increasingly yes. Post-pandemic, many LN implementations are conducted remotely for the majority of the project, with on-site visits for workshops and go-live support. Senior consultants often work fully remote or in hybrid models, especially for support and managed services roles.</p>
+      </div>
+      <div class="a16-faq-item">
+        <h4>Which modules should I learn first?</h4>
+        <p>Manufacturing (Production Management) and Finance (Financials) are the most in-demand across all implementations. Starting with either of these gives you the widest range of initial job opportunities. FullOnBaan's courses are structured to guide you through these modules step by step.</p>
+      </div>
+      <div class="a16-faq-item">
+        <h4>How do FullOnBaan's courses differ from Infor's official training?</h4>
+        <p>FullOnBaan combines Infor LN product training with practical consulting methodology — so you do not just learn how to navigate the system, you learn how to implement it in real business contexts. Our materials are also more affordable and available on demand, making them ideal for self-paced career development.</p>
+      </div>
+
+      <hr class="rule"/>
+      <div class="callout">
+        <div class="callout-title">📚 Your Infor LN Career Starts Here</div>
+        <p>Join thousands of ERP professionals who have accelerated their careers with FullOnBaan's expert training, eBooks, and certification programmes. Explore <a href="https://courses.fullonbaan.com" target="_blank"><strong>courses.fullonbaan.com</strong></a> to start learning today, or visit <a href="https://www.fullonbaan.com/" target="_blank"><strong>fullonbaan.com</strong></a> for consulting and career guidance.</p>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Article 16 — Contents</div>
+        <ul class="toc-list">
+          <li><a href="#a16-why">Why Infor LN?</a></li>
+          <li><a href="#a16-career">Consultant Career Path</a></li>
+          <li><a href="#a16-skills">Core Skills</a></li>
+          <li><a href="#a16-cert">Certifications</a></li>
+          <li><a href="#a16-salary">Salary Benchmarks</a></li>
+          <li><a href="#a16-salary-emp">Full-time Salaries</a></li>
+          <li><a href="#a16-salary-contract">Contract Day Rates</a></li>
+          <li><a href="#a16-salary-boost">Rate Boosters</a></li>
+          <li><a href="#a16-start">Getting Started (7 Steps)</a></li>
+          <li><a href="#a16-faq">FAQ</a></li>
+        </ul>
+        <div style="border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem">
+          <a class="nav-link" href="#article-15" style="color:var(--primary)">↑ Prev: Industry AI Agents</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">FOB Ecosystem</div>
+        <a class="eco-link" href="https://fobrepo.vercel.app/" target="_blank"><span class="eco-dot" style="background:#4a9eff"></span><span><span class="eco-link-name">FOB Repository</span><span class="eco-link-url">fobrepo.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobtraining.vercel.app/" target="_blank"><span class="eco-dot" style="background:#c9a84c"></span><span><span class="eco-link-name">FOB Training</span><span class="eco-link-url">fobtraining.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobinterview.vercel.app/" target="_blank"><span class="eco-dot" style="background:#a07cc5"></span><span><span class="eco-link-name">FOB Interview Prep</span><span class="eco-link-url">fobinterview.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobjobs.vercel.app/" target="_blank"><span class="eco-dot" style="background:#5cb85c"></span><span><span class="eco-link-name">FOB Jobs</span><span class="eco-link-url">fobjobs.vercel.app</span></span></a>
+        <a class="eco-link" href="https://fobexams.vercel.app/" target="_blank"><span class="eco-dot" style="background:#e87d52"></span><span><span class="eco-link-name">FOB Certification</span><span class="eco-link-url">fobexams.vercel.app</span></span></a>
+        <a class="eco-link" href="https://www.fullonbaan.com/" target="_blank"><span class="eco-dot" style="background:#e8c97a"></span><span><span class="eco-link-name">FullonBaan</span><span class="eco-link-url">www.fullonbaan.com</span></span></a>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact</div>
+        <div class="contact-item">📧 <a href="mailto:fullonbaan@gmail.com">fullonbaan@gmail.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+916360593122">+91 63605 93122</a></div>
+        <div class="contact-item" style="color:var(--text-dim);font-size:.78rem">Bangalore, India</div>
+      </div>
+      <div class="sidebar-subscribe">
+        <div class="sidebar-card-title">Stay Updated</div>
+        <p>Get notified when new articles are published.</p>
+        <form class="sidebar-subscribe-form" action="https://formspree.io/f/xlgobpvp" method="POST" data-subscribe="sidebar">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="hidden" name="_subject" value="New Playbook Subscriber (Sidebar)" />
+          <input type="hidden" name="source" value="sidebar" />
+          <button type="submit"><span class="material-symbols-outlined" style="font-size:14px">notifications</span> Subscribe</button>
+        </form>
+        <div class="subscribe-success">You're subscribed!</div>
+      </div>
+    </aside>
+  </div>
+</div><!-- /article-16 -->
+
+
 <!-- MORE ARTICLES -->
 <section class="more-articles">
   <div class="more-articles-inner">
     <h2>Coming Up in the Playbook</h2>
     <div class="articles-grid">
-      <a class="article-card" href="#article-15">
-        <div class="article-card-tag">Platform · AI</div>
-        <h3>Infor Industry AI Agents — Role-Based Automation for Manufacturing, Distribution &amp; Service</h3>
-        <p>How Infor's October 2025 release introduced micro-vertical AI agents that orchestrate and automate workflows through the GenAI Assistant.</p>
-        <div class="article-card-meta">Article 15 · Published</div>
+      <a class="article-card" href="#article-16">
+        <div class="article-card-tag">Career · Consulting</div>
+        <h3>How to Become an Infor LN Consultant — Career Path, Certifications &amp; Salary Benchmarks</h3>
+        <p>Your complete guide to launching or levelling up your Infor LN consulting career: progression stages, skills, certifications, and salary benchmarks across every region.</p>
+        <div class="article-card-meta">Article 16 · Published</div>
       </a>
       <div class="article-card coming">
         <div class="article-card-tag">Finance · LN</div>
         <h3>Infor LN Accounts Payable — Configuration &amp; Processing Guide</h3>
         <p>Complete guide to AP invoice processing, payment runs, three-way matching, and supplier reconciliation in LN.</p>
-        <div class="article-card-meta">Article 16 · Planned</div>
+        <div class="article-card-meta">Article 17 · Planned</div>
       </div>
       <div class="article-card coming">
         <div class="article-card-tag">Warehousing · LN</div>
         <h3>Advanced Warehousing Configuration in Infor LN</h3>
         <p>Warehouse structures, handling units, and advanced picking strategies in Infor LN WH module.</p>
-        <div class="article-card-meta">Article 17 · Planned</div>
+        <div class="article-card-meta">Article 18 · Planned</div>
       </div>
     </div>
   </div>

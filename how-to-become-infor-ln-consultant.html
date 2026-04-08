@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Become an Infor LN Consultant | FullOnBaan</title>
+  <meta name="description" content="Your complete guide to becoming an Infor LN ERP consultant — career path, salary benchmarks, certifications, and training resources from FullOnBaan." />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold-dark:   #B8860B;
+      --gold-mid:    #DAA520;
+      --gold-light:  #FFD700;
+      --bg-dark:     #0d0d0d;
+      --bg-card:     #141414;
+      --bg-section:  #111111;
+      --text-main:   #e8e8e8;
+      --text-muted:  #999;
+      --border:      rgba(218,165,32,0.25);
+      --radius:      12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Manrope', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      background: rgba(13,13,13,0.97);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    .nav-brand {
+      font-family: 'Noto Serif', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #0d0d0d 0%, #1a1200 50%, #0d0d0d 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 90px 5% 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 40%, rgba(218,165,32,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold-mid);
+      color: var(--gold-mid);
+      border-radius: 50px;
+      padding: 5px 18px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 820px;
+      margin: 0 auto 22px;
+      background: linear-gradient(135deg, #fff 30%, var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+      color: #000;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 13px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: transform .2s, box-shadow .2s;
+      display: inline-block;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(218,165,32,0.35); }
+    .btn-outline {
+      border: 1px solid var(--gold-mid);
+      color: var(--gold-mid);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background .2s, color .2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: rgba(218,165,32,0.12); color: var(--gold-light); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 5%; }
+    section { padding: 70px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-family: 'Noto Serif', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #fff, var(--gold-mid));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.3;
+    }
+    h3 {
+      font-family: 'Noto Serif', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--gold-mid);
+      margin: 30px 0 10px;
+    }
+    p { color: var(--text-main); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+
+    .lead {
+      font-size: 1.08rem;
+      color: #ccc;
+      border-left: 3px solid var(--gold-mid);
+      padding-left: 18px;
+      margin-bottom: 28px;
+    }
+
+    /* ── CARDS ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      transition: border-color .25s, transform .2s;
+    }
+    .card:hover { border-color: var(--gold-mid); transform: translateY(-3px); }
+    .card-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .card h4 {
+      font-family: 'Noto Serif', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .card p { font-size: 0.88rem; color: var(--text-muted); margin: 0; }
+
+    /* ── CAREER PATH TIMELINE ── */
+    .timeline { position: relative; margin-top: 32px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold-dark), transparent);
+    }
+    .timeline-item {
+      display: flex;
+      gap: 22px;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .timeline-dot {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #000;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-content { flex: 1; padding-top: 8px; }
+    .timeline-content h4 {
+      font-family: 'Noto Serif', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .timeline-content .exp-tag {
+      display: inline-block;
+      background: rgba(218,165,32,0.12);
+      border: 1px solid rgba(218,165,32,0.3);
+      color: var(--gold-mid);
+      font-size: 0.75rem;
+      padding: 2px 10px;
+      border-radius: 50px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .timeline-content p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+    /* ── SALARY TABLE ── */
+    .salary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 28px;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .salary-table thead {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-mid));
+    }
+    .salary-table thead th {
+      padding: 14px 18px;
+      text-align: left;
+      font-family: 'Noto Serif', serif;
+      font-size: 0.9rem;
+      color: #000;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .salary-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: var(--bg-card);
+      transition: background .2s;
+    }
+    .salary-table tbody tr:hover { background: rgba(218,165,32,0.07); }
+    .salary-table tbody td {
+      padding: 13px 18px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+    .salary-table tbody td:first-child { font-weight: 600; color: #fff; }
+    .salary-highlight { color: var(--gold-light); font-weight: 700; }
+
+    /* ── CERT CARDS ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+    .cert-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .25s;
+    }
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+    }
+    .cert-card:hover { border-color: var(--gold-mid); }
+    .cert-card h4 {
+      font-family: 'Noto Serif', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .cert-card p { font-size: 0.87rem; color: var(--text-muted); margin-bottom: 16px; }
+    .cert-card a {
+      font-size: 0.83rem;
+      color: var(--gold-mid);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .cert-card a:hover { color: var(--gold-light); }
+
+    /* ── SKILLS LIST ── */
+    .skills-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 30px;
+      margin-top: 20px;
+    }
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+    .skill-item::before {
+      content: '▸';
+      color: var(--gold-mid);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* ── PROMO BAND ── */
+    .promo-band {
+      background: linear-gradient(135deg, #1a1200, #0d0d0d);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 42px 40px;
+      text-align: center;
+      margin: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(218,165,32,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .promo-band h3 {
+      font-family: 'Noto Serif', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .promo-band p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 28px; }
+    .promo-links-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .promo-link-card {
+      background: rgba(13,13,13,0.8);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 22px;
+      text-align: left;
+      min-width: 200px;
+      transition: border-color .2s, transform .2s;
+      text-decoration: none;
+      display: block;
+    }
+    .promo-link-card:hover { border-color: var(--gold-mid); transform: translateY(-3px); }
+    .promo-link-card .plc-icon { font-size: 1.4rem; margin-bottom: 8px; }
+    .promo-link-card .plc-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 3px;
+      font-family: 'Noto Serif', serif;
+    }
+    .promo-link-card .plc-desc { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* ── FAQ ── */
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 14px;
+      transition: border-color .2s;
+    }
+    .faq-item:hover { border-color: rgba(218,165,32,0.4); }
+    .faq-item h4 {
+      font-family: 'Noto Serif', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .faq-item p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: linear-gradient(135deg, #1a1200 0%, #0a0a0a 100%);
+      padding: 80px 5%;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .final-cta h2 {
+      font-family: 'Noto Serif', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, #fff 30%, var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .final-cta p { color: var(--text-muted); font-size: 1rem; margin-bottom: 34px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0a0a;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 5% 28px;
+    }
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand {
+      font-family: 'Noto Serif', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .footer-socials { display: flex; gap: 18px; }
+    .footer-socials a {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-socials a:hover { color: var(--gold-light); }
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      color: rgba(255,255,255,0.25);
+      font-size: 0.78rem;
+      margin-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 20px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .skills-columns { grid-template-columns: 1fr; }
+      .promo-links-row { flex-direction: column; align-items: center; }
+      .promo-link-card { width: 100%; max-width: 320px; }
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="https://www.fullonbaan.com/">FullOnBaan</a>
+  <div class="nav-links">
+    <a href="https://training.fullonbaan.com">eBooks &amp; Videos</a>
+    <a href="https://courses.fullonbaan.com">Courses</a>
+    <a href="https://certification.fullonbaan.com">Certification</a>
+    <a href="https://wa.me/916360593122?text=Hi%2C%20I%27m%20interested%20in%20FullOnBaan%20Infor%20LN%20training.%20Could%20you%20share%20more%20details%3F">WhatsApp Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">Career Guide · 2025 Edition</div>
+  <h1>How to Become an Infor LN Consultant</h1>
+  <p class="hero-sub">Career path, salary benchmarks, certifications, and the training resources you need to launch — or level up — your Infor LN career.</p>
+  <div class="hero-cta-row">
+    <a class="btn-gold" href="https://courses.fullonbaan.com">Browse LN Courses →</a>
+    <a class="btn-outline" href="https://certification.fullonbaan.com">Get Certified</a>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <!-- INTRO -->
+  <section>
+    <div class="container">
+      <h2>Why Infor LN? The ERP That Runs Complex Manufacturing</h2>
+      <p class="lead">Infor LN is the enterprise ERP of choice for discrete, process, and mixed-mode manufacturers worldwide — and skilled consultants who can implement, configure, and support it are in constant demand.</p>
+      <p>Unlike generic ERP platforms, Infor LN (formerly Baan) is purpose-built for manufacturing and supply chain operations. It handles everything from shop-floor production orders and multi-site planning to global financials and regulatory compliance — making the consultants who master it highly valuable and well-compensated.</p>
+      <p>Whether you are a fresh graduate exploring an ERP career, an existing functional consultant looking to specialise, or a technical professional wanting to cross into consulting, this guide maps the entire journey for you.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏭</div>
+          <h4>Manufacturing Focus</h4>
+          <p>Infor LN powers thousands of manufacturers globally — aerospace, automotive, industrial, and more.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h4>High Demand, Low Supply</h4>
+          <p>Certified Infor LN consultants are scarce. Organisations consistently struggle to find qualified talent.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💰</div>
+          <h4>Competitive Salaries</h4>
+          <p>Entry-level roles start well above general IT salaries; senior consultants command premium rates.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌍</div>
+          <h4>Global Opportunities</h4>
+          <p>Infor LN is used across EMEA, Americas, and APAC — opening doors to international projects and remote roles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER PATH -->
+  <section>
+    <div class="container">
+      <h2>The Infor LN Consultant Career Path</h2>
+      <p>Most practitioners move through four progressive stages. The timeline varies based on prior ERP experience, training quality, and the modules you specialise in.</p>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot">01</div>
+          <div class="timeline-content">
+            <h4>Junior Functional / Technical Consultant</h4>
+            <span class="exp-tag">0–2 Years Experience</span>
+            <p>You learn Infor LN navigation, master one or two core modules (e.g., Manufacturing or Financials), support senior consultants during implementations, and handle basic configuration tasks and user training.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">02</div>
+          <div class="timeline-content">
+            <h4>Functional Consultant – Module Specialist</h4>
+            <span class="exp-tag">2–5 Years Experience</span>
+            <p>You lead module-level workstreams independently. You conduct fit-gap analyses, design solutions, configure production orders, procurement flows, or financial periods end-to-end, and mentor junior team members.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">03</div>
+          <div class="timeline-content">
+            <h4>Senior Consultant / Solution Architect</h4>
+            <span class="exp-tag">5–10 Years Experience</span>
+            <p>You own full project streams or act as the primary client liaison. You design cross-module integrations, lead blueprint workshops, translate complex business requirements into LN configurations, and guide technical teams on customisations.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">04</div>
+          <div class="timeline-content">
+            <h4>Principal Consultant / Practice Lead</h4>
+            <span class="exp-tag">10+ Years Experience</span>
+            <p>You drive the overall delivery strategy for large or multi-site implementations, build consulting practices, define methodology standards, and are often involved in pre-sales, bid responses, and executive-level client engagement.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <h3>Functional vs. Technical: Which Path Is Right for You?</h3>
+      <p><strong style="color:#fff;">Functional consultants</strong> focus on business processes — understanding how a manufacturing operation works and configuring LN to match it. A background in supply chain, finance, or operations is a natural entry point.</p>
+      <p><strong style="color:#fff;">Technical consultants</strong> focus on customisation, integration (4GL / ION), data migration, and reporting. A background in programming, databases, or IT infrastructure suits this path.</p>
+      <p>Many experienced practitioners develop skills in both areas, commanding the highest rates as cross-functional solution architects.</p>
+    </div>
+  </section>
+
+  <!-- PROMO BAND 1 -->
+  <div class="container">
+    <div class="promo-band">
+      <h3>Start Your Infor LN Journey with FullOnBaan</h3>
+      <p>Structured courses, expert-authored eBooks, and official certification prep — all in one ecosystem.</p>
+      <div class="promo-links-row">
+        <a class="promo-link-card" href="https://training.fullonbaan.com">
+          <div class="plc-icon">📚</div>
+          <div class="plc-title">training.fullonbaan.com</div>
+          <div class="plc-desc">eBooks &amp; video tutorials for self-paced learning</div>
+        </a>
+        <a class="promo-link-card" href="https://courses.fullonbaan.com">
+          <div class="plc-icon">🎓</div>
+          <div class="plc-title">courses.fullonbaan.com</div>
+          <div class="plc-desc">Structured Infor LN training courses &amp; programs</div>
+        </a>
+        <a class="promo-link-card" href="https://certification.fullonbaan.com">
+          <div class="plc-icon">🏆</div>
+          <div class="plc-title">certification.fullonbaan.com</div>
+          <div class="plc-desc">Infor LN certification prep &amp; exam readiness</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="container">
+      <h2>Core Skills Every Infor LN Consultant Needs</h2>
+      <p>Becoming a sought-after consultant requires a blend of deep product knowledge and strong professional skills. Here is what hiring managers and project directors consistently look for.</p>
+
+      <h3>Functional &amp; Technical Skills</h3>
+      <div class="skills-columns">
+        <div class="skill-item">Infor LN module configuration (Manufacturing, Finance, Procurement, WMS)</div>
+        <div class="skill-item">Business process mapping &amp; fit-gap analysis</div>
+        <div class="skill-item">Infor LN 4GL scripting and customisation</div>
+        <div class="skill-item">ION (Intelligent Open Network) integration</div>
+        <div class="skill-item">Data migration strategy and ETL tools</div>
+        <div class="skill-item">Report development (Crystal Reports, Birst, Atlas)</div>
+        <div class="skill-item">Multi-site &amp; multi-currency LN setups</div>
+        <div class="skill-item">MRP / APS planning configuration</div>
+        <div class="skill-item">LN upgrade and patch management</div>
+        <div class="skill-item">SQL querying for data validation</div>
+      </div>
+
+      <h3>Soft Skills &amp; Business Acumen</h3>
+      <div class="skills-columns">
+        <div class="skill-item">Requirement gathering &amp; stakeholder workshops</div>
+        <div class="skill-item">Clear functional specification writing</div>
+        <div class="skill-item">Project management fundamentals (Agile / Waterfall)</div>
+        <div class="skill-item">End-user training design and delivery</div>
+        <div class="skill-item">Cross-cultural communication (global projects)</div>
+        <div class="skill-item">Problem-solving under project constraints</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section>
+    <div class="container">
+      <h2>Infor LN Certifications: What You Need to Know</h2>
+      <p class="lead">Certifications are one of the fastest ways to differentiate yourself and prove credibility to clients and employers. They signal structured knowledge, commitment to the platform, and readiness to deliver.</p>
+
+      <p>Infor offers official certification tracks through its Infor Campus learning platform. FullOnBaan also offers focused certification preparation programmes that are designed to align with real-world exam requirements and consulting scenarios.</p>
+
+      <div class="cert-grid">
+
+        <div class="cert-card">
+          <h4>Infor LN Manufacturing Certification</h4>
+          <p>Validates your ability to configure and manage production orders, BOMs, routings, and shop-floor control in LN.</p>
+          <a href="https://certification.fullonbaan.com">Prepare with FullOnBaan →</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Infor LN Finance Certification</h4>
+          <p>Covers General Ledger, Accounts Payable/Receivable, cost accounting, and period-close processes in LN Financials.</p>
+          <a href="https://certification.fullonbaan.com">Prepare with FullOnBaan →</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Infor LN Procurement &amp; Logistics</h4>
+          <p>Tests knowledge of purchase orders, vendor management, warehouse management, and outbound logistics flows.</p>
+          <a href="https://certification.fullonbaan.com">Prepare with FullOnBaan →</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Infor LN Technical Consultant</h4>
+          <p>Covers LN 4GL development, ION integration, system administration, and performance tuning for technical practitioners.</p>
+          <a href="https://certification.fullonbaan.com">Prepare with FullOnBaan →</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Infor ION &amp; Integration Certification</h4>
+          <p>Demonstrates your ability to design, build, and troubleshoot integrations between LN and third-party applications using ION.</p>
+          <a href="https://certification.fullonbaan.com">Prepare with FullOnBaan →</a>
+        </div>
+
+        <div class="cert-card">
+          <h4>Project Management Certifications</h4>
+          <p>PMP, PRINCE2, or Infor-aligned delivery methodology certifications complement your LN skills at the senior level.</p>
+          <a href="https://courses.fullonbaan.com">Explore LN Courses →</a>
+        </div>
+
+      </div>
+
+      <p style="margin-top:28px; font-size:0.9rem; color:var(--text-muted);">💡 <strong style="color:#ccc;">Tip:</strong> Combine a module certification with a strong portfolio of real project experience. Certifications open doors; documented, hands-on experience wins the interviews.</p>
+    </div>
+  </section>
+
+  <!-- SALARY -->
+  <section>
+    <div class="container">
+      <h2>Infor LN Consultant Salary Benchmarks</h2>
+      <p class="lead">Compensation varies significantly by region, seniority, specialisation, and whether you work as an employee or an independent contractor. The figures below reflect typical market rates across major hiring regions.</p>
+
+      <h3>Annual Salary — Full-time Employment</h3>
+      <table class="salary-table">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Experience</th>
+            <th>USA (USD)</th>
+            <th>Europe (EUR)</th>
+            <th>India (INR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Junior Consultant</td>
+            <td>0–2 yrs</td>
+            <td class="salary-highlight">$65,000 – $85,000</td>
+            <td class="salary-highlight">€42,000 – €58,000</td>
+            <td class="salary-highlight">₹6L – ₹12L</td>
+          </tr>
+          <tr>
+            <td>Mid-Level Consultant</td>
+            <td>2–5 yrs</td>
+            <td class="salary-highlight">$85,000 – $120,000</td>
+            <td class="salary-highlight">€58,000 – €82,000</td>
+            <td class="salary-highlight">₹12L – ₹22L</td>
+          </tr>
+          <tr>
+            <td>Senior Consultant</td>
+            <td>5–10 yrs</td>
+            <td class="salary-highlight">$120,000 – $160,000</td>
+            <td class="salary-highlight">€80,000 – €110,000</td>
+            <td class="salary-highlight">₹22L – ₹40L</td>
+          </tr>
+          <tr>
+            <td>Solution Architect / Lead</td>
+            <td>10+ yrs</td>
+            <td class="salary-highlight">$150,000 – $200,000+</td>
+            <td class="salary-highlight">€100,000 – €140,000+</td>
+            <td class="salary-highlight">₹40L – ₹70L+</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Freelance / Contract Day Rates</h3>
+      <table class="salary-table">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>USA (USD/day)</th>
+            <th>Europe (EUR/day)</th>
+            <th>Middle East (USD/day)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Junior Consultant</td>
+            <td class="salary-highlight">$350 – $500</td>
+            <td class="salary-highlight">€280 – €420</td>
+            <td class="salary-highlight">$300 – $450</td>
+          </tr>
+          <tr>
+            <td>Mid-Level Consultant</td>
+            <td class="salary-highlight">$500 – $750</td>
+            <td class="salary-highlight">€420 – €650</td>
+            <td class="salary-highlight">$450 – $700</td>
+          </tr>
+          <tr>
+            <td>Senior / Architect</td>
+            <td class="salary-highlight">$750 – $1,200+</td>
+            <td class="salary-highlight">€650 – €1,000+</td>
+            <td class="salary-highlight">$700 – $1,100+</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:20px; font-size:0.88rem; color:var(--text-muted);">* Salary data is indicative and based on market observations. Actual compensation depends on employer, project scope, specialisation, and negotiation. Certifications and a documented project track record typically increase earning potential by 15–30%.</p>
+
+      <h3>Factors That Boost Your Rate</h3>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏆</div>
+          <h4>Infor Certification</h4>
+          <p>Certified consultants routinely negotiate 15–25% higher than non-certified peers at the same experience level.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔧</div>
+          <h4>Rare Module Specialisation</h4>
+          <p>Niche expertise in LN APS, MES integration, or multi-site global setups commands a significant premium.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <h4>Industry Vertical Experience</h4>
+          <p>Deep aerospace, defence, or automotive manufacturing knowledge paired with LN is a rare combination employers pay for.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <h4>Full-cycle Implementation Record</h4>
+          <p>Having led a project from blueprint to go-live and post-live support makes you dramatically more hireable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO BAND 2 -->
+  <div class="container">
+    <div class="promo-band">
+      <h3>Ready to Accelerate Your Infor LN Career?</h3>
+      <p>FullOnBaan offers expert-led resources purpose-built for Infor LN — from beginner eBooks to advanced certification preparation.</p>
+      <div class="promo-links-row">
+        <a class="btn-gold" href="https://courses.fullonbaan.com">Enrol in LN Training →</a>
+        <a class="btn-outline" href="https://training.fullonbaan.com">Download Free eBooks</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW TO START -->
+  <section>
+    <div class="container">
+      <h2>Step-by-Step: Getting Started as an Infor LN Consultant</h2>
+
+      <h3>Step 1 — Build Foundational ERP Knowledge</h3>
+      <p>If you are new to ERP, begin by understanding how enterprise systems work — master data, transactional flows, and the relationship between modules (Finance, Manufacturing, Procurement, WMS). FullOnBaan's introductory eBooks at <a href="https://training.fullonbaan.com" style="color:var(--gold-mid);">training.fullonbaan.com</a> are an excellent starting point.</p>
+
+      <h3>Step 2 — Learn Infor LN Through Structured Courses</h3>
+      <p>Theory alone is not enough. Enrol in structured, hands-on Infor LN courses that walk you through real configuration scenarios. FullOnBaan's course library at <a href="https://courses.fullonbaan.com" style="color:var(--gold-mid);">courses.fullonbaan.com</a> covers Manufacturing, Financials, Procurement, and more — with practical exercises and real-world case studies.</p>
+
+      <h3>Step 3 — Pick a Primary Module to Specialise In</h3>
+      <p>Specialisation accelerates career progression. Manufacturing and Finance are the most in-demand starting points. Master one module deeply before branching into others.</p>
+
+      <h3>Step 4 — Get Certified</h3>
+      <p>Pursue your first Infor LN module certification. FullOnBaan's certification prep programmes at <a href="https://certification.fullonbaan.com" style="color:var(--gold-mid);">certification.fullonbaan.com</a> include mock exams, study guides, and exam-aligned exercises designed to maximise your pass rate.</p>
+
+      <h3>Step 5 — Build Your Portfolio</h3>
+      <p>Contribute to an implementation project — even in a support or shadow role initially. Document every configuration you complete, every process you mapped, and every problem you solved. This becomes the evidence that gets you your next role.</p>
+
+      <h3>Step 6 — Network within the Infor Ecosystem</h3>
+      <p>Join Infor user groups, LinkedIn communities, and attend Infor Connect or regional events. Many consulting opportunities come from referrals and professional relationships rather than job boards.</p>
+
+      <h3>Step 7 — Continue Learning and Stay Current</h3>
+      <p>Infor LN releases new versions and cloud updates regularly. Stay current through Infor Campus, partner networks, and FullOnBaan's ever-expanding content library. Consultants who stay sharp on the latest LN capabilities maintain a lasting competitive edge.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h4>Do I need a manufacturing background to become an Infor LN consultant?</h4>
+        <p>Not necessarily, but it helps for functional roles. Many successful consultants come from finance, supply chain, or IT backgrounds. What matters more is your ability to learn business processes and map them to system configurations. FullOnBaan's courses teach both the LN system and the underlying business logic.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How long does it take to become job-ready as an Infor LN consultant?</h4>
+        <p>With dedicated, structured training, most motivated learners become job-ready in 3–6 months for a junior role. Completing a certification alongside your course significantly strengthens your candidacy and can shorten this timeline by improving your confidence and credibility.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Is Infor LN still relevant with cloud ERP growing?</h4>
+        <p>Yes. Infor LN is actively invested in by Infor (an IBM company since 2024), with a cloud deployment option (Infor CloudSuite Industrial). Thousands of manufacturers globally run LN and have long upgrade cycles, ensuring consulting demand for many years ahead.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can I work remotely as an Infor LN consultant?</h4>
+        <p>Increasingly yes. Post-pandemic, many LN implementations are conducted remotely for the majority of the project, with on-site visits for workshops and go-live support. Senior consultants often work fully remote or in hybrid models, especially for support and managed services roles.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Which modules should I learn first?</h4>
+        <p>Manufacturing (Production Management) and Finance (Financials) are the most in-demand across all implementations. Starting with either of these gives you the widest range of initial job opportunities. FullOnBaan's courses are structured to guide you through these modules step by step.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How do FullOnBaan's courses differ from Infor's official training?</h4>
+        <p>FullOnBaan combines Infor LN product training with practical consulting methodology — so you do not just learn how to navigate the system, you learn how to implement it in real business contexts. Our materials are also more affordable and available on demand, making them ideal for self-paced career development.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2>Your Infor LN Career Starts Here</h2>
+  <p>Join thousands of ERP professionals who have accelerated their careers with FullOnBaan's expert training, eBooks, and certification programmes.</p>
+  <div class="hero-cta-row">
+    <a class="btn-gold" href="https://courses.fullonbaan.com">Start Learning Today →</a>
+    <a class="btn-outline" href="https://wa.me/916360593122?text=Hi%2C%20I%27m%20interested%20in%20FullOnBaan%20Infor%20LN%20training.%20Could%20you%20share%20more%20details%3F">Chat on WhatsApp</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">FullOnBaan</div>
+    <div class="footer-socials">
+      <a href="https://linkedin.com/company/fullonbaan/">LinkedIn</a>
+      <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA">YouTube</a>
+      <a href="https://www.instagram.com/fullonbaan/">Instagram</a>
+      <a href="https://www.facebook.com/p/FullonBaaN-100067220493183/">Facebook</a>
+      <a href="mailto:fullonbaan@gmail.com">Email</a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    © 2025 FullOnBaan · Comprehensive Infor ERP LN Training Programs ·
+    <a href="https://training.fullonbaan.com" style="color:rgba(218,165,32,0.5); text-decoration:none;">training.fullonbaan.com</a> ·
+    <a href="https://courses.fullonbaan.com" style="color:rgba(218,165,32,0.5); text-decoration:none;">courses.fullonbaan.com</a> ·
+    <a href="https://certification.fullonbaan.com" style="color:rgba(218,165,32,0.5); text-decoration:none;">certification.fullonbaan.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
